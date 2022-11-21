@@ -1,0 +1,15 @@
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\bin\Debug\net5.0\1.DAL.deps.json
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.json
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.dev.json
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\bin\Debug\net5.0\1.DAL.dll
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\bin\Debug\net5.0\1.DAL.pdb
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfo.cs
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.dll
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\refint\1.DAL.dll
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.pdb
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
+C:\Users\Asus\Desktop\PRO131_Nhom3\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll
