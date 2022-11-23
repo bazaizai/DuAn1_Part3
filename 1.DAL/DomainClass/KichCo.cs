@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace _1.DAL.DomainClass
 {
     [Table("KichCo")]
-    [Index(nameof(Ma), Name = "UQ__KichCo__3214CC9EC4813A2D", IsUnique = true)]
+    [Index(nameof(Ma), Name = "UQ__KichCo__3214CC9E8648EBAF", IsUnique = true)]
     public partial class KichCo
     {
         public KichCo()

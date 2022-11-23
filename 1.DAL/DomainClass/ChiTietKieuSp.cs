@@ -25,5 +25,20 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdKieuSp))]
         [InverseProperty(nameof(KieuSp.ChiTietKieuSps))]
         public virtual KieuSp IdKieuSpNavigation { get; set; }
+
+        public ChiTietKieuSp(Guid id, Guid? idKieuSp, Guid? idChiTietSp, int? trangThai)
+        {
+            Id = id;
+            IdKieuSp = idKieuSp;
+            IdChiTietSp = idChiTietSp;
+            TrangThai = trangThai;
+        }
+
+        public ChiTietKieuSp(Guid? idKieuSp, Guid? idChiTietSp, int? trangThai)
+        {
+            IdKieuSp = idKieuSp;
+            IdChiTietSp = idChiTietSp;
+            TrangThai = trangThai;
+        }
     }
 }
