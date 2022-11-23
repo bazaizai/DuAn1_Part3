@@ -31,7 +31,7 @@ namespace _2.BUS.Services
                 {
                     Id = obj.Id,
                     IdtichDiem = obj.IdtichDiem,
-                    Idnv = obj.Idnv,
+                    //Idnv = obj.Idnv,
                     Ma = MaTT(),
                     Ten = obj.Ten,
                     Sdt = obj.Sdt,
@@ -70,12 +70,12 @@ namespace _2.BUS.Services
         {
             var lst = (from a in _iKhachHangRepos.GetAll()
                        join b in _iTichDiemRepos.GetAll() on a.IdtichDiem equals b.Id
-                       join c in _iNhanVienRepos.GetAll() on a.Idnv equals c.Id
+                       //join c in _iNhanVienRepos.GetAll() on a.Idnv equals c.Id
                        select new KhachHangView()
                        {
                            Id = a.Id,
                            IdtichDiem = b.Id,
-                           Idnv = c.Id,
+                           //Idnv = c.Id,
                            Ma = a.Ma,
                            Ten = a.Ten,
                            Sdt = a.Sdt,
@@ -94,7 +94,7 @@ namespace _2.BUS.Services
             {
                 Id = a.Id,
                 IdtichDiem = a.IdtichDiem,
-                Idnv = a.Idnv,
+                //Idnv = a.Idnv,
                 Ma = a.Ma,
                 Ten = a.Ten,
                 Sdt = a.Sdt,
@@ -111,7 +111,7 @@ namespace _2.BUS.Services
                        {
                            Id = a.Id,
                            IdtichDiem = a.IdtichDiem,
-                           Idnv=a.Idnv,
+                           //Idnv=a.Idnv,
                            Ma = a.Ma,
                            Ten = a.Ten,
                            Sdt = a.Sdt,
@@ -128,7 +128,7 @@ namespace _2.BUS.Services
                 var x = new KhachHang()
                 {
                     Id = obj.Id,
-                    Idnv = obj.Idnv,
+                    //Idnv = obj.Idnv,
                     IdtichDiem = obj.IdtichDiem,
                     Ma = obj.Ma,
                     Ten = obj.Ten,
