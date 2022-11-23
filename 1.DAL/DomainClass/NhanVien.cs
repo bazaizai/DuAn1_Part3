@@ -9,15 +9,15 @@ using Microsoft.EntityFrameworkCore;
 namespace _1.DAL.DomainClass
 {
     [Table("NhanVien")]
-    [Index(nameof(Ma), Name = "UQ__NhanVien__3214CC9EC1428A9D", IsUnique = true)]
-    [Index(nameof(Email), Name = "UQ__NhanVien__A9D10534A44044F2", IsUnique = true)]
-    [Index(nameof(TaiKhoan), Name = "UQ__NhanVien__D5B8C7F024E672EB", IsUnique = true)]
+    [Index(nameof(Ma), Name = "UQ__NhanVien__3214CC9E5CF6BCD3", IsUnique = true)]
+    [Index(nameof(Email), Name = "UQ__NhanVien__A9D10534E6EA6CEB", IsUnique = true)]
+    [Index(nameof(TaiKhoan), Name = "UQ__NhanVien__D5B8C7F006557263", IsUnique = true)]
     public partial class NhanVien
     {
         public NhanVien()
         {
-            HoaDonIdNvtNavigations = new HashSet<HoaDon>();
-            HoaDonIdNvttNavigations = new HashSet<HoaDon>();
+            HoaDons = new HashSet<HoaDon>();
+            KhachHangs = new HashSet<KhachHang>();
         }
 
         [Key]
@@ -53,9 +53,9 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdCv))]
         [InverseProperty(nameof(ChucVu.NhanViens))]
         public virtual ChucVu IdCvNavigation { get; set; }
-        [InverseProperty(nameof(HoaDon.IdNvtNavigation))]
-        public virtual ICollection<HoaDon> HoaDonIdNvtNavigations { get; set; }
-        [InverseProperty(nameof(HoaDon.IdNvttNavigation))]
-        public virtual ICollection<HoaDon> HoaDonIdNvttNavigations { get; set; }
+        [InverseProperty(nameof(HoaDon.IdNvNavigation))]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        [InverseProperty(nameof(KhachHang.IdnvNavigation))]
+        public virtual ICollection<KhachHang> KhachHangs { get; set; }
     }
 }
