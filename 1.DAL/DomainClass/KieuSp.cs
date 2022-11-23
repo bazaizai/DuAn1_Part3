@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace _1.DAL.DomainClass
 {
     [Table("KieuSP")]
-    [Index(nameof(Ma), Name = "UQ__KieuSP__3214CC9EBD1620FD", IsUnique = true)]
+    [Index(nameof(Ma), Name = "UQ__KieuSP__3214CC9E50424F78", IsUnique = true)]
     public partial class KieuSp
     {
         public KieuSp()
@@ -34,5 +34,14 @@ namespace _1.DAL.DomainClass
         public virtual ICollection<ChiTietKieuSp> ChiTietKieuSps { get; set; }
         [InverseProperty(nameof(KieuSp.IdChaNavigation))]
         public virtual ICollection<KieuSp> InverseIdChaNavigation { get; set; }
+
+        public KieuSp(Guid id, Guid? idCha, string ma, string ten, int? trangThai)
+        {
+            Id = id;
+            IdCha = idCha;
+            Ma = ma;
+            Ten = ten;
+            TrangThai = trangThai;
+        }
     }
 }

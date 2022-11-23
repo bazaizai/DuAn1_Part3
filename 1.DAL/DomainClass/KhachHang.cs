@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace _1.DAL.DomainClass
 {
     [Table("KhachHang")]
-    [Index(nameof(Ma), Name = "UQ__KhachHan__3214CC9E035E0BB0", IsUnique = true)]
+    [Index(nameof(Ma), Name = "UQ__KhachHan__3214CC9EE6E79646", IsUnique = true)]
     public partial class KhachHang
     {
         public KhachHang()
@@ -30,7 +30,12 @@ namespace _1.DAL.DomainClass
         [StringLength(500)]
         public string DiaChi { get; set; }
         public int? TrangThai { get; set; }
+        [Column("IDNV")]
+        public Guid? Idnv { get; set; }
 
+        [ForeignKey(nameof(Idnv))]
+        [InverseProperty(nameof(NhanVien.KhachHangs))]
+        public virtual NhanVien IdnvNavigation { get; set; }
         [ForeignKey(nameof(IdtichDiem))]
         [InverseProperty(nameof(TichDiem.KhachHangs))]
         public virtual TichDiem IdtichDiemNavigation { get; set; }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace _1.DAL.DomainClass
 {
     [Table("HoaDon")]
-    [Index(nameof(Ma), Name = "UQ__HoaDon__3214CC9EECE902C2", IsUnique = true)]
+    [Index(nameof(Ma), Name = "UQ__HoaDon__3214CC9E26DE4476", IsUnique = true)]
     public partial class HoaDon
     {
         public HoaDon()
@@ -22,10 +22,8 @@ namespace _1.DAL.DomainClass
         public Guid Id { get; set; }
         [Column("IdKH")]
         public Guid? IdKh { get; set; }
-        [Column("IdNVT")]
-        public Guid? IdNvt { get; set; }
-        [Column("IdNVTT")]
-        public Guid? IdNvtt { get; set; }
+        [Column("IdNV")]
+        public Guid? IdNv { get; set; }
         [Column("IdPTTT")]
         public Guid? IdPttt { get; set; }
         [Column("IdHT")]
@@ -62,6 +60,8 @@ namespace _1.DAL.DomainClass
         public decimal? TienChuyenKhoan { get; set; }
         [Column(TypeName = "decimal(18, 0)")]
         public decimal? TienShip { get; set; }
+        [Column("COD", TypeName = "decimal(18, 0)")]
+        public decimal? Cod { get; set; }
         [StringLength(50)]
         public string MoTa { get; set; }
         public int? TrangThai { get; set; }
@@ -73,12 +73,9 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdKh))]
         [InverseProperty(nameof(KhachHang.HoaDons))]
         public virtual KhachHang IdKhNavigation { get; set; }
-        [ForeignKey(nameof(IdNvt))]
-        [InverseProperty(nameof(NhanVien.HoaDonIdNvtNavigations))]
-        public virtual NhanVien IdNvtNavigation { get; set; }
-        [ForeignKey(nameof(IdNvtt))]
-        [InverseProperty(nameof(NhanVien.HoaDonIdNvttNavigations))]
-        public virtual NhanVien IdNvttNavigation { get; set; }
+        [ForeignKey(nameof(IdNv))]
+        [InverseProperty(nameof(NhanVien.HoaDons))]
+        public virtual NhanVien IdNvNavigation { get; set; }
         [ForeignKey(nameof(IdPttt))]
         [InverseProperty(nameof(PtthanhToan.HoaDons))]
         public virtual PtthanhToan IdPtttNavigation { get; set; }
