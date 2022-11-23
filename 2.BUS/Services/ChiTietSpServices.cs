@@ -32,7 +32,7 @@ namespace _2.BUS.Services
             _ITeamRepos = new TeamRepos();
             _IGiaiDauRepos = new GiaiDauRepos();
         }
-        public bool Add(ChiTietSpViews Obj) => Obj != null && _IChiTietSpRespos.Add(new ChiTietSp(Obj.Id,Obj.IdSp, Obj.IdMauSac, Obj.IdSize, Obj.IdTeam, Obj.IdChatLieu, Obj.BaoHanh, Obj.MoTa, Obj.SoLuongTon, Obj.GiaNhap, Obj.GiaBan, Obj.TrangThaiKhuyenMai, Obj.TrangThai));
+        public bool Add(ChiTietSpViews Obj) => Obj != null && _IChiTietSpRespos.Add(new ChiTietSp(Obj.Id,Obj.IdSp, Obj.IdMauSac, Obj.IdSize, Obj.IdTeam, Obj.IdChatLieu,Obj.MaQr, Obj.BaoHanh, Obj.MoTa, Obj.SoLuongTon, Obj.GiaNhap, Obj.GiaBan, Obj.TrangThaiKhuyenMai, Obj.TrangThai));
 
         public bool Delete(ChiTietSpViews Obj)=> Obj != null && _IChiTietSpRespos.Delete(_IChiTietSpRespos.GetAll().Find(x => x.Id == Obj.Id));
 
