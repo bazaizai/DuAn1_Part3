@@ -26,6 +26,7 @@ namespace _3.PL.Views
         private List<ChiTietSpViews> ChiTietSpViews;
         private Guid IDCtsle;
         private Guid IDsale;
+        private ChiTietSpViews chiTietSpViews;
         public FrmChiTietSale()
         {
             InitializeComponent();
@@ -35,27 +36,6 @@ namespace _3.PL.Views
             _lstCtsle = new List<ChiTietSaleView>();
             lstSale = new List<SaleView>();
             tb_ma.Enabled = false;
-            loadcbb();
-            loadlb();
-            loadKM();
-            loadCTSP();
-         
-            ngaygio();
-        }
-        private void loadlb()
-        {
-
-            if (cbb_loaiKM.Texts == "%")
-            {
-                lb_mucgiam.Text = "% giảm";
-            }
-            if (cbb_loaiKM.Texts == "Tiền mặt")
-            {
-                lb_mucgiam.Text = "Số tiền giảm";
-            }
-        }
-        private void loadcbb()
-        {
             cbb_loaiKM.Items.Add("%");
             cbb_loaiKM.Items.Add("Tiền mặt");
             cbb_trangthai.Items.Add("Đang áp dụng");
@@ -68,9 +48,32 @@ namespace _3.PL.Views
             cbb_locTrangthai.Items.Add("Tất cả");
             cbb_locTrangthai.Items.Add("Đang áp dụng");
             cbb_locTrangthai.Items.Add("Ngừng áp dụng");
+
+
             cbb_locKM.SelectedIndex = 0;
             cbb_locTrangthai.SelectedIndex = 0;
+
+
+
+            loadKM();
+            loadCTSP();
+            dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
+            dtp_end.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
         }
+
+        private void loadlb()
+        {
+
+            if (cbb_loaiKM.Texts == "%")
+            {
+                lb_mucgiam.Text = "% giảm";
+            }
+            if (cbb_loaiKM.Texts == "Tiền mặt")
+            {
+                lb_mucgiam.Text = "Số tiền giảm";
+            }
+        }
+
 
         private void loadKM()
         {
@@ -100,24 +103,11 @@ namespace _3.PL.Views
         private void loadCTSP()
         {
             dtg_sp.Rows.Clear();
-            dtg_sp.ColumnCount = 5;
-            dtg_sp.Columns[0].Name = "ID";
-            dtg_sp.Columns[1].Name = "TenSP";
-            dtg_sp.Columns[2].Name = "Tên màu";
-            dtg_sp.Columns[3].Name = "Giá cũ";
-            dtg_sp.Columns[4].Name = "Giá mới";
-            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
-            checkColumn.Name = "X";
-            checkColumn.HeaderText = "X";
-            checkColumn.Width = 50;
-            checkColumn.ReadOnly = false;
-            checkColumn.FillWeight = 50; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values
-            dtg_sp.Columns.Add(checkColumn);
+
             foreach (var item in _chiTietSpServices.GetAll())
             {
-                dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.GiaBan, item.GiaBan);
+                dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam, item.GiaBan);
             }
-
 
         }
 
@@ -141,11 +131,7 @@ namespace _3.PL.Views
 
 
         }
-        private void ngaygio()
-        {
-            dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
-            dtp_end.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
-        }
+
         private void bt_them_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
@@ -221,20 +207,7 @@ namespace _3.PL.Views
             tb_mucgiam.Texts = "";
             tb_mota.Texts = "";
         }
-        private void dtg_show_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            IDsale = (Guid)(dtg_show.CurrentRow.Cells[0].Value);
-            tb_ma.Texts = dtg_show.CurrentRow.Cells[1].Value.ToString();
-            tb_ten.Texts = dtg_show.CurrentRow.Cells[2].Value.ToString();
-            dtp_start.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[3].Value);
-            dtp_end.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[4].Value);
-            cbb_loaiKM.Texts = dtg_show.CurrentRow.Cells[5].Value.ToString();
-            tb_mucgiam.Texts = dtg_show.CurrentRow.Cells[6].Value.ToString();
-            tb_mota.Texts = dtg_show.CurrentRow.Cells[7].Value.ToString();
-            cbb_trangthai.Texts = dtg_show.CurrentRow.Cells[8].Value.ToString();
-
-
-        }
+    
 
         private void tb_timkiemkm_TextChanged(object sender, EventArgs e)
         {
@@ -361,7 +334,7 @@ namespace _3.PL.Views
 
         private void cbb_locTrangthai_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cbb_locTrangthai.Text == "Tất cả")
             {
                 loadKM();
@@ -409,6 +382,24 @@ namespace _3.PL.Views
                         item.MucGiam, item.MoTa, item.TrangThai == 0 ? "Đang áp dụng" : "Ngừng áp dụng");
                 }
             }
+        }
+
+        private void cbb_trangthai_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtg_show_CellClick(object sender, EventArgs e)
+        {
+            IDsale = (Guid)(dtg_show.CurrentRow.Cells[0].Value);
+            tb_ma.Texts = dtg_show.CurrentRow.Cells[1].Value.ToString();
+            tb_ten.Texts = dtg_show.CurrentRow.Cells[2].Value.ToString();
+            dtp_start.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[3].Value);
+            dtp_end.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[4].Value);
+            cbb_loaiKM.Texts = dtg_show.CurrentRow.Cells[5].Value.ToString();
+            tb_mucgiam.Texts = dtg_show.CurrentRow.Cells[6].Value.ToString();
+            tb_mota.Texts = dtg_show.CurrentRow.Cells[7].Value.ToString();
+            cbb_trangthai.Texts = dtg_show.CurrentRow.Cells[8].Value.ToString();
         }
     }
 }
