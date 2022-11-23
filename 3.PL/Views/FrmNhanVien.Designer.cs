@@ -292,7 +292,6 @@
             this.rdb_khonghd.Name = "rdb_khonghd";
             this.rdb_khonghd.Size = new System.Drawing.Size(147, 24);
             this.rdb_khonghd.TabIndex = 59;
-            this.rdb_khonghd.TabStop = true;
             this.rdb_khonghd.Text = "Không hoạt động";
             this.rdb_khonghd.UseVisualStyleBackColor = true;
             // 
@@ -305,7 +304,6 @@
             this.rdb_hoatdong.Name = "rdb_hoatdong";
             this.rdb_hoatdong.Size = new System.Drawing.Size(100, 24);
             this.rdb_hoatdong.TabIndex = 58;
-            this.rdb_hoatdong.TabStop = true;
             this.rdb_hoatdong.Text = "Hoạt động";
             this.rdb_hoatdong.UseVisualStyleBackColor = true;
             // 

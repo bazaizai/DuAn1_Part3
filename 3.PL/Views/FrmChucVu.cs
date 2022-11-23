@@ -68,6 +68,10 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Đã có chức vụ");
                 }
+                else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
+                {
+                    MessageBox.Show("không được để trống trạng thái");
+                }
                 else
                 {
                     _iChucVu.Add(GetData());
@@ -100,6 +104,10 @@ namespace _3.PL.Views
                 else if (_iChucVu.GetAll().FirstOrDefault(c => c.Ten == tbt_ten.Text && c.Id != _cvv.Id) != null)
                 {
                     MessageBox.Show("Chức vụ bị trùng");
+                }
+                else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
+                {
+                    MessageBox.Show("không được để trống trạng thái");
                 }
                 else
                 {

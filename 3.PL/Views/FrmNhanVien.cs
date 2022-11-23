@@ -79,16 +79,22 @@ namespace _3.PL.Views
 
             foreach (var item in _iChucVu.GetAll())
             {
-                cbb_chucvu.Items.Add(item.Ten);
+                if (item.TrangThai == 0)
+                {
+                    cbb_chucvu.Items.Add(item.Ten);
+                }
             }
             cbb_gioitinh.Items.Add("Nam");
             cbb_gioitinh.Items.Add("Nữ");
             cbb_loc.Items.Add("Tất cả");
             cbb_loc.Items.Add("Nam");
             cbb_loc.Items.Add("Nữ");
+            cbb_gioitinh.Text = "";
+            cbb_chucvu.Text = "";
             cbb_gioitinh.SelectedIndex = 0;
             cbb_chucvu.SelectedIndex = 0;
             cbb_loc.SelectedIndex = 0;
+
         }
 
         public NhanVienView GetData()
@@ -169,6 +175,10 @@ namespace _3.PL.Views
                 else if (tb_taikhoan.Text == "")
                 {
                     MessageBox.Show("không được để tài khoản");
+                }
+                else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
+                {
+                    MessageBox.Show("không được để trống trạng thái");
                 }
                 else
                 {
