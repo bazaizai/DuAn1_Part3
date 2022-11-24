@@ -261,6 +261,8 @@
             // 
             // dtg_show
             // 
+            this.dtg_show.AllowUserToAddRows = false;
+            this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -268,6 +270,7 @@
             this.dtg_show.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtg_show.Location = new System.Drawing.Point(27, 95);
             this.dtg_show.Name = "dtg_show";
+            this.dtg_show.ReadOnly = true;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
