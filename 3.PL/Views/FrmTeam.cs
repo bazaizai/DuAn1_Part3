@@ -46,7 +46,7 @@ namespace _3.PL.Views
             lstTeam = _TeamServices.GetAll();
             if (tb_timkiem.Text != "")
             {
-                lstTeam = lstTeam.Where(c => c.Ten.Contains(tb_timkiem.Text)).ToList();
+                lstTeam = lstTeam.Where(c => c.Ten.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
             }
             foreach (var item in lstTeam)
             {
