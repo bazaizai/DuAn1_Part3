@@ -56,7 +56,7 @@ namespace _3.PL.Views
             tb_ma.Enabled = false;
 
             dtg_show.Rows.Clear();
-            _lstKhachHang = _iKhachHangServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
+            _lstKhachHang = _iKhachHangServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c=>c.Ma).ToList();
             foreach (var item in _lstKhachHang)
             {
                 dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi, item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
@@ -296,7 +296,7 @@ namespace _3.PL.Views
                 tb_ma.Enabled = false;
 
                 dtg_show.Rows.Clear();
-                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.TrangThai == 1).ToList();
+                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.TrangThai == 1).OrderBy(c=>c.Ma).ToList();
                 foreach (var item in _lstKhachHang)
                 {
                     dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi, item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
@@ -319,7 +319,7 @@ namespace _3.PL.Views
                 tb_ma.Enabled = false;
 
                 dtg_show.Rows.Clear(); ;
-                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.TrangThai == 0).ToList();
+                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.TrangThai == 0).OrderBy(c=>c.Ma).ToList();
                 foreach (var item in _lstKhachHang)
                 {
                     dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi, item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
@@ -350,7 +350,7 @@ namespace _3.PL.Views
                 tb_ma.Enabled = false;
 
                 dtg_show.Rows.Clear();
-                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("03") || c.Sdt.StartsWith("09")).ToList();
+                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("03") || c.Sdt.StartsWith("09")).OrderBy(c=>c.Ma).ToList();
                 foreach (var item in _lstKhachHang)
                 {
                     dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi, item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
@@ -373,7 +373,7 @@ namespace _3.PL.Views
                 tb_ma.Enabled = false;
 
                 dtg_show.Rows.Clear();
-                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("07")).ToList();
+                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("07")).OrderBy(c=>c.Ma).ToList();
                 foreach (var item in _lstKhachHang)
                 {
                     dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi, item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
@@ -396,7 +396,7 @@ namespace _3.PL.Views
                 tb_ma.Enabled = false;
 
                 dtg_show.Rows.Clear();
-                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("08")).ToList();
+                _lstKhachHang = _iKhachHangServices.GetAll().Where(c => c.Sdt.StartsWith("08")).OrderBy(c=>c.Ma).ToList();
                 foreach (var item in _lstKhachHang)
                 {
                     dtg_show.Rows.Add(item.Id, stt++, item.Ma, item.Ten, item.Sdt, item.NhaMang, item.DiaChi,item.SoDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");

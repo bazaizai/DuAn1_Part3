@@ -321,5 +321,59 @@ namespace _3.PL.Views
         {
 
         }
+
+        private void iconButton10_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = btnCTSP.Text;
+            OpenChildForm(new FrmTeam());
+            HideSubMenu();
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = btnCTSP.Text;
+            OpenChildForm(new FrmKichCo());
+            HideSubMenu();
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = btnCTSP.Text;
+            OpenChildForm(new FrmChatLieu());
+            HideSubMenu();
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = btnCTSP.Text;
+            OpenChildForm(new FrmMauSac());
+            HideSubMenu();
+        }
+
+        private void iconButton1_Click_2(object sender, EventArgs e)
+        {
+            lblHome.Text = iconButton1.Text;
+            OpenChildForm(new FrmKhachHang());
+            ActivateButton(sender, RGBColors.color1);
+            HideSubMenu();
+        }
+
+        private void iconButton2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQLHoaDon_Click(object sender, EventArgs e)
+        {
+            if (pnlGiaoDich.Visible == false)
+            {
+                ActivateButton(sender, RGBColors.color1);
+                ShowSubMenu(pnlGiaoDich);
+            }
+            else
+            {
+                pnlGiaoDich.Visible = false;
+            }
+        }
     }
 }

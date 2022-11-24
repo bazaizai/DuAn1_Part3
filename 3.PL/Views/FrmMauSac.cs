@@ -67,6 +67,10 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Đã có màu sắc");
                 }
+                else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
+                {
+                    MessageBox.Show("không được để trống trạng thái");
+                }
                 else
                 {
                     _iMauSac.Add(GetData());
@@ -99,6 +103,10 @@ namespace _3.PL.Views
                 else if (_iMauSac.GetAll().FirstOrDefault(c => c.Ten == tbt_ten.Text && c.Id != _msv.Id) != null)
                 {
                     MessageBox.Show("Màu sắc bị trùng");
+                }
+                else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
+                {
+                    MessageBox.Show("không được để trống trạng thái");
                 }
                 else
                 {
