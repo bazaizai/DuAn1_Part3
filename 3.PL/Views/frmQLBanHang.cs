@@ -828,6 +828,9 @@ namespace _3.PL.Views
             txtsearchKH.Texts = "";
         }
 
-
+        private void dgview_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

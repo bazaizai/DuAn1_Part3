@@ -743,7 +743,7 @@
             this.txtsearchKH.BorderRadius = 0;
             this.txtsearchKH.BorderSize = 2;
             this.txtsearchKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtsearchKH.ForeColor = System.Drawing.Color.Transparent;
+            this.txtsearchKH.ForeColor = System.Drawing.Color.Black;
             this.txtsearchKH.Location = new System.Drawing.Point(40, 9);
             this.txtsearchKH.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.txtsearchKH.Multiline = false;
@@ -968,7 +968,6 @@
             this.dgview.EnableHeadersVisualStyles = false;
             this.dgview.Location = new System.Drawing.Point(130, 8);
             this.dgview.Name = "dgview";
-            this.dgview.ReadOnly = true;
             this.dgview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
@@ -985,13 +984,13 @@
             this.dgview.TabIndex = 3;
             this.dgview.Visible = false;
             this.dgview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellClick);
+            this.dgview.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellEndEdit);
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
@@ -999,14 +998,12 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "STT";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Tên SP";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // TangSP
             // 
@@ -1014,7 +1011,6 @@
             this.TangSP.HeaderText = "Tăng";
             this.TangSP.MinimumWidth = 6;
             this.TangSP.Name = "TangSP";
-            this.TangSP.ReadOnly = true;
             this.TangSP.Text = "+";
             this.TangSP.Width = 47;
             // 
@@ -1023,7 +1019,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Số Lượng";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // GiamSP
             // 
@@ -1031,7 +1026,6 @@
             this.GiamSP.HeaderText = "Giảm";
             this.GiamSP.MinimumWidth = 6;
             this.GiamSP.Name = "GiamSP";
-            this.GiamSP.ReadOnly = true;
             this.GiamSP.Width = 49;
             // 
             // dataGridViewTextBoxColumn4
@@ -1039,7 +1033,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Đơn Giá";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1048,7 +1041,6 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Tổng Giá";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1058,7 +1050,6 @@
             this.XoaSP.HeaderText = "Xóa";
             this.XoaSP.MinimumWidth = 6;
             this.XoaSP.Name = "XoaSP";
-            this.XoaSP.ReadOnly = true;
             this.XoaSP.Text = "X";
             this.XoaSP.Width = 40;
             // 
