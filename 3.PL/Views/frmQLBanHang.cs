@@ -151,9 +151,28 @@ namespace _3.PL.Views
             this.Alert("Tạo mới thành công hóa đơn " + TabHoaDon.SelectedTab.Name, Form_Alert.enmType.Success);
 
         }
+        private void LoadAll()
+        {
+            _IPtthanhToanServices = new PtthanhToanServices();
+            _IChiTietSpServices = new ChiTietSpServices();
+            _ISanPhamServices = new SanPhamServices();
+            _IMauSacServices = new MauSacServices();
+            _ITeamServices = new TeamServices();
+            _IChatLieuServices = new ChatLieuServices();
+            _ISizeServices = new KichCoServices();
+            _IanhServices = new AnhServices();
+            _HoaDonServices = new HoaDonServices();
+            _IKhachHangServices = new KhachHangServices();
+            _IHinhThucMhServices = new HinhThucMhServices();
+            _IChiTietHDServices = new ChiTietHDServices();
+            CbbGiamGia.SelectedIndex = 0;
+            pnlKhachHang.Visible = false;
+        }
+
 
         private void LoadItem()
         {
+            LoadALL();
             ListItem.Controls.Clear();
             List<Hats> Hats = new List<Hats>();
             Hats[] Hat = new Hats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
@@ -175,6 +194,7 @@ namespace _3.PL.Views
                         var wdg = (Hats)ss;
                         if (TabHoaDon.SelectedTab != null)
                         {
+                            var spct = _IChiTietSpServices.GetById(wdg.IdSPCTSP);
                             if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().All(x => x.IdChiTietSp != wdg.
                                 IdSPCTSP))
                             {
@@ -185,15 +205,18 @@ namespace _3.PL.Views
                                 x.IdHoaDon = _HoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == TabHoaDon.SelectedTab.Name).Id;
                                 x.SoLuong = 1;
                                 _IChiTietHDServices.Add(x);
+                                spct.SoLuongTon = spct.SoLuongTon - 1;
+                                _IChiTietSpServices.Update(spct);
                             }
                             else
                             {
                                 var hdct = _IChiTietHDServices.GetAll().FirstOrDefault(x => x.IdChiTietSp == wdg.IdSPCTSP && x.IdHoaDon == _HoaDonServices.GetAll().FirstOrDefault(c => c.MaHD == TabHoaDon.SelectedTab.Name).Id);
-                                var spct = _IChiTietSpServices.GetAll().Find(x => x.Id == hdct.IdChiTietSp);
-                                if (hdct.SoLuong < spct.SoLuongTon)
+                                if (spct.SoLuongTon>0)
                                 {
                                     hdct.SoLuong += 1;
                                     _IChiTietHDServices.Update(hdct);
+                                    spct.SoLuongTon -= 1;
+                                    _IChiTietSpServices.Update(spct);
                                 }
                                 else
                                 {
@@ -202,6 +225,7 @@ namespace _3.PL.Views
                             }
                             LoadView(TabHoaDon.SelectedTab.Name);
                             LoadGia();
+                            LoadItem();
                             LoadTienThua();
                         }
                         else
@@ -270,13 +294,16 @@ namespace _3.PL.Views
         private void dgview_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex < 0) return;
+            var ctsp = _IChiTietSpServices.GetById(Guid.Parse(Cell(0)));
             if (dgview.Columns[e.ColumnIndex].Name == "TangSP")
             {
                 var hdct = GetHDct(Guid.Parse(Cell(0)));
-                if (hdct.SoLuong < _IChiTietSpServices.GetById(Guid.Parse(Cell(0))).SoLuongTon)
+                if (_IChiTietSpServices.GetById(Guid.Parse(Cell(0))).SoLuongTon>0)
                 {
                     hdct.SoLuong += 1;
                     _IChiTietHDServices.Update(hdct);
+                    ctsp.SoLuongTon -=1;
+                    _IChiTietSpServices.Update(ctsp);
                 }
                 else
                 {
@@ -291,13 +318,20 @@ namespace _3.PL.Views
                 {
                     hdct.SoLuong -= 1;
                     _IChiTietHDServices.Update(hdct);
+                    ctsp.SoLuongTon += 1;
+                    ctsp.TrangThai = 0;
+                    _IChiTietSpServices.Update(ctsp);
                 }
             }
             if (dgview.Columns[e.ColumnIndex].Name == "XoaSP")
             {
                 var hdct = GetHDct(Guid.Parse(Cell(0)));
+                ctsp.SoLuongTon += hdct.SoLuong;
+                _IChiTietSpServices.Update(ctsp);
                 _IChiTietHDServices.Delete(hdct);
             }
+            LoadALL();
+            LoadItem();
             LoadView(TabHoaDon.SelectedTab.Name);
             LoadGia();
             LoadTienThua();
@@ -483,7 +517,6 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
             _IHinhThucMhServices = new HinhThucMhServices();
             _IChiTietHDServices = new ChiTietHDServices();
-            LoadItem();
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
@@ -542,10 +575,14 @@ namespace _3.PL.Views
                                 {
                                     hoadon.TienKhachDua =Convert.ToDecimal(txthtThanhToan.Texts);
                                 }
+                                else if(cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+                                {
+                                    hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                    hoadon.TienChuyenKhoan = Convert.ToDecimal(txtChuyenKhoan.Texts);
+                                }
                                 else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
                                 hoadon.MaHD = TabHoaDon.SelectedTab.Name;
                                 hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
-                                //hoadon.IdUD = Guid.Parse("ab4137a1-c0de-44f0-96c2-ab35e7146932");
                                 hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra.Texts);
                                 hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien.Texts);
                                 if (txtsearchKH.Texts != "")
@@ -569,13 +606,13 @@ namespace _3.PL.Views
                                 {
                                     TabHoaDon.TabPages.Remove(TabHoaDon.TabPages[TabHoaDon.SelectedIndex]);
                                     this.Alert(_HoaDonServices.Update(hoadon), Form_Alert.enmType.Success);
-                                    var HDCt = _IChiTietHDServices.GetAll().Where(x => x.IdHoaDon == hoadon.Id);
-                                    foreach (var item in HDCt)
-                                    {
-                                        var ctsp = _IChiTietSpServices.GetAll().FirstOrDefault(x => x.Id == item.IdChiTietSp);
-                                        ctsp.SoLuongTon -= item.SoLuong;
-                                        _IChiTietSpServices.Update(ctsp);
-                                    }
+                                    //var HDCt = _IChiTietHDServices.GetAll().Where(x => x.IdHoaDon == hoadon.Id);
+                                    //foreach (var item in HDCt)
+                                    //{
+                                    //    var ctsp = _IChiTietSpServices.GetAll().FirstOrDefault(x => x.Id == item.IdChiTietSp);
+                                    //    ctsp.SoLuongTon -= item.SoLuong;
+                                    //    _IChiTietSpServices.Update(ctsp);
+                                    //}
                                     LoadALL();
                                     Clearform();
                                 }
@@ -602,11 +639,26 @@ namespace _3.PL.Views
         }
         private void cbbPtThanhToan_OnSelectedIndexChanged_1(object sender, EventArgs e)
         {
-            lblHTThanhToan.Text = cbbPtThanhToan.Texts;
-            lblHTThanhToan.Visible = true;
-            txthtThanhToan.Visible = true;
-            txtTienThua.Visible = true;
-            lblTienThua.Visible = true;
+            if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+            {
+                lblHTThanhToan.Text = "Tiền mặt";
+                lblHTThanhToan.Visible = true;
+                txthtThanhToan.Visible = true;
+                txtTienThua.Visible = true;
+                lblTienThua.Visible = true;
+                txtChuyenKhoan.Visible = true;
+                lblChuyenTien.Visible = true;
+            }
+            else
+            {
+                lblHTThanhToan.Text = cbbPtThanhToan.Texts;
+                lblHTThanhToan.Visible = true;
+                txthtThanhToan.Visible = true;
+                txtTienThua.Visible = true;
+                lblTienThua.Visible = true;
+                txtChuyenKhoan.Visible = false;
+                lblChuyenTien.Visible = false;
+            }
             if (CbbGiamGia.SelectedIndex == 0)
             {
                 //txtTienThua.Texts = 
@@ -651,6 +703,7 @@ namespace _3.PL.Views
         private ChiTietSpViews GetCtsp(Guid id) => _IChiTietSpServices.GetById(id);
         private void LoadItemSearch(string name)
         {
+            LoadAll();
             flpSP.Controls.Clear();
             SearchHats[] Hat = new SearchHats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
             List<AnhViews> ListAnh = _IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).Where(x => x.TrangThaiSP == 0 && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
@@ -671,6 +724,7 @@ namespace _3.PL.Views
                         Hat[i].Onclick += (ss, ee) =>
                         {
                             var wdg = (SearchHats)ss;
+                            var ctsp = _IChiTietSpServices.GetById(wdg.IdSPCTSP);
                             if (TabHoaDon.SelectedTab != null)
                             {
                                 if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().All(x => x.IdChiTietSp != wdg.
@@ -682,16 +736,20 @@ namespace _3.PL.Views
                                     x.TenSP = wdg.TenSP1;
                                     x.IdHoaDon = _HoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == TabHoaDon.SelectedTab.Name).Id;
                                     x.SoLuong = 1;
+                                    ctsp.SoLuongTon -= 1;
                                     _IChiTietHDServices.Add(x);
+                                    _IChiTietSpServices.Update(ctsp);
                                 }
                                 else
                                 {
                                     var hdct = _IChiTietHDServices.GetAll().FirstOrDefault(x => x.IdChiTietSp == wdg.IdSPCTSP && x.IdHoaDon == _HoaDonServices.GetAll().FirstOrDefault(c => c.MaHD == TabHoaDon.SelectedTab.Name).Id);
                                     var spct = _IChiTietSpServices.GetAll().Find(x => x.Id == hdct.IdChiTietSp);
-                                    if (hdct.SoLuong < spct.SoLuongTon)
+                                    if (spct.SoLuongTon>0)
                                     {
                                         hdct.SoLuong += 1;
                                         _IChiTietHDServices.Update(hdct);
+                                        ctsp.SoLuongTon -= 1;
+                                        _IChiTietSpServices.Update(ctsp);
                                     }
                                     else
                                     {
@@ -699,6 +757,8 @@ namespace _3.PL.Views
                                     }
                                 }
                                 LoadView(TabHoaDon.SelectedTab.Name);
+                                LoadItemSearch(txtSearch.Texts);
+                                LoadItem();
                                 LoadGia();
                                 LoadTienThua();
                             }
@@ -715,7 +775,6 @@ namespace _3.PL.Views
                         spct.TrangThai = 1;
                         _IChiTietSpServices.Update(spct);
                     }
-
                 }
                 pnlBodysearch.Height = btnThemSP.Height + txtSearch.Height + flpSP.Height;
                 pnlKhongTimThay.Visible = false;
@@ -767,5 +826,7 @@ namespace _3.PL.Views
             txtsearchKH.PlaceholderText = "";
             txtsearchKH.Texts = "";
         }
+
+
     }
 }

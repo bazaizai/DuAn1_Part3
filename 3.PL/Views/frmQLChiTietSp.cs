@@ -53,65 +53,15 @@ namespace _3.PL.Views
         private void LoadCbb()
         {
             cbbSP1.Items.Clear();
-            foreach (var item in _ISanPhamServices.GetAll())
-            {
-                cbbSP1.Items.Add(item.Ten);
-            }
+            _ISanPhamServices.GetAll().ForEach(x => cbbSP1.Items.Add(x.Ten));
             cbbsize1.Items.Clear();
-            foreach (var item in _ISizeServices.GetAll())
-            {
-                cbbsize1.Items.Add(item.Size);
-            }
+            _ISizeServices.GetAll().ForEach(x => cbbsize1.Items.Add(x.Size));
             cbbChatLieu1.Items.Clear();
-            foreach (var item in _IChatLieuServices.GetAll())
-            {
-                cbbChatLieu1.Items.Add(item.Ten);
-            }
+            _IChatLieuServices.GetAll().ForEach(x => cbbChatLieu1.Items.Add(x.Ten));
             cbbms1.Items.Clear();
-            foreach (var item in _IMauSacServices.GetAll())
-            {
-                cbbms1.Items.Add(item.Ten);
-            }
+            _IMauSacServices.GetAll().ForEach(x => cbbms1.Items.Add(x.Ten));
             cbbTeam1.Items.Clear();
-            foreach (var item in _ITeamServices.GetAll())
-            {
-                cbbTeam1.Items.Add(item.Ten);
-            }
-            //cbbTrangThai1.Items.Clear();
-
-
-        }
-        private void FakeData()
-        {
-            for (int i = 1; i < 5; i++)
-            {
-                _IChatLieuServices.Add(new ChatLieuViews()
-                {
-                    Ma = "CL" + i.ToString(),
-                    Ten = "Chất liệu " + i.ToString()
-                });
-                _ISizeServices.Add(new KichCoViews()
-                {
-                    Ma = "KC" + i.ToString(),
-                    Size = "L" + i.ToString()
-                });
-                _IMauSacServices.Add(new MauSacView()
-                {
-                    Ma = "Ms" + i.ToString(),
-                    Ten = "Màu sắc " + i.ToString()
-                });
-                _ITeamServices.Add(new TeamView()
-                {
-                    Ma = "Team" + i.ToString(),
-                    Ten = "Team " + i.ToString()
-                });
-                _ISanPhamServices.Add(new SanPhamViews()
-                {
-                    Ma = "SP" + i.ToString(),
-                    Ten = "Sản Phẩm " + i.ToString()
-                });
-
-            }
+            _ITeamServices.GetAll().ForEach(x => cbbTeam1.Items.Add(x.Ten));
         }
         private void LoadData()
         {
@@ -165,14 +115,16 @@ namespace _3.PL.Views
             txtGiaNhap1.Texts = "";
             txtSLton.Texts = "";
             txtMoTa1.Texts = "";
-            cbbChatLieu1.SelectedIndex = -1;
-            cbbms1.SelectedIndex = -1;
-            cbbsize1.SelectedIndex = -1;
-            cbbSP1.SelectedIndex = -1;
-            cbbTeam1.SelectedIndex = -1;
-            cbbTrangThai1.SelectedIndex = -1;
+            cbbChatLieu1.Texts = "";
+            cbbms1.Texts = "";
+            cbbsize1.Texts = "";
+            cbbSP1.Texts = "";
+            cbbTeam1.Texts = "";
+            cbbTrangThai1.Texts = "";
             rdoApDung1.Checked = false;
             rdoKhongApDung1.Checked = false;
+            this.anhtt.Image = Resources.AddImg;
+            this.Anhtt1.Image = Resources.AddImg;
             _SelectID = new Guid();
         }
 
@@ -185,7 +137,7 @@ namespace _3.PL.Views
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            if (!Vldate.Null(cbbChatLieu1.Texts) && !Vldate.Null(cbbms1.Texts) && !Vldate.Null(cbbsize1.Texts) && !Vldate.Null(cbbSP1.Texts) && !Vldate.Null(cbbTeam1.Texts) && !Vldate.Null(cbbTrangThai1.Texts) && Vldate.KnullTXTGrb(grbtt, txtMoTa1) && anhtt.Image != null && Anhtt1.Image != null && (rdoApDung1.Checked || rdoKhongApDung1.Checked))
+            if (!Vldate.Null(cbbChatLieu1.Texts) && !Vldate.Null(cbbms1.Texts) && !Vldate.Null(cbbsize1.Texts) && !Vldate.Null(cbbSP1.Texts) && !Vldate.Null(cbbTeam1.Texts) && !Vldate.Null(cbbTrangThai1.Texts) && Vldate.KnullTXTGrb(grbtt, txtMoTa1) && anhtt.Image != Resources.AddImg && Anhtt1.Image != Resources.AddImg && (rdoApDung1.Checked || rdoKhongApDung1.Checked))
             {
                 if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()) || (Obj().IdChatLieu == IdCL() && Obj().IdMauSac == IdMs() && Obj().IdTeam == IdTeam() && Obj().IdSp == IdSp() && Obj().IdSize == IdSize()))
                 {
@@ -193,7 +145,8 @@ namespace _3.PL.Views
                     {
                         if (Obj() != null)
                         {
-                            //_IChiTietSpServices.Update(new ChiTietSpViews(_SelectID, IdSp(), IdMs(), IdSize(), IdTeam(), IdCL(), txtBaoHanh1.Texts, txtMoTa1.Texts, int.Parse(txtSLton.Texts), decimal.Parse(txtGiaNhap1.Texts), int.Parse(txtGiaBan1.Texts), cbbTrangThai1.Texts == "Đang bán" ? 0 : 1, rdoApDung1.Checked ? 0 : 1));
+
+                            _IChiTietSpServices.Update(new ChiTietSpViews(_SelectID, IdSp(), IdMs(), IdSize(), IdTeam(), IdCL(), null, txtBaoHanh1.Texts, txtMoTa1.Texts, int.Parse(txtSLton.Texts), decimal.Parse(txtGiaNhap1.Texts), int.Parse(txtGiaBan1.Texts), cbbTrangThai1.Texts == "Đang bán" ? 0 : 1, rdoApDung1.Checked ? 0 : 1));
                             var Anh = new AnhViews()
                             {
                                 Id = GetListAnh(_SelectID)[0].Id,
@@ -242,7 +195,7 @@ namespace _3.PL.Views
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            if (!Vldate.Null(cbbChatLieu1.Texts) && !Vldate.Null(cbbms1.Texts) && !Vldate.Null(cbbsize1.Texts) && !Vldate.Null(cbbSP1.Texts) && !Vldate.Null(cbbTeam1.Texts) && !Vldate.Null(cbbTrangThai1.Texts) && Vldate.KnullTXTGrb(grbtt, txtMoTa1) && anhtt.Image != null && Anhtt1.Image != null && (rdoApDung1.Checked || rdoKhongApDung1.Checked))
+            if (!Vldate.Null(cbbChatLieu1.Texts) && !Vldate.Null(cbbms1.Texts) && !Vldate.Null(cbbsize1.Texts) && !Vldate.Null(cbbSP1.Texts) && !Vldate.Null(cbbTeam1.Texts) && !Vldate.Null(cbbTrangThai1.Texts) && Vldate.KnullTXTGrb(grbtt, txtMoTa1) && anhtt.Image != Resources.AddImg && Anhtt1.Image != Resources.AddImg && (rdoApDung1.Checked || rdoKhongApDung1.Checked))
             {
                 if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
                 {
@@ -283,8 +236,6 @@ namespace _3.PL.Views
                         _IAnhServices.Add(Anh1);
                         this.Alert("Thêm thành công", Form_Alert.enmType.Success);
                         LoadData();
-                        this.anhtt.Image = Resources.AddImg;
-                        this.Anhtt1.Image = Resources.AddImg;
                         resest();
                     }
                     catch (Exception ex)
@@ -299,77 +250,44 @@ namespace _3.PL.Views
                 this.Alert("Vui lòng nhập đủ trường *", Form_Alert.enmType.Warning);
         }
 
-
-        private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _SelectID = Guid.Parse(Cell(0));
-            anhthongtin.Image = anhtt.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[0].DuongDan));
-            Anhtt1.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[1].DuongDan));
-            anhtt.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[0].DuongDan));
-            anhtt.SizeMode = PictureBoxSizeMode.StretchImage;
-            Anhtt1.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[1].DuongDan));
-            Anhtt1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            lbltensp1.Text = Cell(2);
-            lblGiaSP.Text = "Giá: " + double.Parse(Cell(7)).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + " đ";
-            lblChatLieuSP.Text = "Chất liệu: " + Cell(3);
-            lblsizesp.Text = "Size: " + Cell(6);
-            lblSoLuongSP.Text = "Số lượng: " + Cell(9);
-            lblmauSacSP.Text = "Màu: " + Cell(5);
-            lblTeamSP.Text = "Team: " + Cell(4);
-        }
-
-        private void dtgView_DoubleClick(object sender, EventArgs e)
-        {
-            _SelectID = Guid.Parse(Cell(0));
-            TabAll.SelectedTab = TabThongTin;
-            cbbSP1.Texts = Cell(2);
-            cbbChatLieu1.Texts = Cell(3);
-            cbbTeam1.Texts = Cell(4);
-            cbbms1.Texts = Cell(5);
-            cbbsize1.Texts = Cell(6);
-            txtGiaBan1.Texts = Cell(7);
-            txtGiaNhap1.Texts = Cell(8);
-            txtSLton.Texts = Cell(9);
-            cbbTrangThai1.Texts = Cell(10);
-            txtBaoHanh1.Texts = _IChiTietSpServices.GetById(_SelectID).BaoHanh;
-            txtMoTa1.Text = _IChiTietSpServices.GetById(_SelectID).MoTa;
-            if (_IChiTietSpServices.GetById(_SelectID).TrangThaiKhuyenMai == 0) rdoApDung1.Checked = true;
-            if (_IChiTietSpServices.GetById(_SelectID).TrangThaiKhuyenMai == 1) rdoKhongApDung.Checked = true;
-            cbbTrangThai1.Texts = _IChiTietSpServices.GetById(_SelectID).TrangThai == 0 ? "Đang bán" : "Dừng bán";
-        }
-
         private void anhtt_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image file:| *.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (TabAll.SelectedTab.Name == "TabThongTin")
             {
-                DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh không?",
-               "Thông báo", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image file:| *.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    anhtt.Image = Image.FromFile(ofd.FileName);
+                    DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh không?",
+                   "Thông báo", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        anhtt.Image = Image.FromFile(ofd.FileName);
+                    }
                 }
             }
         }
 
         private void Anhtt1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image file:| *.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (TabAll.SelectedTab.Name == "TabThongTin")
             {
-                DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh không?",
-               "Thông báo", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    Anhtt1.Image = Image.FromFile(ofd.FileName);
-                }
-            }
 
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image file:| *.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh không?",
+                   "Thông báo", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Anhtt1.Image = Image.FromFile(ofd.FileName);
+                    }
+                }
+
+            }
         }
 
         private void btnAddSP_Click(object sender, EventArgs e)
@@ -405,6 +323,61 @@ namespace _3.PL.Views
             FrmKichCo FrmKichCo = new FrmKichCo();
             FrmKichCo.ShowDialog();
             LoadCbb();
+        }
+
+        private void TabAll_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabAll.SelectedTab.Name == "TabThongTin")
+            {
+                Tabttsp.Visible = false;
+                pnlSanPham.Visible = true;
+            }
+            else
+            {
+                Tabttsp.Visible = true;
+            }
+        }
+
+        private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pnlSanPham.Visible = true;
+            Tabttsp.Visible = true;
+            _SelectID = Guid.Parse(Cell(0));
+            anhthongtin.Image = anhtt.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[0].DuongDan));
+            Anhtt1.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[1].DuongDan));
+            anhtt.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[0].DuongDan));
+            anhtt.SizeMode = PictureBoxSizeMode.StretchImage;
+            Anhtt1.Image = Image.FromStream(new MemoryStream((byte[])GetListAnh(_SelectID)[1].DuongDan));
+            Anhtt1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            lbltensp1.Text = Cell(2);
+            lblGiaSP.Text = "Giá: " + double.Parse(Cell(7)).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + " đ";
+            lblChatLieuSP.Text = "Chất liệu: " + Cell(3);
+            lblsizesp.Text = "Size: " + Cell(6);
+            lblSoLuongSP.Text = "Số lượng: " + Cell(9);
+            lblmauSacSP.Text = "Màu: " + Cell(5);
+            lblTeamSP.Text = "Team: " + Cell(4);
+        }
+
+        private void dtgView_DoubleClick_1(object sender, EventArgs e)
+        {
+
+            _SelectID = Guid.Parse(Cell(0));
+            TabAll.SelectedTab = TabThongTin;
+            cbbSP1.Texts = Cell(2);
+            cbbChatLieu1.Texts = Cell(3);
+            cbbTeam1.Texts = Cell(4);
+            cbbms1.Texts = Cell(5);
+            cbbsize1.Texts = Cell(6);
+            txtGiaBan1.Texts = Cell(7);
+            txtGiaNhap1.Texts = Cell(8);
+            txtSLton.Texts = Cell(9);
+            cbbTrangThai1.Texts = Cell(10);
+            txtBaoHanh1.Texts = _IChiTietSpServices.GetById(_SelectID).BaoHanh;
+            txtMoTa1.Text = _IChiTietSpServices.GetById(_SelectID).MoTa;
+            if (_IChiTietSpServices.GetById(_SelectID).TrangThaiKhuyenMai == 0) rdoApDung1.Checked = true;
+            if (_IChiTietSpServices.GetById(_SelectID).TrangThaiKhuyenMai == 1) rdoKhongApDung.Checked = true;
+            cbbTrangThai1.Texts = _IChiTietSpServices.GetById(_SelectID).TrangThai == 0 ? "Đang bán" : "Dừng bán";
         }
     }
 }
