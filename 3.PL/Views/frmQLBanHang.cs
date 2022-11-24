@@ -542,10 +542,14 @@ namespace _3.PL.Views
                                 {
                                     hoadon.TienKhachDua =Convert.ToDecimal(txthtThanhToan.Texts);
                                 }
+                                else if(cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+                                {
+                                    hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                    hoadon.TienChuyenKhoan = Convert.ToDecimal(txtChuyenKhoan.Texts);
+                                }
                                 else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
                                 hoadon.MaHD = TabHoaDon.SelectedTab.Name;
                                 hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
-                                //hoadon.IdUD = Guid.Parse("ab4137a1-c0de-44f0-96c2-ab35e7146932");
                                 hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra.Texts);
                                 hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien.Texts);
                                 if (txtsearchKH.Texts != "")
@@ -602,11 +606,26 @@ namespace _3.PL.Views
         }
         private void cbbPtThanhToan_OnSelectedIndexChanged_1(object sender, EventArgs e)
         {
-            lblHTThanhToan.Text = cbbPtThanhToan.Texts;
-            lblHTThanhToan.Visible = true;
-            txthtThanhToan.Visible = true;
-            txtTienThua.Visible = true;
-            lblTienThua.Visible = true;
+            if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+            {
+                lblHTThanhToan.Text = "Tiền mặt";
+                lblHTThanhToan.Visible = true;
+                txthtThanhToan.Visible = true;
+                txtTienThua.Visible = true;
+                lblTienThua.Visible = true;
+                txtChuyenKhoan.Visible = true;
+                lblChuyenTien.Visible = true;
+            }
+            else
+            {
+                lblHTThanhToan.Text = cbbPtThanhToan.Texts;
+                lblHTThanhToan.Visible = true;
+                txthtThanhToan.Visible = true;
+                txtTienThua.Visible = true;
+                lblTienThua.Visible = true;
+                txtChuyenKhoan.Visible = false;
+                lblChuyenTien.Visible = false;
+            }
             if (CbbGiamGia.SelectedIndex == 0)
             {
                 //txtTienThua.Texts = 
