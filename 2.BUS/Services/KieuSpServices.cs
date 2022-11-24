@@ -28,6 +28,7 @@ namespace _2.BUS.Services
                                                 Id = a.Id,
                                                 Ma = a.Ma,
                                                 Ten = a.Ten,
+                                                IdCha = a.IdCha,
                                                 TrangThai = a.TrangThai,
                                             }).OrderBy(x=>x.Ma).ToList();
 
@@ -40,16 +41,12 @@ namespace _2.BUS.Services
         {
             if (Obj == null) return "Update not success";
             var x = _IKieuSpRespos.GetAll().FirstOrDefault(x => x.Id == Obj.Id);
-            if (x.Ten == Obj.Ten || GetAll().All(x => x.Ten != Obj.Ten))
-            {
                 x.IdCha = Obj.IdCha;
                 x.Ma = Obj.Ma;
                 x.Ten = Obj.Ten;
                 x.TrangThai = Obj.TrangThai;
-                _IKieuSpRespos.Update(x);
-                return "Update success";
-            }
-            return "Update not success";
+               if( _IKieuSpRespos.Update(x)) return "Update success";
+            return "Khong thanh cong";
         }
     }
 }
