@@ -682,6 +682,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmChiTietSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietSale";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).EndInit();
             this.panel2.ResumeLayout(false);

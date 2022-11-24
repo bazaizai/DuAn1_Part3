@@ -47,13 +47,15 @@
             // 
             // bt_xoaform
             // 
-            this.bt_xoaform.Location = new System.Drawing.Point(626, 192);
+            this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoaform.ForeColor = System.Drawing.Color.White;
+            this.bt_xoaform.Location = new System.Drawing.Point(626, 178);
             this.bt_xoaform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoaform.Name = "bt_xoaform";
-            this.bt_xoaform.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoaform.Size = new System.Drawing.Size(82, 36);
             this.bt_xoaform.TabIndex = 42;
             this.bt_xoaform.Text = "Xóa form";
-            this.bt_xoaform.UseVisualStyleBackColor = true;
+            this.bt_xoaform.UseVisualStyleBackColor = false;
             this.bt_xoaform.Click += new System.EventHandler(this.bt_xoaform_Click);
             // 
             // rdb_khd
@@ -92,7 +94,7 @@
             this.tb_timkiem.Location = new System.Drawing.Point(158, 193);
             this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_timkiem.Name = "tb_timkiem";
-            this.tb_timkiem.Size = new System.Drawing.Size(399, 23);
+            this.tb_timkiem.Size = new System.Drawing.Size(381, 23);
             this.tb_timkiem.TabIndex = 38;
             this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
@@ -115,35 +117,41 @@
             // 
             // bt_xoa
             // 
-            this.bt_xoa.Location = new System.Drawing.Point(626, 148);
+            this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoa.ForeColor = System.Drawing.Color.White;
+            this.bt_xoa.Location = new System.Drawing.Point(626, 134);
             this.bt_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoa.Size = new System.Drawing.Size(82, 36);
             this.bt_xoa.TabIndex = 36;
             this.bt_xoa.Text = "xóa";
-            this.bt_xoa.UseVisualStyleBackColor = true;
+            this.bt_xoa.UseVisualStyleBackColor = false;
             this.bt_xoa.Click += new System.EventHandler(this.bt_xoa_Click);
             // 
             // tb_them
             // 
-            this.tb_them.Location = new System.Drawing.Point(626, 100);
+            this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.tb_them.ForeColor = System.Drawing.Color.White;
+            this.tb_them.Location = new System.Drawing.Point(626, 86);
             this.tb_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_them.Name = "tb_them";
-            this.tb_them.Size = new System.Drawing.Size(82, 22);
+            this.tb_them.Size = new System.Drawing.Size(82, 36);
             this.tb_them.TabIndex = 35;
             this.tb_them.Text = "Thêm";
-            this.tb_them.UseVisualStyleBackColor = true;
+            this.tb_them.UseVisualStyleBackColor = false;
             this.tb_them.Click += new System.EventHandler(this.tb_them_Click);
             // 
             // bt_update
             // 
-            this.bt_update.Location = new System.Drawing.Point(626, 54);
+            this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_update.ForeColor = System.Drawing.Color.White;
+            this.bt_update.Location = new System.Drawing.Point(626, 40);
             this.bt_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_update.Name = "bt_update";
-            this.bt_update.Size = new System.Drawing.Size(82, 22);
+            this.bt_update.Size = new System.Drawing.Size(82, 36);
             this.bt_update.TabIndex = 34;
             this.bt_update.Text = "Sửa";
-            this.bt_update.UseVisualStyleBackColor = true;
+            this.bt_update.UseVisualStyleBackColor = false;
             this.bt_update.Click += new System.EventHandler(this.bt_update_Click);
             // 
             // label3
@@ -169,7 +177,7 @@
             this.tb_ten.Location = new System.Drawing.Point(164, 102);
             this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(216, 23);
+            this.tb_ten.Size = new System.Drawing.Size(375, 23);
             this.tb_ten.TabIndex = 31;
             // 
             // label1
@@ -186,13 +194,14 @@
             this.tb_ma.Location = new System.Drawing.Point(164, 60);
             this.tb_ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ma.Name = "tb_ma";
-            this.tb_ma.Size = new System.Drawing.Size(216, 23);
+            this.tb_ma.Size = new System.Drawing.Size(375, 23);
             this.tb_ma.TabIndex = 29;
             // 
             // FrmGiaiDau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(796, 399);
             this.Controls.Add(this.bt_xoaform);
             this.Controls.Add(this.rdb_khd);
@@ -209,6 +218,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_ma);
             this.Name = "FrmGiaiDau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGiaiDau";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).EndInit();
             this.ResumeLayout(false);
