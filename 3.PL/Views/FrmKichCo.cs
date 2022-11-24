@@ -32,14 +32,14 @@ namespace _3.PL.Views
         public void LoadData()
         {
             dtg_Show.Rows.Clear();
-            dtg_Show.ColumnCount = 6;
+            dtg_Show.ColumnCount = 5;
             dtg_Show.Columns[0].Name = "Id ";
             dtg_Show.Columns[0].Visible = false;
             dtg_Show.Columns[1].Name = "Mã";
             dtg_Show.Columns[2].Name = "Size ";
             dtg_Show.Columns[3].Name = "Cm";
-            dtg_Show.Columns[4].Name = "Inch";
-            dtg_Show.Columns[5].Name = "Trạng thái";
+            //dtg_Show.Columns[].Name = "Inch";
+            dtg_Show.Columns[4].Name = "Trạng thái";
             var lstKichCo = _IKichCoServices.GetAll();
             if (tb_TimKiem.Text != "")
             {
@@ -72,9 +72,9 @@ namespace _3.PL.Views
                 tb_Ma.Text = r.Cells[1].Value.ToString();
                 tb_Ten.Text = r.Cells[2].Value.ToString();
                 tb_Cm.Text = r.Cells[3].Value.ToString();
-                tb_Inch.Text = r.Cells[4].Value.ToString();
-                radioButton1.Checked = r.Cells[5].Value.ToString() == "Hoạt động";
-                radioButton2.Checked = r.Cells[5].Value.ToString() == "Không hoạt động";
+                //tb_Inch.Text = r.Cells[4].Value.ToString();
+                radioButton1.Checked = r.Cells[4].Value.ToString() == "Hoạt động";
+                radioButton2.Checked = r.Cells[4].Value.ToString() == "Không hoạt động";
             }
         }
         private bool validateSoLonHon0(string str)
