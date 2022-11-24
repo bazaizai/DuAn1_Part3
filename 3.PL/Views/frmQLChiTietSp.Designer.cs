@@ -130,6 +130,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.rjComboBox5 = new CustomControls.RJControls.RJComboBox();
             this.pnlSanPham.SuspendLayout();
             this.Tabttsp.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -535,7 +536,7 @@
             this.TabAll.Location = new System.Drawing.Point(388, 0);
             this.TabAll.Name = "TabAll";
             this.TabAll.SelectedIndex = 0;
-            this.TabAll.Size = new System.Drawing.Size(838, 830);
+            this.TabAll.Size = new System.Drawing.Size(1030, 830);
             this.TabAll.TabIndex = 10;
             this.TabAll.SelectedIndexChanged += new System.EventHandler(this.TabAll_SelectedIndexChanged);
             // 
@@ -549,7 +550,7 @@
             this.TabDanhSach.Location = new System.Drawing.Point(4, 27);
             this.TabDanhSach.Name = "TabDanhSach";
             this.TabDanhSach.Padding = new System.Windows.Forms.Padding(3);
-            this.TabDanhSach.Size = new System.Drawing.Size(830, 799);
+            this.TabDanhSach.Size = new System.Drawing.Size(1022, 799);
             this.TabDanhSach.TabIndex = 0;
             this.TabDanhSach.Text = "Danh Sách Sản Phẩm";
             // 
@@ -588,7 +589,7 @@
             this.dtgView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgView.EnableHeadersVisualStyles = false;
-            this.dtgView.Location = new System.Drawing.Point(3, 73);
+            this.dtgView.Location = new System.Drawing.Point(3, 72);
             this.dtgView.Name = "dtgView";
             this.dtgView.ReadOnly = true;
             this.dtgView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -603,7 +604,7 @@
             this.dtgView.RowHeadersWidth = 51;
             this.dtgView.RowTemplate.Height = 50;
             this.dtgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgView.Size = new System.Drawing.Size(824, 723);
+            this.dtgView.Size = new System.Drawing.Size(1016, 724);
             this.dtgView.TabIndex = 5;
             this.dtgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgView_CellClick);
             this.dtgView.DoubleClick += new System.EventHandler(this.dtgView_DoubleClick_1);
@@ -611,6 +612,7 @@
             // panel6
             // 
             this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.rjComboBox5);
             this.panel6.Controls.Add(this.rjComboBox4);
             this.panel6.Controls.Add(this.rjComboBox3);
             this.panel6.Controls.Add(this.rjComboBox2);
@@ -618,7 +620,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(3, 38);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(824, 35);
+            this.panel6.Size = new System.Drawing.Size(1016, 34);
             this.panel6.TabIndex = 4;
             // 
             // rjComboBox4
@@ -633,7 +635,7 @@
             this.rjComboBox4.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.rjComboBox4.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.rjComboBox4.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox4.Location = new System.Drawing.Point(616, 2);
+            this.rjComboBox4.Location = new System.Drawing.Point(612, 3);
             this.rjComboBox4.MinimumSize = new System.Drawing.Size(200, 30);
             this.rjComboBox4.Name = "rjComboBox4";
             this.rjComboBox4.Padding = new System.Windows.Forms.Padding(1);
@@ -653,7 +655,7 @@
             this.rjComboBox3.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.rjComboBox3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.rjComboBox3.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox3.Location = new System.Drawing.Point(415, 2);
+            this.rjComboBox3.Location = new System.Drawing.Point(412, 3);
             this.rjComboBox3.MinimumSize = new System.Drawing.Size(200, 30);
             this.rjComboBox3.Name = "rjComboBox3";
             this.rjComboBox3.Padding = new System.Windows.Forms.Padding(1);
@@ -673,7 +675,7 @@
             this.rjComboBox2.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.rjComboBox2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.rjComboBox2.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox2.Location = new System.Drawing.Point(214, 2);
+            this.rjComboBox2.Location = new System.Drawing.Point(211, 3);
             this.rjComboBox2.MinimumSize = new System.Drawing.Size(200, 30);
             this.rjComboBox2.Name = "rjComboBox2";
             this.rjComboBox2.Padding = new System.Windows.Forms.Padding(1);
@@ -693,7 +695,7 @@
             this.rjComboBox1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.rjComboBox1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.rjComboBox1.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox1.Location = new System.Drawing.Point(13, 2);
+            this.rjComboBox1.Location = new System.Drawing.Point(10, 3);
             this.rjComboBox1.MinimumSize = new System.Drawing.Size(200, 30);
             this.rjComboBox1.Name = "rjComboBox1";
             this.rjComboBox1.Padding = new System.Windows.Forms.Padding(1);
@@ -719,7 +721,7 @@
             this.rjTextBox1.PasswordChar = false;
             this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox1.PlaceholderText = "Enter Search";
-            this.rjTextBox1.Size = new System.Drawing.Size(824, 35);
+            this.rjTextBox1.Size = new System.Drawing.Size(1016, 35);
             this.rjTextBox1.TabIndex = 2;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = true;
@@ -1683,12 +1685,32 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Sản Phẩm";
             // 
+            // rjComboBox5
+            // 
+            this.rjComboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox5.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox5.BorderSize = 1;
+            this.rjComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox5.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox5.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox5.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox5.Location = new System.Drawing.Point(813, 3);
+            this.rjComboBox5.MinimumSize = new System.Drawing.Size(200, 30);
+            this.rjComboBox5.Name = "rjComboBox5";
+            this.rjComboBox5.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox5.Size = new System.Drawing.Size(200, 30);
+            this.rjComboBox5.TabIndex = 21;
+            this.rjComboBox5.Texts = "";
+            // 
             // frmQLChiTietSp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(1226, 830);
+            this.ClientSize = new System.Drawing.Size(1418, 830);
             this.Controls.Add(this.TabAll);
             this.Controls.Add(this.pnlSanPham);
             this.Name = "frmQLChiTietSp";
@@ -1834,5 +1856,6 @@
         private CustomControls.RJControls.RJComboBox rjComboBox2;
         private CustomControls.RJControls.RJComboBox rjComboBox1;
         private System.Windows.Forms.DataGridView dtgView;
+        private CustomControls.RJControls.RJComboBox rjComboBox5;
     }
 }

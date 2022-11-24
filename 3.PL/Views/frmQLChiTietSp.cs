@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Animation;
+using BarcodeLib;
 
 namespace _3.PL.Views
 {
@@ -31,6 +32,7 @@ namespace _3.PL.Views
         IChatLieuServices _IChatLieuServices;
         IKichCoServices _ISizeServices;
         Guid _SelectID;
+        BarcodeLib.Barcode _barcode;
         public frmQLChiTietSp()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace _3.PL.Views
             _SelectID = new Guid();
             cbbTrangThai1.Items.Add("Đang bán");
             cbbTrangThai1.Items.Add("Dừng bán");
+            _barcode = new Barcode();
             LoadCbb();
             LoadData();
             resest();
@@ -125,6 +128,8 @@ namespace _3.PL.Views
             rdoKhongApDung1.Checked = false;
             this.anhtt.Image = Resources.AddImg;
             this.Anhtt1.Image = Resources.AddImg;
+            Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, "Tes");
+            Anhtt1.Image = barcode;
             _SelectID = new Guid();
         }
 

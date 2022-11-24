@@ -186,6 +186,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "BarcodeLib": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
             "Bunifu.UI.WinForms": {
               "target": "Package",
               "version": "[5.0.1, )"
