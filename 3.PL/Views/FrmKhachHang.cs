@@ -67,6 +67,7 @@ namespace _3.PL.Views
         {
             LoadData();
             _khachHangView.Id = Guid.Empty;
+            tb_ma.Text = "";
             tb_ten.Text = "";
             tb_diachi.Text = "";
             tb_sdt.Text = "";
@@ -141,15 +142,11 @@ namespace _3.PL.Views
             DialogResult result = MessageBox.Show("Bạn có muốn sửa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if (tb_ma.Text == "")
-                {
-                    MessageBox.Show("Không được để trống mã!");
-                }
                 //else if (_iKhachHangServices.GetAll().Any(c => c.Ma == tb_ma.Text))
                 //{
                 //    MessageBox.Show("Mã bị trùng");
                 //}
-                else if (tb_ten.Text == "")
+                if (tb_ten.Text == "")
                 {
                     MessageBox.Show("Không được để trống tên!");
                 }

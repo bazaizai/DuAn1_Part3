@@ -38,8 +38,8 @@ namespace _2.BUS.Services
                     DiaChi = obj.DiaChi,
                     TrangThai = obj.TrangThai
                 };
-                if (_iKhachHangRepos.Add(x)) return "Thành Công";
-                return "Không Thành Công";
+                if (_iKhachHangRepos.Add(x)) return "Thêm khách hàng thành công";
+                return "Thêm khách hàng không Thành công";
             }
             catch (Exception e)
             {
@@ -57,8 +57,8 @@ namespace _2.BUS.Services
                     IdtichDiem = obj.IdtichDiem
                     
                 };
-                if (_iKhachHangRepos.Delete(x)) return "Thành Công";
-                return "Không Thành Công";
+                if (_iKhachHangRepos.Delete(x)) return "Xóa thành công";
+                return "Xóa không thành Công";
             }
             catch (Exception e)
             {
@@ -136,8 +136,8 @@ namespace _2.BUS.Services
                     DiaChi = obj.DiaChi,
                     TrangThai = obj.TrangThai
                 };
-                if (_iKhachHangRepos.Update(x)) return "Thành Công";
-                return "Không Thành Công";
+                if (_iKhachHangRepos.Update(x)) return "Sửa thành công";
+                return "Sửa không Thành Công";
             }
             catch (Exception e)
             {
