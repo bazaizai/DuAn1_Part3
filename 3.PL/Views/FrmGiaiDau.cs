@@ -43,7 +43,7 @@ namespace _3.PL.Views
             lstGiaiDau = _giaiDauServices.GetAll();
             if (tb_timkiem.Text != "")
             {
-                lstGiaiDau = lstGiaiDau.Where(c => c.Ten.Contains(tb_timkiem.Text)).ToList();
+                lstGiaiDau = lstGiaiDau.Where(c => c.Ten.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
             }
             foreach (var item in lstGiaiDau)
             {

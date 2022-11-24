@@ -62,7 +62,7 @@ namespace _3.PL.Views
             lstSale = _saleServices.GetAll();
             if (tb_timkiem.Text != "")
             {
-                lstSale = lstSale.Where(c => c.Ten.Contains(tb_timkiem.Text)).ToList();
+                lstSale = lstSale.Where(c => c.Ten.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
             }
             foreach (var item in lstSale)
             {
@@ -118,7 +118,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
                 }
-                else if (tb_mucgiam.Text == "Giảm giá theo %" || Convert.ToDecimal(tb_mucgiam.Text) > 100)
+                else if (cbb_loaiKm.Text == "%" && Convert.ToDecimal(tb_mucgiam.Text) > 100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
                 }
@@ -173,7 +173,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
                 }    
-                else if(tb_mucgiam.Text == "Giảm giá theo %" || Convert.ToDecimal(tb_mucgiam.Text)>100)
+                else if(cbb_loaiKm.Text == "%" && Convert.ToDecimal(tb_mucgiam.Text)>100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
                 }    

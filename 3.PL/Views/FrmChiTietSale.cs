@@ -154,7 +154,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
                 }
-                else if (tb_mucgiam.Texts == "Giảm giá theo %" && Convert.ToDecimal(tb_mucgiam.Texts) > 100)
+                else if (cbb_loaiKM.Text == "%" || Convert.ToDecimal(tb_mucgiam.Texts) > 100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
                 }
@@ -240,7 +240,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
                 }
-                else if (tb_mucgiam.Texts == "Giảm giá theo %" && Convert.ToDecimal(tb_mucgiam.Texts) > 100)
+                else if (cbb_loaiKM.Text == "%" || Convert.ToDecimal(tb_mucgiam.Texts) > 100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
                 }
@@ -400,6 +400,11 @@ namespace _3.PL.Views
             tb_mucgiam.Texts = dtg_show.CurrentRow.Cells[6].Value.ToString();
             tb_mota.Texts = dtg_show.CurrentRow.Cells[7].Value.ToString();
             cbb_trangthai.Texts = dtg_show.CurrentRow.Cells[8].Value.ToString();
+        }
+
+        private void tb_timkiemkm_TextChanged_1(object sender, EventArgs e)
+        {
+            loadKM();
         }
     }
 }

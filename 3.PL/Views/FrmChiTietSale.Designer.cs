@@ -93,6 +93,7 @@
             this.tb_timkiemkm.Name = "tb_timkiemkm";
             this.tb_timkiemkm.Size = new System.Drawing.Size(171, 23);
             this.tb_timkiemkm.TabIndex = 1;
+            this.tb_timkiemkm.TextChanged += new System.EventHandler(this.tb_timkiemkm_TextChanged_1);
             // 
             // cbb_locKM
             // 
