@@ -91,6 +91,9 @@
     <Compile Update="Views\frmQLChiTietSp.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmQlDonGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmQLKieuSP.cs">
       <SubType>Form</SubType>
     </Compile>

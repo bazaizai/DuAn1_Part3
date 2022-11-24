@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSanPham = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Tabttsp = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblGiaSP = new System.Windows.Forms.Label();
@@ -66,6 +66,12 @@
             this.TabAll = new System.Windows.Forms.TabControl();
             this.TabDanhSach = new System.Windows.Forms.TabPage();
             this.dtgView = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.rjComboBox5 = new CustomControls.RJControls.RJComboBox();
+            this.rjComboBox4 = new CustomControls.RJControls.RJComboBox();
+            this.rjComboBox3 = new CustomControls.RJControls.RJComboBox();
+            this.rjComboBox2 = new CustomControls.RJControls.RJComboBox();
+            this.rjComboBox1 = new CustomControls.RJControls.RJComboBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.TabThongTin = new System.Windows.Forms.TabPage();
             this.grbtt = new System.Windows.Forms.GroupBox();
@@ -126,7 +132,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlSanPham.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.Tabttsp.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -144,6 +150,7 @@
             this.TabAll.SuspendLayout();
             this.TabDanhSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgView)).BeginInit();
+            this.panel6.SuspendLayout();
             this.TabThongTin.SuspendLayout();
             this.grbtt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnaddSize)).BeginInit();
@@ -157,7 +164,7 @@
             // pnlSanPham
             // 
             this.pnlSanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.pnlSanPham.Controls.Add(this.tabControl1);
+            this.pnlSanPham.Controls.Add(this.Tabttsp);
             this.pnlSanPham.Controls.Add(this.tabControl2);
             this.pnlSanPham.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSanPham.Location = new System.Drawing.Point(0, 0);
@@ -165,17 +172,19 @@
             this.pnlSanPham.Name = "pnlSanPham";
             this.pnlSanPham.Size = new System.Drawing.Size(340, 622);
             this.pnlSanPham.TabIndex = 9;
+            this.pnlSanPham.Visible = false;
             // 
-            // tabControl1
+            // Tabttsp
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 170);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(340, 452);
-            this.tabControl1.TabIndex = 5;
+            this.Tabttsp.Controls.Add(this.tabPage1);
+            this.Tabttsp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tabttsp.Location = new System.Drawing.Point(0, 170);
+            this.Tabttsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Tabttsp.Name = "Tabttsp";
+            this.Tabttsp.SelectedIndex = 0;
+            this.Tabttsp.Size = new System.Drawing.Size(340, 452);
+            this.Tabttsp.TabIndex = 5;
+            this.Tabttsp.Visible = false;
             // 
             // tabPage1
             // 
@@ -545,20 +554,22 @@
             this.TabAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabAll.Name = "TabAll";
             this.TabAll.SelectedIndex = 0;
-            this.TabAll.Size = new System.Drawing.Size(550, 622);
+            this.TabAll.Size = new System.Drawing.Size(901, 622);
             this.TabAll.TabIndex = 10;
+            this.TabAll.SelectedIndexChanged += new System.EventHandler(this.TabAll_SelectedIndexChanged);
             // 
             // TabDanhSach
             // 
             this.TabDanhSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.TabDanhSach.Controls.Add(this.dtgView);
+            this.TabDanhSach.Controls.Add(this.panel6);
             this.TabDanhSach.Controls.Add(this.rjTextBox1);
             this.TabDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TabDanhSach.Location = new System.Drawing.Point(4, 24);
             this.TabDanhSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabDanhSach.Name = "TabDanhSach";
             this.TabDanhSach.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabDanhSach.Size = new System.Drawing.Size(542, 594);
+            this.TabDanhSach.Size = new System.Drawing.Size(893, 594);
             this.TabDanhSach.TabIndex = 0;
             this.TabDanhSach.Text = "Danh Sách Sản Phẩm";
             // 
@@ -597,7 +608,7 @@
             this.dtgView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgView.EnableHeadersVisualStyles = false;
-            this.dtgView.Location = new System.Drawing.Point(3, 29);
+            this.dtgView.Location = new System.Drawing.Point(3, 56);
             this.dtgView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgView.Name = "dtgView";
             this.dtgView.ReadOnly = true;
@@ -613,10 +624,130 @@
             this.dtgView.RowHeadersWidth = 51;
             this.dtgView.RowTemplate.Height = 50;
             this.dtgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgView.Size = new System.Drawing.Size(536, 563);
-            this.dtgView.TabIndex = 3;
+            this.dtgView.Size = new System.Drawing.Size(887, 536);
+            this.dtgView.TabIndex = 5;
             this.dtgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgView_CellClick);
-            this.dtgView.DoubleClick += new System.EventHandler(this.dtgView_DoubleClick);
+            this.dtgView.DoubleClick += new System.EventHandler(this.dtgView_DoubleClick_1);
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.rjComboBox5);
+            this.panel6.Controls.Add(this.rjComboBox4);
+            this.panel6.Controls.Add(this.rjComboBox3);
+            this.panel6.Controls.Add(this.rjComboBox2);
+            this.panel6.Controls.Add(this.rjComboBox1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 29);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(887, 27);
+            this.panel6.TabIndex = 4;
+            // 
+            // rjComboBox5
+            // 
+            this.rjComboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox5.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox5.BorderSize = 1;
+            this.rjComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox5.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox5.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox5.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox5.Location = new System.Drawing.Point(710, 3);
+            this.rjComboBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjComboBox5.MinimumSize = new System.Drawing.Size(175, 22);
+            this.rjComboBox5.Name = "rjComboBox5";
+            this.rjComboBox5.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox5.Size = new System.Drawing.Size(175, 22);
+            this.rjComboBox5.TabIndex = 21;
+            this.rjComboBox5.Texts = "";
+            // 
+            // rjComboBox4
+            // 
+            this.rjComboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox4.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox4.BorderSize = 1;
+            this.rjComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox4.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox4.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox4.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox4.Location = new System.Drawing.Point(535, 3);
+            this.rjComboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjComboBox4.MinimumSize = new System.Drawing.Size(175, 22);
+            this.rjComboBox4.Name = "rjComboBox4";
+            this.rjComboBox4.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox4.Size = new System.Drawing.Size(175, 22);
+            this.rjComboBox4.TabIndex = 21;
+            this.rjComboBox4.Texts = "";
+            // 
+            // rjComboBox3
+            // 
+            this.rjComboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox3.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox3.BorderSize = 1;
+            this.rjComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox3.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox3.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox3.Location = new System.Drawing.Point(359, 3);
+            this.rjComboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjComboBox3.MinimumSize = new System.Drawing.Size(175, 22);
+            this.rjComboBox3.Name = "rjComboBox3";
+            this.rjComboBox3.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox3.Size = new System.Drawing.Size(175, 22);
+            this.rjComboBox3.TabIndex = 21;
+            this.rjComboBox3.Texts = "";
+            // 
+            // rjComboBox2
+            // 
+            this.rjComboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox2.BorderSize = 1;
+            this.rjComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox2.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox2.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox2.Location = new System.Drawing.Point(184, 3);
+            this.rjComboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjComboBox2.MinimumSize = new System.Drawing.Size(175, 22);
+            this.rjComboBox2.Name = "rjComboBox2";
+            this.rjComboBox2.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox2.Size = new System.Drawing.Size(175, 22);
+            this.rjComboBox2.TabIndex = 21;
+            this.rjComboBox2.Texts = "";
+            // 
+            // rjComboBox1
+            // 
+            this.rjComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjComboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjComboBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox1.BorderSize = 1;
+            this.rjComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.rjComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjComboBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjComboBox1.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjComboBox1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.rjComboBox1.ListTextColor = System.Drawing.Color.DimGray;
+            this.rjComboBox1.Location = new System.Drawing.Point(8, 3);
+            this.rjComboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjComboBox1.MinimumSize = new System.Drawing.Size(175, 22);
+            this.rjComboBox1.Name = "rjComboBox1";
+            this.rjComboBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.rjComboBox1.Size = new System.Drawing.Size(175, 22);
+            this.rjComboBox1.TabIndex = 21;
+            this.rjComboBox1.Texts = "";
             // 
             // rjTextBox1
             // 
@@ -636,7 +767,7 @@
             this.rjTextBox1.PasswordChar = false;
             this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox1.PlaceholderText = "Enter Search";
-            this.rjTextBox1.Size = new System.Drawing.Size(536, 27);
+            this.rjTextBox1.Size = new System.Drawing.Size(887, 27);
             this.rjTextBox1.TabIndex = 2;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = true;
@@ -651,7 +782,7 @@
             this.TabThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabThongTin.Name = "TabThongTin";
             this.TabThongTin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabThongTin.Size = new System.Drawing.Size(542, 594);
+            this.TabThongTin.Size = new System.Drawing.Size(893, 594);
             this.TabThongTin.TabIndex = 1;
             this.TabThongTin.Text = "Thông tin";
             // 
@@ -697,7 +828,7 @@
             this.grbtt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbtt.Name = "grbtt";
             this.grbtt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbtt.Size = new System.Drawing.Size(536, 590);
+            this.grbtt.Size = new System.Drawing.Size(887, 590);
             this.grbtt.TabIndex = 0;
             this.grbtt.TabStop = false;
             this.grbtt.Text = "Thông Tin";
@@ -713,7 +844,7 @@
             this.btnaddSize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnaddSize.GradientAngle = 50F;
             this.btnaddSize.Image = global::_3.PL.Properties.Resources.add;
-            this.btnaddSize.Location = new System.Drawing.Point(451, 198);
+            this.btnaddSize.Location = new System.Drawing.Point(626, 198);
             this.btnaddSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnaddSize.Name = "btnaddSize";
             this.btnaddSize.Size = new System.Drawing.Size(28, 28);
@@ -733,7 +864,7 @@
             this.btnAddChatLieu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddChatLieu.GradientAngle = 50F;
             this.btnAddChatLieu.Image = global::_3.PL.Properties.Resources.add;
-            this.btnAddChatLieu.Location = new System.Drawing.Point(451, 167);
+            this.btnAddChatLieu.Location = new System.Drawing.Point(626, 167);
             this.btnAddChatLieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddChatLieu.Name = "btnAddChatLieu";
             this.btnAddChatLieu.Size = new System.Drawing.Size(28, 28);
@@ -753,7 +884,7 @@
             this.btnAddTeam.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddTeam.GradientAngle = 50F;
             this.btnAddTeam.Image = global::_3.PL.Properties.Resources.add;
-            this.btnAddTeam.Location = new System.Drawing.Point(451, 135);
+            this.btnAddTeam.Location = new System.Drawing.Point(626, 135);
             this.btnAddTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddTeam.Name = "btnAddTeam";
             this.btnAddTeam.Size = new System.Drawing.Size(28, 28);
@@ -773,7 +904,7 @@
             this.btnAddMauSac.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddMauSac.GradientAngle = 50F;
             this.btnAddMauSac.Image = global::_3.PL.Properties.Resources.add;
-            this.btnAddMauSac.Location = new System.Drawing.Point(451, 104);
+            this.btnAddMauSac.Location = new System.Drawing.Point(626, 104);
             this.btnAddMauSac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddMauSac.Name = "btnAddMauSac";
             this.btnAddMauSac.Size = new System.Drawing.Size(28, 28);
@@ -793,7 +924,7 @@
             this.btnAddSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddSP.GradientAngle = 50F;
             this.btnAddSP.Image = global::_3.PL.Properties.Resources.add;
-            this.btnAddSP.Location = new System.Drawing.Point(451, 73);
+            this.btnAddSP.Location = new System.Drawing.Point(626, 73);
             this.btnAddSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddSP.Name = "btnAddSP";
             this.btnAddSP.Size = new System.Drawing.Size(28, 28);
@@ -814,7 +945,7 @@
             this.cbbChatLieu1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbChatLieu1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbChatLieu1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbChatLieu1.Location = new System.Drawing.Point(186, 171);
+            this.cbbChatLieu1.Location = new System.Drawing.Point(362, 171);
             this.cbbChatLieu1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbChatLieu1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbChatLieu1.Name = "cbbChatLieu1";
@@ -835,7 +966,7 @@
             this.cbbTrangThai1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbTrangThai1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbTrangThai1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbTrangThai1.Location = new System.Drawing.Point(186, 440);
+            this.cbbTrangThai1.Location = new System.Drawing.Point(362, 440);
             this.cbbTrangThai1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbTrangThai1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbTrangThai1.Name = "cbbTrangThai1";
@@ -856,7 +987,7 @@
             this.cbbsize1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbsize1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbsize1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbsize1.Location = new System.Drawing.Point(186, 203);
+            this.cbbsize1.Location = new System.Drawing.Point(362, 203);
             this.cbbsize1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbsize1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbsize1.Name = "cbbsize1";
@@ -877,7 +1008,7 @@
             this.cbbTeam1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbTeam1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbTeam1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbTeam1.Location = new System.Drawing.Point(186, 140);
+            this.cbbTeam1.Location = new System.Drawing.Point(362, 140);
             this.cbbTeam1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbTeam1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbTeam1.Name = "cbbTeam1";
@@ -898,7 +1029,7 @@
             this.cbbms1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbms1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbms1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbms1.Location = new System.Drawing.Point(186, 108);
+            this.cbbms1.Location = new System.Drawing.Point(362, 108);
             this.cbbms1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbms1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbms1.Name = "cbbms1";
@@ -919,7 +1050,7 @@
             this.cbbSP1.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbSP1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbSP1.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbSP1.Location = new System.Drawing.Point(186, 77);
+            this.cbbSP1.Location = new System.Drawing.Point(362, 77);
             this.cbbSP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbSP1.MinimumSize = new System.Drawing.Size(175, 22);
             this.cbbSP1.Name = "cbbSP1";
@@ -939,7 +1070,7 @@
             this.btnThemMoi.FlatAppearance.BorderSize = 0;
             this.btnThemMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThemMoi.Location = new System.Drawing.Point(312, 486);
+            this.btnThemMoi.Location = new System.Drawing.Point(488, 486);
             this.btnThemMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemMoi.Name = "btnThemMoi";
             this.btnThemMoi.Size = new System.Drawing.Size(133, 30);
@@ -960,7 +1091,7 @@
             this.btnCapNhat.FlatAppearance.BorderSize = 0;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCapNhat.Location = new System.Drawing.Point(81, 486);
+            this.btnCapNhat.Location = new System.Drawing.Point(257, 486);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(133, 30);
@@ -980,7 +1111,7 @@
             this.txtGiaBan1.BorderSize = 2;
             this.txtGiaBan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGiaBan1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtGiaBan1.Location = new System.Drawing.Point(186, 326);
+            this.txtGiaBan1.Location = new System.Drawing.Point(362, 326);
             this.txtGiaBan1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtGiaBan1.Multiline = false;
             this.txtGiaBan1.Name = "txtGiaBan1";
@@ -999,7 +1130,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(71, 206);
+            this.label14.Location = new System.Drawing.Point(247, 206);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(36, 20);
             this.label14.TabIndex = 16;
@@ -1011,7 +1142,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(71, 444);
+            this.label17.Location = new System.Drawing.Point(247, 444);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 20);
             this.label17.TabIndex = 14;
@@ -1024,7 +1155,7 @@
             this.rdoKhongApDung1.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rdoKhongApDung1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rdoKhongApDung1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rdoKhongApDung1.Location = new System.Drawing.Point(331, 414);
+            this.rdoKhongApDung1.Location = new System.Drawing.Point(507, 414);
             this.rdoKhongApDung1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoKhongApDung1.MinimumSize = new System.Drawing.Size(0, 16);
             this.rdoKhongApDung1.Name = "rdoKhongApDung1";
@@ -1043,7 +1174,7 @@
             this.rdoApDung1.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rdoApDung1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rdoApDung1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rdoApDung1.Location = new System.Drawing.Point(191, 414);
+            this.rdoApDung1.Location = new System.Drawing.Point(367, 414);
             this.rdoApDung1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdoApDung1.MinimumSize = new System.Drawing.Size(0, 16);
             this.rdoApDung1.Name = "rdoApDung1";
@@ -1065,7 +1196,7 @@
             this.txtGiaNhap1.BorderSize = 2;
             this.txtGiaNhap1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGiaNhap1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtGiaNhap1.Location = new System.Drawing.Point(186, 294);
+            this.txtGiaNhap1.Location = new System.Drawing.Point(362, 294);
             this.txtGiaNhap1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtGiaNhap1.Multiline = false;
             this.txtGiaNhap1.Name = "txtGiaNhap1";
@@ -1088,7 +1219,7 @@
             this.txtSLton.BorderSize = 2;
             this.txtSLton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSLton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtSLton.Location = new System.Drawing.Point(186, 262);
+            this.txtSLton.Location = new System.Drawing.Point(362, 262);
             this.txtSLton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSLton.Multiline = false;
             this.txtSLton.Name = "txtSLton";
@@ -1111,7 +1242,7 @@
             this.txtBaoHanh1.BorderSize = 2;
             this.txtBaoHanh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBaoHanh1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtBaoHanh1.Location = new System.Drawing.Point(186, 230);
+            this.txtBaoHanh1.Location = new System.Drawing.Point(362, 230);
             this.txtBaoHanh1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtBaoHanh1.Multiline = false;
             this.txtBaoHanh1.Name = "txtBaoHanh1";
@@ -1134,7 +1265,7 @@
             this.txtMoTa1.BorderSize = 2;
             this.txtMoTa1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMoTa1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtMoTa1.Location = new System.Drawing.Point(81, 372);
+            this.txtMoTa1.Location = new System.Drawing.Point(257, 372);
             this.txtMoTa1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtMoTa1.Multiline = false;
             this.txtMoTa1.Name = "txtMoTa1";
@@ -1153,7 +1284,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(71, 414);
+            this.label19.Location = new System.Drawing.Point(247, 414);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(108, 20);
             this.label19.TabIndex = 2;
@@ -1165,7 +1296,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(71, 336);
+            this.label20.Location = new System.Drawing.Point(247, 336);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(61, 20);
             this.label20.TabIndex = 2;
@@ -1177,7 +1308,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(71, 303);
+            this.label21.Location = new System.Drawing.Point(247, 303);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(73, 20);
             this.label21.TabIndex = 2;
@@ -1189,7 +1320,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(71, 271);
+            this.label22.Location = new System.Drawing.Point(247, 271);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(103, 20);
             this.label22.TabIndex = 2;
@@ -1201,7 +1332,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(71, 239);
+            this.label23.Location = new System.Drawing.Point(247, 239);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(76, 20);
             this.label23.TabIndex = 1;
@@ -1213,7 +1344,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(71, 174);
+            this.label24.Location = new System.Drawing.Point(247, 174);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(72, 20);
             this.label24.TabIndex = 1;
@@ -1225,7 +1356,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label25.Location = new System.Drawing.Point(71, 142);
+            this.label25.Location = new System.Drawing.Point(247, 142);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(45, 20);
             this.label25.TabIndex = 1;
@@ -1237,7 +1368,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label26.Location = new System.Drawing.Point(71, 110);
+            this.label26.Location = new System.Drawing.Point(247, 110);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(67, 20);
             this.label26.TabIndex = 1;
@@ -1249,7 +1380,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label27.Location = new System.Drawing.Point(71, 78);
+            this.label27.Location = new System.Drawing.Point(247, 78);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(77, 20);
             this.label27.TabIndex = 0;
@@ -1633,7 +1764,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(890, 622);
+            this.ClientSize = new System.Drawing.Size(1241, 622);
             this.Controls.Add(this.TabAll);
             this.Controls.Add(this.pnlSanPham);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1641,7 +1772,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "6";
             this.pnlSanPham.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.Tabttsp.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1663,7 +1794,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.anhtt)).EndInit();
             this.TabAll.ResumeLayout(false);
             this.TabDanhSach.ResumeLayout(false);
+            this.TabDanhSach.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgView)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.TabThongTin.ResumeLayout(false);
             this.TabThongTin.PerformLayout();
             this.grbtt.ResumeLayout(false);
@@ -1685,10 +1818,9 @@
         private System.Windows.Forms.TabPage TabDanhSach;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private System.Windows.Forms.TabPage TabThongTin;
-        private System.Windows.Forms.DataGridView dtgView;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl Tabttsp;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel3;
         private CustomControls.RJControls.RJCircularPictureBox anhthongtin;
@@ -1773,5 +1905,12 @@
         private CustomControls.RJControls.RJCircularPictureBox btnAddTeam;
         private CustomControls.RJControls.RJCircularPictureBox btnAddMauSac;
         private CustomControls.RJControls.RJCircularPictureBox btnAddSP;
+        private System.Windows.Forms.Panel panel6;
+        private CustomControls.RJControls.RJComboBox rjComboBox4;
+        private CustomControls.RJControls.RJComboBox rjComboBox3;
+        private CustomControls.RJControls.RJComboBox rjComboBox2;
+        private CustomControls.RJControls.RJComboBox rjComboBox1;
+        private System.Windows.Forms.DataGridView dtgView;
+        private CustomControls.RJControls.RJComboBox rjComboBox5;
     }
 }

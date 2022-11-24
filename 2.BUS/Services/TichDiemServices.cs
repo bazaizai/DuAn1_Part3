@@ -30,8 +30,8 @@ namespace _2.BUS.Services
                     SoDiem = obj.SoDiem,
                     TrangThai = obj.TrangThai
                 };
-                if (_iTichDiemRepos.Add(x)) return "Thành Công";
-                return "Không Thành Công";
+                if (_iTichDiemRepos.Add(x)) return "Thêm tích điểm thành Công";
+                return "Thêm tích điểm không Thành Công";
             }
             catch (Exception e)
             {
