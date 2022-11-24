@@ -31,21 +31,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdb_khd = new System.Windows.Forms.RadioButton();
             this.rdb_hd = new System.Windows.Forms.RadioButton();
-            this.dtp_ngaysinh = new System.Windows.Forms.DateTimePicker();
             this.tb_sdt = new System.Windows.Forms.TextBox();
             this.tb_diachi = new System.Windows.Forms.TextBox();
-            this.tb_email = new System.Windows.Forms.TextBox();
-            this.tb_ho = new System.Windows.Forms.TextBox();
             this.tb_ten = new System.Windows.Forms.TextBox();
-            this.tb_tendem = new System.Windows.Forms.TextBox();
             this.tb_ma = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -72,21 +64,13 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.groupBox1.Controls.Add(this.rdb_khd);
             this.groupBox1.Controls.Add(this.rdb_hd);
-            this.groupBox1.Controls.Add(this.dtp_ngaysinh);
             this.groupBox1.Controls.Add(this.tb_sdt);
             this.groupBox1.Controls.Add(this.tb_diachi);
-            this.groupBox1.Controls.Add(this.tb_email);
-            this.groupBox1.Controls.Add(this.tb_ho);
             this.groupBox1.Controls.Add(this.tb_ten);
-            this.groupBox1.Controls.Add(this.tb_tendem);
             this.groupBox1.Controls.Add(this.tb_ma);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -101,7 +85,7 @@
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(797, 289);
+            this.rdb_khd.Location = new System.Drawing.Point(573, 308);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(212, 34);
             this.rdb_khd.TabIndex = 9;
@@ -112,7 +96,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(647, 289);
+            this.rdb_hd.Location = new System.Drawing.Point(423, 308);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(144, 34);
             this.rdb_hd.TabIndex = 8;
@@ -120,17 +104,10 @@
             this.rdb_hd.Text = "Hoạt động";
             this.rdb_hd.UseVisualStyleBackColor = true;
             // 
-            // dtp_ngaysinh
-            // 
-            this.dtp_ngaysinh.Location = new System.Drawing.Point(165, 364);
-            this.dtp_ngaysinh.Name = "dtp_ngaysinh";
-            this.dtp_ngaysinh.Size = new System.Drawing.Size(271, 37);
-            this.dtp_ngaysinh.TabIndex = 4;
-            // 
             // tb_sdt
             // 
             this.tb_sdt.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_sdt.Location = new System.Drawing.Point(650, 64);
+            this.tb_sdt.Location = new System.Drawing.Point(648, 118);
             this.tb_sdt.Name = "tb_sdt";
             this.tb_sdt.Size = new System.Drawing.Size(330, 37);
             this.tb_sdt.TabIndex = 5;
@@ -138,47 +115,23 @@
             // tb_diachi
             // 
             this.tb_diachi.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_diachi.Location = new System.Drawing.Point(650, 140);
+            this.tb_diachi.Location = new System.Drawing.Point(648, 194);
             this.tb_diachi.Name = "tb_diachi";
             this.tb_diachi.Size = new System.Drawing.Size(330, 37);
             this.tb_diachi.TabIndex = 6;
             // 
-            // tb_email
-            // 
-            this.tb_email.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_email.Location = new System.Drawing.Point(650, 216);
-            this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(330, 37);
-            this.tb_email.TabIndex = 7;
-            // 
-            // tb_ho
-            // 
-            this.tb_ho.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_ho.Location = new System.Drawing.Point(165, 289);
-            this.tb_ho.Name = "tb_ho";
-            this.tb_ho.Size = new System.Drawing.Size(266, 37);
-            this.tb_ho.TabIndex = 3;
-            // 
             // tb_ten
             // 
             this.tb_ten.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_ten.Location = new System.Drawing.Point(165, 139);
+            this.tb_ten.Location = new System.Drawing.Point(163, 193);
             this.tb_ten.Name = "tb_ten";
             this.tb_ten.Size = new System.Drawing.Size(266, 37);
             this.tb_ten.TabIndex = 1;
             // 
-            // tb_tendem
-            // 
-            this.tb_tendem.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_tendem.Location = new System.Drawing.Point(165, 214);
-            this.tb_tendem.Name = "tb_tendem";
-            this.tb_tendem.Size = new System.Drawing.Size(266, 37);
-            this.tb_tendem.TabIndex = 2;
-            // 
             // tb_ma
             // 
             this.tb_ma.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_ma.Location = new System.Drawing.Point(165, 64);
+            this.tb_ma.Location = new System.Drawing.Point(163, 118);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(266, 37);
             this.tb_ma.TabIndex = 0;
@@ -186,25 +139,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(487, 289);
+            this.label7.Location = new System.Drawing.Point(263, 308);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 30);
             this.label7.TabIndex = 8;
             this.label7.Text = "Trạng thái";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(487, 219);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 30);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Email";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(487, 143);
+            this.label9.Location = new System.Drawing.Point(485, 197);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 30);
             this.label9.TabIndex = 6;
@@ -213,43 +157,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(487, 67);
+            this.label10.Location = new System.Drawing.Point(485, 121);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(145, 30);
             this.label10.TabIndex = 5;
             this.label10.Text = "Số điện thoại";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 366);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 30);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Ngày sinh";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 293);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 30);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Họ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 220);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 30);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tên đệm";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 147);
+            this.label2.Location = new System.Drawing.Point(27, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 30);
             this.label2.TabIndex = 1;
@@ -258,7 +175,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 74);
+            this.label1.Location = new System.Drawing.Point(27, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 30);
             this.label1.TabIndex = 0;
@@ -450,24 +367,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rdb_khd;
         private System.Windows.Forms.RadioButton rdb_hd;
-        private System.Windows.Forms.DateTimePicker dtp_ngaysinh;
         private System.Windows.Forms.TextBox tb_sdt;
         private System.Windows.Forms.TextBox tb_diachi;
-        private System.Windows.Forms.TextBox tb_email;
-        private System.Windows.Forms.TextBox tb_ho;
         private System.Windows.Forms.TextBox tb_ten;
-        private System.Windows.Forms.TextBox tb_tendem;
         private System.Windows.Forms.TextBox tb_ma;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_timkiem;

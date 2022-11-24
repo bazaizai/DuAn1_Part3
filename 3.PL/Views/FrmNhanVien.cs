@@ -415,5 +415,13 @@ namespace _3.PL.Views
                 }
             }
         }
+
+        private void btnAddTeam_Click(object sender, EventArgs e)
+        {
+            FrmChucVu frmChucVu = new FrmChucVu();
+            frmChucVu.ShowDialog();
+            loadData();
+            loadComboBox();
+        }
     }
 }

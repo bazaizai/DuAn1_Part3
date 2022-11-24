@@ -65,13 +65,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_nhaplai = new System.Windows.Forms.TextBox();
+            this.btnAddTeam = new CustomControls.RJControls.RJCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_show)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgv_show
             // 
             this.dtgv_show.AllowUserToAddRows = false;
             this.dtgv_show.AllowUserToDeleteRows = false;
+            this.dtgv_show.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtgv_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.dtgv_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -88,6 +91,7 @@
             // 
             // cbb_chucvu
             // 
+            this.cbb_chucvu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbb_chucvu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_chucvu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbb_chucvu.FormattingEnabled = true;
@@ -99,6 +103,7 @@
             // 
             // cbb_gioitinh
             // 
+            this.cbb_gioitinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbb_gioitinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_gioitinh.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbb_gioitinh.FormattingEnabled = true;
@@ -110,6 +115,7 @@
             // 
             // dtp_ngaysinh
             // 
+            this.dtp_ngaysinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtp_ngaysinh.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dtp_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_ngaysinh.Location = new System.Drawing.Point(464, 52);
@@ -120,6 +126,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.Black;
@@ -131,6 +138,7 @@
             // 
             // tb_sdt
             // 
+            this.tb_sdt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sdt.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_sdt.Location = new System.Drawing.Point(464, 120);
             this.tb_sdt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -140,6 +148,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.Black;
@@ -151,6 +160,7 @@
             // 
             // tb_diachi
             // 
+            this.tb_diachi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_diachi.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_diachi.Location = new System.Drawing.Point(464, 187);
             this.tb_diachi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -160,6 +170,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.Black;
@@ -171,6 +182,7 @@
             // 
             // tb_ho
             // 
+            this.tb_ho.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_ho.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_ho.Location = new System.Drawing.Point(180, 83);
             this.tb_ho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -180,6 +192,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
@@ -191,6 +204,7 @@
             // 
             // tb_tendem
             // 
+            this.tb_tendem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_tendem.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_tendem.Location = new System.Drawing.Point(180, 52);
             this.tb_tendem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -200,6 +214,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
@@ -211,6 +226,7 @@
             // 
             // tb_matkhau
             // 
+            this.tb_matkhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_matkhau.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_matkhau.Location = new System.Drawing.Point(180, 148);
             this.tb_matkhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -221,6 +237,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
@@ -232,6 +249,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
@@ -243,6 +261,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
@@ -254,6 +273,7 @@
             // 
             // tb_ten
             // 
+            this.tb_ten.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_ten.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_ten.Location = new System.Drawing.Point(180, 21);
             this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -263,6 +283,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
@@ -274,6 +295,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.Black;
@@ -285,6 +307,7 @@
             // 
             // rdb_khonghd
             // 
+            this.rdb_khonghd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdb_khonghd.AutoSize = true;
             this.rdb_khonghd.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rdb_khonghd.ForeColor = System.Drawing.Color.Black;
@@ -297,6 +320,7 @@
             // 
             // rdb_hoatdong
             // 
+            this.rdb_hoatdong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdb_hoatdong.AutoSize = true;
             this.rdb_hoatdong.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rdb_hoatdong.ForeColor = System.Drawing.Color.Black;
@@ -309,6 +333,7 @@
             // 
             // tb_cccd
             // 
+            this.tb_cccd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_cccd.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_cccd.Location = new System.Drawing.Point(464, 88);
             this.tb_cccd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -318,6 +343,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.Black;
@@ -329,6 +355,7 @@
             // 
             // tb_email
             // 
+            this.tb_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_email.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_email.Location = new System.Drawing.Point(464, 151);
             this.tb_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -338,6 +365,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.Black;
@@ -349,6 +377,7 @@
             // 
             // tb_taikhoan
             // 
+            this.tb_taikhoan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_taikhoan.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_taikhoan.Location = new System.Drawing.Point(180, 114);
             this.tb_taikhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -358,6 +387,7 @@
             // 
             // label14
             // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.Black;
@@ -369,6 +399,7 @@
             // 
             // btn_them
             // 
+            this.btn_them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_them.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_them.ForeColor = System.Drawing.Color.White;
@@ -382,6 +413,7 @@
             // 
             // btn_sua
             // 
+            this.btn_sua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_sua.ForeColor = System.Drawing.Color.White;
@@ -395,6 +427,7 @@
             // 
             // btn_xoa
             // 
+            this.btn_xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_xoa.ForeColor = System.Drawing.Color.White;
@@ -408,6 +441,7 @@
             // 
             // label15
             // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.Black;
@@ -420,6 +454,7 @@
             // 
             // tb_timkiem
             // 
+            this.tb_timkiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_timkiem.BackColor = System.Drawing.SystemColors.Window;
             this.tb_timkiem.Location = new System.Drawing.Point(132, 282);
             this.tb_timkiem.Margin = new System.Windows.Forms.Padding(2);
@@ -431,6 +466,7 @@
             // 
             // cbb_loc
             // 
+            this.cbb_loc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbb_loc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_loc.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbb_loc.FormattingEnabled = true;
@@ -443,6 +479,7 @@
             // 
             // label16
             // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.Black;
@@ -454,6 +491,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
@@ -465,6 +503,7 @@
             // 
             // tb_nhaplai
             // 
+            this.tb_nhaplai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_nhaplai.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_nhaplai.Location = new System.Drawing.Point(180, 185);
             this.tb_nhaplai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -473,12 +512,33 @@
             this.tb_nhaplai.Size = new System.Drawing.Size(182, 27);
             this.tb_nhaplai.TabIndex = 76;
             // 
+            // btnAddTeam
+            // 
+            this.btnAddTeam.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddTeam.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.btnAddTeam.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddTeam.BorderColor2 = System.Drawing.Color.HotPink;
+            this.btnAddTeam.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.btnAddTeam.BorderSize = 2;
+            this.btnAddTeam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddTeam.GradientAngle = 50F;
+            this.btnAddTeam.Image = global::_3.PL.Properties.Resources.add;
+            this.btnAddTeam.Location = new System.Drawing.Point(676, 21);
+            this.btnAddTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddTeam.Name = "btnAddTeam";
+            this.btnAddTeam.Size = new System.Drawing.Size(30, 30);
+            this.btnAddTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAddTeam.TabIndex = 77;
+            this.btnAddTeam.TabStop = false;
+            this.btnAddTeam.Click += new System.EventHandler(this.btnAddTeam_Click);
+            // 
             // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(928, 588);
+            this.Controls.Add(this.btnAddTeam);
             this.Controls.Add(this.tb_nhaplai);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
@@ -519,6 +579,7 @@
             this.Name = "FrmNhanVien";
             this.Text = "FrmNhanVien";
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_show)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +624,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_nhaplai;
+        private CustomControls.RJControls.RJCircularPictureBox btnAddTeam;
     }
 }
