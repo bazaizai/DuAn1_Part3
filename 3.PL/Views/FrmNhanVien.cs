@@ -25,7 +25,6 @@ namespace _3.PL.Views
         public FrmNhanVien()
         {
             InitializeComponent();
-            rdb_hoatdong.Checked = true;
             _iChucVu = new ChucVuServices();
             _iNhanVien = new NhanVienServices();
             loadData();
@@ -91,10 +90,10 @@ namespace _3.PL.Views
             cbb_loc.Items.Add("Nữ");
             cbb_gioitinh.Text = "";
             cbb_chucvu.Text = "";
-            cbb_gioitinh.SelectedIndex = 0;
-            cbb_chucvu.SelectedIndex = 0;
+            cbb_gioitinh.SelectedIndex = -1;
+            cbb_chucvu.SelectedIndex = -1;
             cbb_loc.SelectedIndex = 0;
-
+            rdb_hoatdong.Checked = true;
         }
 
         public NhanVienView GetData()
