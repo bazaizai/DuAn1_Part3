@@ -327,6 +327,7 @@ namespace _3.PL.Views
             {
                 var hdct = GetHDct(Guid.Parse(Cell(0)));
                 ctsp.SoLuongTon += hdct.SoLuong;
+                ctsp.TrangThai = 0;
                 _IChiTietSpServices.Update(ctsp);
                 _IChiTietHDServices.Delete(hdct);
             }
