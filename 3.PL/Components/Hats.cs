@@ -29,6 +29,10 @@ namespace _3.PL.Components
         public Hats()
         {
             InitializeComponent();
+            if (SoLuongView == 0.ToString())
+            {
+                Add.Visible = false;
+            }
         }
 
         public string TenSP1 { get => Ten; set { Ten = value; TenSP.Text = value; } }
