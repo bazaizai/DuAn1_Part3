@@ -32,12 +32,7 @@
             this.tb_timkiemkm = new System.Windows.Forms.TextBox();
             this.cbb_locKM = new System.Windows.Forms.ComboBox();
             this.bt_timkm = new System.Windows.Forms.Button();
-            this.IDMauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Giaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_show = new System.Windows.Forms.DataGridView();
-            this.GiaSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ckb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.cbb_locSp = new System.Windows.Forms.ComboBox();
@@ -46,11 +41,16 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.IDSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ck_all = new System.Windows.Forms.CheckBox();
             this.dtg_sp = new System.Windows.Forms.DataGridView();
+            this.ckb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Giaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.bt_them = new CustomControls.RJControls.RJButton();
@@ -119,51 +119,23 @@
             this.bt_timkm.Text = "Tìm";
             this.bt_timkm.UseVisualStyleBackColor = false;
             // 
-            // IDMauSac
-            // 
-            this.IDMauSac.HeaderText = "Màu Sắc";
-            this.IDMauSac.Name = "IDMauSac";
-            this.IDMauSac.ReadOnly = true;
-            // 
-            // IdTeam
-            // 
-            this.IdTeam.HeaderText = "Team";
-            this.IdTeam.Name = "IdTeam";
-            this.IdTeam.ReadOnly = true;
-            // 
-            // Giaban
-            // 
-            this.Giaban.HeaderText = "Giá bán";
-            this.Giaban.Name = "Giaban";
-            this.Giaban.ReadOnly = true;
-            // 
             // dtg_show
             // 
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Location = new System.Drawing.Point(33, 101);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
+            this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 25;
             this.dtg_show.Size = new System.Drawing.Size(539, 183);
             this.dtg_show.TabIndex = 7;
             this.dtg_show.Click += new System.EventHandler(this.dtg_show_CellClick);
-            // 
-            // GiaSale
-            // 
-            this.GiaSale.HeaderText = "Giá sale";
-            this.GiaSale.Name = "GiaSale";
-            this.GiaSale.ReadOnly = true;
-            // 
-            // ckb
-            // 
-            this.ckb.FillWeight = 50F;
-            this.ckb.HeaderText = "";
-            this.ckb.Name = "ckb";
-            this.ckb.ReadOnly = true;
             // 
             // label13
             // 
@@ -244,12 +216,6 @@
             this.label11.TabIndex = 6;
             this.label11.Text = "Trạng thái";
             // 
-            // IDSP
-            // 
-            this.IDSP.HeaderText = "TênSP";
-            this.IDSP.Name = "IDSP";
-            this.IDSP.ReadOnly = true;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
@@ -271,7 +237,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(585, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(622, 630);
+            this.panel2.Size = new System.Drawing.Size(622, 639);
             this.panel2.TabIndex = 110;
             // 
             // ck_all
@@ -290,29 +256,61 @@
             this.dtg_sp.AllowUserToAddRows = false;
             this.dtg_sp.AllowUserToDeleteRows = false;
             this.dtg_sp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_sp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.dtg_sp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_sp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_sp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ckb,
             this.ID,
             this.IDSP,
             this.IDMauSac,
             this.IdTeam,
             this.Giaban,
-            this.GiaSale,
-            this.ckb});
+            this.GiaSale});
             this.dtg_sp.Location = new System.Drawing.Point(28, 368);
             this.dtg_sp.Name = "dtg_sp";
-            this.dtg_sp.ReadOnly = true;
+            this.dtg_sp.RowHeadersVisible = false;
             this.dtg_sp.RowHeadersWidth = 62;
             this.dtg_sp.RowTemplate.Height = 25;
-            this.dtg_sp.Size = new System.Drawing.Size(539, 228);
+            this.dtg_sp.Size = new System.Drawing.Size(539, 158);
             this.dtg_sp.TabIndex = 15;
+            // 
+            // ckb
+            // 
+            this.ckb.FillWeight = 50F;
+            this.ckb.HeaderText = "";
+            this.ckb.Name = "ckb";
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
             this.ID.Visible = false;
+            // 
+            // IDSP
+            // 
+            this.IDSP.HeaderText = "TênSP";
+            this.IDSP.Name = "IDSP";
+            // 
+            // IDMauSac
+            // 
+            this.IDMauSac.HeaderText = "Màu Sắc";
+            this.IDMauSac.Name = "IDMauSac";
+            // 
+            // IdTeam
+            // 
+            this.IdTeam.HeaderText = "Team";
+            this.IdTeam.Name = "IdTeam";
+            // 
+            // Giaban
+            // 
+            this.Giaban.HeaderText = "Giá bán";
+            this.Giaban.Name = "Giaban";
+            // 
+            // GiaSale
+            // 
+            this.GiaSale.HeaderText = "Giá sale";
+            this.GiaSale.Name = "GiaSale";
             // 
             // panel1
             // 
@@ -339,7 +337,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(585, 630);
+            this.panel1.Size = new System.Drawing.Size(585, 639);
             this.panel1.TabIndex = 111;
             // 
             // label4
@@ -371,7 +369,7 @@
             this.bt_them.ForeColor = System.Drawing.Color.White;
             this.bt_them.Location = new System.Drawing.Point(96, 532);
             this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(150, 40);
+            this.bt_them.Size = new System.Drawing.Size(150, 49);
             this.bt_them.TabIndex = 118;
             this.bt_them.Text = "Thêm";
             this.bt_them.TextColor = System.Drawing.Color.White;
@@ -394,7 +392,7 @@
             this.bt_sua.ForeColor = System.Drawing.Color.White;
             this.bt_sua.Location = new System.Drawing.Point(360, 532);
             this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(150, 40);
+            this.bt_sua.Size = new System.Drawing.Size(150, 49);
             this.bt_sua.TabIndex = 117;
             this.bt_sua.Text = "Sửa";
             this.bt_sua.TextColor = System.Drawing.Color.White;
@@ -444,7 +442,7 @@
             this.cbb_trangthai.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbb_trangthai.Name = "cbb_trangthai";
             this.cbb_trangthai.Padding = new System.Windows.Forms.Padding(1);
-            this.cbb_trangthai.Size = new System.Drawing.Size(241, 30);
+            this.cbb_trangthai.Size = new System.Drawing.Size(241, 39);
             this.cbb_trangthai.TabIndex = 116;
             this.cbb_trangthai.Texts = "";
             this.cbb_trangthai.OnSelectedIndexChanged += new System.EventHandler(this.cbb_trangthai_OnSelectedIndexChanged);
@@ -467,10 +465,11 @@
             this.cbb_loaiKM.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbb_loaiKM.Name = "cbb_loaiKM";
             this.cbb_loaiKM.Padding = new System.Windows.Forms.Padding(1);
-            this.cbb_loaiKM.Size = new System.Drawing.Size(241, 30);
+            this.cbb_loaiKM.Size = new System.Drawing.Size(241, 39);
             this.cbb_loaiKM.TabIndex = 115;
             this.cbb_loaiKM.Texts = "";
             this.cbb_loaiKM.OnSelectedIndexChanged += new System.EventHandler(this.cbb_loaiKM_OnSelectedIndexChanged);
+            this.cbb_loaiKM.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbb_loaiKM_MouseClick);
             // 
             // tb_mota
             // 
@@ -678,7 +677,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 630);
+            this.ClientSize = new System.Drawing.Size(1207, 639);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmChiTietSale";
@@ -700,12 +699,7 @@
         private System.Windows.Forms.TextBox tb_timkiemkm;
         private System.Windows.Forms.ComboBox cbb_locKM;
         private System.Windows.Forms.Button bt_timkm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDMauSac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTeam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Giaban;
         private System.Windows.Forms.DataGridView dtg_show;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSale;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ckb;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbb_locSp;
@@ -714,11 +708,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDSP;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox ck_all;
         private System.Windows.Forms.DataGridView dtg_sp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private CustomControls.RJControls.RJButton bt_them;
@@ -739,5 +731,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ckb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDMauSac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTeam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Giaban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSale;
     }
 }

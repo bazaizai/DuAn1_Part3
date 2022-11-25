@@ -27,6 +27,7 @@ namespace _3.PL.Views
         private Guid IDCtsle;
         private Guid IDsale;
         private ChiTietSpViews chiTietSpViews;
+
         public FrmChiTietSale()
         {
             InitializeComponent();
@@ -106,8 +107,11 @@ namespace _3.PL.Views
 
             foreach (var item in _chiTietSpServices.GetAll())
             {
-                dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam, item.GiaBan);
+                dtg_sp.Rows.Add( null,item.Id, item.TenSP, item.TenMauSac, item.TenTeam, item.GiaBan);
             }
+            AddHeaderCheckBox();
+            HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
+
 
         }
 
@@ -207,7 +211,7 @@ namespace _3.PL.Views
             tb_mucgiam.Texts = "";
             tb_mota.Texts = "";
         }
-    
+
 
         private void tb_timkiemkm_TextChanged(object sender, EventArgs e)
         {
@@ -406,5 +410,28 @@ namespace _3.PL.Views
         {
             loadKM();
         }
+        CheckBox HeaderCheckBox = null;
+        bool IsHeaderCheckBoxClicked = false;
+
+        private void AddHeaderCheckBox()
+        {
+            HeaderCheckBox = new CheckBox();
+            HeaderCheckBox.Size = new Size(15, 15);
+            this.dtg_sp.Controls.Add(HeaderCheckBox);
+        }
+        private void HeaderCheckBoxClick(CheckBox checkBox)
+        {
+            IsHeaderCheckBoxClicked = true;
+            foreach (DataGridViewRow row in dtg_sp.Rows) ((DataGridViewCheckBoxCell)row.Cells["ckb"]).Value = checkBox.Checked;
+            dtg_sp.RefreshEdit();
+            IsHeaderCheckBoxClicked= false;
+        }
+
+        private void cbb_loaiKM_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderCheckBoxClick((CheckBox)sender);
+        }
+
+   
     }
 }
