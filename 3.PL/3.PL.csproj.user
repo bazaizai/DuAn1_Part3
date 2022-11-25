@@ -97,6 +97,9 @@
     <Compile Update="Views\FrmQLKieuSP.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmQuanLyHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmSale.cs">
       <SubType>Form</SubType>
     </Compile>
