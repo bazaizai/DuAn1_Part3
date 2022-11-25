@@ -455,5 +455,14 @@ namespace _3.PL.Views
             return str;
         }
 
+        private void dtg_show_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }
+
+        private void dtg_show_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -119,3 +119,12 @@ C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.csproj.Cor
 C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.dll
 C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\refint\3.PL.dll
 C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.pdb
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.exe
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.deps.json
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.runtimeconfig.json
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.runtimeconfig.dev.json
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.dll
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.pdb
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.csproj.CopyComplete
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.genruntimeconfig.cache
+C:\Users\taikh\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll

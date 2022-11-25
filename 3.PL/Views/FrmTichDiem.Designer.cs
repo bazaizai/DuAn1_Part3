@@ -59,7 +59,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(12, 449);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1078, 343);
+            this.groupBox2.Size = new System.Drawing.Size(953, 343);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hiển thị";
@@ -67,7 +67,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(187, 44);
+            this.label6.Location = new System.Drawing.Point(92, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 30);
             this.label6.TabIndex = 19;
@@ -75,21 +75,24 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(338, 41);
+            this.tb_timkiem.Location = new System.Drawing.Point(243, 36);
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(671, 37);
             this.tb_timkiem.TabIndex = 19;
             // 
             // dtg_show
             // 
+            this.dtg_show.AllowUserToAddRows = false;
+            this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Location = new System.Drawing.Point(6, 98);
             this.dtg_show.Name = "dtg_show";
+            this.dtg_show.ReadOnly = true;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(1033, 228);
+            this.dtg_show.Size = new System.Drawing.Size(930, 228);
             this.dtg_show.TabIndex = 0;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
             // 
@@ -100,9 +103,9 @@
             this.groupBox3.Controls.Add(this.btn_sua);
             this.groupBox3.Controls.Add(this.btn_them);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(704, 12);
+            this.groupBox3.Location = new System.Drawing.Point(689, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(386, 450);
+            this.groupBox3.Size = new System.Drawing.Size(276, 441);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
@@ -111,7 +114,7 @@
             // 
             this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(129, 323);
+            this.btn_clear.Location = new System.Drawing.Point(62, 318);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(175, 48);
             this.btn_clear.TabIndex = 3;
@@ -123,7 +126,7 @@
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_xoa.ForeColor = System.Drawing.Color.White;
-            this.btn_xoa.Location = new System.Drawing.Point(129, 244);
+            this.btn_xoa.Location = new System.Drawing.Point(62, 239);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(175, 48);
             this.btn_xoa.TabIndex = 2;
@@ -135,7 +138,7 @@
             // 
             this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_sua.ForeColor = System.Drawing.Color.White;
-            this.btn_sua.Location = new System.Drawing.Point(129, 165);
+            this.btn_sua.Location = new System.Drawing.Point(62, 160);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(175, 48);
             this.btn_sua.TabIndex = 1;
@@ -147,7 +150,7 @@
             // 
             this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_them.ForeColor = System.Drawing.Color.White;
-            this.btn_them.Location = new System.Drawing.Point(129, 86);
+            this.btn_them.Location = new System.Drawing.Point(62, 81);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(175, 48);
             this.btn_them.TabIndex = 0;
@@ -176,7 +179,7 @@
             // 
             this.tb_ct.Location = new System.Drawing.Point(22, 92);
             this.tb_ct.Name = "tb_ct";
-            this.tb_ct.Size = new System.Drawing.Size(256, 37);
+            this.tb_ct.Size = new System.Drawing.Size(218, 37);
             this.tb_ct.TabIndex = 20;
             this.tb_ct.TextChanged += new System.EventHandler(this.tb_ct_TextChanged);
             // 
@@ -192,7 +195,7 @@
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(388, 296);
+            this.rdb_khd.Location = new System.Drawing.Point(386, 280);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(212, 34);
             this.rdb_khd.TabIndex = 18;
@@ -203,7 +206,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(199, 296);
+            this.rdb_hd.Location = new System.Drawing.Point(197, 280);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(144, 34);
             this.rdb_hd.TabIndex = 17;
@@ -213,7 +216,7 @@
             // 
             // tb_sodiem
             // 
-            this.tb_sodiem.Location = new System.Drawing.Point(199, 210);
+            this.tb_sodiem.Location = new System.Drawing.Point(197, 194);
             this.tb_sodiem.Name = "tb_sodiem";
             this.tb_sodiem.Size = new System.Drawing.Size(390, 37);
             this.tb_sodiem.TabIndex = 12;
@@ -221,7 +224,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 300);
+            this.label7.Location = new System.Drawing.Point(53, 284);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 30);
             this.label7.TabIndex = 8;
@@ -230,7 +233,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 211);
+            this.label4.Location = new System.Drawing.Point(53, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 30);
             this.label4.TabIndex = 3;
@@ -241,7 +244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(1128, 795);
+            this.ClientSize = new System.Drawing.Size(976, 795);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);

@@ -36,13 +36,13 @@
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_mucud = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_sodiem = new System.Windows.Forms.TextBox();
             this.lb_sodiem = new System.Windows.Forms.Label();
             this.cbb_loaihinhkm = new System.Windows.Forms.ComboBox();
             this.rdb_khd = new System.Windows.Forms.RadioButton();
             this.rdb_hd = new System.Windows.Forms.RadioButton();
-            this.tb_mucUudai = new System.Windows.Forms.TextBox();
             this.tb_ma = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lb_mucuudai = new System.Windows.Forms.Label();
@@ -67,12 +67,16 @@
             // 
             // dtg_show
             // 
+            this.dtg_show.AllowUserToAddRows = false;
+            this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.dtg_show.Location = new System.Drawing.Point(6, 36);
             this.dtg_show.Name = "dtg_show";
+            this.dtg_show.ReadOnly = true;
+            this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -144,13 +148,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbb_mucud);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tb_sodiem);
             this.groupBox1.Controls.Add(this.lb_sodiem);
             this.groupBox1.Controls.Add(this.cbb_loaihinhkm);
             this.groupBox1.Controls.Add(this.rdb_khd);
             this.groupBox1.Controls.Add(this.rdb_hd);
-            this.groupBox1.Controls.Add(this.tb_mucUudai);
             this.groupBox1.Controls.Add(this.tb_ma);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lb_mucuudai);
@@ -164,10 +168,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // cbb_mucud
+            // 
+            this.cbb_mucud.FormattingEnabled = true;
+            this.cbb_mucud.Location = new System.Drawing.Point(174, 229);
+            this.cbb_mucud.Name = "cbb_mucud";
+            this.cbb_mucud.Size = new System.Drawing.Size(178, 38);
+            this.cbb_mucud.TabIndex = 21;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 212);
+            this.label3.Location = new System.Drawing.Point(367, 232);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 30);
             this.label3.TabIndex = 20;
@@ -175,7 +187,7 @@
             // 
             // tb_sodiem
             // 
-            this.tb_sodiem.Location = new System.Drawing.Point(578, 208);
+            this.tb_sodiem.Location = new System.Drawing.Point(599, 228);
             this.tb_sodiem.Name = "tb_sodiem";
             this.tb_sodiem.Size = new System.Drawing.Size(199, 37);
             this.tb_sodiem.TabIndex = 12;
@@ -184,7 +196,7 @@
             // lb_sodiem
             // 
             this.lb_sodiem.AutoSize = true;
-            this.lb_sodiem.Location = new System.Drawing.Point(379, 214);
+            this.lb_sodiem.Location = new System.Drawing.Point(401, 233);
             this.lb_sodiem.Name = "lb_sodiem";
             this.lb_sodiem.Size = new System.Drawing.Size(174, 30);
             this.lb_sodiem.TabIndex = 11;
@@ -197,7 +209,7 @@
             this.cbb_loaihinhkm.Items.AddRange(new object[] {
             "Siêu khuyến mãi",
             "Khuyến mãi siêu khủng khiếp"});
-            this.cbb_loaihinhkm.Location = new System.Drawing.Point(578, 112);
+            this.cbb_loaihinhkm.Location = new System.Drawing.Point(600, 132);
             this.cbb_loaihinhkm.Name = "cbb_loaihinhkm";
             this.cbb_loaihinhkm.Size = new System.Drawing.Size(199, 38);
             this.cbb_loaihinhkm.TabIndex = 19;
@@ -224,17 +236,9 @@
             this.rdb_hd.Text = "Hoạt động";
             this.rdb_hd.UseVisualStyleBackColor = true;
             // 
-            // tb_mucUudai
-            // 
-            this.tb_mucUudai.Location = new System.Drawing.Point(155, 214);
-            this.tb_mucUudai.Name = "tb_mucUudai";
-            this.tb_mucUudai.Size = new System.Drawing.Size(175, 37);
-            this.tb_mucUudai.TabIndex = 10;
-            this.tb_mucUudai.TextChanged += new System.EventHandler(this.tb_mucUudai_TextChanged);
-            // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(155, 115);
+            this.tb_ma.Location = new System.Drawing.Point(177, 135);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(175, 37);
             this.tb_ma.TabIndex = 9;
@@ -251,7 +255,7 @@
             // lb_mucuudai
             // 
             this.lb_mucuudai.AutoSize = true;
-            this.lb_mucuudai.Location = new System.Drawing.Point(12, 221);
+            this.lb_mucuudai.Location = new System.Drawing.Point(34, 232);
             this.lb_mucuudai.Name = "lb_mucuudai";
             this.lb_mucuudai.Size = new System.Drawing.Size(126, 30);
             this.lb_mucuudai.TabIndex = 2;
@@ -260,7 +264,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(345, 118);
+            this.label2.Location = new System.Drawing.Point(367, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 30);
             this.label2.TabIndex = 1;
@@ -269,7 +273,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 115);
+            this.label1.Location = new System.Drawing.Point(34, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 30);
             this.label1.TabIndex = 0;
@@ -307,7 +311,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdb_khd;
         private System.Windows.Forms.RadioButton rdb_hd;
-        private System.Windows.Forms.TextBox tb_mucUudai;
         private System.Windows.Forms.TextBox tb_ma;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lb_mucuudai;
@@ -317,5 +320,6 @@
         private System.Windows.Forms.TextBox tb_sodiem;
         private System.Windows.Forms.Label lb_sodiem;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbb_mucud;
     }
 }

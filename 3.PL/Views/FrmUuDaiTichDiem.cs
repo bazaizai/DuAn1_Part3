@@ -31,7 +31,6 @@ namespace _3.PL.Views
             tb_ma.Text = "";
             cbb_loaihinhkm.SelectedIndex = 0;
             tb_sodiem.Text = "";
-            tb_mucUudai.Text = "";
             rdb_hd.Checked = false;
             rdb_khd.Checked = false;
 
@@ -59,7 +58,7 @@ namespace _3.PL.Views
         }
         private void btn_them_Click(object sender, EventArgs e)
         {
-            if (ValidateInput.CheckIntInput(tb_mucUudai.Text) == false || Convert.ToDecimal(tb_mucUudai.Text) < 0)
+            if (ValidateInput.CheckIntInput(cbb_mucud.Text) == false || Convert.ToDecimal(cbb_mucud.Text) < 0)
             {
                 MessageBox.Show("Vui lòng nhập đúng mức ưu đãi");
             }
@@ -78,7 +77,7 @@ namespace _3.PL.Views
                     Id = new Guid(),
                     Ma = tb_ma.Text,
                     LoaiHinhKm = cbb_loaihinhkm.Text,
-                    MucUuDai = Convert.ToDecimal(tb_mucUudai.Text),
+                    MucUuDai = Convert.ToDecimal(cbb_mucud.Text),
                     SoDiem = Convert.ToDecimal(tb_sodiem.Text),
                     TrangThai = rdb_hd.Checked ? 1 : 0
                 };
@@ -98,7 +97,7 @@ namespace _3.PL.Views
         {
             _uuDaiTichDiemView.Ma = tb_ma.Text;
             _uuDaiTichDiemView.LoaiHinhKm = cbb_loaihinhkm.Text;
-            _uuDaiTichDiemView.MucUuDai = Convert.ToDecimal(tb_mucUudai.Text);
+            _uuDaiTichDiemView.MucUuDai = Convert.ToDecimal(cbb_mucud.Text);
             _uuDaiTichDiemView.SoDiem = Convert.ToDecimal(tb_sodiem.Text);
             _uuDaiTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
             MessageBox.Show(_iUuDaiTichDiemServices.Update(_uuDaiTichDiemView));
@@ -118,7 +117,7 @@ namespace _3.PL.Views
                 _uuDaiTichDiemView = _iUuDaiTichDiemServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 tb_ma.Text = _uuDaiTichDiemView.Ma;
                 cbb_loaihinhkm.Text = _uuDaiTichDiemView.LoaiHinhKm;
-                tb_mucUudai.Text = Convert.ToString(_uuDaiTichDiemView.MucUuDai);
+                cbb_mucud.Text = Convert.ToString(_uuDaiTichDiemView.MucUuDai);
                 tb_sodiem.Text = Convert.ToString(_uuDaiTichDiemView.SoDiem);
                 rdb_hd.Checked = _uuDaiTichDiemView.TrangThai == 1;
                 rdb_khd.Checked = _uuDaiTichDiemView.TrangThai == 0;
