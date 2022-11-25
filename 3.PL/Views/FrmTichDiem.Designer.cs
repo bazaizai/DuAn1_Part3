@@ -38,6 +38,8 @@
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_ct = new System.Windows.Forms.TextBox();
+            this.lb_ct = new System.Windows.Forms.Label();
             this.rdb_khd = new System.Windows.Forms.RadioButton();
             this.rdb_hd = new System.Windows.Forms.RadioButton();
             this.tb_sodiem = new System.Windows.Forms.TextBox();
@@ -107,46 +109,56 @@
             // 
             // btn_clear
             // 
+            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_clear.ForeColor = System.Drawing.Color.White;
             this.btn_clear.Location = new System.Drawing.Point(129, 323);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(175, 48);
             this.btn_clear.TabIndex = 3;
             this.btn_clear.Text = "Clear";
-            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.UseVisualStyleBackColor = false;
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_xoa
             // 
+            this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_xoa.ForeColor = System.Drawing.Color.White;
             this.btn_xoa.Location = new System.Drawing.Point(129, 244);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(175, 48);
             this.btn_xoa.TabIndex = 2;
             this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.UseVisualStyleBackColor = false;
             this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_sua
             // 
+            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_sua.ForeColor = System.Drawing.Color.White;
             this.btn_sua.Location = new System.Drawing.Point(129, 165);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(175, 48);
             this.btn_sua.TabIndex = 1;
             this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.UseVisualStyleBackColor = false;
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_them
             // 
+            this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_them.ForeColor = System.Drawing.Color.White;
             this.btn_them.Location = new System.Drawing.Point(129, 86);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(175, 48);
             this.btn_them.TabIndex = 0;
             this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_ct);
+            this.groupBox1.Controls.Add(this.lb_ct);
             this.groupBox1.Controls.Add(this.rdb_khd);
             this.groupBox1.Controls.Add(this.rdb_hd);
             this.groupBox1.Controls.Add(this.tb_sodiem);
@@ -160,10 +172,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // tb_ct
+            // 
+            this.tb_ct.Location = new System.Drawing.Point(22, 92);
+            this.tb_ct.Name = "tb_ct";
+            this.tb_ct.Size = new System.Drawing.Size(256, 37);
+            this.tb_ct.TabIndex = 20;
+            this.tb_ct.TextChanged += new System.EventHandler(this.tb_ct_TextChanged);
+            // 
+            // lb_ct
+            // 
+            this.lb_ct.AutoSize = true;
+            this.lb_ct.Location = new System.Drawing.Point(22, 46);
+            this.lb_ct.Name = "lb_ct";
+            this.lb_ct.Size = new System.Drawing.Size(227, 30);
+            this.lb_ct.TabIndex = 19;
+            this.lb_ct.Text = "Công thức tích điểm: ";
+            // 
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(376, 251);
+            this.rdb_khd.Location = new System.Drawing.Point(388, 296);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(212, 34);
             this.rdb_khd.TabIndex = 18;
@@ -174,7 +203,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(187, 251);
+            this.rdb_hd.Location = new System.Drawing.Point(199, 296);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(144, 34);
             this.rdb_hd.TabIndex = 17;
@@ -184,7 +213,7 @@
             // 
             // tb_sodiem
             // 
-            this.tb_sodiem.Location = new System.Drawing.Point(187, 130);
+            this.tb_sodiem.Location = new System.Drawing.Point(199, 210);
             this.tb_sodiem.Name = "tb_sodiem";
             this.tb_sodiem.Size = new System.Drawing.Size(390, 37);
             this.tb_sodiem.TabIndex = 12;
@@ -192,7 +221,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 255);
+            this.label7.Location = new System.Drawing.Point(55, 300);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 30);
             this.label7.TabIndex = 8;
@@ -201,7 +230,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 131);
+            this.label4.Location = new System.Drawing.Point(55, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 30);
             this.label4.TabIndex = 3;
@@ -211,6 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1128, 795);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -244,5 +274,7 @@
         private System.Windows.Forms.TextBox tb_sodiem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lb_ct;
+        private System.Windows.Forms.TextBox tb_ct;
     }
 }

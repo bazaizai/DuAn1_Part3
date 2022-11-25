@@ -268,13 +268,13 @@
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtg_show.Location = new System.Drawing.Point(27, 95);
+            this.dtg_show.Location = new System.Drawing.Point(3, 92);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(1362, 228);
+            this.dtg_show.Size = new System.Drawing.Size(1412, 248);
             this.dtg_show.TabIndex = 15;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
             this.dtg_show.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtg_show_MouseClick);

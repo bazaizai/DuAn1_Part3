@@ -67,7 +67,6 @@ namespace _3.PL.Views
         {
             LoadData();
             _khachHangView.Id = Guid.Empty;
-            tb_ma.Text = "";
             tb_ten.Text = "";
             tb_diachi.Text = "";
             tb_sdt.Text = "";
@@ -220,7 +219,6 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dtg_show.Rows[e.RowIndex];
                 _khachHangView = _iKhachHangServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_ma.Text = _khachHangView.Ma;
                 tb_ten.Text = _khachHangView.Ten;
                 tb_diachi.Text = _khachHangView.DiaChi;
                 tb_sdt.Text = _khachHangView.Sdt;

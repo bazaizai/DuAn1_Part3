@@ -23,6 +23,8 @@ namespace _3.PL.Views
             _iTichDiemServices = new TichDiemServices();
             _tichDiemView = new TichDiemView();
             LoadData();
+
+
         }
         public void ClearForm()
         {
@@ -90,6 +92,11 @@ namespace _3.PL.Views
                 rdb_hd.Checked = _tichDiemView.TrangThai == 1;
                 rdb_khd.Checked = _tichDiemView.TrangThai == 0;
             }
+        }
+
+        private void tb_ct_TextChanged(object sender, EventArgs e)
+        {
+            lb_ct.Text = "Công thức tích điểm: " + tb_ct.Text;
         }
     }
 }
