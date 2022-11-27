@@ -60,6 +60,8 @@ namespace _3.PL.Views
                 Sp[i].ChatLieu = CTSP[i].TenChatLieu;
                 Sp[i].Team = CTSP[i].TenTeam;
                 Sp[i].Size = CTSP[i].Size;
+                Sp[i].IDSP = CTSP[i].Id;
+                Sp[i].MaHang = CTSP[i].MaQr;
                 Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                 Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                 Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";

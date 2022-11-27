@@ -123,6 +123,7 @@ namespace _2.BUS.Services
                            TrangThai = a.TrangThai,
                            MoTa = a.MoTa,
                            SoTienGiam = a.SoTienGiam,
+                           TrangThaiGiaoHang = a.TrangThaiGiaoHang
                            //IdtichDiem = b.IdtichDiem,
                            //IdKh = b.Id,
                            //HoKh = b.Ho,
@@ -178,7 +179,7 @@ namespace _2.BUS.Services
                 TienShip = obj.TienShip,
                 TrangThaiGiaoHang = obj.TrangThaiGiaoHang,
                 TongTien = obj.TongTien,
-                SoTienGiam = obj.SoTienGiam,
+                SoTienGiam = obj.TongTien - obj.TongTienSauKhiGiam,
                 Sdt = obj.SdtNhanHang,
                 MoTa = obj.MoTa,
                 TrangThai = obj.TrangThai

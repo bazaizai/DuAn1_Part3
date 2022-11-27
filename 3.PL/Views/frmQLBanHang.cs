@@ -61,7 +61,6 @@ namespace _3.PL.Views
             AnSearch();
             // FakeData();
             LoadItem();
-            LoadCbb();
             LoadData();
             LoadGia();
             if (TabHoaDon.SelectedTab != null)
@@ -81,7 +80,7 @@ namespace _3.PL.Views
         private void LoadData()
         {
             int stthd = 1;
-            var lst = _HoaDonServices.GetAll().Where(c => c.TrangThai == 0).OrderBy(c => c.MaHD);
+            var lst = _HoaDonServices.GetAll().Where(c => c.TrangThai == 0 && c.TrangThaiGiaoHang == 0).OrderBy(c => c.MaHD);
             foreach (var y in lst)
             {
                 TabPage tabPage = new TabPage();
@@ -104,7 +103,7 @@ namespace _3.PL.Views
                     double.Parse((x.SoLuong * x.DonGia).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ", "X");
                         tongtien += Convert.ToDecimal(Convert.ToDecimal(x.SoLuong) * x.DonGia);
                     }
-                    txtTongTien1.Text = double.Parse(tongtien.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                    txtTongTien2.Text = double.Parse(tongtien.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                 }
             }
         }
@@ -135,11 +134,7 @@ namespace _3.PL.Views
             var x = new HoaDonViews()
             {
                 Id = Guid.NewGuid(),
-                //IdKh = _IKhachHangServices.GetAll().Find(x => int.Parse(x.Sdt) == int.Parse(txtsearchKH.Texts)).Id,
-                //IdPttt = _IPtthanhToanServices.GetAll().Find(x => x.Ten == cbbPtThanhToan.Texts).Id,
-                //IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == cbbHinhThucMuaHang.Texts).Id,
                 MaHD = MaTT(),
-                //IdUD = Guid.Empty,
                 NgayTao = DateTime.Now,
                 TrangThai = 0,
             };
@@ -172,8 +167,8 @@ namespace _3.PL.Views
             LoadALL();
             ListItem.Controls.Clear();
             List<Hats> Hats = new List<Hats>();
-            Hats[] Hat = new Hats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
-            List<AnhViews> ListAnh = _IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).Where(x => x.TrangThaiSP == 0).ToList();
+            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh").OrderBy(x => x.MaQr).ToList();
+            Hats[] Hat = new Hats[ListAnh.Count];
             for (int i = 0; i < ListAnh.Count; i++)
             {
                 if (ListAnh[i].SoLuongTon > 0)
@@ -308,7 +303,7 @@ namespace _3.PL.Views
         private string Cell(int x) => dgview.CurrentRow.Cells[x].Value.ToString();
         private void dgview_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 && e.ColumnIndex < 0) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             var ctsp = _IChiTietSpServices.GetById(Guid.Parse(Cell(0)));
             if (dgview.Columns[e.ColumnIndex].Name == "TangSP")
             {
@@ -384,6 +379,7 @@ namespace _3.PL.Views
         {
             txtTienThua1.Text = "";
             txthtThanhToan.Texts = "";
+            txtsearchKH.Texts = "";
             LoadGia();
             LoadTienThua();
         }
@@ -404,7 +400,7 @@ namespace _3.PL.Views
                        double.Parse((x.SoLuong * x.DonGia).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ", "X");
                     tongtien += Convert.ToDecimal(Convert.ToDecimal(x.SoLuong) * x.DonGia);
                 }
-                txtTongTien1.Text = double.Parse(tongtien.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                txtTongTien2.Text = double.Parse(tongtien.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                 txtMaHD1.Text = TabHoaDon.SelectedTab.Name;
                 if (CbbGiamGia.SelectedIndex == 0)
                 {
@@ -422,7 +418,7 @@ namespace _3.PL.Views
                     }
                     else
                     {
-                        txtTongTienPTra1.Text = txtTongTien1.Text;
+                        txtTongTienPTra1.Text = txtTongTien2.Text;
                     }
                 }
                 else
@@ -440,37 +436,70 @@ namespace _3.PL.Views
                     }
                     else
                     {
-                        txtTongTienPTra1.Text = txtTongTien1.Text;
+                        txtTongTienPTra1.Text = txtTongTien2.Text;
                     }
                 }
-                if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Count > 0 && txthtThanhToan.Texts.Trim() != "" && txtTongTienPTra1.Text != "")
+                if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
                 {
-                    if (Convert.ToDecimal(txthtThanhToan.Texts) == ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                    if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Count > 0 && txthtThanhToan.Texts.Trim() != "" && txtTongTienPTra1.Text != "")
                     {
-                        txtTienThua1.Text = 0 + "đ";
-                    }
-                    else
-                    {
-                        if ((Convert.ToDecimal(txthtThanhToan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) > 0)
+                        if (txtChuyenKhoan.Texts.Trim() != "" && txthtThanhToan.Texts.Trim() != "")
                         {
-                            txtTienThua1.Text = double.Parse((Convert.ToDecimal(txthtThanhToan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                            if ((Convert.ToDecimal(txthtThanhToan.Texts) + decimal.Parse(txtChuyenKhoan.Texts)) == ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                            {
+                                txtTienThua1.Text = 0 + "đ";
+                            }
+                            else
+                            {
+                                if ((Convert.ToDecimal(txthtThanhToan.Texts) + decimal.Parse(txtChuyenKhoan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) > 0)
+                                {
+                                    txtTienThua1.Text = double.Parse((Convert.ToDecimal(txthtThanhToan.Texts) + decimal.Parse(txtChuyenKhoan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                                }
+                                else
+                                {
+                                    txtTienThua1.Text = "";
+                                }
+
+                            }
+                        }
+                    }
+                    if (txthtThanhToan.Texts == "")
+                    {
+                        txtTienThua1.Text = "";
+                    }
+                }
+                else 
+                {
+                    if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Count > 0 && txthtThanhToan.Texts.Trim() != "" && txtTongTienPTra1.Text != "")
+                    {
+                        if (Convert.ToDecimal(txthtThanhToan.Texts) == ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                        {
+                            txtTienThua1.Text = 0 + "đ";
                         }
                         else
                         {
-                            txtTienThua1.Text = "";
-                        }
+                            if ((Convert.ToDecimal(txthtThanhToan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) > 0)
+                            {
+                                txtTienThua1.Text = double.Parse((Convert.ToDecimal(txthtThanhToan.Texts) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                            }
+                            else
+                            {
+                                txtTienThua1.Text = "";
+                            }
 
+                        }
+                    }
+                    if (txthtThanhToan.Texts == "")
+                    {
+                        txtTienThua1.Text = "";
                     }
                 }
-                if (txthtThanhToan.Texts == "")
-                {
-                    txtTienThua1.Text = "";
-                }
+                
             }
 
             if (TabHoaDon.SelectedTab == null || !_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Any())
             {
-                txtTongTien1.Text = "";
+                txtTongTien2.Text = "";
                 txtTongTienPTra1.Text = "";
             }
 
@@ -485,6 +514,7 @@ namespace _3.PL.Views
             txtTienThua1.Text = "";
             txtChuyenKhoan.Texts = "";
             txtTienThua1.Text = "";
+            txtChuyenKhoan.Texts = "";
             txthtThanhToan.Texts = "";
             cbbPtThanhToan.SelectedIndex = 0;
         }
@@ -550,21 +580,43 @@ namespace _3.PL.Views
         {
             if (TabHoaDon.SelectedTab != null)
             {
-                if (txthtThanhToan.Texts.Trim() != "" && ValidateInput.CheckDecimalInput(txthtThanhToan.Texts.Trim()) && decimal.Parse(txthtThanhToan.Texts.Trim()) > _IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia))
+                if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
                 {
-                    decimal TienThua = decimal.Parse(txthtThanhToan.Texts.Trim()) - decimal.Parse(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia).ToString());
-                    if (TienThua < 0)
+                    if (txthtThanhToan.Texts.Trim() != "" && txtChuyenKhoan.Texts.Trim() != "" && ValidateInput.CheckDecimalInput(txthtThanhToan.Texts.Trim()) && decimal.Parse(txthtThanhToan.Texts.Trim()) > _IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia))
                     {
-                        txtTienThua1.Text = "";
+                        decimal TienThua = decimal.Parse(txthtThanhToan.Texts.Trim())+decimal.Parse(txtChuyenKhoan.Texts) - decimal.Parse(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia).ToString());
+                        if (TienThua < 0)
+                        {
+                            txtTienThua1.Text = "";
+                        }
+                        else
+                        {
+                            txtTienThua1.Text = double.Parse(TienThua.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                        }
                     }
                     else
                     {
-                        txtTienThua1.Text = double.Parse(TienThua.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                        txtTienThua1.Text = "";
                     }
                 }
                 else
                 {
-                    txtTienThua1.Text = "";
+                    if (txthtThanhToan.Texts.Trim() != "" && ValidateInput.CheckDecimalInput(txthtThanhToan.Texts.Trim()) && decimal.Parse(txthtThanhToan.Texts.Trim()) > _IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia))
+                    {
+                        decimal TienThua = decimal.Parse(txthtThanhToan.Texts.Trim()) - decimal.Parse(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia).ToString());
+                        if (TienThua < 0)
+                        {
+                            txtTienThua1.Text = "";
+                        }
+                        else
+                        {
+                            txtTienThua1.Text = double.Parse(TienThua.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                        }
+                    }
+                    else
+                    {
+                        txtTienThua1.Text = "";
+                    }
                 }
             }
         }
@@ -581,68 +633,206 @@ namespace _3.PL.Views
                 {
                     if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Any())
                     {
-                        if (decimal.Parse(txthtThanhToan.Texts.Trim()) >= ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                        var hoadon = _HoaDonServices.GetAll().FirstOrDefault(c => c.MaHD == TabHoaDon.SelectedTab.Name);
+                        if (rdoTaiQuay.Checked)
                         {
-                            var hoadon = _HoaDonServices.GetAll().FirstOrDefault(c => c.MaHD == TabHoaDon.SelectedTab.Name);
-                            if (hoadon != null)
+                            if (cbbPtThanhToan.SelectedIndex >= 0)
                             {
-                                hoadon.NgayThanhToan = DateTime.Now;
-                                hoadon.TrangThai = 1;
-                                hoadon.IdPttt = _IPtthanhToanServices.GetAll().FirstOrDefault(c => c.Ten == cbbPtThanhToan.Texts).Id;
-                                if (cbbPtThanhToan.Texts == "Tiền mặt")
+                                if (cbbPtThanhToan.Texts != "Cả tiền mặt và chuyển khoản")
                                 {
-                                    hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
-                                }
-                                else if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
-                                {
-                                    hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
-                                    hoadon.TienChuyenKhoan = Convert.ToDecimal(txtChuyenKhoan.Texts);
-                                }
-                                else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
-                                hoadon.MaHD = TabHoaDon.SelectedTab.Name;
-                                hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
-                                hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
-                                hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien1.Text);
-                                if (txtsearchKH.Texts != "")
-                                {
-                                    var temp = _IKhachHangServices.GetAll().FirstOrDefault(c => c.Sdt == txtsearchKH.Texts);
-                                    if (temp != null)
+                                    if (decimal.Parse(txthtThanhToan.Texts.Trim()) >= ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
                                     {
-                                        hoadon.IdKh = temp.Id;
+                                        if (hoadon != null)
+                                        {
+                                            hoadon.NgayThanhToan = DateTime.Now;
+                                            hoadon.TrangThai = 1;
+                                            hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == "Tại quầy").Id;
+                                            hoadon.IdPttt = _IPtthanhToanServices.GetAll().FirstOrDefault(c => c.Ten == cbbPtThanhToan.Texts).Id;
+                                            if (cbbPtThanhToan.Texts == "Tiền mặt")
+                                            {
+                                                hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                            }
+                                            else if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+                                            {
+                                                hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                                hoadon.TienChuyenKhoan = Convert.ToDecimal(txtChuyenKhoan.Texts);
+                                            }
+                                            else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
+                                            hoadon.MaHD = TabHoaDon.SelectedTab.Name;
+                                            hoadon.GiamGia = decimal.Parse(txtGiamGia.Texts);
+
+                                            //hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
+                                            hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
+                                            hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
+                                            hoadon.HinhThucGiamGia = CbbGiamGia.SelectedIndex == 0 ? "Phần trăm" : "Tiền mặt";
+
+                                            if (txtsearchKH.Texts != "")
+                                            {
+                                                var temp = _IKhachHangServices.GetAll().FirstOrDefault(c => c.Sdt == txtsearchKH.Texts);
+                                                if (temp != null)
+                                                {
+                                                    hoadon.IdKh = temp.Id;
+                                                }
+                                                else
+                                                {
+                                                    hoadon.IdKh = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                hoadon.IdKh = null;
+                                            }
+                                            string s = _HoaDonServices.Update(hoadon);
+                                            if (s == "Thành công")
+                                            {
+                                                TabHoaDon.TabPages.Remove(TabHoaDon.TabPages[TabHoaDon.SelectedIndex]);
+                                                this.Alert(_HoaDonServices.Update(hoadon), Form_Alert.enmType.Success);
+                                                LoadALL();
+                                                Clearform();
+                                            }
+                                            else
+                                            {
+                                                this.Alert(s, Form_Alert.enmType.Success);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        this.Alert("Số tiền không đủ để thanh toán HD", Form_Alert.enmType.Warning);
+                                    }
+                                }
+                                else
+                                {
+                                    if (decimal.Parse(txthtThanhToan.Texts.Trim())+ decimal.Parse(txtChuyenKhoan.Texts) >= ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                                    {
+                                        if (hoadon != null)
+                                        {
+                                            hoadon.NgayThanhToan = DateTime.Now;
+                                            hoadon.TrangThai = 1;
+                                            hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == "Tại quầy").Id;
+                                            hoadon.IdPttt = _IPtthanhToanServices.GetAll().FirstOrDefault(c => c.Ten == cbbPtThanhToan.Texts).Id;
+                                            if (cbbPtThanhToan.Texts == "Tiền mặt")
+                                            {
+                                                hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                            }
+                                            else if (cbbPtThanhToan.Texts == "Cả tiền mặt và chuyển khoản")
+                                            {
+                                                hoadon.TienKhachDua = Convert.ToDecimal(txthtThanhToan.Texts);
+                                                hoadon.TienChuyenKhoan = Convert.ToDecimal(txtChuyenKhoan.Texts);
+                                            }
+                                            else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
+                                            hoadon.MaHD = TabHoaDon.SelectedTab.Name;
+                                            hoadon.GiamGia =txtGiamGia.Texts.Trim() == ""?0: decimal.Parse(txtGiamGia.Texts);
+                                            //hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
+                                            hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
+                                            hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
+                                            hoadon.HinhThucGiamGia = CbbGiamGia.SelectedIndex == 0 ? "Phần trăm" : "Tiền mặt";
+                                            hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == rdoTaiQuay.Text).Id;
+                                            hoadon.MoTa = txtMoTa.Texts;
+                                            if (txtsearchKH.Texts != "")
+                                            {
+                                                var temp = _IKhachHangServices.GetAll().FirstOrDefault(c => c.Sdt == txtsearchKH.Texts);
+                                                if (temp != null)
+                                                {
+                                                    hoadon.IdKh = temp.Id;
+                                                }
+                                                else
+                                                {
+                                                    hoadon.IdKh = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                hoadon.IdKh = null;
+                                            }
+                                            string s = _HoaDonServices.Update(hoadon);
+                                            if (s == "Thành công")
+                                            {
+                                                TabHoaDon.TabPages.Remove(TabHoaDon.TabPages[TabHoaDon.SelectedIndex]);
+                                                this.Alert(_HoaDonServices.Update(hoadon), Form_Alert.enmType.Success);
+                                                LoadALL();
+                                                Clearform();
+                                            }
+                                            else
+                                            {
+                                                this.Alert(s, Form_Alert.enmType.Success);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        this.Alert("Số tiền không đủ để thanh toán HD", Form_Alert.enmType.Warning);
+                                    }
+                                }
+                                
+                            }
+                            else
+                            {
+
+                                this.Alert("Vui lòng chọn hình thức thanh toán", Form_Alert.enmType.Warning);
+                            }
+                        }
+                        else
+                        {
+                            if (CheckGH())
+                            {
+                                if (cbbPtThanhToan.SelectedIndex >= 0)
+                                {
+                                    if (cbbPtThanhToan.Texts == "COD")
+                                    {
+                                        hoadon.TrangThai = 0;
+                                        hoadon.TrangThaiGiaoHang = 1;
+                                        hoadon.Cod = decimal.Parse(txthtThanhToan.Texts);
+                                    }else
+                                    {
+                                        hoadon.TrangThai = 1;
+                                        hoadon.TrangThaiGiaoHang = 1;
+                                        hoadon.NgayThanhToan = DateTime.Now;
+                                        hoadon.TienChuyenKhoan = decimal.Parse(txthtThanhToan.Texts);
+                                    }
+                                    hoadon.IdPttt = _IPtthanhToanServices.GetAll().Find(x => x.Ten == cbbPtThanhToan.Texts).Id;
+                                    hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == rdoQuaInbox.Text).Id;
+                                    hoadon.MaHD = TabHoaDon.SelectedTab.Name;
+                                    hoadon.GiamGia = txtGiamGia.Texts==""?0: decimal.Parse(txtGiamGia.Texts);
+                                    hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
+                                    hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
+                                    hoadon.HinhThucGiamGia = CbbGiamGia.SelectedIndex == 0 ? "Phần trăm" : "Tiền mặt";
+                                    hoadon.TienShip = decimal.Parse(txtPhiGiaoHang.Texts);
+                                    hoadon.TenNguoiNhan = txtTenNguoiGH.Texts;
+                                    hoadon.SdtNhanHang = txtSdtGH.Texts;
+                                    hoadon.DiaChiNhan = txtDiaChiGH.Texts;
+                                    hoadon.MoTa = txtMoTa.Texts;
+
+                                    if (txtsearchKH.Texts != "")
+                                    {
+                                        var temp = _IKhachHangServices.GetAll().FirstOrDefault(c => c.Sdt == txtsearchKH.Texts);
+                                        if (temp != null)
+                                        {
+                                            hoadon.IdKh = temp.Id;
+                                        }
+                                        else
+                                        {
+                                            hoadon.IdKh = null;
+                                        }
                                     }
                                     else
                                     {
                                         hoadon.IdKh = null;
                                     }
-                                }
-                                else
-                                {
-                                    hoadon.IdKh = null;
-                                }
-                                string s = _HoaDonServices.Update(hoadon);
-                                if (s == "Thành công")
-                                {
-                                    TabHoaDon.TabPages.Remove(TabHoaDon.TabPages[TabHoaDon.SelectedIndex]);
-                                    this.Alert(_HoaDonServices.Update(hoadon), Form_Alert.enmType.Success);
-                                    //var HDCt = _IChiTietHDServices.GetAll().Where(x => x.IdHoaDon == hoadon.Id);
-                                    //foreach (var item in HDCt)
-                                    //{
-                                    //    var ctsp = _IChiTietSpServices.GetAll().FirstOrDefault(x => x.Id == item.IdChiTietSp);
-                                    //    ctsp.SoLuongTon -= item.SoLuong;
-                                    //    _IChiTietSpServices.Update(ctsp);
-                                    //}
-                                    LoadALL();
-                                    Clearform();
-                                }
-                                else
-                                {
-                                    this.Alert(s, Form_Alert.enmType.Success);
+                                    string s = _HoaDonServices.Update(hoadon);
+                                    if (s == "Thành công")
+                                    {
+                                        TabHoaDon.TabPages.Remove(TabHoaDon.TabPages[TabHoaDon.SelectedIndex]);
+                                        this.Alert(_HoaDonServices.Update(hoadon), Form_Alert.enmType.Success);
+                                        LoadALL();
+                                        Clearform();
+                                    }
+                                    else
+                                    {
+                                        this.Alert(s, Form_Alert.enmType.Success);
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            this.Alert("Số tiền không đủ để thanh toán HD", Form_Alert.enmType.Warning);
                         }
                     }
                     else
@@ -654,6 +844,15 @@ namespace _3.PL.Views
             {
                 this.Alert("Hóa đơn không tồn tại", Form_Alert.enmType.Info);
             }
+        }
+
+        private bool CheckGH()
+        {
+            foreach (var x in TabGiaoHang.Controls.OfType<RJTextBox>())
+            {
+                if (x.Texts.Trim() == "") return false;
+            }
+            return true;
         }
         private void cbbPtThanhToan_OnSelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -677,10 +876,7 @@ namespace _3.PL.Views
                 txtChuyenKhoan.Visible = false;
                 lblChuyenTien.Visible = false;
             }
-            if (CbbGiamGia.SelectedIndex == 0)
-            {
-                //txtTienThua1.Text = 
-            }
+            txtChuyenKhoan.Texts = 0.ToString();
         }
 
         private void txtGiamGia__TextChanged(object sender, EventArgs e)
@@ -698,25 +894,28 @@ namespace _3.PL.Views
                 }
                 else if (txtTongTienPTra1.Text.Trim() != "" && txtTongTienPTra1.Text.Trim() != "")
                 {
-                    txtGiamGia.Texts = ((ValidateInput.RegexDecimal(txtTongTien1.Text) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) / (ValidateInput.RegexDecimal(txtTongTien1.Text)) * 100).ToString();
+                    txtGiamGia.Texts = ((ValidateInput.RegexDecimal(txtTongTien2.Text) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) / (ValidateInput.RegexDecimal(txtTongTien2.Text)) * 100).ToString();
                 }
             }
             else
             {
-                if (txtTongTienPTra1.Text == 0.ToString() && txtTongTien1.Text != "")
+                if (txtTongTienPTra1.Text == 0.ToString() && txtTongTien2.Text != "")
                 {
-                    txtGiamGia.Texts = ValidateInput.RegexDecimal(txtTongTien1.Text).ToString();
+                    txtGiamGia.Texts = ValidateInput.RegexDecimal(txtTongTien2.Text).ToString();
                 }
                 else if (txtTongTienPTra1.Text.Trim() != "" && txtTongTienPTra1.Text.Trim() != "")
                 {
-                    txtGiamGia.Texts = (ValidateInput.RegexDecimal(txtTongTien1.Text) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)).ToString();
+                    txtGiamGia.Texts = (ValidateInput.RegexDecimal(txtTongTien2.Text) - ValidateInput.RegexDecimal(txtTongTienPTra1.Text)).ToString();
                 }
             }
         }
 
         private void txthtThanhToan__TextChanged(object sender, EventArgs e)
         {
-            LoadGia();
+            if (txtChuyenKhoan.Texts != "")
+            {
+                LoadGia();
+            }
         }
 
         private ChiTietSpViews GetCtsp(Guid id) => _IChiTietSpServices.GetById(id);
@@ -725,7 +924,7 @@ namespace _3.PL.Views
             LoadAll();
             flpSP.Controls.Clear();
             SearchHats[] Hat = new SearchHats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
-            List<AnhViews> ListAnh = _IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).Where(x => x.TrangThaiSP == 0 && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
+            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0&& x.TenAnh == "Anh" && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
             if (ListAnh.Any())
             {
                 for (int i = 0; i < ListAnh.Count; i++)
@@ -863,6 +1062,70 @@ namespace _3.PL.Views
             txtsearchKH.Texts = "";
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void txtChuyenKhoan__TextChanged(object sender, EventArgs e)
+        {
+            if (txthtThanhToan.Texts != "")
+            {
+                LoadGia();
+            }
+            
+        }
+
+        private void rdoQuaInbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoQuaInbox.Checked)
+            {
+                btnThanhToan.Text = "Đặt Hàng";
+                cbbPtThanhToan.Items.Clear();
+                cbbPtThanhToan.Items.Add("COD");
+                cbbPtThanhToan.Items.Add("Chuyển khoản");
+            }
+        }
+
+        private void rdoTaiQuay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTaiQuay.Checked)
+            {
+                btnThanhToan.Text = "Thanh toán";
+                cbbPtThanhToan.Items.Clear();
+                cbbPtThanhToan.Items.Add("Tiền mặt");
+                cbbPtThanhToan.Items.Add("Chuyển khoản");
+                cbbPtThanhToan.Items.Add("Cả tiền mặt và chuyển khoản");
+            }
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            if (TabHoaDon.SelectedTab != null)
+            {
+                var lstcthd = _IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList();
+                if (lstcthd.Any())
+                {
+                    foreach (var item in lstcthd)
+                    {
+                        var ctsp = _IChiTietSpServices.GetById(item.IdChiTietSp.GetValueOrDefault());
+                        ctsp.SoLuongTon += item.SoLuong;
+                        _IChiTietSpServices.Update(ctsp);
+                        _IChiTietHDServices.Delete(item);
+                    }
+                }
+                LoadALL();
+                LoadItem();
+                LoadView(TabHoaDon.SelectedTab.Name);
+                LoadGia();
+                LoadTienThua();
+            }
+        }
+
+        private void btnThemSP_Click(object sender, EventArgs e)
+        {
+            FrmChiTietSP sp = new FrmChiTietSP();
+            sp.ShowDialog();
+        }
     }
 }

@@ -132,3 +132,4 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Frm
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Guna.UI2.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.ViewSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.FrmThemSP.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSuaSanPham.resources

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _2.BUS.IServices;
+using _2.BUS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Image = System.Drawing.Image;
 
 namespace _3.PL.Views
 {
     public partial class ViewSP : Form
     {
         int x;
+        IChiTietSpServices _IChiTietSpServices;
         public ViewSP()
         {
             InitializeComponent();
             x = 0;
+            _IChiTietSpServices = new ChiTietSpServices();
             pnlbody.Height = panel2.Height;
             this.Height = pnlbody.Height;
         }
@@ -63,7 +69,7 @@ namespace _3.PL.Views
 
 
         private Image bcode;
-        public Image Barcode { get => bcode; set { bcode = value; barcode.Image = value; barcode1.Image = value; } }
+        public System.Drawing.Image Barcode { get => bcode; set { bcode = value; barcode.Image = value; barcode1.Image = value; } }
 
 
         private Image Anh;
@@ -77,6 +83,9 @@ namespace _3.PL.Views
         private string Bhanh;
         public string BaoHanh { get => Bhanh; set { Bhanh = value; lblBaoHanh.Text = value; } }
 
+
+        private Guid Id;
+        public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
 
 
 
@@ -100,5 +109,42 @@ namespace _3.PL.Views
             }
         }
 
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            var ctsp = _IChiTietSpServices.GetById(Guid.Parse(ID.Text));
+            if (lblTrangThai.Text == "Đang Bán")
+            {
+                lblTrangThai.Text = "Ngừng Bán";
+                ctsp.TrangThai = 1;
+                _IChiTietSpServices.Update(ctsp);
+
+            }
+            else
+            {
+                lblTrangThai.Text = "Đang Bán";
+                ctsp.TrangThai = 0;
+                _IChiTietSpServices.Update(ctsp);
+            }
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            FrmSuaSanPham fixSP = new FrmSuaSanPham();
+            fixSP.Anh1 = this.Anh1;
+            fixSP.MaSP = this.lblMaHang.Text;
+            fixSP.TenSP = this.lblTenHang.Text.Substring(0, this.lblTenHang.Text.IndexOf("-"));
+            fixSP.MauSac = this.lblMauSac.Text;
+            fixSP.Size1 = this.lblSize.Text;
+            fixSP.ChatLieu = this.lblChatLieu.Text;
+            fixSP.Team = this.lblTeam.Text;
+            fixSP.GiaNhap = this.lblGiaNhap.Text;
+            fixSP.GiaBan = this.lblGiaBan.Text;
+            fixSP.SoLuong = this.lblSoLuongTon.Text;
+            fixSP.BaoHanh = this.lblBaoHanh.Text;
+            fixSP.CheckTrangThai = this.lblTrangThai.Text;
+            fixSP.KhuyenMai = this.lblADKM.Text;
+            fixSP.Mota = this.lblGhiChu.Text;
+            fixSP.ShowDialog();
+        }
     }
 }

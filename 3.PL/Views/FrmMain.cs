@@ -195,7 +195,7 @@ namespace _3.PL.Views
         private void iconButton2_Click(object sender, EventArgs e)
         {
             lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new frmQLChiTietSp());
+            OpenChildForm(new FrmChiTietSP());
             HideSubMenu();
         }
         private void btnSP_Click(object sender, EventArgs e)
