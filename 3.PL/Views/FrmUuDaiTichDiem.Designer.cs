@@ -159,7 +159,7 @@
             // cbb_mucud
             // 
             this.cbb_mucud.FormattingEnabled = true;
-            this.cbb_mucud.Location = new System.Drawing.Point(314, 144);
+            this.cbb_mucud.Location = new System.Drawing.Point(318, 159);
             this.cbb_mucud.Name = "cbb_mucud";
             this.cbb_mucud.Size = new System.Drawing.Size(178, 38);
             this.cbb_mucud.TabIndex = 21;
@@ -167,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(507, 147);
+            this.label3.Location = new System.Drawing.Point(511, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 30);
             this.label3.TabIndex = 20;
@@ -175,7 +175,7 @@
             // 
             // tb_sodiem
             // 
-            this.tb_sodiem.Location = new System.Drawing.Point(739, 143);
+            this.tb_sodiem.Location = new System.Drawing.Point(743, 158);
             this.tb_sodiem.Name = "tb_sodiem";
             this.tb_sodiem.Size = new System.Drawing.Size(199, 37);
             this.tb_sodiem.TabIndex = 12;
@@ -184,7 +184,7 @@
             // lb_sodiem
             // 
             this.lb_sodiem.AutoSize = true;
-            this.lb_sodiem.Location = new System.Drawing.Point(541, 148);
+            this.lb_sodiem.Location = new System.Drawing.Point(545, 163);
             this.lb_sodiem.Name = "lb_sodiem";
             this.lb_sodiem.Size = new System.Drawing.Size(174, 30);
             this.lb_sodiem.TabIndex = 11;
@@ -197,7 +197,7 @@
             this.cbb_loaihinhkm.Items.AddRange(new object[] {
             "Siêu khuyến mãi",
             "Khuyến mãi siêu khủng khiếp"});
-            this.cbb_loaihinhkm.Location = new System.Drawing.Point(740, 47);
+            this.cbb_loaihinhkm.Location = new System.Drawing.Point(744, 62);
             this.cbb_loaihinhkm.Name = "cbb_loaihinhkm";
             this.cbb_loaihinhkm.Size = new System.Drawing.Size(199, 38);
             this.cbb_loaihinhkm.TabIndex = 19;
@@ -226,7 +226,7 @@
             // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(317, 50);
+            this.tb_ma.Location = new System.Drawing.Point(321, 65);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(175, 37);
             this.tb_ma.TabIndex = 9;
@@ -243,7 +243,7 @@
             // lb_mucuudai
             // 
             this.lb_mucuudai.AutoSize = true;
-            this.lb_mucuudai.Location = new System.Drawing.Point(174, 147);
+            this.lb_mucuudai.Location = new System.Drawing.Point(178, 162);
             this.lb_mucuudai.Name = "lb_mucuudai";
             this.lb_mucuudai.Size = new System.Drawing.Size(126, 30);
             this.lb_mucuudai.TabIndex = 2;
@@ -252,7 +252,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(507, 53);
+            this.label2.Location = new System.Drawing.Point(511, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 30);
             this.label2.TabIndex = 1;
@@ -261,7 +261,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(174, 50);
+            this.label1.Location = new System.Drawing.Point(178, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 30);
             this.label1.TabIndex = 0;

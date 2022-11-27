@@ -109,6 +109,7 @@
             this.tb_sdt.Name = "tb_sdt";
             this.tb_sdt.Size = new System.Drawing.Size(330, 37);
             this.tb_sdt.TabIndex = 5;
+            this.tb_sdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_sdt_KeyPress);
             // 
             // tb_diachi
             // 
@@ -125,6 +126,7 @@
             this.tb_ten.Name = "tb_ten";
             this.tb_ten.Size = new System.Drawing.Size(266, 37);
             this.tb_ten.TabIndex = 1;
+            this.tb_ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ten_KeyPress);
             // 
             // tb_ma
             // 
@@ -315,7 +317,7 @@
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtg_show.Location = new System.Drawing.Point(21, 92);
