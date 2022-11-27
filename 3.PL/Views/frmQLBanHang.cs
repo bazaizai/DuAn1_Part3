@@ -35,6 +35,7 @@ namespace _3.PL.Views
         IPtthanhToanServices _IPtthanhToanServices;
         IHinhThucMhServices _IHinhThucMhServices;
         TabPage tabPage;
+        int doifrom = 0;
         public string GetSdt { get; set; }
         public frmQLBanHang()
         {
@@ -52,10 +53,11 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
             _IHinhThucMhServices = new HinhThucMhServices();
             _IChiTietHDServices = new ChiTietHDServices();
-            pnlTop.Height = this.Height - pnlbutton.Height;
+            pnlfill.Height = this.Height - pnlbutton.Height;
             rdoTaiQuay.Checked = true;
             CbbGiamGia.SelectedIndex = 0;
             pnlKhachHang.Visible = false;
+            TabHoaDon.Dock = DockStyle.Fill;
             //System.Windows.Documents.ListItem.Controls.Clear();
             ListItem.Controls.Clear();
             AnSearch();
@@ -299,6 +301,7 @@ namespace _3.PL.Views
         }
 
         private ChiTietHDView GetHDct(Guid ID) => _IChiTietHDServices.GetAll().Find(x => x.IdChiTietSp == ID && x.MaHD == TabHoaDon.SelectedTab.Name);
+        private ChiTietHDView GetHDct(Guid ID, string MaHD) => _IChiTietHDServices.GetAll().Find(x => x.IdChiTietSp == ID && x.MaHD == MaHD);
 
         private string Cell(int x) => dgview.CurrentRow.Cells[x].Value.ToString();
         private void dgview_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -468,7 +471,7 @@ namespace _3.PL.Views
                         txtTienThua1.Text = "";
                     }
                 }
-                else 
+                else
                 {
                     if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Count > 0 && txthtThanhToan.Texts.Trim() != "" && txtTongTienPTra1.Text != "")
                     {
@@ -494,7 +497,7 @@ namespace _3.PL.Views
                         txtTienThua1.Text = "";
                     }
                 }
-                
+
             }
 
             if (TabHoaDon.SelectedTab == null || !_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Any())
@@ -584,7 +587,7 @@ namespace _3.PL.Views
                 {
                     if (txthtThanhToan.Texts.Trim() != "" && txtChuyenKhoan.Texts.Trim() != "" && ValidateInput.CheckDecimalInput(txthtThanhToan.Texts.Trim()) && decimal.Parse(txthtThanhToan.Texts.Trim()) > _IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia))
                     {
-                        decimal TienThua = decimal.Parse(txthtThanhToan.Texts.Trim())+decimal.Parse(txtChuyenKhoan.Texts) - decimal.Parse(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia).ToString());
+                        decimal TienThua = decimal.Parse(txthtThanhToan.Texts.Trim()) + decimal.Parse(txtChuyenKhoan.Texts) - decimal.Parse(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia).ToString());
                         if (TienThua < 0)
                         {
                             txtTienThua1.Text = "";
@@ -659,7 +662,7 @@ namespace _3.PL.Views
                                             }
                                             else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
                                             hoadon.MaHD = TabHoaDon.SelectedTab.Name;
-                                            hoadon.GiamGia = decimal.Parse(txtGiamGia.Texts);
+                                            hoadon.GiamGia = txtGiamGia.Texts.Trim() == "" ? 0 : decimal.Parse(txtGiamGia.Texts);
 
                                             //hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
                                             hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
@@ -703,7 +706,7 @@ namespace _3.PL.Views
                                 }
                                 else
                                 {
-                                    if (decimal.Parse(txthtThanhToan.Texts.Trim())+ decimal.Parse(txtChuyenKhoan.Texts) >= ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
+                                    if (decimal.Parse(txthtThanhToan.Texts.Trim()) + decimal.Parse(txtChuyenKhoan.Texts) >= ValidateInput.RegexDecimal(txtTongTienPTra1.Text))
                                     {
                                         if (hoadon != null)
                                         {
@@ -722,7 +725,7 @@ namespace _3.PL.Views
                                             }
                                             else hoadon.TienChuyenKhoan = Convert.ToDecimal(txthtThanhToan.Texts);
                                             hoadon.MaHD = TabHoaDon.SelectedTab.Name;
-                                            hoadon.GiamGia =txtGiamGia.Texts.Trim() == ""?0: decimal.Parse(txtGiamGia.Texts);
+                                            hoadon.GiamGia = txtGiamGia.Texts.Trim() == "" ? 0 : decimal.Parse(txtGiamGia.Texts);
                                             //hoadon.TongTien = Convert.ToInt32(_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).Sum(x => x.SoLuong * x.DonGia));
                                             hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
                                             hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
@@ -764,7 +767,7 @@ namespace _3.PL.Views
                                         this.Alert("Số tiền không đủ để thanh toán HD", Form_Alert.enmType.Warning);
                                     }
                                 }
-                                
+
                             }
                             else
                             {
@@ -783,7 +786,8 @@ namespace _3.PL.Views
                                         hoadon.TrangThai = 0;
                                         hoadon.TrangThaiGiaoHang = 1;
                                         hoadon.Cod = decimal.Parse(txthtThanhToan.Texts);
-                                    }else
+                                    }
+                                    else
                                     {
                                         hoadon.TrangThai = 1;
                                         hoadon.TrangThaiGiaoHang = 1;
@@ -793,15 +797,15 @@ namespace _3.PL.Views
                                     hoadon.IdPttt = _IPtthanhToanServices.GetAll().Find(x => x.Ten == cbbPtThanhToan.Texts).Id;
                                     hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == rdoQuaInbox.Text).Id;
                                     hoadon.MaHD = TabHoaDon.SelectedTab.Name;
-                                    hoadon.GiamGia = txtGiamGia.Texts==""?0: decimal.Parse(txtGiamGia.Texts);
-                                    hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
-                                    hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
+                                    hoadon.GiamGia = txtGiamGia.Texts == "" ? 0 : decimal.Parse(txtGiamGia.Texts);
+                                    hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
                                     hoadon.HinhThucGiamGia = CbbGiamGia.SelectedIndex == 0 ? "Phần trăm" : "Tiền mặt";
                                     hoadon.TienShip = decimal.Parse(txtPhiGiaoHang.Texts);
                                     hoadon.TenNguoiNhan = txtTenNguoiGH.Texts;
                                     hoadon.SdtNhanHang = txtSdtGH.Texts;
                                     hoadon.DiaChiNhan = txtDiaChiGH.Texts;
                                     hoadon.MoTa = txtMoTa.Texts;
+
 
                                     if (txtsearchKH.Texts != "")
                                     {
@@ -924,7 +928,7 @@ namespace _3.PL.Views
             LoadAll();
             flpSP.Controls.Clear();
             SearchHats[] Hat = new SearchHats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
-            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0&& x.TenAnh == "Anh" && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
+            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh" && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
             if (ListAnh.Any())
             {
                 for (int i = 0; i < ListAnh.Count; i++)
@@ -1073,7 +1077,7 @@ namespace _3.PL.Views
             {
                 LoadGia();
             }
-            
+
         }
 
         private void rdoQuaInbox_CheckedChanged(object sender, EventArgs e)
@@ -1126,6 +1130,305 @@ namespace _3.PL.Views
         {
             FrmChiTietSP sp = new FrmChiTietSP();
             sp.ShowDialog();
+        }
+
+        private void rjButton1_Click_2(object sender, EventArgs e)
+        {
+            if (doifrom == 1)
+            {
+                LoadItem();
+                btngiaohang.Text = "Giao hàng";
+                pnlfill.Controls.Clear();
+                pnlfill.Controls.Add(TabHoaDon);
+                TabHoaDon.Dock = DockStyle.Fill;
+                btnClear.Visible = true;
+                btnAddTab.Visible = true;
+                pnlBodysearch.Visible = true;
+                dgvGiaoHang.Visible = false;
+                panel1.Controls.Clear();
+                panel1.Controls.Add(tabControl2);
+                tabControl2.Dock = DockStyle.Top;
+                panel1.Controls.Add(tabControl1);
+                tabControl1.Dock = DockStyle.Top;
+                tabControl3.Visible = false;
+                doifrom = 0;
+            }
+            else
+            {
+                LoadHoaDon();
+                btngiaohang.Text = "Bán hàng";
+                pnlfill.Controls.Clear();
+                pnlfill.Controls.Add(dgvGiaoHang);
+                dgvGiaoHang.Dock = DockStyle.Fill;
+                dgvGiaoHang.Visible = true;
+                btnClear.Visible = false;
+                btnAddTab.Visible = false;
+                pnlBodysearch.Visible = false;
+                doifrom = 1;
+                panel1.Controls.Clear();
+                panel1.Controls.Add(tabControl3);
+                tabControl3.Dock = DockStyle.Fill;
+                tabControl3.Visible = true;
+            }
+        }
+        //0: Không
+        //1: Chờ xử lý
+        //2: Đang giao
+        //3: Thất bại
+        //4: Thành công
+        private void LoadHoaDon()
+        {
+            LoadALL();
+            ListItem.Controls.Clear();
+            List<HoaDonS> Hats = new List<HoaDonS>();
+            var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang <4 && x.TrangThaiGiaoHang > 0)||(x.TrangThaiGiaoHang ==4&&x.TrangThai==0)).ToList();
+            HoaDonS[] Hat = new HoaDonS[ListAnh.Count];
+            for (int i = 0; i < ListAnh.Count; i++)
+            {
+                Hat[i] = new HoaDonS();
+                Hat[i].MaHD = ListAnh[i].MaHD;
+                Hat[i].ID = ListAnh[i].Id.ToString();
+                Hat[i].TenKH = ListAnh[i].TenNguoiNhan;
+                Hat[i].SDT = ListAnh[i].SdtNhanHang;
+                Hat[i].DiaChi = ListAnh[i].DiaChiNhan;
+                Hat[i].TrangThaiGiaohang = ListAnh[i].TrangThaiGiaoHang == 1 ? "Chờ xử lý" : ListAnh[i].TrangThaiGiaoHang == 2 ? "Đang giao" : ListAnh[i].TrangThaiGiaoHang == 3 ? "Thất bại" : "Thành công";
+                Hat[i].TrangThai = ListAnh[i].TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán";
+                Hat[i].MaNV = ListAnh[i].MaNv;
+                ListItem.Controls.Add(Hat[i]);
+                Hat[i].Onselect += (ss, ee) =>
+                {
+                    var wdg = (HoaDonS)ss;
+                    dgvGiaoHang.Rows.Clear();
+                    int stt = 1;
+                    rdochoxuly.Enabled = true;
+                    rdodanggiao.Enabled = true;
+                    rdothaibai.Enabled = true;
+                    rdothanhcong.Enabled = true;
+                    foreach (var x in _IChiTietHDServices.GetAll().Where(x => x.MaHD == wdg.MaHD))
+                    {
+                        dgvGiaoHang.Rows.Add(x.IdChiTietSp, stt++, x.TenSP, "+", x.SoLuong, "-",
+                    double.Parse(x.DonGia.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ",
+                    double.Parse((x.SoLuong * x.DonGia).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ");
+                    }
+
+                    txtmahdgh.Text = wdg.MaHD;
+                    txtmanvgh.Text = wdg.MaNV;
+                    var HoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == wdg.MaHD);
+                    if (HoaDon.TrangThaiGiaoHang == 1)
+                    {
+                        rdochoxuly.Enabled = false;
+                        rdodanggiao.Enabled = true;
+                        rdothaibai.Enabled = true;
+                        rdothanhcong.Enabled = false;
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 2)
+                    {
+                        rdochoxuly.Enabled = false;
+                        rdodanggiao.Enabled = false;
+                        rdothaibai.Enabled = true;
+                        rdothanhcong.Enabled = true;
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 4)
+                    {
+                        rdochoxuly.Enabled = false;
+                        rdodanggiao.Enabled = false;
+                        rdothaibai.Enabled = false;
+                        rdothanhcong.Enabled = false;
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 3)
+                    {
+                        rdochoxuly.Enabled = false;
+                        rdodanggiao.Enabled = false;
+                        rdothaibai.Enabled = false;
+                        rdothanhcong.Enabled = true;
+                    }
+                    txtngaytaogh.Text = HoaDon.NgayTao.ToString();
+                    txttongtiengh.Text = HoaDon.TongTien.ToString();
+                    txtpttt.Text = _IPtthanhToanServices.GetAll().Find(x => x.Id == HoaDon.IdPttt).Ten;
+                    txtnguoidat.Text = HoaDon.IdKh == null ? "Khách vãng lai" : _IKhachHangServices.GetByID(HoaDon.IdKh.GetValueOrDefault()).Ten;
+                    txtnguoinhan.Text = HoaDon.TenNguoiNhan;
+                    txtdiachi.Text = HoaDon.DiaChiNhan;
+                    txttienship.Text = HoaDon.TienShip.ToString();
+                    txtsdt.Text = HoaDon.SdtNhanHang.ToString();
+                    if (HoaDon.TrangThaiGiaoHang > 1)
+                    {
+                        txtngayship.Text = HoaDon.NgayShip.ToString();
+                    }
+                    else
+                    {
+                        txtngayship.Text = "Đang xử lý";
+                    }
+                    txttrangthaitt.Text = HoaDon.TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán";
+                    if (HoaDon.TrangThaiGiaoHang == 1) rdochoxuly.Checked = true;
+                    if (HoaDon.TrangThaiGiaoHang == 2) rdodanggiao.Checked = true;
+                    if (HoaDon.TrangThaiGiaoHang == 3) rdothaibai.Checked = true;
+                };
+
+            }
+        }
+        private void rjButton1_Click_3(object sender, EventArgs e)
+        {
+            if (txtmahdgh.Text.Trim() == "")
+            {
+                this.Alert("Vui vui lòng chọn hóa đơn", Form_Alert.enmType.Warning);
+            }
+            else
+           if (txtGhiChu.Texts.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng xác nhận lý do hủy trong phần ghi chú.");
+            }
+            else
+            {
+                var HoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == txtmahdgh.Text);
+                if (HoaDon.IdPttt == Guid.Parse("19502d67-ff7f-4dbc-849a-3751cacc1ebb"))
+                {
+                    //HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 3 : rdothaibai.Checked ? 4 : 5;
+                    if (HoaDon.TrangThaiGiaoHang == 1 && rdochoxuly.Checked == false)
+                    {
+                        HoaDon.NgayShip = DateTime.Now;
+                        HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        //HoaDon.MoTa += txtGhiChu.Texts;
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 2 && rdodanggiao.Checked == false)
+                    {
+                        if (rdothanhcong.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                            HoaDon.NgayNhan = DateTime.Now;
+                            //HoaDon.MoTa += txtGhiChu.Texts;
+                        }
+                        if (rdothaibai.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        }
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 3 && rdodanggiao.Checked == false)
+                    {
+                        if (rdothanhcong.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                            HoaDon.NgayNhan = DateTime.Now;
+                            //HoaDon.MoTa += txtGhiChu.Texts;
+                        }
+                        if (rdodanggiao.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        }
+                    }
+                    _HoaDonServices.Update(HoaDon);
+                    LoadHoaDon();
+                }
+                else
+                {
+                    if (HoaDon.TrangThaiGiaoHang == 1 && rdochoxuly.Checked == false)
+                    {
+                        HoaDon.NgayShip = DateTime.Now;
+                        HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        //HoaDon.MoTa += txtGhiChu.Texts;
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 2 && rdodanggiao.Checked == false)
+                    {
+                        if (rdothanhcong.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                            HoaDon.NgayNhan = DateTime.Now;
+                            //HoaDon.MoTa += txtGhiChu.Texts;
+                        }
+                        if (rdothaibai.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        }
+                    }
+                    if (HoaDon.TrangThaiGiaoHang == 3 && rdodanggiao.Checked == false)
+                    {
+                        if (rdothanhcong.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                            HoaDon.NgayNhan = DateTime.Now;
+                            //HoaDon.MoTa += txtGhiChu.Texts;
+                        }
+                        if (rdodanggiao.Checked)
+                        {
+                            HoaDon.TrangThaiGiaoHang = rdochoxuly.Checked ? 1 : rdodanggiao.Checked ? 2 : rdothanhcong.Checked ? 4 : rdothaibai.Checked ? 3 : 5;
+                        }
+                    }
+                    _HoaDonServices.Update(HoaDon);
+                    LoadHoaDon();
+                }
+
+            }
+        }
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+            if (txtmahdgh.Text.Trim() == "")
+            {
+                this.Alert("Vui vui lòng chọn hóa đơn", Form_Alert.enmType.Warning);
+            }
+            else
+            if (txtGhiChu.Texts.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng xác nhận lý do hủy trong phần ghi chú.");
+            }
+            else
+            {
+                var HoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == txtmahdgh.Text);
+                HoaDon.TrangThai = 3;
+                HoaDon.TrangThaiGiaoHang = 5;
+                _HoaDonServices.Update(HoaDon);
+
+                foreach (var x in _IChiTietHDServices.GetAll().Where(x => x.MaHD == HoaDon.MaHD).ToList())
+                {
+                    x.TrangThai = 1;
+                    var ctsp = _IChiTietSpServices.GetById(x.IdChiTietSp.GetValueOrDefault());
+                    ctsp.SoLuongTon += x.SoLuong;
+                    _IChiTietSpServices.Update(ctsp);
+                    _IChiTietHDServices.Update(x);
+                    dgvGiaoHang.Rows.Clear();
+                    LoadHoaDon();
+                    tpthongtinhd.Controls.OfType<TextBox>().ToList().ForEach(txt => txt.Clear());
+                    tpthongtinhd.Controls.OfType<RadioButton>().ToList().ForEach(txt => txt.Checked = false);
+                    tpthongtinhd.Controls.OfType<RJTextBox>().ToList().ForEach(txt => txt.Texts = "");
+                }
+            }
+        }
+
+        private bool HopThoai() => MessageBox.Show("Bạn có muốn thực hiện hành động này", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes;
+
+        private void rjButton4_Click(object sender, EventArgs e)
+        {
+            if (TabHoaDon.SelectedTab == null)
+            {
+                this.Alert("Hiện tại chưa có hóa đơn nào.", Form_Alert.enmType.Warning);
+            }
+            else
+            if (txtMoTa.Texts.Trim() == "")
+            {
+                this.Alert("Vui lòng xác nhận lý do hủy trong phần ghi chú.", Form_Alert.enmType.Warning);
+            }
+            else
+            {
+                if (HopThoai())
+                {
+                    var HoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == TabHoaDon.SelectedTab.Name);
+                    HoaDon.TrangThai = 3;
+                    TabHoaDon.TabPages.Remove(TabHoaDon.SelectedTab);
+                    _HoaDonServices.Update(HoaDon);
+                    foreach (var x in _IChiTietHDServices.GetAll().Where(x => x.MaHD == HoaDon.MaHD).ToList())
+                    {
+                        var ctsp = _IChiTietSpServices.GetById(x.IdChiTietSp.GetValueOrDefault());
+                        ctsp.SoLuongTon += x.SoLuong;
+                        x.TrangThai = 1;
+                        _IChiTietSpServices.Update(ctsp);
+                        _IChiTietHDServices.Update(x);
+                        LoadData();
+                        Clearform();
+                        LoadItem();
+                        LoadGia();
+                        LoadTienThua();
+                    }
+                    this.Alert("Hóa đơn đã bị hủy.", Form_Alert.enmType.Info);
+                }
+            }
         }
     }
 }

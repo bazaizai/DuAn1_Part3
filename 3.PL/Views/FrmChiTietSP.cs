@@ -49,11 +49,18 @@ namespace _3.PL.Views
         private void LoadData()
         {
             flowLayoutPanel1.Controls.Clear();
-            //List<AnhViews> ListAnh = _IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList();
             List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll();
+            if (txtSearch.Texts.Trim() != "")
+            {
+                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).ToList();
+            }
+            else
+            {
+              CTSP = _IChiTietSpServices.GetAll();
+            }
 
-            ViewSP[] Sp = new ViewSP[_IChiTietSpServices.GetAll().Count];
-            for (int i = 0; i < _IChiTietSpServices.GetAll().Count; i++)
+            ViewSP[] Sp = new ViewSP[CTSP.Count];
+            for (int i = 0; i < CTSP.Count; i++)
             {
                 Sp[i] = new ViewSP();
                 Sp[i].MauSac = CTSP[i].TenMauSac;
@@ -72,8 +79,7 @@ namespace _3.PL.Views
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
                 Sp[i].GhiChu = CTSP[i].MoTa;
-
-
+                Sp[i].NhomHang = "No information";
                 Sp[i].TopLevel = false;
                 Sp[i].FormBorderStyle = FormBorderStyle.None;
                 Sp[i].Dock = DockStyle.Top;
@@ -89,6 +95,16 @@ namespace _3.PL.Views
             sp.ShowDialog();
             LoadData();
 
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rjTextBox1__TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace _3.PL.Views
         ITeamServices _ITeamServices;
         IChiTietSpServices _IChiTietSpServices;
         AnhServices _IAnhServices;
+
         public FrmSuaSanPham()
         {
             InitializeComponent();
@@ -43,7 +44,12 @@ namespace _3.PL.Views
             RdoDangBan.Checked = true;
             LoadCbb();
         }
-
+        private FrmChiTietSP Mainform = null;
+        public FrmSuaSanPham(Form Call)
+        {
+            Mainform = Call as FrmChiTietSP;
+            InitializeComponent();
+        }
 
         private Image image;
         public Image Anh1 { get => image; set { image = value; Anh.Image = value; } }
@@ -249,12 +255,30 @@ namespace _3.PL.Views
         {
             if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
             {
-                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
+                var Obj = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
+                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()) || (Obj.IdChatLieu == IdCL() && Obj.IdMauSac == IdMs() && Obj.IdTeam == IdTeam() && Obj.IdSp == IdSp() && Obj.IdSize == IdSize()))
                 {
                     try
                     {
-
-
+                        var sp = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
+                        sp.IdSp = IdSp();
+                        sp.IdMauSac = IdMs();
+                        sp.IdSize = IdSize();
+                        sp.IdTeam = IdTeam();
+                        sp.IdChatLieu = IdCL();
+                        sp.BaoHanh = txtBaoHanh.Texts;
+                        sp.MoTa = txtGhiChu.Texts;
+                        sp.SoLuongTon = int.Parse(txtSoLuong.Texts);
+                        sp.GiaNhap = decimal.Parse(txtGiaNhap.Texts);
+                        sp.GiaBan = decimal.Parse(txtGiaBan.Texts);
+                        sp.TrangThaiKhuyenMai = cbbKhuyenMai.Texts == "Áp dụng" ? 0 : 1;
+                        sp.TrangThai = RdoDangBan.Checked ? 0 : 1;
+                        _IChiTietSpServices.Update(sp);
+                        var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
+                        anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
+                        _IAnhServices.Update(anh);
+                        this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -268,7 +292,8 @@ namespace _3.PL.Views
             {
                 this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
             }
-            this.Close();
+
+
         }
     }
 }

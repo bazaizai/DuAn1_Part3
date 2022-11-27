@@ -4,6 +4,9 @@
     <Compile Update="Components\Hats.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Components\HoaDonS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Components\SearchHats.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -31,10 +34,13 @@
     <Compile Update="CustomControlls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Views\FrmSuaSanPham.cs">
+    <Compile Update="Views\FrmChiTietSP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmThemSP.cs">
+    <Compile Update="Views\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmQLBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Form_Alert.cs">
@@ -44,9 +50,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChiTietSale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmChiTietSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChucVu.cs">
@@ -79,9 +82,6 @@
     <Compile Update="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\FrmMauSac.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +92,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmPtthanhToan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\frmQLBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmQLChiTietSp.cs">
@@ -112,7 +109,13 @@
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmSuaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmTichDiem.cs">

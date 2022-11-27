@@ -276,7 +276,7 @@ namespace _3.PL
                         };
                         _IChiTietSpServices.Add(x);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, "Tes");
+                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, Mats());
                         var Anh1 = new AnhViews()
                         {
                             IdChiTietSp = x.Id,
@@ -337,7 +337,7 @@ namespace _3.PL
                         };
                         _IChiTietSpServices.Add(x);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, "Tes");
+                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, Mats());
                         var Anh1 = new AnhViews()
                         {
                             IdChiTietSp = x.Id,

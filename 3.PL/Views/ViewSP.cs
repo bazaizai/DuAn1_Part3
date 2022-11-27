@@ -88,6 +88,11 @@ namespace _3.PL.Views
         public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
 
 
+        private string N_Hang;
+        public string NhomHang { get => N_Hang; set { N_Hang = value; lblNhomHang.Text = value;lblNhomHang1.Text = value; } }
+
+
+
 
 
         private void panel2_Click(object sender, EventArgs e)
@@ -131,6 +136,7 @@ namespace _3.PL.Views
         {
             FrmSuaSanPham fixSP = new FrmSuaSanPham();
             fixSP.Anh1 = this.Anh1;
+            fixSP.IDSP = this.IDSP;
             fixSP.MaSP = this.lblMaHang.Text;
             fixSP.TenSP = this.lblTenHang.Text.Substring(0, this.lblTenHang.Text.IndexOf("-"));
             fixSP.MauSac = this.lblMauSac.Text;
