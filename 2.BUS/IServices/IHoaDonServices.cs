@@ -14,5 +14,6 @@ namespace _2.BUS.IServices
         string Delete(HoaDonViews obj);
         HoaDonViews GetID(Guid id);
         List<HoaDonViews> GetAll();
+        List<HoaDonViews> LoadJoin();
     }
 }

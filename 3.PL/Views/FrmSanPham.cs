@@ -26,6 +26,7 @@ namespace _3.PL.Views
             _LstSanPham = new List<SanPhamViews>();
             tb_Ma.Enabled = false;
             LoadData();
+            cbb_loc.Text = "Tất cả";
         }
         public void LoadData()
         {
@@ -37,10 +38,10 @@ namespace _3.PL.Views
             dtg_Show.Columns[2].Name = "Tên ";
             dtg_Show.Columns[3].Name = "Trang Thai";
             var lstSanPham = _ISanPhamServices.GetAll();
-            if (tb_TimKiem.Text != "")
-            {
-                lstSanPham = lstSanPham.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
-            }
+            //if (tb_TimKiem.Text != "")
+            //{
+            //    lstSanPham = lstSanPham.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+            //}
             foreach (var item in lstSanPham)
             {
                 dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
@@ -57,6 +58,7 @@ namespace _3.PL.Views
                 item.Clear();
             }
             tb_TimKiem.Text = "";
+            cbb_loc.Text = "Tất cả";
             LoadData();
         }
 
@@ -174,7 +176,70 @@ namespace _3.PL.Views
             {
                 item.Clear();
             }
-            LoadData();
+            //LoadData();
+            loc();
+        }
+
+        private void FrmSanPham_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        public void loc()
+        {
+            if (cbb_loc.Text == "Hoạt động")
+            {
+                var timkiem = _ISanPhamServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())) && p.TrangThai == 0).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Không hoạt động")
+            {
+                var timkiem = _ISanPhamServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower()))
+                                                                  && p.TrangThai == 1).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Tất cả")
+            {
+                var timkiem = _ISanPhamServices.GetAll().Where(p => p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+        }
+
+        private void cbb_loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loc();
         }
     }
 }

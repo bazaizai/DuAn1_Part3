@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dh5mr+fJ6oJyK/YDcD5QQBXLRkpEcJnIXsLEErXTCEgDPWkCsCDukLo4NQJHC3LXhjEzAs2mRM1UA9b4CD+Hwg==",
+  "dgSpecHash": "00wv20c7cWWpPMDIgzXA2/eou5Y8yiE14j7AYdy/GcXeJYiVaWpFqoNEN3Ib3ERJU136xTxEPbXF1IpXjNKLcw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Asus\\.nuget\\packages\\bunifu.ui.winforms\\5.0.1\\bunifu.ui.winforms.5.0.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\bunifu.utils\\1.0.6\\bunifu.utils.1.0.6.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\guna.ui2.winforms\\2.0.3.5\\guna.ui2.winforms.2.0.3.5.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -121,6 +122,16 @@
       "warningLevel": 1,
       "message": "Package 'Bunifu.Utils 1.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Bunifu.Utils",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Guna.UI2.WinForms 2.0.3.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Guna.UI2.WinForms",
       "targetGraphs": [
         "net5.0-windows7.0"
       ]
