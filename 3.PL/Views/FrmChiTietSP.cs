@@ -53,11 +53,11 @@ namespace _3.PL.Views
             if (txtSearch.Texts.Trim() != "")
             {
                 CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).ToList();
-            }
-            else
+            }else
             {
-              CTSP = _IChiTietSpServices.GetAll();
+                //txtSearch.PlaceholderText = "Tìm kiếm";
             }
+            
 
             ViewSP[] Sp = new ViewSP[CTSP.Count];
             for (int i = 0; i < CTSP.Count; i++)
