@@ -112,7 +112,7 @@ namespace _3.PL.Views
                     {
                         Id = Guid.NewGuid(),
                         SoDiem = 0,
-                        TrangThai = 0
+                        TrangThai = 1
                     };
                     MessageBox.Show(_itichDiemServices.Add(tichdiem));
                     var y = _itichDiemServices.GetAll().FirstOrDefault(c => c.Id == _tichDiemView.Id);

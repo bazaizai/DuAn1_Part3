@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtg_show = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_clear = new System.Windows.Forms.Button();
+            this.dtg_show = new System.Windows.Forms.DataGridView();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
+            this.btn_sua = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbb_mucud = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,20 +49,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_clear);
             this.groupBox2.Controls.Add(this.dtg_show);
+            this.groupBox2.Controls.Add(this.btn_xoa);
+            this.groupBox2.Controls.Add(this.btn_them);
+            this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(23, 460);
+            this.groupBox2.Location = new System.Drawing.Point(16, 322);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1204, 339);
+            this.groupBox2.Size = new System.Drawing.Size(1145, 358);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hiển thị";
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_clear.ForeColor = System.Drawing.Color.White;
+            this.btn_clear.Location = new System.Drawing.Point(938, 283);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(175, 48);
+            this.btn_clear.TabIndex = 3;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // dtg_show
             // 
@@ -80,41 +94,15 @@
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(1184, 290);
+            this.dtg_show.Size = new System.Drawing.Size(912, 295);
             this.dtg_show.TabIndex = 0;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btn_clear);
-            this.groupBox3.Controls.Add(this.btn_xoa);
-            this.groupBox3.Controls.Add(this.btn_sua);
-            this.groupBox3.Controls.Add(this.btn_them);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(889, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(338, 442);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chức năng";
-            // 
-            // btn_clear
-            // 
-            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
-            this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(90, 322);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(175, 48);
-            this.btn_clear.TabIndex = 3;
-            this.btn_clear.Text = "Clear";
-            this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_xoa.ForeColor = System.Drawing.Color.White;
-            this.btn_xoa.Location = new System.Drawing.Point(90, 243);
+            this.btn_xoa.Location = new System.Drawing.Point(938, 204);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(175, 48);
             this.btn_xoa.TabIndex = 2;
@@ -122,29 +110,29 @@
             this.btn_xoa.UseVisualStyleBackColor = false;
             this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
-            // btn_sua
-            // 
-            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
-            this.btn_sua.ForeColor = System.Drawing.Color.White;
-            this.btn_sua.Location = new System.Drawing.Point(90, 164);
-            this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(175, 48);
-            this.btn_sua.TabIndex = 1;
-            this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = false;
-            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
-            // 
             // btn_them
             // 
             this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.btn_them.ForeColor = System.Drawing.Color.White;
-            this.btn_them.Location = new System.Drawing.Point(90, 85);
+            this.btn_them.Location = new System.Drawing.Point(938, 46);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(175, 48);
             this.btn_them.TabIndex = 0;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
+            // 
+            // btn_sua
+            // 
+            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_sua.ForeColor = System.Drawing.Color.White;
+            this.btn_sua.Location = new System.Drawing.Point(938, 125);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(175, 48);
+            this.btn_sua.TabIndex = 1;
+            this.btn_sua.Text = "Sửa";
+            this.btn_sua.UseVisualStyleBackColor = false;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // groupBox1
             // 
@@ -161,9 +149,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(18, 12);
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 442);
+            this.groupBox1.Size = new System.Drawing.Size(1145, 304);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
@@ -171,7 +159,7 @@
             // cbb_mucud
             // 
             this.cbb_mucud.FormattingEnabled = true;
-            this.cbb_mucud.Location = new System.Drawing.Point(174, 229);
+            this.cbb_mucud.Location = new System.Drawing.Point(314, 144);
             this.cbb_mucud.Name = "cbb_mucud";
             this.cbb_mucud.Size = new System.Drawing.Size(178, 38);
             this.cbb_mucud.TabIndex = 21;
@@ -179,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(367, 232);
+            this.label3.Location = new System.Drawing.Point(507, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 30);
             this.label3.TabIndex = 20;
@@ -187,7 +175,7 @@
             // 
             // tb_sodiem
             // 
-            this.tb_sodiem.Location = new System.Drawing.Point(599, 228);
+            this.tb_sodiem.Location = new System.Drawing.Point(739, 143);
             this.tb_sodiem.Name = "tb_sodiem";
             this.tb_sodiem.Size = new System.Drawing.Size(199, 37);
             this.tb_sodiem.TabIndex = 12;
@@ -196,7 +184,7 @@
             // lb_sodiem
             // 
             this.lb_sodiem.AutoSize = true;
-            this.lb_sodiem.Location = new System.Drawing.Point(401, 233);
+            this.lb_sodiem.Location = new System.Drawing.Point(541, 148);
             this.lb_sodiem.Name = "lb_sodiem";
             this.lb_sodiem.Size = new System.Drawing.Size(174, 30);
             this.lb_sodiem.TabIndex = 11;
@@ -209,7 +197,7 @@
             this.cbb_loaihinhkm.Items.AddRange(new object[] {
             "Siêu khuyến mãi",
             "Khuyến mãi siêu khủng khiếp"});
-            this.cbb_loaihinhkm.Location = new System.Drawing.Point(600, 132);
+            this.cbb_loaihinhkm.Location = new System.Drawing.Point(740, 47);
             this.cbb_loaihinhkm.Name = "cbb_loaihinhkm";
             this.cbb_loaihinhkm.Size = new System.Drawing.Size(199, 38);
             this.cbb_loaihinhkm.TabIndex = 19;
@@ -217,7 +205,7 @@
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(494, 322);
+            this.rdb_khd.Location = new System.Drawing.Point(634, 237);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(212, 34);
             this.rdb_khd.TabIndex = 18;
@@ -228,7 +216,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(309, 322);
+            this.rdb_hd.Location = new System.Drawing.Point(449, 237);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(144, 34);
             this.rdb_hd.TabIndex = 17;
@@ -238,7 +226,7 @@
             // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(177, 135);
+            this.tb_ma.Location = new System.Drawing.Point(317, 50);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(175, 37);
             this.tb_ma.TabIndex = 9;
@@ -246,7 +234,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(150, 326);
+            this.label7.Location = new System.Drawing.Point(290, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 30);
             this.label7.TabIndex = 8;
@@ -255,7 +243,7 @@
             // lb_mucuudai
             // 
             this.lb_mucuudai.AutoSize = true;
-            this.lb_mucuudai.Location = new System.Drawing.Point(34, 232);
+            this.lb_mucuudai.Location = new System.Drawing.Point(174, 147);
             this.lb_mucuudai.Name = "lb_mucuudai";
             this.lb_mucuudai.Size = new System.Drawing.Size(126, 30);
             this.lb_mucuudai.TabIndex = 2;
@@ -264,7 +252,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(367, 138);
+            this.label2.Location = new System.Drawing.Point(507, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 30);
             this.label2.TabIndex = 1;
@@ -273,7 +261,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 135);
+            this.label1.Location = new System.Drawing.Point(174, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 30);
             this.label1.TabIndex = 0;
@@ -284,15 +272,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(1243, 811);
+            this.ClientSize = new System.Drawing.Size(1179, 692);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmUuDaiTichDiem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUuDaiTichDiem";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -303,7 +290,6 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtg_show;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;

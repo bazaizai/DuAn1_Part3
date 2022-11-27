@@ -52,29 +52,24 @@ namespace _3.PL.Views
                 dtg_show.Rows.Add(item.Id, stt++,item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
         }
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-            var x = new LichSuTichDiemView()
-            {
-                Id = new Guid(),
-                SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text),
-                NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value),
-                TrangThai = rdb_hd.Checked ? 1 : 0
-            };
-            MessageBox.Show(_iLichSuTichDiemServices.Add(x));
-            ClearForm();
-        }
+        //private void btn_them_Click(object sender, EventArgs e)
+        //{
+        //    var x = new LichSuTichDiemView()
+        //    {
+        //        Id = new Guid(),
+        //        SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text),
+        //        NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value),
+        //        TrangThai = rdb_hd.Checked ? 1 : 0
+        //    };
+        //    MessageBox.Show(_iLichSuTichDiemServices.Add(x));
+        //    ClearForm();
+        //}
 
-        private void btn_xoa_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(_iLichSuTichDiemServices.Delete(_lichSuTichDiemView));
-            ClearForm();
-        }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            _lichSuTichDiemView.SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text);
-            _lichSuTichDiemView.NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value);
+            //_lichSuTichDiemView.SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text);
+            //_lichSuTichDiemView.NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value);
             _lichSuTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
             MessageBox.Show(_iLichSuTichDiemServices.Update(_lichSuTichDiemView));
             ClearForm();
@@ -96,6 +91,11 @@ namespace _3.PL.Views
                 rdb_hd.Checked = _lichSuTichDiemView.TrangThai == 1;
                 rdb_khd.Checked = _lichSuTichDiemView.TrangThai == 0;
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
