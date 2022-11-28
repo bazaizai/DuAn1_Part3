@@ -68,7 +68,7 @@ namespace _1.DAL.Repositories
             {
                 if (obj == null) return false;
                 var tempobj = context.KhachHangs.FirstOrDefault(c => c.Id == obj.Id);
-                //tempobj.Idnv = obj.Id;
+                tempobj.Idnv = obj.Id;
                 tempobj.Ma = obj.Ma;
                 tempobj.Ten = obj.Ten;
                 tempobj.Sdt = obj.Sdt;

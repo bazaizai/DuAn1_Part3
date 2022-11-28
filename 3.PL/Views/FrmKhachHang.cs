@@ -7,8 +7,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -67,7 +69,6 @@ namespace _3.PL.Views
         {
             LoadData();
             _khachHangView.Id = Guid.Empty;
-            tb_ma.Text = "";
             tb_ten.Text = "";
             tb_diachi.Text = "";
             tb_sdt.Text = "";
@@ -86,7 +87,19 @@ namespace _3.PL.Views
                 else if (tb_ten.Text == "")
                 {
                     MessageBox.Show("Không được để trống tên!");
-                }               
+                } 
+                else if (tb_ten.Text.Length < 2)
+                {
+                    MessageBox.Show("Tên quá ngắn!");
+                }
+                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+                {
+                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
+                }
+                else if (CheckValidate.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ!");
+                }             
                 else if (tb_sdt.Text == "")
                 {
                     MessageBox.Show("Không được để trống số điện thoại!");
@@ -113,7 +126,7 @@ namespace _3.PL.Views
                     {
                         Id = Guid.NewGuid(),
                         SoDiem = 0,
-                        TrangThai = 0
+                        TrangThai = 1
                     };
                     MessageBox.Show(_itichDiemServices.Add(tichdiem));
                     var y = _itichDiemServices.GetAll().FirstOrDefault(c => c.Id == _tichDiemView.Id);
@@ -150,6 +163,18 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Không được để trống tên!");
                 }
+                else if (tb_ten.Text.Length < 2)
+                {
+                    MessageBox.Show("Tên quá ngắn!");
+                }
+                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+                {
+                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
+                }
+                else if (CheckValidate.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ!");
+                }
                 else if (tb_sdt.Text == "")
                 {
                     MessageBox.Show("Không được để trống số điện thoại!");
@@ -162,10 +187,6 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Số điện thoại không hợp lệ!");
                 }
-                //else if (_iKhachHangServices.GetAll().Any(c => c.Email == tb_email.Text))
-                //{
-                //    MessageBox.Show("Email bị trùng");
-                //}
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
                     MessageBox.Show("Không được để trống trạng thái!");
@@ -220,7 +241,6 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dtg_show.Rows[e.RowIndex];
                 _khachHangView = _iKhachHangServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_ma.Text = _khachHangView.Ma;
                 tb_ten.Text = _khachHangView.Ten;
                 tb_diachi.Text = _khachHangView.DiaChi;
                 tb_sdt.Text = _khachHangView.Sdt;
@@ -457,5 +477,54 @@ namespace _3.PL.Views
             return str;
         }
 
+        private void dtg_show_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }
+
+        private void dtg_show_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+
+        }
+
+        private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+
+
+        }
+
+        private void tb_sdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        //string titleCase = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        public static string CapitalizeFirstLetter(string value)
+        {
+            value = value.ToLower();
+            char[] array = value.ToCharArray();
+            if (array.Length >= 1)
+            {
+                if (char.IsLower(array[0]))
+                {
+                    array[0] = char.ToUpper(array[0]);
+                }
+            }
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i - 1] == ' ')
+                {
+                    if (char.IsLower(array[i]))
+                    {
+                        array[i] = char.ToUpper(array[i]);
+                    }
+                }
+            }
+            return new string(array);
+        }
     }
 }

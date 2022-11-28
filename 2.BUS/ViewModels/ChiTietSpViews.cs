@@ -23,7 +23,7 @@ namespace _2.BUS.ViewModels
         public Guid? IdTeam { get; set; }
         public Guid? IdChatLieu { get; set; }
         public string MaQr { get; set; }
-        public string BaoHanh { get; set; }
+        public string BaoHanh { get; set; } 
         public string MoTa { get; set; }
         public int? SoLuongTon { get; set; }
         public decimal? GiaNhap { get; set; }
