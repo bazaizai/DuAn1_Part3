@@ -23,6 +23,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _iLichSuTichDiemServices = new LichSuTichDiemServices();
             _lichSuTichDiemView = new LichSuTichDiemView();
+            loadLS();
             LoadData();
         }
 
@@ -51,6 +52,8 @@ namespace _3.PL.Views
             {
                 dtg_show.Rows.Add(item.Id, stt++,item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
+            AddHeaderCheckBox();
+            HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
         }
         //private void btn_them_Click(object sender, EventArgs e)
         //{
@@ -93,8 +96,36 @@ namespace _3.PL.Views
             }
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        CheckBox HeaderCheckBox = null;
+        bool IsHeaderCheckBoxClicked = false;
+
+        private void AddHeaderCheckBox()
         {
+            HeaderCheckBox = new CheckBox();
+            HeaderCheckBox.Size = new Size(15, 15);
+            this.dtg_show.Controls.Add(HeaderCheckBox);
+        }
+        private void HeaderCheckBoxClick(CheckBox checkBox)
+        {
+            IsHeaderCheckBoxClicked = true;
+            foreach (DataGridViewRow row in dtg_show.Rows) ((DataGridViewCheckBoxCell)row.Cells["ckb"]).Value = checkBox.Checked;
+            dtg_show.RefreshEdit();
+            IsHeaderCheckBoxClicked = false;
+        }
+
+        private void cbb_loaiKM_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderCheckBoxClick((CheckBox)sender);
+        }
+
+        private void loadLS()
+        {
+            dtg_show.Rows.Clear();
+
+            foreach (var item in _iLichSuTichDiemServices.GetAll())
+            {
+                dtg_show.Rows.Add(item.Id,item.NgayTichDiem, item.SoDiemDung, item.TrangThai);
+            }
 
         }
     }

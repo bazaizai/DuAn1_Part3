@@ -54,7 +54,6 @@ namespace _3.PL.Views
             cbb_locTrangthai.SelectedIndex = 0;
 
 
-
             loadKM();
             loadCTSP();
             dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";

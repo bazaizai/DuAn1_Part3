@@ -84,7 +84,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Mã bị trùng");
                 }
-                else if (tb_ten.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
                     MessageBox.Show("Không được để trống tên!");
                 } 
@@ -92,7 +92,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
-                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+                else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
                 {
                     MessageBox.Show("Phải viết hoa chữ cái đầu!");
                 }
@@ -134,7 +134,7 @@ namespace _3.PL.Views
                     {
                         Id = new Guid(),
                         IdtichDiem = tichdiem.Id,
-                        Ten = tb_ten.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         DiaChi = tb_diachi.Text,
                         Sdt = tb_sdt.Text,
                         TrangThai = rdb_hd.Checked ? 1 : 0
@@ -167,10 +167,10 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
-                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
-                {
-                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
-                }
+                //else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
+                //{
+                //    MessageBox.Show("Phải viết hoa chữ cái đầu!");
+                //}
                 else if (CheckValidate.hasSpecialChar(tb_ten.Text))
                 {
                     MessageBox.Show("Tên không hợp lệ!");
@@ -193,7 +193,7 @@ namespace _3.PL.Views
                 }
                 else
                 {
-                    _khachHangView.Ten = tb_ten.Text;
+                    _khachHangView.Ten = XoaDauCach(tb_ten.Text.Trim());
                     _khachHangView.DiaChi = tb_diachi.Text;
                     _khachHangView.Sdt = tb_sdt.Text;
                     _khachHangView.TrangThai = rdb_hd.Checked ? 1 : 0;
@@ -487,6 +487,28 @@ namespace _3.PL.Views
 
         }
 
+        //private string RemoveWhiteSpace(string z)
+        //{
+        //    string x = "";
+        //    string[] list = z.Split(' ');
+        //    for (int i = 0; i < list.Length; i++)
+        //    {
+        //        x += " " + list[i];
+                
+        //    }
+        //    return x;
+        //}
+
+        private string XoaDauCach(string s)
+        {
+ 
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
+
         private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -525,6 +547,14 @@ namespace _3.PL.Views
                 }
             }
             return new string(array);
+        }
+
+        private void tb_ten_TextChanged(object sender, EventArgs e)
+        {
+            if(tb_ten.Text == " ")
+            {
+                tb_ten.Text = "";
+            }
         }
     }
 }

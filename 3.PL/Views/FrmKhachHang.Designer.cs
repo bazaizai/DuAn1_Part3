@@ -126,6 +126,7 @@
             this.tb_ten.Name = "tb_ten";
             this.tb_ten.Size = new System.Drawing.Size(266, 37);
             this.tb_ten.TabIndex = 1;
+            this.tb_ten.TextChanged += new System.EventHandler(this.tb_ten_TextChanged);
             this.tb_ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ten_KeyPress);
             // 
             // tb_ma
