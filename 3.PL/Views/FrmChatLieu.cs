@@ -24,10 +24,12 @@ namespace _3.PL.Views
         public FrmChatLieu()
         {
             InitializeComponent();
+            this.CenterToScreen();
             _IChatLieuServices = new ChatLieuServices();
             _LstChatLieu = new List<ChatLieuViews>();
             tb_Ma.Enabled = false;
             LoadData();
+            cbb_loc.Text = "Tất cả";
         }
         public void LoadData()
         {
@@ -39,10 +41,10 @@ namespace _3.PL.Views
             dtg_Show.Columns[2].Name = "Tên ";
             dtg_Show.Columns[3].Name = "Trạng Thái";
             var lstChatLieu = _IChatLieuServices.GetAll();
-            if (tb_TimKiem.Text != "")
-            {
-                lstChatLieu = lstChatLieu.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
-            }
+            //if (tb_TimKiem.Text != "")
+            //{
+            //    lstChatLieu = lstChatLieu.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+            //}
             foreach (var item in lstChatLieu)
             {
                 dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
@@ -58,6 +60,7 @@ namespace _3.PL.Views
                 item.Clear();
             }
             tb_TimKiem.Text = "";
+            cbb_loc.Text = "Tất cả";
             LoadData();
         }
         private void tb_TimKiem_TextChanged(object sender, EventArgs e)
@@ -69,9 +72,9 @@ namespace _3.PL.Views
             {
                 item.Clear();
             }
-            LoadData();
+            loc();
+            //LoadData();
         }
-
 
         private void dtg_Show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -116,7 +119,7 @@ namespace _3.PL.Views
                 }
             }
         }
-       
+
         private void btn_Sua_Click(object sender, EventArgs e)
         {
             if (_ChatLieu == null)
@@ -137,7 +140,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Hãy chọn trạng thái chất liệu");
                 }
-              
+
                 else
                 {
                     DialogResult dg = MessageBox.Show("Bạn muốn sửa chất liệu này", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -175,6 +178,52 @@ namespace _3.PL.Views
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             resetForm();
+        }
+
+        private void FrmChatLieu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+        public void loc()
+        {
+            if (cbb_loc.Text == "Hoạt động")
+            {
+                var timkiem = _IChatLieuServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())) && p.TrangThai == 0).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Không hoạt động")
+            {
+                var timkiem = _IChatLieuServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower()))
+                                                                  && p.TrangThai == 1).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Tất cả")
+            {
+                var timkiem = _IChatLieuServices.GetAll().Where(p => p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Ten.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+        }
+
+        private void cbb_loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loc();
         }
     }
 }
