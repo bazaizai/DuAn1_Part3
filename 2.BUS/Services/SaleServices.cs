@@ -15,10 +15,12 @@ namespace _2.BUS.Services
     {
         private ISaleRepos _saleRepos;
         private List<SaleView> _lstSale;
+        private IChiTietSaleRepos _chiTietSaleRepos;
         public SaleServices()
         {
             _saleRepos = new SaleRepos();
             _lstSale = new List<SaleView>();
+            _chiTietSaleRepos = new ChiTietSaleRepos();
         }
         public string Add(SaleView sale)
         {
@@ -92,20 +94,30 @@ namespace _2.BUS.Services
         public string Delete(SaleView sale)
         {
             if (sale == null) return "Xóa thất bại";
-            Sale sale1 = new Sale()
+            var a = _chiTietSaleRepos.GetAll().Find(c => c.IdSale == sale.Id);
+            if (a == null)
             {
-                Id = sale.Id,
-                Ma = sale.Ma,
-                Ten = sale.Ten,
-                NgayBatDau = sale.NgayBatDau,
-                NgayKetThuc = sale.NgayKetThuc,
-                LoaiHinhKm = sale.LoaiHinhKm,
-                MucGiam = sale.MucGiam,
-                MoTa = sale.MoTa,
-                TrangThai = sale.TrangThai,
-            };
-            _saleRepos.Delete(sale1);
-            return "Xóa thành công";
+
+                Sale sale1 = new Sale()
+                {
+                    Id = sale.Id,
+                    Ma = sale.Ma,
+                    Ten = sale.Ten,
+                    NgayBatDau = sale.NgayBatDau,
+                    NgayKetThuc = sale.NgayKetThuc,
+                    LoaiHinhKm = sale.LoaiHinhKm,
+                    MucGiam = sale.MucGiam,
+                    MoTa = sale.MoTa,
+                    TrangThai = sale.TrangThai,
+                };
+                if (_saleRepos.Delete(sale1))
+                {
+                    return "Thành công";
+                }
+                else return "Thất bại";
+            }
+            return "Sale đã được liên kết với một bảng khác";
         }
+
     }
 }

@@ -50,14 +50,12 @@ namespace _3.PL.Views
             cbb_locTrangthai.Items.Add("Đang áp dụng");
             cbb_locTrangthai.Items.Add("Ngừng áp dụng");
 
+            loadKM();
+            loadCTSP();
 
             cbb_locKM.SelectedIndex = 0;
             cbb_locTrangthai.SelectedIndex = 0;
-
-
-
-            loadKM();
-            loadCTSP();
+            cbb_loaiKM.SelectedIndex = 0;
             dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
             dtp_end.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
         }
@@ -107,7 +105,7 @@ namespace _3.PL.Views
 
             foreach (var item in _chiTietSpServices.GetAll())
             {
-                dtg_sp.Rows.Add( null,item.Id, item.TenSP, item.TenMauSac, item.TenTeam, item.GiaBan);
+                dtg_sp.Rows.Add(null, item.Id, item.TenSP, item.TenMauSac, item.TenTeam, item.GiaBan);
             }
             AddHeaderCheckBox();
             HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
@@ -135,7 +133,15 @@ namespace _3.PL.Views
 
 
         }
+        private string XoaDauCach(string s)
+        {
 
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
         private void bt_them_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
@@ -148,6 +154,10 @@ namespace _3.PL.Views
                 else if (tb_ten.Texts == "")
                 {
                     MessageBox.Show("Không được bỏ trống tên");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
                 }
                 else if (cbb_loaiKM.Texts == "")
                 {
@@ -181,7 +191,7 @@ namespace _3.PL.Views
                     {
                         Id = Guid.Empty,
                         Ma = tb_ma.Texts,
-                        Ten = tb_ten.Texts,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         NgayBatDau = dtp_start.Value,
                         NgayKetThuc = dtp_end.Value,
                         LoaiHinhKm = cbb_loaiKM.Texts,
@@ -231,6 +241,10 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên sale được trùng");
                 }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else if (tb_ten.Texts == "")
                 {
                     MessageBox.Show("Không được bỏ trống tên");
@@ -267,7 +281,7 @@ namespace _3.PL.Views
                     {
                         Id = IDsale,
                         Ma = tb_ma.Texts,
-                        Ten = tb_ten.Texts,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         NgayBatDau = dtp_start.Value,
                         NgayKetThuc = dtp_end.Value,
                         LoaiHinhKm = cbb_loaiKM.Texts,
@@ -424,7 +438,7 @@ namespace _3.PL.Views
             IsHeaderCheckBoxClicked = true;
             foreach (DataGridViewRow row in dtg_sp.Rows) ((DataGridViewCheckBoxCell)row.Cells["ckb"]).Value = checkBox.Checked;
             dtg_sp.RefreshEdit();
-            IsHeaderCheckBoxClicked= false;
+            IsHeaderCheckBoxClicked = false;
         }
 
         private void cbb_loaiKM_MouseClick(object sender, MouseEventArgs e)
@@ -432,6 +446,22 @@ namespace _3.PL.Views
             HeaderCheckBoxClick((CheckBox)sender);
         }
 
-   
+        private void tb_mucgiam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+
+        }
+
+        private void tb_mucgiam__TextChanged(object sender, EventArgs e)
+        {
+            if (cbb_loaiKM.Texts == "%" && tb_mucgiam.Texts != "")
+            {
+                if (Convert.ToDecimal(tb_mucgiam.Texts) > 100)
+                {
+                    tb_mucgiam.Texts = "100";
+                }
+            }
+        }
     }
 }

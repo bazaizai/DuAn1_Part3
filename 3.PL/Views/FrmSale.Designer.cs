@@ -269,6 +269,8 @@
             this.tb_mucgiam.Name = "tb_mucgiam";
             this.tb_mucgiam.Size = new System.Drawing.Size(216, 23);
             this.tb_mucgiam.TabIndex = 65;
+            this.tb_mucgiam.TextChanged += new System.EventHandler(this.tb_mucgiam_TextChanged);
+            this.tb_mucgiam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_mucgiam_KeyPress);
             // 
             // dtp_start
             // 

@@ -19,7 +19,10 @@ namespace _3.PL
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            Application.Run(new FrmChiTietSale());
+            //Application.Run(new FrmTeam());
+            //Application.Run(new FrmChiTietSale());
+    
         }
     }
 }

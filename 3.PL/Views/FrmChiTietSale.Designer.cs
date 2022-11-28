@@ -267,12 +267,12 @@
             this.IdTeam,
             this.Giaban,
             this.GiaSale});
-            this.dtg_sp.Location = new System.Drawing.Point(28, 368);
+            this.dtg_sp.Location = new System.Drawing.Point(28, 358);
             this.dtg_sp.Name = "dtg_sp";
             this.dtg_sp.RowHeadersVisible = false;
             this.dtg_sp.RowHeadersWidth = 62;
             this.dtg_sp.RowTemplate.Height = 25;
-            this.dtg_sp.Size = new System.Drawing.Size(539, 158);
+            this.dtg_sp.Size = new System.Drawing.Size(539, 168);
             this.dtg_sp.TabIndex = 15;
             // 
             // ckb
@@ -520,6 +520,8 @@
             this.tb_mucgiam.TabIndex = 113;
             this.tb_mucgiam.Texts = "";
             this.tb_mucgiam.UnderlinedStyle = false;
+            this.tb_mucgiam._TextChanged += new System.EventHandler(this.tb_mucgiam__TextChanged);
+            this.tb_mucgiam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_mucgiam_KeyPress);
             // 
             // tb_ten
             // 
