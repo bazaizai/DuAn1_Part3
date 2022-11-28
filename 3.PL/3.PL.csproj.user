@@ -4,6 +4,9 @@
     <Compile Update="Components\Hats.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Components\HoaDonS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Components\SearchHats.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -38,6 +41,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChiTietSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmChiTietSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChucVu.cs">
@@ -103,7 +109,13 @@
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmSuaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmTichDiem.cs">
@@ -113,6 +125,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmXacNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ViewSP.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
