@@ -71,11 +71,12 @@ namespace _3.PL.Views
                     item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động"
                     );
             }
-            clear();
         }
         public void loadComboBox()
         {
-
+            cbb_chucvu.Items.Clear();
+            cbb_gioitinh.Items.Clear();
+            cbb_loc.Items.Clear();
             foreach (var item in _iChucVu.GetAll())
             {
                 if (item.TrangThai == 0)
@@ -102,9 +103,9 @@ namespace _3.PL.Views
             {
                 Id = new Guid(),
                 IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
-                Ten = tb_ten.Text,
+                Ten = XoaDauCach(tb_ten.Text.Trim()),
                 TenDem = tb_tendem.Text,
-                Ho = tb_ho.Text,
+                Ho = XoaDauCach(tb_ho.Text.Trim()),
                 GioiTinh = cbb_gioitinh.Text,
                 NgaySinh = dtp_ngaysinh.Value,
                 DiaChi = tb_diachi.Text,
@@ -147,19 +148,19 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Email đã bị trùng");
                 }
-                else if (cbb_chucvu.Text == "")
+                else if (string.IsNullOrWhiteSpace(cbb_chucvu.Text))
                 {
                     MessageBox.Show("Chọn chức vụ");
                 }
-                else if (tb_matkhau.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_matkhau.Text))
                 {
                     MessageBox.Show("Không được để trống mật khẩu");
                 }
-                else if (tb_ten.Text == "" || tb_ho.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text) || string.IsNullOrWhiteSpace(tb_ho.Text))
                 {
                     MessageBox.Show("Không được để trống họ và tên");
                 }
-                else if (cbb_gioitinh.Text == "")
+                else if (string.IsNullOrWhiteSpace(cbb_gioitinh.Text))
                 {
                     MessageBox.Show("Chọn giới tính");
                 }
@@ -171,7 +172,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Mật khẩu không đúng");
                 }
-                else if (tb_taikhoan.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_taikhoan.Text))
                 {
                     MessageBox.Show("không được để tài khoản");
                 }
@@ -179,11 +180,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("không được để trống trạng thái");
                 }
+                else if (hasSpecialChar(tb_ten.Text) || hasSpecialChar(tb_ho.Text))
+                {
+                    MessageBox.Show("Họ Tên không hợp lệ");
+                }
                 else
                 {
                     _iNhanVien.Add(GetData());
                     MessageBox.Show("thêm thành công");
                     loadData();
+                    clear();
                 }
             }
             else
@@ -200,9 +206,9 @@ namespace _3.PL.Views
                 Id = Guid.Parse(dtgv_show.CurrentRow.Cells[0].Value.ToString()),
                 IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
                 Ma = dtgv_show.CurrentRow.Cells[1].Value.ToString(),
-                Ten = tb_ten.Text,
+                Ten = XoaDauCach(tb_ten.Text.Trim()),
                 TenDem = tb_tendem.Text,
-                Ho = tb_ho.Text,
+                Ho = XoaDauCach(tb_ho.Text.Trim()),
                 GioiTinh = cbb_gioitinh.Text,
                 NgaySinh = dtp_ngaysinh.Value,
                 DiaChi = tb_diachi.Text,
@@ -240,7 +246,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Số điện thoại bị trùng");
                 }
-                else if (tb_matkhau.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_matkhau.Text))
                 {
                     MessageBox.Show("Không được để trống mật khẩu");
                 }
@@ -248,11 +254,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Mật khẩu không đúng");
                 }
+                else if (hasSpecialChar(tb_ten.Text) || hasSpecialChar(tb_ho.Text))
+                {
+                    MessageBox.Show("Họ Tên không hợp lệ");
+                }
                 else
                 {
                     _iNhanVien.Update(cvv);
                     MessageBox.Show("sửa thành công");
                     loadData();
+                    clear();
                 }
             }
             else
@@ -276,6 +287,7 @@ namespace _3.PL.Views
                     _iNhanVien.Delete(_nvv);
                     MessageBox.Show("xóa thành công");
                     loadData();
+                    clear();
                 }
             }
             else
@@ -422,6 +434,55 @@ namespace _3.PL.Views
             frmChucVu.ShowDialog();
             loadData();
             loadComboBox();
+        }
+
+        private void tb_cccd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tb_sdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+        public static bool hasSpecialChar(string input)
+        {
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            foreach (var item in specialChar)
+            {
+                if (input.Contains(item)) return true;
+            }
+
+            return false;
+        }
+        private string XoaDauCach(string s)
+        {
+
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
+
+        private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tb_tendem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tb_ho_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
