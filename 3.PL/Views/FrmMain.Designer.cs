@@ -124,7 +124,7 @@
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton6.ForeColor = System.Drawing.Color.White;
             this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -146,7 +146,7 @@
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -157,7 +157,7 @@
             this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(244, 60);
             this.iconButton4.TabIndex = 1;
-            this.iconButton4.Text = "Hóa đơn";
+            this.iconButton4.Text = "QL Hóa đơn";
             this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // iconButton5
@@ -168,7 +168,7 @@
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton5.ForeColor = System.Drawing.Color.White;
             this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -189,7 +189,7 @@
             this.btnQLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQLHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQLHoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnQLHoaDon.ForeColor = System.Drawing.Color.White;
             this.btnQLHoaDon.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnQLHoaDon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnQLHoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -212,7 +212,7 @@
             this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton3.ForeColor = System.Drawing.Color.White;
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -222,7 +222,7 @@
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(244, 60);
             this.iconButton3.TabIndex = 14;
-            this.iconButton3.Text = "Ưu Đãi Tích Điểm";
+            this.iconButton3.Text = "QL Ưu Đãi Tích Điểm";
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = false;
@@ -234,7 +234,7 @@
             this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -244,7 +244,7 @@
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(244, 60);
             this.iconButton2.TabIndex = 13;
-            this.iconButton2.Text = "Khuyến Mãi";
+            this.iconButton2.Text = "QL Khuyến Mãi";
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = false;
@@ -257,7 +257,7 @@
             this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -300,7 +300,7 @@
             this.btnBanHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnBanHang.ForeColor = System.Drawing.Color.White;
             this.btnBanHang.IconChar = FontAwesome.Sharp.IconChar.Sellcast;
             this.btnBanHang.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnBanHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -310,7 +310,7 @@
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(244, 60);
             this.btnBanHang.TabIndex = 7;
-            this.btnBanHang.Text = "Bán Hàng";
+            this.btnBanHang.Text = "QL Bán Hàng";
             this.btnBanHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBanHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBanHang.UseVisualStyleBackColor = false;
@@ -346,7 +346,7 @@
             this.btnChucvu.FlatAppearance.BorderSize = 0;
             this.btnChucvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChucvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnChucvu.ForeColor = System.Drawing.Color.White;
             this.btnChucvu.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnChucvu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnChucvu.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -357,7 +357,7 @@
             this.btnChucvu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnChucvu.Size = new System.Drawing.Size(244, 60);
             this.btnChucvu.TabIndex = 1;
-            this.btnChucvu.Text = "Chức Vụ";
+            this.btnChucvu.Text = "QL Chức Vụ";
             this.btnChucvu.UseVisualStyleBackColor = false;
             this.btnChucvu.Click += new System.EventHandler(this.btnChucvu_Click);
             // 
@@ -369,7 +369,7 @@
             this.btnNhanvien.FlatAppearance.BorderSize = 0;
             this.btnNhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNhanvien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnNhanvien.ForeColor = System.Drawing.Color.White;
             this.btnNhanvien.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnNhanvien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnNhanvien.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -380,7 +380,7 @@
             this.btnNhanvien.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnNhanvien.Size = new System.Drawing.Size(244, 60);
             this.btnNhanvien.TabIndex = 0;
-            this.btnNhanvien.Text = "Nhân Viên";
+            this.btnNhanvien.Text = "QL Nhân Viên";
             this.btnNhanvien.UseVisualStyleBackColor = false;
             this.btnNhanvien.Click += new System.EventHandler(this.btnNhanvien_Click);
             // 
@@ -391,7 +391,7 @@
             this.btnQLNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQLNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQLNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnQLNhanVien.ForeColor = System.Drawing.Color.White;
             this.btnQLNhanVien.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnQLNhanVien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnQLNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -432,7 +432,7 @@
             this.iconButton10.FlatAppearance.BorderSize = 0;
             this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton10.ForeColor = System.Drawing.Color.White;
             this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -443,7 +443,7 @@
             this.iconButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton10.Size = new System.Drawing.Size(244, 60);
             this.iconButton10.TabIndex = 11;
-            this.iconButton10.Text = "Team";
+            this.iconButton10.Text = "QL Team";
             this.iconButton10.UseVisualStyleBackColor = false;
             this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
             // 
@@ -455,7 +455,7 @@
             this.iconButton9.FlatAppearance.BorderSize = 0;
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton9.ForeColor = System.Drawing.Color.White;
             this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -466,7 +466,7 @@
             this.iconButton9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton9.Size = new System.Drawing.Size(244, 60);
             this.iconButton9.TabIndex = 10;
-            this.iconButton9.Text = "Kích cỡ";
+            this.iconButton9.Text = "QL Kích cỡ";
             this.iconButton9.UseVisualStyleBackColor = false;
             this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click);
             // 
@@ -478,7 +478,7 @@
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton8.ForeColor = System.Drawing.Color.White;
             this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -489,7 +489,7 @@
             this.iconButton8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton8.Size = new System.Drawing.Size(244, 60);
             this.iconButton8.TabIndex = 9;
-            this.iconButton8.Text = "Chất Liệu";
+            this.iconButton8.Text = "QL Chất Liệu";
             this.iconButton8.UseVisualStyleBackColor = false;
             this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click);
             // 
@@ -501,7 +501,7 @@
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton7.ForeColor = System.Drawing.Color.White;
             this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -512,7 +512,7 @@
             this.iconButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton7.Size = new System.Drawing.Size(244, 60);
             this.iconButton7.TabIndex = 8;
-            this.iconButton7.Text = "Màu Sắc";
+            this.iconButton7.Text = "QL Màu Sắc";
             this.iconButton7.UseVisualStyleBackColor = false;
             this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
@@ -524,7 +524,7 @@
             this.btnKieusp.FlatAppearance.BorderSize = 0;
             this.btnKieusp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKieusp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnKieusp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnKieusp.ForeColor = System.Drawing.Color.White;
             this.btnKieusp.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnKieusp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnKieusp.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -535,7 +535,7 @@
             this.btnKieusp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnKieusp.Size = new System.Drawing.Size(244, 60);
             this.btnKieusp.TabIndex = 7;
-            this.btnKieusp.Text = "Kiểu Sản Phẩm";
+            this.btnKieusp.Text = "QL Kiểu Sản Phẩm";
             this.btnKieusp.UseVisualStyleBackColor = false;
             this.btnKieusp.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
@@ -547,7 +547,7 @@
             this.BtnGiaiDau.FlatAppearance.BorderSize = 0;
             this.BtnGiaiDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGiaiDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnGiaiDau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnGiaiDau.ForeColor = System.Drawing.Color.White;
             this.BtnGiaiDau.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.BtnGiaiDau.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.BtnGiaiDau.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -558,7 +558,7 @@
             this.BtnGiaiDau.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnGiaiDau.Size = new System.Drawing.Size(244, 60);
             this.BtnGiaiDau.TabIndex = 6;
-            this.BtnGiaiDau.Text = "Giải Đấu";
+            this.BtnGiaiDau.Text = "QL Giải Đấu";
             this.BtnGiaiDau.UseVisualStyleBackColor = false;
             this.BtnGiaiDau.Click += new System.EventHandler(this.BtnGiaiDau_Click);
             // 
@@ -570,7 +570,7 @@
             this.btnCTSP.FlatAppearance.BorderSize = 0;
             this.btnCTSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCTSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCTSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnCTSP.ForeColor = System.Drawing.Color.White;
             this.btnCTSP.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.btnCTSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnCTSP.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -581,7 +581,7 @@
             this.btnCTSP.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCTSP.Size = new System.Drawing.Size(244, 60);
             this.btnCTSP.TabIndex = 0;
-            this.btnCTSP.Text = "CT Sản Phẩm";
+            this.btnCTSP.Text = "QL Sản Phẩm";
             this.btnCTSP.UseVisualStyleBackColor = false;
             this.btnCTSP.Click += new System.EventHandler(this.iconButton2_Click);
             // 
@@ -592,7 +592,7 @@
             this.QLSP.Dock = System.Windows.Forms.DockStyle.Top;
             this.QLSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QLSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.QLSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.QLSP.ForeColor = System.Drawing.Color.White;
             this.QLSP.IconChar = FontAwesome.Sharp.IconChar.Palfed;
             this.QLSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.QLSP.IconFont = FontAwesome.Sharp.IconFont.Auto;

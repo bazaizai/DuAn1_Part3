@@ -92,7 +92,11 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
+<<<<<<< HEAD
                 else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
+=======
+                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+>>>>>>> develop
                 {
                     MessageBox.Show("Phải viết hoa chữ cái đầu!");
                 }
@@ -167,10 +171,17 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
+<<<<<<< HEAD
                 //else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
                 //{
                 //    MessageBox.Show("Phải viết hoa chữ cái đầu!");
                 //}
+=======
+                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+                {
+                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
+                }
+>>>>>>> develop
                 else if (CheckValidate.hasSpecialChar(tb_ten.Text))
                 {
                     MessageBox.Show("Tên không hợp lệ!");
@@ -487,6 +498,7 @@ namespace _3.PL.Views
 
         }
 
+<<<<<<< HEAD
         //private string RemoveWhiteSpace(string z)
         //{
         //    string x = "";
@@ -509,6 +521,8 @@ namespace _3.PL.Views
             return s;
         }
 
+=======
+>>>>>>> develop
         private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -548,6 +562,7 @@ namespace _3.PL.Views
             }
             return new string(array);
         }
+<<<<<<< HEAD
 
         private void tb_ten_TextChanged(object sender, EventArgs e)
         {
@@ -556,5 +571,7 @@ namespace _3.PL.Views
                 tb_ten.Text = "";
             }
         }
+=======
+>>>>>>> develop
     }
 }

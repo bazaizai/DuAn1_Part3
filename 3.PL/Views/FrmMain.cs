@@ -26,6 +26,8 @@ namespace _3.PL.Views
             LeftBorderBtn = new Panel();
             LeftBorderBtn.Size = new Size(7, QLSP.Height);
             pnlMenu.Controls.Add(LeftBorderBtn);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -35,7 +37,7 @@ namespace _3.PL.Views
         //Structs
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(254, 85, 0);
+            public static Color color1 = Color.FromArgb(0,0,0);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
@@ -71,9 +73,9 @@ namespace _3.PL.Views
             if (currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(48, 143, 157);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.ForeColor = Color.FromArgb(252, 253, 253);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.FromArgb(252, 253, 253);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -139,7 +141,9 @@ namespace _3.PL.Views
             if (pnlbtn5.Visible == true)
                 pnlbtn5.Visible = false;
             if (pnlbtn9.Visible == true)
-                pnlbtn9.Visible = false;
+                pnlbtn9.Visible = false; 
+            if (pnlGiaoDich.Visible == true)
+                pnlGiaoDich.Visible = false;
         }
         private void ShowSubMenu(Panel SubMenu)
         {
@@ -191,7 +195,7 @@ namespace _3.PL.Views
         private void iconButton2_Click(object sender, EventArgs e)
         {
             lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new frmQLChiTietSp());
+            OpenChildForm(new FrmChiTietSP());
             HideSubMenu();
         }
         private void btnSP_Click(object sender, EventArgs e)
@@ -250,9 +254,17 @@ namespace _3.PL.Views
         private void _ToNho_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
+            {
+
                 WindowState = FormWindowState.Maximized;
+                this.StartPosition = FormStartPosition.CenterScreen;
+            }
             else
+            {
                 WindowState = FormWindowState.Normal;
+                this.StartPosition = FormStartPosition.CenterScreen;
+            }
+             
         }
 
         private void _tru_Click(object sender, EventArgs e)
