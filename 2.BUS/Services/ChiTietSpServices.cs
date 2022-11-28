@@ -63,6 +63,7 @@ namespace _2.BUS.Services
                                                         IdChatLieu = spct.IdChatLieu,
                                                         BaoHanh = spct.BaoHanh,
                                                         MoTa = spct.MoTa,
+                                                        MaQr = spct.MaQr,
                                                         SoLuongTon = spct.SoLuongTon,
                                                         GiaNhap = spct.GiaNhap,
                                                         GiaBan = spct.GiaBan,

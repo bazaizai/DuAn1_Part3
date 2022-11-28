@@ -114,6 +114,7 @@ namespace _2.BUS.Services
                            NgayShip = a.NgayShip,
                            NgayThanhToan = a.NgayThanhToan,
                            SdtNhanHang = a.Sdt,
+                           TienShip = a.TienShip,
                            MaHD = a.Ma,
                            TongTienSauKhiGiam = a.TongTien - a.SoTienGiam,
                            TenNguoiNhan = a.TenNguoiNhan,
@@ -123,25 +124,26 @@ namespace _2.BUS.Services
                            TrangThai = a.TrangThai,
                            MoTa = a.MoTa,
                            SoTienGiam = a.SoTienGiam,
+                           TrangThaiGiaoHang = a.TrangThaiGiaoHang,
                            //IdtichDiem = b.IdtichDiem,
-                           //IdKh = b.Id,
+                           IdKh = a.IdKh,
                            //HoKh = b.Ho,
                            //TenDemKh = b.TenDem,
-                           //TenKh = b.Ten,
+                           //TenKh = a.Ten,
                            //SoDiemKH = b.SoDiem,
                            //MaKh = b.Ma,
-                           //IdNv = c.Id,
+                           IdNv = a.IdNv,
                            //HoNv = c.Ho,
                            //TenDemNv = c.TenDem,
                            //TenNv = c.Ten,
                            //MaNv = c.Ma,
-                           //IdPttt = d.Id,
+                           IdPttt = a.IdPttt,
                            //TenPttt = d.Ten,
                            //MaPttt = d.Ma,
-                           //IdHt = e.Id,
+                           IdHt = a.IdHt,
                            //TenHt = e.Ten,
                            //MaHt = e.Ma,
-                           //IdUD = f.Id,
+                           IdUD = a.IdUdtichDiem,
                            //MaUD = f.Ma,
                            //MucUuDai = f.MucUuDai,
                            //SoDiemUD = f.SoDiem,
@@ -152,6 +154,77 @@ namespace _2.BUS.Services
         }
 
         public HoaDonViews GetID(Guid id) => GetAll().Find(x => x.Id == id);
+
+        public List<HoaDonViews> LoadJoin()
+        {
+            var lst = (from a in hoaDonRepos.GetAll()
+                       join b in (from a in khachHangRepos.GetAll()
+                                  join b in tichDiemRepos.GetAll() on a.IdtichDiem equals b.Id
+                                  select new KhachHangView()
+                                  {
+                                      Id = a.Id,
+                                      Ten = a.Ten,
+                                      Sdt = a.Sdt,
+                                      DiaChi = a.DiaChi,
+                                      IdtichDiem = a.IdtichDiem,
+                                      Ma = a.Ma,
+                                      TrangThai = a.TrangThai,
+                                      SoDiem = b.SoDiem
+                                  }
+                                  ).ToList() on a.IdKh equals b.Id
+                       //join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
+                       join d in ptthanhToanRepos.GetAll() on a.IdPttt equals d.Id
+                       join e in hinhThucMhRepos.GetAll() on a.IdHt equals e.Id
+                       join f in uuDaiTichDiemRepos.GetAll() on a.IdUdtichDiem equals f.Id
+                       select new HoaDonViews()
+                       {
+                           Id = a.Id,
+                           DiaChiNhan = a.DiaChi,
+                           GiamGia = a.GiamGia,
+                           NgayTao = a.NgayTao,
+                           NgayNhan = a.NgayNhan,
+                           NgayShip = a.NgayShip,
+                           TienShip = a.TienShip,
+                           Cod = a.Cod,
+                           HinhThucGiamGia = a.HinhThucGiamGia,
+                           NgayThanhToan = a.NgayThanhToan,
+                           SdtNhanHang = a.Sdt,
+                           MaHD = a.Ma,
+                           TongTienSauKhiGiam = a.TongTien - a.SoTienGiam,
+                           TenNguoiNhan = a.TenNguoiNhan,
+                           TienKhachDua = a.TienKhachDua,
+                           TienChuyenKhoan = a.TienChuyenKhoan,
+                           TongTien = a.TongTien,
+                           TrangThai = a.TrangThai,
+                           MoTa = a.MoTa,
+                           SoTienGiam = a.SoTienGiam,
+                           TrangThaiGiaoHang = a.TrangThaiGiaoHang,
+                           IdtichDiem = b.IdtichDiem,
+                           IdKh = b.Id,
+                           TenKh = b.Ten,
+                           SoDiemKH = b.SoDiem,
+                           MaKh = b.Ma,
+                           //IdNv = c.Id,
+                           //HoNv = c.Ho,
+                           //TenDemNv = c.TenDem,
+                           //TenNv = c.Ten,
+                           //MaNv = c.Ma,
+                           IdPttt = d.Id,
+                           TenPttt = d.Ten,
+                           MaPttt = d.Ma,
+                           IdHt = e.Id,
+                           TenHt = e.Ten,
+                           MaHt = e.Ma,
+                           IdUD = f.Id,
+                           MaUD = f.Ma,
+                           MucUuDai = f.MucUuDai,
+                           SoDiemUD = f.SoDiem,
+                           LoaiHinhKm = f.LoaiHinhKm
+                       }
+                       ).ToList();
+            return lst;
+        }
+
         public string Update(HoaDonViews obj)
         {
             if (obj == null) return "Không thành công";
@@ -178,7 +251,7 @@ namespace _2.BUS.Services
                 TienShip = obj.TienShip,
                 TrangThaiGiaoHang = obj.TrangThaiGiaoHang,
                 TongTien = obj.TongTien,
-                SoTienGiam = obj.SoTienGiam,
+                SoTienGiam = obj.TongTien - obj.TongTienSauKhiGiam,
                 Sdt = obj.SdtNhanHang,
                 MoTa = obj.MoTa,
                 TrangThai = obj.TrangThai

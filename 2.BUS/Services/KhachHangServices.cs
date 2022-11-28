@@ -54,7 +54,7 @@ namespace _2.BUS.Services
                 var x = new KhachHang()
                 {
                     Id = obj.Id,
-                    IdtichDiem = obj.IdtichDiem
+                    IdtichDiem = obj.IdtichDiem,
                     
                 };
                 if (_iKhachHangRepos.Delete(x)) return "Xóa thành công";
