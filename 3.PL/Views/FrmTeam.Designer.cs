@@ -49,19 +49,21 @@
             // 
             // bt_xoaform
             // 
-            this.bt_xoaform.Location = new System.Drawing.Point(628, 194);
+            this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoaform.ForeColor = System.Drawing.Color.Transparent;
+            this.bt_xoaform.Location = new System.Drawing.Point(614, 189);
             this.bt_xoaform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoaform.Name = "bt_xoaform";
-            this.bt_xoaform.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoaform.Size = new System.Drawing.Size(98, 42);
             this.bt_xoaform.TabIndex = 42;
             this.bt_xoaform.Text = "Xóa form";
-            this.bt_xoaform.UseVisualStyleBackColor = true;
+            this.bt_xoaform.UseVisualStyleBackColor = false;
             this.bt_xoaform.Click += new System.EventHandler(this.bt_xoaform_Click);
             // 
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(287, 178);
+            this.rdb_khd.Location = new System.Drawing.Point(304, 178);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(118, 19);
             this.rdb_khd.TabIndex = 41;
@@ -72,7 +74,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(165, 178);
+            this.rdb_hd.Location = new System.Drawing.Point(166, 180);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(83, 19);
             this.rdb_hd.TabIndex = 40;
@@ -103,11 +105,15 @@
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_show.GridColor = System.Drawing.SystemColors.Highlight;
             this.dtg_show.Location = new System.Drawing.Point(58, 253);
             this.dtg_show.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
+            this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 51;
             this.dtg_show.RowTemplate.Height = 29;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -117,35 +123,41 @@
             // 
             // bt_xoa
             // 
-            this.bt_xoa.Location = new System.Drawing.Point(628, 150);
+            this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoa.ForeColor = System.Drawing.Color.Transparent;
+            this.bt_xoa.Location = new System.Drawing.Point(614, 145);
             this.bt_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoa.Size = new System.Drawing.Size(98, 42);
             this.bt_xoa.TabIndex = 36;
             this.bt_xoa.Text = "xóa";
-            this.bt_xoa.UseVisualStyleBackColor = true;
+            this.bt_xoa.UseVisualStyleBackColor = false;
             this.bt_xoa.Click += new System.EventHandler(this.bt_xoa_Click);
             // 
             // tb_them
             // 
-            this.tb_them.Location = new System.Drawing.Point(628, 102);
+            this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.tb_them.ForeColor = System.Drawing.Color.Transparent;
+            this.tb_them.Location = new System.Drawing.Point(614, 97);
             this.tb_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_them.Name = "tb_them";
-            this.tb_them.Size = new System.Drawing.Size(82, 22);
+            this.tb_them.Size = new System.Drawing.Size(98, 42);
             this.tb_them.TabIndex = 35;
             this.tb_them.Text = "Thêm";
-            this.tb_them.UseVisualStyleBackColor = true;
+            this.tb_them.UseVisualStyleBackColor = false;
             this.tb_them.Click += new System.EventHandler(this.tb_them_Click);
             // 
             // bt_update
             // 
-            this.bt_update.Location = new System.Drawing.Point(628, 56);
+            this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_update.ForeColor = System.Drawing.Color.Transparent;
+            this.bt_update.Location = new System.Drawing.Point(614, 51);
             this.bt_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_update.Name = "bt_update";
-            this.bt_update.Size = new System.Drawing.Size(82, 22);
+            this.bt_update.Size = new System.Drawing.Size(98, 42);
             this.bt_update.TabIndex = 34;
             this.bt_update.Text = "Sửa";
-            this.bt_update.UseVisualStyleBackColor = true;
+            this.bt_update.UseVisualStyleBackColor = false;
             this.bt_update.Click += new System.EventHandler(this.bt_update_Click);
             // 
             // label3
@@ -171,7 +183,7 @@
             this.tb_ten.Location = new System.Drawing.Point(166, 140);
             this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(216, 23);
+            this.tb_ten.Size = new System.Drawing.Size(276, 23);
             this.tb_ten.TabIndex = 31;
             // 
             // label1
@@ -188,7 +200,7 @@
             this.tb_ma.Location = new System.Drawing.Point(166, 62);
             this.tb_ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ma.Name = "tb_ma";
-            this.tb_ma.Size = new System.Drawing.Size(216, 23);
+            this.tb_ma.Size = new System.Drawing.Size(276, 23);
             this.tb_ma.TabIndex = 29;
             // 
             // label5
@@ -205,14 +217,15 @@
             this.cbb_giaidau.FormattingEnabled = true;
             this.cbb_giaidau.Location = new System.Drawing.Point(164, 102);
             this.cbb_giaidau.Name = "cbb_giaidau";
-            this.cbb_giaidau.Size = new System.Drawing.Size(218, 23);
+            this.cbb_giaidau.Size = new System.Drawing.Size(278, 23);
             this.cbb_giaidau.TabIndex = 45;
             // 
             // FrmTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.ClientSize = new System.Drawing.Size(775, 431);
             this.Controls.Add(this.cbb_giaidau);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.bt_xoaform);
@@ -230,6 +243,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_ma);
             this.Name = "FrmTeam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTeam";
             this.Load += new System.EventHandler(this.FrmTeam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).EndInit();

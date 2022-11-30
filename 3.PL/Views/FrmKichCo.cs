@@ -27,24 +27,24 @@ namespace _3.PL.Views
             _LstKichCo = new List<KichCoViews>();
             tb_Ma.Enabled = false;
             LoadData();
+            cbb_loc.Text = "Tất cả";
         }
 
         public void LoadData()
         {
             dtg_Show.Rows.Clear();
-            dtg_Show.ColumnCount = 6;
+            dtg_Show.ColumnCount = 5;
             dtg_Show.Columns[0].Name = "Id ";
             dtg_Show.Columns[0].Visible = false;
             dtg_Show.Columns[1].Name = "Mã";
             dtg_Show.Columns[2].Name = "Size ";
             dtg_Show.Columns[3].Name = "Cm";
-            dtg_Show.Columns[4].Name = "Inch";
-            dtg_Show.Columns[5].Name = "Trạng thái";
+            dtg_Show.Columns[4].Name = "Trạng thái";
             var lstKichCo = _IKichCoServices.GetAll();
-            if (tb_TimKiem.Text != "")
-            {
-                lstKichCo = lstKichCo.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Size.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
-            }
+            //if (tb_TimKiem.Text != "")
+            //{
+            //    lstKichCo = lstKichCo.Where(x => x.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || x.Size.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+            //}
             foreach (var item in lstKichCo)
             {
                 dtg_Show.Rows.Add(item.Id, item.Ma, item.Size,item.Cm, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
@@ -60,6 +60,7 @@ namespace _3.PL.Views
                 item.Clear();
             }
             tb_TimKiem.Text = "";
+            cbb_loc.Text = "Tất cả";
             LoadData();
         }
 
@@ -72,9 +73,8 @@ namespace _3.PL.Views
                 tb_Ma.Text = r.Cells[1].Value.ToString();
                 tb_Ten.Text = r.Cells[2].Value.ToString();
                 tb_Cm.Text = r.Cells[3].Value.ToString();
-                tb_Inch.Text = r.Cells[4].Value.ToString();
-                radioButton1.Checked = r.Cells[5].Value.ToString() == "Hoạt động";
-                radioButton2.Checked = r.Cells[5].Value.ToString() == "Không hoạt động";
+                radioButton1.Checked = r.Cells[4].Value.ToString() == "Hoạt động";
+                radioButton2.Checked = r.Cells[4].Value.ToString() == "Không hoạt động";
             }
         }
         private bool validateSoLonHon0(string str)
@@ -183,7 +183,54 @@ namespace _3.PL.Views
             {
                 item.Clear();
             }
-            LoadData();
+            //LoadData();
+            loc();
+        }
+
+        private void FrmKichCo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        public void loc()
+        {
+            if (cbb_loc.Text == "Hoạt động")
+            {
+                var timkiem = _IKichCoServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Size.ToLower().Contains(tb_TimKiem.Text.ToLower())) && p.TrangThai == 0).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Size, item.Cm, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Không hoạt động")
+            {
+                var timkiem = _IKichCoServices.GetAll().Where(p => (p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Size.ToLower().Contains(tb_TimKiem.Text.ToLower()))
+                                                                  && p.TrangThai == 1).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Size,item.Cm, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+            else if (cbb_loc.Text == "Tất cả")
+            {
+                var timkiem = _IKichCoServices.GetAll().Where(p => p.Ma.ToLower().Contains(tb_TimKiem.Text.ToLower()) || p.Size.ToLower().Contains(tb_TimKiem.Text.ToLower())).ToList();
+                dtg_Show.Rows.Clear();
+                foreach (var item in timkiem)
+                {
+                    dtg_Show.Rows.Add(item.Id, item.Ma, item.Size,item.Cm, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                }
+            }
+        }
+
+        private void cbb_loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loc();
         }
     }
 }

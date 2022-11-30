@@ -1320,8 +1320,7 @@ namespace _3.PL.Views
             {
                 this.Alert("Vui vui lòng chọn hóa đơn", Form_Alert.enmType.Warning);
             }
-            else
-           if (txtGhiChu.Texts.Trim() == "")
+            else if (txtGhiChu.Texts.Trim() == "")
             {
                 MessageBox.Show("Vui lòng xác nhận lý do hủy trong phần ghi chú.");
             }

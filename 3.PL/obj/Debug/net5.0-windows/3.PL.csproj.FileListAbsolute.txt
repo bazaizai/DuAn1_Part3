@@ -40,6 +40,7 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Bunifu.UI.WinFo
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Bunifu.UI.WinForms.Deprecated.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Bunifu.Utils.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Guna.UI2.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Microsoft.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -85,6 +86,7 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\2.BUS.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\1.DAL.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.csproj.AssemblyReference.cache
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Components.Hats.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Components.HoaDonS.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Components.SearchHats.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomControls.RJControls.RJComboBox.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomControls.RJControls.RJTextBox.resources
@@ -92,6 +94,7 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Propertie
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomAlertBoxDemo.Form_Alert.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChatLieu.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSale.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChucVu.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmDoiMK.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmForgotPW.resources
@@ -113,10 +116,13 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Frm
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmQLKieuSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSale.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSanPham.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSuaSanPham.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmTeam.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.FrmThemSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmTichDiem.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmUuDaiTichDiem.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmXacNhan.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.ViewSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.csproj.GenerateResource.cache
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.AssemblyInfoInputs.cache
@@ -128,9 +134,3 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\refint\3.PL.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSP.resources
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Guna.UI2.dll
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.ViewSP.resources
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.FrmThemSP.resources
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSuaSanPham.resources
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Components.HoaDonS.resources
