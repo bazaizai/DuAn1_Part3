@@ -16,11 +16,13 @@ namespace _2.BUS.Services
         private ITeamRepos _teamRepos;
         private List<TeamView> _lstteamViews;
         private IGiaiDauRepos giaiDauRepos;
+        private IChiTietSpRespos _chiTietSpRespos;
         public TeamServices()
         {
             _teamRepos = new TeamRepos();
             _lstteamViews = new List<TeamView>();
             giaiDauRepos = new GiaiDauRepos();
+            _chiTietSpRespos = new ChiTietSpRespos();
         }
         public string Add(TeamView team)
         {
@@ -86,16 +88,27 @@ namespace _2.BUS.Services
         public string Delete(TeamView team)
         {
             if (team == null) return "Xóa thất bại";
-           Team team1 = new Team()
+            var a = _chiTietSpRespos.GetAll().Find(c=>c.IdTeam== team.Id);
+            if(a==null)
             {
-               Id = team.Id,
-               IdGd = team.IdGd,
-               Ma = team.Ma,
-               Ten = team.Ten,
-               TrangThai = team.TrangThai,
-           };
-            _teamRepos.Delete(team1);
-            return "Xóa thành công";
+                Team team1 = new Team()
+                {
+                    Id = team.Id,
+                    IdGd = team.IdGd,
+                    Ma = team.Ma,
+                    Ten = team.Ten,
+                    TrangThai = team.TrangThai,
+                };
+                if (_teamRepos.Delete(team1))
+                {
+                    return "Thành công";
+                }
+                else return "Thất bại";
+                    
+            }    
+            return "Team đã được liên kết với một bảng khác";
+
+
         }
     }
 }

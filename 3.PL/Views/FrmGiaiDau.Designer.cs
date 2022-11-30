@@ -49,7 +49,7 @@
             // 
             this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.bt_xoaform.ForeColor = System.Drawing.Color.White;
-            this.bt_xoaform.Location = new System.Drawing.Point(626, 178);
+            this.bt_xoaform.Location = new System.Drawing.Point(567, 149);
             this.bt_xoaform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoaform.Name = "bt_xoaform";
             this.bt_xoaform.Size = new System.Drawing.Size(82, 36);
@@ -61,7 +61,7 @@
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(280, 153);
+            this.rdb_khd.Location = new System.Drawing.Point(226, 122);
             this.rdb_khd.Name = "rdb_khd";
             this.rdb_khd.Size = new System.Drawing.Size(118, 19);
             this.rdb_khd.TabIndex = 41;
@@ -72,7 +72,7 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(158, 153);
+            this.rdb_hd.Location = new System.Drawing.Point(104, 122);
             this.rdb_hd.Name = "rdb_hd";
             this.rdb_hd.Size = new System.Drawing.Size(83, 19);
             this.rdb_hd.TabIndex = 40;
@@ -83,15 +83,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 201);
+            this.label4.Location = new System.Drawing.Point(33, 172);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
+            this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 39;
-            this.label4.Text = "tìm kiếm";
+            this.label4.Text = "Tìm kiếm";
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(158, 193);
+            this.tb_timkiem.Location = new System.Drawing.Point(99, 164);
             this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(381, 23);
@@ -106,7 +106,7 @@
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_show.Location = new System.Drawing.Point(55, 231);
+            this.dtg_show.Location = new System.Drawing.Point(33, 226);
             this.dtg_show.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
@@ -114,15 +114,16 @@
             this.dtg_show.RowHeadersWidth = 51;
             this.dtg_show.RowTemplate.Height = 29;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(684, 141);
+            this.dtg_show.Size = new System.Drawing.Size(616, 141);
             this.dtg_show.TabIndex = 37;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
+            this.dtg_show.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellContentClick);
             // 
             // bt_xoa
             // 
             this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.bt_xoa.ForeColor = System.Drawing.Color.White;
-            this.bt_xoa.Location = new System.Drawing.Point(626, 134);
+            this.bt_xoa.Location = new System.Drawing.Point(567, 105);
             this.bt_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoa.Name = "bt_xoa";
             this.bt_xoa.Size = new System.Drawing.Size(82, 36);
@@ -135,7 +136,7 @@
             // 
             this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.tb_them.ForeColor = System.Drawing.Color.White;
-            this.tb_them.Location = new System.Drawing.Point(626, 86);
+            this.tb_them.Location = new System.Drawing.Point(567, 57);
             this.tb_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_them.Name = "tb_them";
             this.tb_them.Size = new System.Drawing.Size(82, 36);
@@ -148,7 +149,7 @@
             // 
             this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
             this.bt_update.ForeColor = System.Drawing.Color.White;
-            this.bt_update.Location = new System.Drawing.Point(626, 40);
+            this.bt_update.Location = new System.Drawing.Point(567, 11);
             this.bt_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_update.Name = "bt_update";
             this.bt_update.Size = new System.Drawing.Size(82, 36);
@@ -160,7 +161,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 155);
+            this.label3.Location = new System.Drawing.Point(33, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 15);
             this.label3.TabIndex = 33;
@@ -169,7 +170,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 104);
+            this.label2.Location = new System.Drawing.Point(33, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 15);
             this.label2.TabIndex = 32;
@@ -177,16 +178,17 @@
             // 
             // tb_ten
             // 
-            this.tb_ten.Location = new System.Drawing.Point(164, 102);
+            this.tb_ten.Location = new System.Drawing.Point(105, 73);
             this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ten.Name = "tb_ten";
             this.tb_ten.Size = new System.Drawing.Size(375, 23);
             this.tb_ten.TabIndex = 31;
+            this.tb_ten.TextChanged += new System.EventHandler(this.tb_ten_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 62);
+            this.label1.Location = new System.Drawing.Point(33, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 15);
             this.label1.TabIndex = 30;
@@ -194,7 +196,7 @@
             // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(164, 60);
+            this.tb_ma.Location = new System.Drawing.Point(105, 31);
             this.tb_ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(375, 23);
@@ -205,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(796, 399);
+            this.ClientSize = new System.Drawing.Size(687, 399);
             this.Controls.Add(this.bt_xoaform);
             this.Controls.Add(this.rdb_khd);
             this.Controls.Add(this.rdb_hd);

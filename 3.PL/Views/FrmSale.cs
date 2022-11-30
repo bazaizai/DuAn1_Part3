@@ -2,6 +2,7 @@
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Utilities;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,20 +29,20 @@ namespace _3.PL.Views
             lstSale = new List<SaleView>();
             tb_ma.Enabled = false;
             loadcbb();
-      
+            cbb_loaiKm.SelectedIndex = 0;
+
             loadData();
         }
         private void loadlb()
         {
-            if(cbb_loaiKm.Text== "%")
+            if (cbb_loaiKm.Text == "%")
             {
                 lb_mucgiam.Text = "% giảm";
             }
             if (cbb_loaiKm.Text == "Tiền mặt")
             {
                 lb_mucgiam.Text = "Số tiền giảm";
-            } 
-                
+            }
 
         }
         private void loadData()
@@ -62,11 +63,11 @@ namespace _3.PL.Views
             lstSale = _saleServices.GetAll();
             if (tb_timkiem.Text != "")
             {
-                lstSale = lstSale.Where(c => c.Ten.Contains(tb_timkiem.Text)).ToList();
+                lstSale = lstSale.Where(c => c.Ten.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
             }
             foreach (var item in lstSale)
             {
-                dtg_show.Rows.Add(item.Id, item.Ma, item.Ten, item.NgayBatDau,item.NgayKetThuc,item.LoaiHinhKm,item.MucGiam,item.MoTa, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                dtg_show.Rows.Add(item.Id, item.Ma, item.Ten, item.NgayBatDau, item.NgayKetThuc, item.LoaiHinhKm, item.MucGiam, item.MoTa, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
 
         }
@@ -82,10 +83,10 @@ namespace _3.PL.Views
             tb_ma.Text = "";
             rdb_hd.Checked = false;
             rdb_khd.Checked = false;
-            cbb_loaiKm.Text = "";
+            cbb_loaiKm.Text = "%";
             dtp_end.Value = DateTime.Now;
             dtp_start.Value = DateTime.Now;
-            tb_mucgiam.Text = "";
+            tb_mucgiam.Text = "0";
             tb_mota.Text = "";
 
         }
@@ -98,18 +99,26 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Vui lòng chọn mã sale cần sửa");
                 }
-                else if(_saleServices.GetAll().FirstOrDefault(c=>c.Ten == tb_ten.Text && c.Id !=_slv.Id) !=null)
+                else if (_saleServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id != _slv.Id) != null)
                 {
                     MessageBox.Show("Tên sale được trùng");
+                }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được để trống");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
                     MessageBox.Show("Vui lòng chọn trạng thái");
                 }
-                else if(cbb_loaiKm.Text =="")
+                else if (cbb_loaiKm.Text == "")
                 {
                     MessageBox.Show("Vui lòng chọn hình thức giảm");
-                }    
+                }
                 else if (dtp_end.Value < dtp_start.Value)
                 {
                     MessageBox.Show("Thời gian kết thúc sale không được bé hơn thời gian bắt đầu");
@@ -118,7 +127,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
                 }
-                else if (tb_mucgiam.Text == "Giảm giá theo %" || Convert.ToDecimal(tb_mucgiam.Text) > 100)
+                else if (cbb_loaiKm.Text == "%" && Convert.ToDecimal(tb_mucgiam.Text) > 100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
                 }
@@ -129,7 +138,7 @@ namespace _3.PL.Views
                     {
                         Id = idSale,
                         Ma = tb_ma.Text,
-                        Ten = tb_ten.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         NgayBatDau = dtp_start.Value,
                         NgayKetThuc = dtp_end.Value,
                         LoaiHinhKm = cbb_loaiKm.Text,
@@ -137,7 +146,7 @@ namespace _3.PL.Views
                         MoTa = tb_mota.Text,
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
-                        MessageBox.Show(_saleServices.Update(saleView));
+                    MessageBox.Show(_saleServices.Update(saleView));
                     ClearForm();
                     loadData();
                 }
@@ -147,7 +156,15 @@ namespace _3.PL.Views
                 MessageBox.Show("Bạn đã hủy sửa");
             }
         }
+        private string XoaDauCach(string s)
+        {
 
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
         private void tb_them_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
@@ -157,6 +174,14 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên bị trùng");
                 }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được bỏ trống");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
                     MessageBox.Show("Vui lòng chọn trạng thái");
@@ -165,31 +190,31 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Vui lòng chọn hình thức giảm");
                 }
-                else if(dtp_end.Value <dtp_start.Value)
+                else if (dtp_end.Value < dtp_start.Value)
                 {
                     MessageBox.Show("Ngày kết thúc sale không được bé hơn ngày bắt đầu");
-                }    
-                else if(ValidateInput.CheckIntInput(tb_mucgiam.Text)==false || Convert.ToDecimal(tb_mucgiam.Text)<0)
+                }
+                else if (ValidateInput.CheckIntInput(tb_mucgiam.Text) == false || Convert.ToDecimal(tb_mucgiam.Text) < 0)
                 {
                     MessageBox.Show("Nhập đúng mức giảm");
-                }    
-                else if(tb_mucgiam.Text == "Giảm giá theo %" || Convert.ToDecimal(tb_mucgiam.Text)>100)
+                }
+                else if (cbb_loaiKm.Text == "%" && Convert.ToDecimal(tb_mucgiam.Text) > 100)
                 {
                     MessageBox.Show("Không được giảm quá 100%");
-                }    
-        
+                }
+
                 else
                 {
-                   SaleView saleView = new SaleView()
+                    SaleView saleView = new SaleView()
                     {
                         Id = Guid.Empty,
                         Ma = tb_ma.Text,
-                        Ten = tb_ten.Text,
-                        NgayBatDau =dtp_start.Value,
-                        NgayKetThuc=dtp_end.Value,
-                        LoaiHinhKm=cbb_loaiKm.Text,
-                        MucGiam=Convert.ToDecimal(tb_mucgiam.Text),
-                        MoTa=tb_mota.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
+                        NgayBatDau = dtp_start.Value,
+                        NgayKetThuc = dtp_end.Value,
+                        LoaiHinhKm = cbb_loaiKm.Text,
+                        MucGiam = Convert.ToDecimal(tb_mucgiam.Text),
+                        MoTa = tb_mota.Text,
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
                     MessageBox.Show(_saleServices.Add(saleView));
@@ -208,7 +233,7 @@ namespace _3.PL.Views
             DialogResult result = MessageBox.Show("Bạn có muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if (_slv ==null)
+                if (_slv == null)
                 {
                     MessageBox.Show("Vui lòng chọn sale cần xóa");
                 }
@@ -243,9 +268,9 @@ namespace _3.PL.Views
             tb_ten.Text = dtg_show.CurrentRow.Cells[2].Value.ToString();
             dtp_start.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[3].Value);
             dtp_end.Value = Convert.ToDateTime(dtg_show.CurrentRow.Cells[4].Value);
-            cbb_loaiKm.Text= dtg_show.CurrentRow.Cells[5].Value.ToString();
-            tb_mucgiam.Text= dtg_show.CurrentRow.Cells[6].Value.ToString();
-            tb_mota.Text= dtg_show.CurrentRow.Cells[7].Value.ToString();
+            cbb_loaiKm.Text = dtg_show.CurrentRow.Cells[5].Value.ToString();
+            tb_mucgiam.Text = dtg_show.CurrentRow.Cells[6].Value.ToString();
+            tb_mota.Text = dtg_show.CurrentRow.Cells[7].Value.ToString();
             rdb_hd.Checked = dtg_show.CurrentRow.Cells[8].Value.ToString() == "Hoạt động";
             rdb_khd.Checked = dtg_show.CurrentRow.Cells[8].Value.ToString() == "Không hoạt động";
         }
@@ -253,6 +278,28 @@ namespace _3.PL.Views
         private void cbb_loaiKm_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadlb();
+        }
+
+        private void tb_mucgiam_TextChanged(object sender, EventArgs e)
+        {
+            if (cbb_loaiKm.Text == "%")
+            {
+                if (Convert.ToDecimal(tb_mucgiam.Text) > 100)
+                {
+                    tb_mucgiam.Text = "100";
+                }
+            }
+        }
+
+        private void tb_mucgiam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
