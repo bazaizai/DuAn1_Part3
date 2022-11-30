@@ -462,7 +462,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(93, 97);
+            this.label12.Location = new System.Drawing.Point(50, 97);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(125, 23);
             this.label12.TabIndex = 2;
@@ -471,7 +471,7 @@
             // Anh
             // 
             this.Anh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(123)))), ((int)(((byte)(125)))));
-            this.Anh.Location = new System.Drawing.Point(248, 102);
+            this.Anh.Location = new System.Drawing.Point(205, 102);
             this.Anh.Name = "Anh";
             this.Anh.Size = new System.Drawing.Size(246, 247);
             this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -624,7 +624,7 @@
             this.btnAddSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddSP.GradientAngle = 50F;
             this.btnAddSP.Image = global::_3.PL.Properties.Resources.add;
-            this.btnAddSP.Location = new System.Drawing.Point(566, 434);
+            this.btnAddSP.Location = new System.Drawing.Point(566, 430);
             this.btnAddSP.Name = "btnAddSP";
             this.btnAddSP.Size = new System.Drawing.Size(48, 48);
             this.btnAddSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -642,7 +642,7 @@
             this.rjCircularPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox1.GradientAngle = 50F;
             this.rjCircularPictureBox1.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox1.Location = new System.Drawing.Point(562, 505);
+            this.rjCircularPictureBox1.Location = new System.Drawing.Point(562, 502);
             this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             this.rjCircularPictureBox1.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -660,7 +660,7 @@
             this.rjCircularPictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox2.GradientAngle = 50F;
             this.rjCircularPictureBox2.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox2.Location = new System.Drawing.Point(562, 580);
+            this.rjCircularPictureBox2.Location = new System.Drawing.Point(562, 576);
             this.rjCircularPictureBox2.Name = "rjCircularPictureBox2";
             this.rjCircularPictureBox2.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -678,7 +678,7 @@
             this.rjCircularPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox3.GradientAngle = 50F;
             this.rjCircularPictureBox3.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox3.Location = new System.Drawing.Point(562, 653);
+            this.rjCircularPictureBox3.Location = new System.Drawing.Point(562, 650);
             this.rjCircularPictureBox3.Name = "rjCircularPictureBox3";
             this.rjCircularPictureBox3.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -696,7 +696,7 @@
             this.rjCircularPictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox4.GradientAngle = 50F;
             this.rjCircularPictureBox4.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox4.Location = new System.Drawing.Point(1210, 87);
+            this.rjCircularPictureBox4.Location = new System.Drawing.Point(1210, 86);
             this.rjCircularPictureBox4.Name = "rjCircularPictureBox4";
             this.rjCircularPictureBox4.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -714,7 +714,7 @@
             this.rjCircularPictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox5.GradientAngle = 50F;
             this.rjCircularPictureBox5.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox5.Location = new System.Drawing.Point(1210, 160);
+            this.rjCircularPictureBox5.Location = new System.Drawing.Point(1210, 158);
             this.rjCircularPictureBox5.Name = "rjCircularPictureBox5";
             this.rjCircularPictureBox5.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -791,7 +791,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(414, 106);
+            this.label15.Location = new System.Drawing.Point(371, 106);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(16, 20);
             this.label15.TabIndex = 23;
@@ -926,7 +926,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(195, 304);
+            this.rjButton1.Location = new System.Drawing.Point(152, 304);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(102, 45);
             this.rjButton1.TabIndex = 24;
@@ -938,7 +938,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(214, 92);
+            this.label29.Location = new System.Drawing.Point(171, 92);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(16, 20);
             this.label29.TabIndex = 23;

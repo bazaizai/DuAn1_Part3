@@ -21,6 +21,7 @@ namespace _2.BUS.ViewModels
         public Guid? IdCha { get; set; }
         public int? TrangThai { get; set; }
 
+
         public KieuSpView(string ma, string ten, Guid? idCha, int? trangThai)
         {
             Ma = ma;

@@ -40,6 +40,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabthongtin = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dtgView = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new CustomControls.RJControls.RJTextBox();
             this.tabInput = new System.Windows.Forms.TabPage();
             this.cbb_cha = new CustomControls.RJControls.RJComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,15 +52,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMa = new CustomControls.RJControls.RJTextBox();
             this.txtTen = new CustomControls.RJControls.RJTextBox();
-            this.txtSearch = new CustomControls.RJControls.RJTextBox();
-            this.dtgView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabthongtin.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgView)).BeginInit();
+            this.tabInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -172,6 +172,84 @@
             this.tabPage1.Size = new System.Drawing.Size(607, 468);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "List View";
+            // 
+            // dtgView
+            // 
+            this.dtgView.AllowUserToAddRows = false;
+            this.dtgView.AllowUserToDeleteRows = false;
+            this.dtgView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Yellow;
+            this.dtgView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(62)))));
+            this.dtgView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgView.ColumnHeadersHeight = 50;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgView.EnableHeadersVisualStyles = false;
+            this.dtgView.Location = new System.Drawing.Point(3, 38);
+            this.dtgView.Name = "dtgView";
+            this.dtgView.ReadOnly = true;
+            this.dtgView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgView.RowHeadersWidth = 51;
+            this.dtgView.RowTemplate.Height = 50;
+            this.dtgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgView.Size = new System.Drawing.Size(601, 427);
+            this.dtgView.TabIndex = 5;
+            this.dtgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgView_CellClick_1);
+            this.dtgView.DoubleClick += new System.EventHandler(this.dtgView_DoubleClick_1);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(62)))));
+            this.txtSearch.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtSearch.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtSearch.BorderRadius = 0;
+            this.txtSearch.BorderSize = 2;
+            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSearch.Location = new System.Drawing.Point(3, 3);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSearch.PasswordChar = false;
+            this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSearch.PlaceholderText = "Search";
+            this.txtSearch.Size = new System.Drawing.Size(601, 35);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.Texts = "";
+            this.txtSearch.UnderlinedStyle = true;
             // 
             // tabInput
             // 
@@ -336,82 +414,6 @@
             this.txtTen.Texts = "";
             this.txtTen.UnderlinedStyle = true;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(62)))));
-            this.txtSearch.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtSearch.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtSearch.BorderRadius = 0;
-            this.txtSearch.BorderSize = 2;
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSearch.Location = new System.Drawing.Point(3, 3);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtSearch.Multiline = false;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtSearch.PasswordChar = false;
-            this.txtSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtSearch.PlaceholderText = "Search";
-            this.txtSearch.Size = new System.Drawing.Size(601, 35);
-            this.txtSearch.TabIndex = 4;
-            this.txtSearch.Texts = "";
-            this.txtSearch.UnderlinedStyle = true;
-            // 
-            // dtgView
-            // 
-            this.dtgView.AllowUserToAddRows = false;
-            this.dtgView.AllowUserToDeleteRows = false;
-            this.dtgView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Yellow;
-            this.dtgView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(62)))));
-            this.dtgView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtgView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgView.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgView.EnableHeadersVisualStyles = false;
-            this.dtgView.Location = new System.Drawing.Point(3, 38);
-            this.dtgView.Name = "dtgView";
-            this.dtgView.ReadOnly = true;
-            this.dtgView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgView.RowHeadersWidth = 51;
-            this.dtgView.RowTemplate.Height = 50;
-            this.dtgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgView.Size = new System.Drawing.Size(601, 427);
-            this.dtgView.TabIndex = 5;
-            // 
             // FrmQLKieuSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -426,9 +428,9 @@
             this.panel2.ResumeLayout(false);
             this.tabthongtin.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgView)).EndInit();
             this.tabInput.ResumeLayout(false);
             this.tabInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgView)).EndInit();
             this.ResumeLayout(false);
 
         }

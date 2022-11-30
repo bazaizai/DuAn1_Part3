@@ -34,6 +34,7 @@ namespace _3.PL.Views
         IKhachHangServices _IKhachHangServices;
         IPtthanhToanServices _IPtthanhToanServices;
         IHinhThucMhServices _IHinhThucMhServices;
+        INhanVienServices _iNhanVienServices;
         TabPage tabPage;
         int doifrom = 0;
         public string GetSdt { get; set; }
@@ -53,6 +54,7 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
             _IHinhThucMhServices = new HinhThucMhServices();
             _IChiTietHDServices = new ChiTietHDServices();
+            _iNhanVienServices = new NhanVienServices();
             pnlfill.Height = this.Height - pnlbutton.Height;
             rdoTaiQuay.Checked = true;
             CbbGiamGia.SelectedIndex = 0;
@@ -88,6 +90,7 @@ namespace _3.PL.Views
                 TabPage tabPage = new TabPage();
                 tabPage.Text = y.MaHD;
                 tabPage.Name = y.MaHD;
+                txtMaNhanVien.Texts = _HoaDonServices.GetAll().Find(x => x.MaHD == tabPage.Name).MaNv;
                 TabHoaDon.TabPages.Add(tabPage);
                 int stt = 1;
                 if (TabHoaDon.TabCount == 1)
@@ -137,6 +140,7 @@ namespace _3.PL.Views
             {
                 Id = Guid.NewGuid(),
                 MaHD = MaTT(),
+                IdNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.Id).FirstOrDefault(),
                 NgayTao = DateTime.Now,
                 TrangThai = 0,
             };
@@ -224,8 +228,56 @@ namespace _3.PL.Views
                         }
                         else
                         {
-
-                            this.Alert("Vui lòng tạo hóa đơn", Form_Alert.enmType.Warning);
+                            tabPage = new TabPage(MaTT());
+                            txtMaHD1.Text = tabPage.Name = MaTT();
+                            TabHoaDon.TabPages.Add(tabPage);
+                            dgview.Parent = tabPage;
+                            LoadView(TabHoaDon.SelectedTab.Name);
+                            dgview.Visible = true;
+                            dgview.Dock = DockStyle.Fill;
+                            var x = new HoaDonViews()
+                            {
+                                Id = Guid.NewGuid(),
+                                MaHD = MaTT(),
+                                NgayTao = DateTime.Now,
+                                TrangThai = 0,
+                            };
+                            _HoaDonServices.Add(x);
+                            TabHoaDon.SelectedTab = tabPage;
+                            this.Alert("Tạo mới thành công hóa đơn " + TabHoaDon.SelectedTab.Name, Form_Alert.enmType.Success);
+                            var spct = _IChiTietSpServices.GetById(wdg.IdSPCTSP);
+                            if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().All(x => x.IdChiTietSp != wdg.
+                                IdSPCTSP))
+                            {
+                                var cthd = new ChiTietHDView();
+                                cthd.IdChiTietSp = wdg.IdSPCTSP;
+                                cthd.DonGia = decimal.Parse(wdg.Price.ToString());
+                                cthd.TenSP = wdg.TenSP1;
+                                cthd.IdHoaDon = _HoaDonServices.GetAll().FirstOrDefault(cthd => cthd.MaHD == TabHoaDon.SelectedTab.Name).Id;
+                                cthd.SoLuong = 1;
+                                _IChiTietHDServices.Add(cthd);
+                                spct.SoLuongTon = spct.SoLuongTon - 1;
+                                _IChiTietSpServices.Update(spct);
+                            }
+                            else
+                            {
+                                var hdct = _IChiTietHDServices.GetAll().FirstOrDefault(x => x.IdChiTietSp == wdg.IdSPCTSP && x.IdHoaDon == _HoaDonServices.GetAll().FirstOrDefault(c => c.MaHD == TabHoaDon.SelectedTab.Name).Id);
+                                if (spct.SoLuongTon > 0)
+                                {
+                                    hdct.SoLuong += 1;
+                                    _IChiTietHDServices.Update(hdct);
+                                    spct.SoLuongTon -= 1;
+                                    _IChiTietSpServices.Update(spct);
+                                }
+                                else
+                                {
+                                    this.Alert("Hiện tại không còn mặt hàng này", Form_Alert.enmType.Warning);
+                                }
+                            }
+                            LoadView(TabHoaDon.SelectedTab.Name);
+                            LoadGia();
+                            LoadItem();
+                            LoadTienThua();
                         }
                     };
 
@@ -383,6 +435,7 @@ namespace _3.PL.Views
             txtTienThua1.Text = "";
             txthtThanhToan.Texts = "";
             txtsearchKH.Texts = "";
+            txtMaNhanVien.Texts = _HoaDonServices.GetAll().Find(x => x.MaHD == tabPage.Name).MaNv;
             LoadGia();
             LoadTienThua();
         }
@@ -1429,5 +1482,36 @@ namespace _3.PL.Views
                 }
             }
         }
+
+        private void txthtThanhToan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtChuyenKhoan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtGiamGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSdtGH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPhiGiaoHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
     }
 }

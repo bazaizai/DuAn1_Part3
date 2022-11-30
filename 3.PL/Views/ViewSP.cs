@@ -18,6 +18,7 @@ namespace _3.PL.Views
     {
         int x;
         IChiTietSpServices _IChiTietSpServices;
+        public event EventHandler Onclick;
         public ViewSP()
         {
             InitializeComponent();
@@ -88,12 +89,10 @@ namespace _3.PL.Views
         public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
 
 
+
+
         private string N_Hang;
-        public string NhomHang { get => N_Hang; set { N_Hang = value; lblNhomHang.Text = value;lblNhomHang1.Text = value; } }
-
-
-
-
+        public string NhomHang { get => N_Hang; set { N_Hang = value; lblNhomHang.Text = value; lblNhomHang1.Text = value; } }
 
         private void panel2_Click(object sender, EventArgs e)
         {
@@ -150,7 +149,53 @@ namespace _3.PL.Views
             fixSP.CheckTrangThai = this.lblTrangThai.Text;
             fixSP.KhuyenMai = this.lblADKM.Text;
             fixSP.Mota = this.lblGhiChu.Text;
+            fixSP.NhomHang = this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1);
             fixSP.ShowDialog();
+            if (fixSP.N == 2)
+            {
+                this.lblTenSPtt.Text = this.lblTenHang.Text = fixSP.GetTenSP + "-" + fixSP.GetMauSac;
+                this.Anh1 = fixSP.GetImage;
+                this.lblMauSac.Text = fixSP.GetMauSac;
+                this.lblSize.Text = fixSP.GetSize;
+                this.lblChatLieu.Text = fixSP.GetChatLieu;
+                this.lblTeam.Text = fixSP.Getteam;
+                this.lblGiaNhap.Text = fixSP.GetGiaNhap;
+                this.lblGiaBan.Text = fixSP.GetGiaBan;
+                this.lblSoLuongTon.Text = fixSP.GetSoLuong;
+                this.lblBaoHanh.Text = fixSP.GetBaoHanh;
+                this.lblTrangThai.Text = fixSP.GetTrangThai;
+                this.lblADKM.Text = fixSP.GetKhuyenMai;
+                this.lblGhiChu.Text = fixSP.GetGhiChu;
+            }
+        }
+
+        public CheckBox ChBox
+        {
+            get { return CheckBoxDP; }
+        }
+
+
+
+        private void CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxDP.Checked)
+            {
+                if (FrmChiTietSP.CheckCB.ContainsKey(Guid.Parse(ID.Text)))
+                {
+                    FrmChiTietSP.CheckCB[Guid.Parse(ID.Text)] = true;
+                }else
+                FrmChiTietSP.CheckCB.Add(Guid.Parse(ID.Text), true);
+            }
+            else
+            {
+                if (FrmChiTietSP.CheckCB.ContainsKey(Guid.Parse(ID.Text)))
+                {
+                    FrmChiTietSP.CheckCB[Guid.Parse(ID.Text)] = false;
+                }
+                else
+                    FrmChiTietSP.CheckCB.Add(Guid.Parse(ID.Text), false);
+            }
+            Onclick?.Invoke(this, e);
         }
     }
 }

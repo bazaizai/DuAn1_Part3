@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class ChiTietKieuSpServices : IChiTietKieuSpViewService
+    public class ChiTietKieuSpServices : IChiTietKieuSpService
     {
         IChiTietKieuSpRespos _IChiTietSpRespo;
         public ChiTietKieuSpServices()
@@ -23,7 +23,7 @@ namespace _2.BUS.Services
 
         public string Delete(ChiTietKieuSpViews Obj)=>Obj != null && _IChiTietSpRespo.Delete(_IChiTietSpRespo.GetAll().Find(x => x.Id == Obj.Id)) ? "Delete success" : "Delete not succsess";
 
-        public List<ChiTietKieuSpViews> GetAll() => (from a in _IChiTietSpRespo.GetAll()
+        public List<ChiTietKieuSpViews> GetAll() => (from a in _IChiTietSpRespo.GetAll() 
                                                    select new ChiTietKieuSpViews()
                                                    {
                                                        Id = a.Id,
