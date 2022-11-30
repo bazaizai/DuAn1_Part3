@@ -16,11 +16,19 @@ namespace _2.BUS.Services
         private IChiTietSaleRepos _chiTietSaleRepos;
         private ISaleRepos _saleRepos;
         private List<ChiTietSaleView> lstctSale;
+        private IChiTietSpServices _chiTietSpServices;
+        private ISanPhamRepos _ISanPhamRepos;
+        private IMauSacRepos _IMauSacRepos;
+        private ITeamRepos _ITeamRepos;
         public ChiTietSaleServices()
         {
             _chiTietSaleRepos = new ChiTietSaleRepos();
             _saleRepos = new SaleRepos();
             lstctSale = new List<ChiTietSaleView>();
+            _chiTietSpServices = new ChiTietSpServices();
+            _ISanPhamRepos = new SanPhamRepos();
+            _IMauSacRepos = new MauSacRepos();
+            _ITeamRepos = new TeamRepos();
         }
         public string Add(ChiTietSaleView chiTietSale)
         {
@@ -47,7 +55,7 @@ namespace _2.BUS.Services
         public string Delete(ChiTietSaleView chiTietSale)
         {
             if (chiTietSale == null) return "Xóa thất bại";
-           ChiTietSale sale = new ChiTietSale
+            ChiTietSale sale = new ChiTietSale
             {
                 Id = chiTietSale.Id,
                 IdSale = chiTietSale.IdSale,
@@ -55,7 +63,7 @@ namespace _2.BUS.Services
                 MoTa = chiTietSale.MoTa,
                 TrangThai = chiTietSale.TrangThai,
             };
-           _chiTietSaleRepos.Delete(sale);
+            _chiTietSaleRepos.Delete(sale);
             return "Xóa thành công";
         }
 
@@ -64,6 +72,17 @@ namespace _2.BUS.Services
             lstctSale = (from a in _chiTietSaleRepos.GetAll()
                          join b in _saleRepos.GetAll()
                          on a.IdSale equals b.Id
+                         join c in (from ctsp in _chiTietSpServices.GetAll()
+                                    join d in _ISanPhamRepos.GetAll() on ctsp.IdSp equals d.Id
+                                    join e in _IMauSacRepos.GetAll() on ctsp.IdMauSac equals e.Id
+                                    join g in _ITeamRepos.GetAll() on ctsp.IdTeam equals g.Id
+                                    select new ChiTietSpViews
+                                    {
+                                        Id = ctsp.Id,
+                                        TenSP = d.Ten,
+                                        TenMauSac = e.Ten,
+                                        TenTeam= g.Ten,
+                                    }).ToList() on a.IdChiTietSp equals c.Id
                          select new ChiTietSaleView
                          {
                              Id = a.Id,
@@ -72,6 +91,10 @@ namespace _2.BUS.Services
                              TenSale = b.Ten,
                              MoTa = a.MoTa,
                              TrangThai = a.TrangThai,
+                             IdChiTietSp= a.IdChiTietSp,
+                             TenSanPham = c.TenSP,
+                             Team = c.TenTeam,
+                             MauSac= c.TenMauSac
                          }).ToList();
             return lstctSale;
         }

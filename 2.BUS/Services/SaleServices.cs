@@ -42,8 +42,8 @@ namespace _2.BUS.Services
         }
         public string MaTS()
         {
-            if (_saleRepos.GetAll().Count == 0) return "Sale1";
-            return "Sale" + (_saleRepos.GetAll().Max(x => Convert.ToInt32(x.Ma.Substring(4, x.Ma.Length - 4))) + 1);
+            if (_saleRepos.GetAll().Count == 0) return "KM0001";
+            return "KM000" + (_saleRepos.GetAll().Max(x => Convert.ToInt32(x.Ma.Substring(5, x.Ma.Length - 5))) + 1);
         }
         public string Delete(Guid id)
         {

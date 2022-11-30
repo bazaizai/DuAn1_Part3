@@ -83,10 +83,10 @@ namespace _3.PL.Views
             tb_ma.Text = "";
             rdb_hd.Checked = false;
             rdb_khd.Checked = false;
-            cbb_loaiKm.Text = "";
+            cbb_loaiKm.Text = "%";
             dtp_end.Value = DateTime.Now;
             dtp_start.Value = DateTime.Now;
-            tb_mucgiam.Text = "";
+            tb_mucgiam.Text = "0";
             tb_mota.Text = "";
 
         }
@@ -295,6 +295,11 @@ namespace _3.PL.Views
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

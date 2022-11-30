@@ -134,3 +134,4 @@ C:\Users\phuon\OneDrive\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.g
 C:\Users\phuon\OneDrive\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 C:\Users\phuon\OneDrive\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSale.resources
 C:\Users\phuon\OneDrive\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSale.resources
+C:\Users\phuon\OneDrive\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Clone.resources
