@@ -91,6 +91,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
+            this.lblIDNhomHang = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).BeginInit();
@@ -960,11 +961,22 @@
             this.lblID.Text = "ID";
             this.lblID.Visible = false;
             // 
+            // lblIDNhomHang
+            // 
+            this.lblIDNhomHang.AutoSize = true;
+            this.lblIDNhomHang.Location = new System.Drawing.Point(58, 640);
+            this.lblIDNhomHang.Name = "lblIDNhomHang";
+            this.lblIDNhomHang.Size = new System.Drawing.Size(24, 20);
+            this.lblIDNhomHang.TabIndex = 84;
+            this.lblIDNhomHang.Text = "ID";
+            this.lblIDNhomHang.Visible = false;
+            // 
             // FrmSuaSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 800);
+            this.Controls.Add(this.lblIDNhomHang);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.rjCircularPictureBox3);
@@ -1109,5 +1121,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblIDNhomHang;
     }
 }

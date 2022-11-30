@@ -209,6 +209,10 @@ namespace _3.PL.Views
 
 
 
+        private string IKSP;
+        public string IDKSP { get => IKSP; set { IKSP = value; lblIDNhomHang.Text = value; } }
+
+
         private string CheckTT;
         public string CheckTrangThai
         {
@@ -388,8 +392,12 @@ namespace _3.PL.Views
                         var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
                         anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
                         _IAnhServices.Update(anh);
-                        var KSP = _IChiTietKieuSpService.GetAll().Find(x => x.Id == sp.IdKieuSP);
-                        //KSP.
+                        //MessageBox.Show(_IKieuSpServices.GetById(Guid.Parse()));
+                        MessageBox.Show(lblID.Text);
+                        var KSP = _IChiTietKieuSpService.GetAll().Find(x => x.Id == Guid.Parse(lblID.Text) && x.IdKieuSp == Guid.Parse(lblIDNhomHang.Text));
+                        KSP.IdChiTietSp = sp.Id;
+                        KSP.IdKieuSp = IDKieuSP();
+                        _IChiTietKieuSpService.Update(KSP);
                         this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
                         this.Close();
                     }

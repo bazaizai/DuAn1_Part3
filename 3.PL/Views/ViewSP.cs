@@ -18,12 +18,16 @@ namespace _3.PL.Views
     {
         int x;
         IChiTietSpServices _IChiTietSpServices;
+        IKieuSpServices _IKieuSpServices;
+        IChiTietKieuSpService _IChiTietKieuSpService;
         public event EventHandler Onclick;
         public ViewSP()
         {
             InitializeComponent();
             x = 0;
             _IChiTietSpServices = new ChiTietSpServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
             pnlbody.Height = panel2.Height;
             this.Height = pnlbody.Height;
         }
@@ -88,8 +92,10 @@ namespace _3.PL.Views
         private Guid Id;
         public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
 
-
-
+        public Guid IDKSP
+        {
+            get { return _IKieuSpServices.GetAll().Find(x => x.Ten == this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1)).Id; }
+        }
 
         private string N_Hang;
         public string NhomHang { get => N_Hang; set { N_Hang = value; lblNhomHang.Text = value; lblNhomHang1.Text = value; } }
@@ -149,6 +155,7 @@ namespace _3.PL.Views
             fixSP.CheckTrangThai = this.lblTrangThai.Text;
             fixSP.KhuyenMai = this.lblADKM.Text;
             fixSP.Mota = this.lblGhiChu.Text;
+            fixSP.IDKSP = this.IDKSP.ToString();
             fixSP.NhomHang = this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1);
             fixSP.ShowDialog();
             if (fixSP.N == 2)
@@ -166,6 +173,29 @@ namespace _3.PL.Views
                 this.lblTrangThai.Text = fixSP.GetTrangThai;
                 this.lblADKM.Text = fixSP.GetKhuyenMai;
                 this.lblGhiChu.Text = fixSP.GetGhiChu;
+                    var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == fixSP.IDSP);
+                if (ctksp != null)
+                {
+                    this.lblNhomHang.Text = this.lblNhomHang1.Text = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                }
+            }
+        }
+
+        private string TenKsp(Guid Id, string sp)
+        {
+            if (Id == null)
+            {
+                return sp;
+            }
+            else
+            {
+                var temp = _IKieuSpServices.GetAll().FirstOrDefault(c => c.Id == Id);
+                sp = temp.Ten + ">>" + sp;
+                if (temp.IdCha == null)
+                {
+                    return sp;
+                }
+                else { return TenKsp(Guid.Parse(temp.IdCha.ToString()), sp); }
             }
         }
 
