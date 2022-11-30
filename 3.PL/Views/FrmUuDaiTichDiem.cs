@@ -120,6 +120,10 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Không được để trống số điểm");
                 }
+                else if (_iUuDaiTichDiemServices.GetAll().Any(c => c.SoDiem == Convert.ToDecimal(tb_sodiem.Text)))
+                {
+                    MessageBox.Show("Điểm bị trùng với ưu đãi khác!");
+                }
                 else if (ValidateInput.CheckIntInput(tb_sodiem.Text) == false || Convert.ToDecimal(tb_sodiem.Text) == 0)
                 {
                     MessageBox.Show("Vui lòng nhập đúng số điểm");
@@ -380,6 +384,10 @@ namespace _3.PL.Views
             int four = random.Next(0, 255);
 
             lb_ud.ForeColor = Color.FromArgb(one, two, three, four);
+            //btn_them.BackColor = Color.FromArgb(one, two, three, four);
+            //btn_sua.BackColor = Color.FromArgb(one, two, three, four);
+            //btn_xoa.BackColor = Color.FromArgb(one, two, three, four);
+            //btn_clear.BackColor = Color.FromArgb(one, two, three, four);
         }
 
         private void FrmUuDaiTichDiem_Load(object sender, EventArgs e)

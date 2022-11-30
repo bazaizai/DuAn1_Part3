@@ -32,9 +32,9 @@ namespace _3.PL.Views
         public void ClearForm()
         {
             LoadData();
-            tb_sodiemdung.Text = "";
-            rdb_hd.Checked = false;
-            rdb_khd.Checked = false;
+            //tb_sodiemdung.Text = "";
+            //rdb_hd.Checked = false;
+            //rdb_khd.Checked = false;
         }
         public void LoadData()
         {
@@ -54,7 +54,7 @@ namespace _3.PL.Views
             //_lstLichSuTichDiem = _iLichSuTichDiemServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c => c.Ma).ToList();
             foreach (var item in lst)
             {
-                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động", item.Selected);
+                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
             AddHeaderCheckBox();
             HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
@@ -77,7 +77,7 @@ namespace _3.PL.Views
         {
             //_lichSuTichDiemView.SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text);
             //_lichSuTichDiemView.NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value);
-            _lichSuTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
+            //_lichSuTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
             MessageBox.Show(_iLichSuTichDiemServices.Update(_lichSuTichDiemView));
             ClearForm();
         }
@@ -89,15 +89,15 @@ namespace _3.PL.Views
 
         private void dtg_show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow r = dtg_show.Rows[e.RowIndex];
-                _lichSuTichDiemView = _iLichSuTichDiemServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_sodiemdung.Text =Convert.ToString(_lichSuTichDiemView.SoDiemDung);
-                dtp_ngaytichdiem.Value =Convert.ToDateTime(_lichSuTichDiemView.NgayTichDiem);
-                rdb_hd.Checked = _lichSuTichDiemView.TrangThai == 1;
-                rdb_khd.Checked = _lichSuTichDiemView.TrangThai == 0;
-            }
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow r = dtg_show.Rows[e.RowIndex];
+            //    _lichSuTichDiemView = _iLichSuTichDiemServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
+            //    tb_sodiemdung.Text =Convert.ToString(_lichSuTichDiemView.SoDiemDung);
+            //    dtp_ngaytichdiem.Value =Convert.ToDateTime(_lichSuTichDiemView.NgayTichDiem);
+            //    rdb_hd.Checked = _lichSuTichDiemView.TrangThai == 1;
+            //    rdb_khd.Checked = _lichSuTichDiemView.TrangThai == 0;
+            //}
         }
 
         CheckBox HeaderCheckBox = null;
@@ -128,7 +128,7 @@ namespace _3.PL.Views
             int stt = 1;
             foreach (var item in _iLichSuTichDiemServices.GetAll())
             {
-                dtg_show.Rows.Add(item.Id, stt++,item.TenKH, item.NgayTichDiem, item.SoDiemDung, item.TrangThai, item.Selected);
+                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.NgayTichDiem, item.SoDiemDung, item.TrangThai);
             }
 
         }

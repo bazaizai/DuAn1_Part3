@@ -16,6 +16,5 @@ namespace _2.BUS.ViewModels
         public DateTime? NgayTichDiem { get; set; }
         public int? TrangThai { get; set; }
         public string TenKH { get; set; }
-        public bool Selected { get; set; }
     }
 }
