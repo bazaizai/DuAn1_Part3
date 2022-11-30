@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHienThiTatCa = new CustomControls.RJControls.RJButton();
             this.btnThem = new CustomControls.RJControls.RJButton();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.rjComboBox1 = new CustomControls.RJControls.RJComboBox();
+            this.CbbThaoTac = new CustomControls.RJControls.RJComboBox();
             this.txtSearch = new CustomControls.RJControls.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,6 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(136)))), ((int)(((byte)(144)))));
+            this.panel1.Controls.Add(this.btnHienThiTatCa);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.label1);
@@ -66,6 +68,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1620, 66);
             this.panel1.TabIndex = 0;
+            // 
+            // btnHienThiTatCa
+            // 
+            this.btnHienThiTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHienThiTatCa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnHienThiTatCa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnHienThiTatCa.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHienThiTatCa.BorderRadius = 10;
+            this.btnHienThiTatCa.BorderSize = 0;
+            this.btnHienThiTatCa.FlatAppearance.BorderSize = 0;
+            this.btnHienThiTatCa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHienThiTatCa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHienThiTatCa.Location = new System.Drawing.Point(1399, 13);
+            this.btnHienThiTatCa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnHienThiTatCa.Name = "btnHienThiTatCa";
+            this.btnHienThiTatCa.Size = new System.Drawing.Size(190, 46);
+            this.btnHienThiTatCa.TabIndex = 21;
+            this.btnHienThiTatCa.Text = "Hiển thị tất cả";
+            this.btnHienThiTatCa.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHienThiTatCa.UseVisualStyleBackColor = false;
+            this.btnHienThiTatCa.Visible = false;
+            this.btnHienThiTatCa.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // btnThem
             // 
@@ -91,7 +115,7 @@
             // panel6
             // 
             this.panel6.AutoSize = true;
-            this.panel6.Controls.Add(this.rjComboBox1);
+            this.panel6.Controls.Add(this.CbbThaoTac);
             this.panel6.Controls.Add(this.txtSearch);
             this.panel6.Location = new System.Drawing.Point(411, 12);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -100,27 +124,27 @@
             this.panel6.TabIndex = 1;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
-            // rjComboBox1
+            // CbbThaoTac
             // 
-            this.rjComboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjComboBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjComboBox1.BorderSize = 1;
-            this.rjComboBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rjComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.rjComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjComboBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjComboBox1.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjComboBox1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.rjComboBox1.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox1.Location = new System.Drawing.Point(330, 0);
-            this.rjComboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rjComboBox1.MinimumSize = new System.Drawing.Size(250, 34);
-            this.rjComboBox1.Name = "rjComboBox1";
-            this.rjComboBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.rjComboBox1.Size = new System.Drawing.Size(250, 40);
-            this.rjComboBox1.TabIndex = 2;
-            this.rjComboBox1.Texts = "";
-            this.rjComboBox1.Visible = false;
+            this.CbbThaoTac.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CbbThaoTac.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.CbbThaoTac.BorderSize = 1;
+            this.CbbThaoTac.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CbbThaoTac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CbbThaoTac.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbbThaoTac.ForeColor = System.Drawing.Color.DimGray;
+            this.CbbThaoTac.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.CbbThaoTac.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CbbThaoTac.ListTextColor = System.Drawing.Color.DimGray;
+            this.CbbThaoTac.Location = new System.Drawing.Point(330, 0);
+            this.CbbThaoTac.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CbbThaoTac.MinimumSize = new System.Drawing.Size(250, 34);
+            this.CbbThaoTac.Name = "CbbThaoTac";
+            this.CbbThaoTac.Padding = new System.Windows.Forms.Padding(1);
+            this.CbbThaoTac.Size = new System.Drawing.Size(250, 40);
+            this.CbbThaoTac.TabIndex = 2;
+            this.CbbThaoTac.Texts = "";
+            this.CbbThaoTac.Visible = false;
             // 
             // txtSearch
             // 
@@ -226,6 +250,7 @@
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
@@ -345,8 +370,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel6;
-        private CustomControls.RJControls.RJComboBox rjComboBox1;
         private CustomControls.RJControls.RJTextBox txtSearch;
         private CustomControls.RJControls.RJButton btnThem;
+        private CustomControls.RJControls.RJButton btnHienThiTatCa;
+        private CustomControls.RJControls.RJComboBox CbbThaoTac;
     }
 }

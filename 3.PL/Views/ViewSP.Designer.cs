@@ -82,7 +82,7 @@
             this.lblNhomHang = new System.Windows.Forms.Label();
             this.lblTenHang = new System.Windows.Forms.Label();
             this.lblMaHang = new System.Windows.Forms.Label();
-            this.CheckBox = new System.Windows.Forms.CheckBox();
+            this.CheckBoxDP = new System.Windows.Forms.CheckBox();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.guna2TabControl2 = new Guna.UI2.WinForms.Guna2TabControl();
             this.pnlbody.SuspendLayout();
@@ -586,7 +586,7 @@
             this.panel2.Controls.Add(this.lblNhomHang);
             this.panel2.Controls.Add(this.lblTenHang);
             this.panel2.Controls.Add(this.lblMaHang);
-            this.panel2.Controls.Add(this.CheckBox);
+            this.panel2.Controls.Add(this.CheckBoxDP);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -663,15 +663,16 @@
             this.lblMaHang.TabIndex = 2;
             this.lblMaHang.Text = "Mã Hàng";
             // 
-            // CheckBox
+            // CheckBoxDP
             // 
-            this.CheckBox.AutoSize = true;
-            this.CheckBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CheckBox.Location = new System.Drawing.Point(16, 24);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(18, 17);
-            this.CheckBox.TabIndex = 0;
-            this.CheckBox.UseVisualStyleBackColor = true;
+            this.CheckBoxDP.AutoSize = true;
+            this.CheckBoxDP.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CheckBoxDP.Location = new System.Drawing.Point(16, 24);
+            this.CheckBoxDP.Name = "CheckBoxDP";
+            this.CheckBoxDP.Size = new System.Drawing.Size(18, 17);
+            this.CheckBoxDP.TabIndex = 0;
+            this.CheckBoxDP.UseVisualStyleBackColor = true;
+            this.CheckBoxDP.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // ViewSP
             // 
@@ -719,7 +720,7 @@
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton btnCapNhat;
         private System.Windows.Forms.Label ID;
-        private System.Windows.Forms.CheckBox CheckBox;
+        private System.Windows.Forms.CheckBox CheckBoxDP;
         private System.Windows.Forms.Label lblMaHang;
         private System.Windows.Forms.Label lblTenHang;
         private System.Windows.Forms.Label lblNhomHang;

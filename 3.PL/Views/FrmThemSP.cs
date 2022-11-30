@@ -26,10 +26,13 @@ namespace _3.PL
         ISanPhamServices _ISanPhamServices;
         IKichCoServices _ISizeServices;
         IChatLieuServices _IChatLieuServices;
-        MauSacServices _IMauSacServices;
-        TeamServices _ITeamServices;
+        IMauSacServices _IMauSacServices;
+        ITeamServices _ITeamServices;
         IChiTietSpServices _IChiTietSpServices;
-        AnhServices _IAnhServices;
+        IAnhServices _IAnhServices;
+        IKieuSpServices _IKieuSpServices;
+        IChiTietKieuSpService _IChiTietKieuSpService;
+
         BarcodeLib.Barcode _barcode;
         public FrmThemSP()
         {
@@ -41,6 +44,8 @@ namespace _3.PL
             _ITeamServices = new TeamServices();
             _IChiTietSpServices = new ChiTietSpServices();
             _IAnhServices = new AnhServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IKieuSpServices = new KieuSpServices();
             cbbKhuyenMai.Items.Add("Áp dụng");
             cbbKhuyenMai.Items.Add("Không áp dụng");
             txtMaSP.Texts = Mats();
@@ -61,6 +66,8 @@ namespace _3.PL
             _IMauSacServices.GetAll().ForEach(x => cbbMauSac.Items.Add(x.Ten));
             cbbTeam.Items.Clear();
             _ITeamServices.GetAll().ForEach(x => cbbTeam.Items.Add(x.Ten));
+            CbbNhomHang.Items.Clear();
+            _IKieuSpServices.GetAll().ForEach(x => CbbNhomHang.Items.Add(x.Ten));
         }
 
         private void lblclose_Click(object sender, EventArgs e)
@@ -209,7 +216,15 @@ namespace _3.PL
                         };
                         _IChiTietSpServices.Add(x);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, Mats());
+                        var ctksp = new ChiTietKieuSpViews()
+                        {
+                            IdChiTietSp = x.Id,
+                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                            TrangThai = x.TrangThai,
+                        };
+                        _IChiTietKieuSpService.Add(ctksp);
+
+                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128,x.MaQr);
                         var Anh1 = new AnhViews()
                         {
                             IdChiTietSp = x.Id,
@@ -227,7 +242,6 @@ namespace _3.PL
                         };
                         _IAnhServices.Add(Anh2);
                         this.Alert("Thêm thành công", Form_Alert.enmType.Success);
-
                     }
                     catch (Exception ex)
                     {
@@ -276,7 +290,15 @@ namespace _3.PL
                         };
                         _IChiTietSpServices.Add(x);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, Mats());
+                        var ctksp = new ChiTietKieuSpViews()
+                        {
+                            IdChiTietSp = x.Id,
+                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                            TrangThai = x.TrangThai,
+                        };
+                        _IChiTietKieuSpService.Add(ctksp);
+
+                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
                         var Anh1 = new AnhViews()
                         {
                             IdChiTietSp = x.Id,
@@ -294,7 +316,6 @@ namespace _3.PL
                         };
                         _IAnhServices.Add(Anh2);
                         this.Alert("Thêm thành công", Form_Alert.enmType.Success);
-
                     }
                     catch (Exception ex)
                     {
@@ -337,7 +358,14 @@ namespace _3.PL
                         };
                         _IChiTietSpServices.Add(x);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, Mats());
+                        var ctksp = new ChiTietKieuSpViews()
+                        {
+                            IdChiTietSp = x.Id,
+                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                            TrangThai = x.TrangThai,
+                        };
+                        _IChiTietKieuSpService.Add(ctksp);
+                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
                         var Anh1 = new AnhViews()
                         {
                             IdChiTietSp = x.Id,
@@ -355,7 +383,6 @@ namespace _3.PL
                         };
                         _IAnhServices.Add(Anh2);
                         this.Alert("Thêm thành công", Form_Alert.enmType.Success);
-
                     }
                     catch (Exception ex)
                     {
@@ -409,7 +436,9 @@ namespace _3.PL
 
         private void rjCircularPictureBox2_Click(object sender, EventArgs e)
         {
-
+            var FrmQLKieuSP = new FrmQLKieuSP();
+            FrmQLKieuSP.ShowDialog();
+            LoadCbb();
         }
     }
 }

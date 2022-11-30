@@ -28,6 +28,9 @@ namespace _3.PL.Views
         IChiTietSpServices _IChiTietSpServices;
         AnhServices _IAnhServices;
 
+        private int Count;
+        public int N { get => Count; set { Count = value; N = value; } }
+
         public FrmSuaSanPham()
         {
             InitializeComponent();
@@ -54,52 +57,149 @@ namespace _3.PL.Views
         private Image image;
         public Image Anh1 { get => image; set { image = value; Anh.Image = value; } }
 
+        public Image GetImage
+        {
+            get { return Anh.Image; }
+        }
+
         private string Ma;
         public string MaSP { get => Ma; set { Ma = value; txtMaSP.Texts = value; } }
 
 
+        public string GetMa
+        {
+            get { return txtMaSP.Texts; }
+        }
+
+
         private string Ten;
-        public string TenSP { get => Ten; set { Ten = value; cbbTenSP.Texts = value; } }
+        public string TenSP
+        {
+            get => Ten;
+            set
+            {
+                Ten = value;
+                cbbTenSP.Texts = value;
+            }
+        }
+
+
+        public string GetTenSP
+        {
+            get { return cbbTenSP.Texts; }
+        }
 
 
         private string Ms;
         public string MauSac { get => Ms; set { Ms = value; cbbMauSac.Texts = value; } }
 
 
+        public string GetMauSac
+        {
+            get { return cbbMauSac.Texts; }
+        }
+
+
+
         private string Sze;
         public string Size1 { get => Sze; set { Sze = value; cbbSize.Texts = value; } }
+
+
+        public string GetSize
+        {
+            get { return cbbSize.Texts; }
+        }
 
 
         private string CLieu;
         public string ChatLieu { get => CLieu; set { CLieu = value; CbbChatLieu.Texts = value; } }
 
 
+        public string GetChatLieu
+        {
+            get { return CbbChatLieu.Texts; }
+        }
+
 
         private string Tem;
         public string Team { get => Tem; set { Tem = value; cbbTeam.Texts = value; } }
+
+
+        public string Getteam
+        {
+            get { return cbbTeam.Texts; }
+        }
 
 
         private string GNhap;
         public string GiaNhap { get => GNhap; set { GNhap = ValidateInput.RegexDecimal(value).ToString(); txtGiaNhap.Texts = ValidateInput.RegexDecimal(value).ToString(); } }
 
 
+        public string GetGiaNhap
+        {
+            get { return txtGiaNhap.Texts; }
+        }
+
+
         private string GBan;
         public string GiaBan { get => GBan; set { GBan = ValidateInput.RegexDecimal(value).ToString(); txtGiaBan.Texts = ValidateInput.RegexDecimal(value).ToString(); } }
+
+
+        public string GetGiaBan
+        {
+            get { return txtGiaBan.Texts; }
+        }
 
 
         private string SL;
         public string SoLuong { get => SL; set { SL = value; txtSoLuong.Texts = value; } }
 
+
+        public string GetSoLuong
+        {
+            get { return txtSoLuong.Texts; }
+        }
+
+
         private string ghichu;
         public string Mota { get => ghichu; set { ghichu = value; txtGhiChu.Texts = value; } }
+
+
+        public string GetGhiChu
+        {
+            get { return txtGhiChu.Texts; }
+        }
 
 
         private string bHanh;
         public string BaoHanh { get => bHanh; set { bHanh = value; txtBaoHanh.Texts = value; } }
 
 
+        public string GetBaoHanh
+        {
+            get { return txtBaoHanh.Texts; }
+        }
+
+
         private string Kmai;
         public string KhuyenMai { get => Kmai; set { Kmai = value; cbbKhuyenMai.Texts = value; } }
+
+
+        public string GetKhuyenMai
+        {
+            get { return cbbKhuyenMai.Texts; }
+        }
+
+
+        private string NHang;
+        public string NhomHang { get => NHang; set { NHang = value; CbbNhomHang.Texts = value; } }
+
+
+        public string GetNhomHang
+        {
+            get { return CbbNhomHang.Texts; }
+        }
+
 
 
         private Guid id;
@@ -120,6 +220,13 @@ namespace _3.PL.Views
                     rdoDungBan.Checked = true;
             }
         }
+
+
+        public string GetTrangThai
+        {
+            get { return RdoDangBan.Checked ? "Đang Bán" :"Ngừng bán"; }
+        }
+
 
         private Guid IdSp() => _ISanPhamServices.GetAll().Find(x => x.Ten == cbbTenSP.Texts).Id;
         private Guid IdMs() => _IMauSacServices.GetAll().Find(x => x.Ten == cbbMauSac.Texts).Id;
@@ -250,9 +357,10 @@ namespace _3.PL.Views
             }
             return false;
         }
-         
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            Count = 2;
             if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
             {
                 var Obj = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
@@ -292,7 +400,6 @@ namespace _3.PL.Views
             {
                 this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
             }
-
 
         }
     }
