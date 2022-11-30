@@ -17,6 +17,7 @@ namespace _2.BUS.Services
         ITichDiemRepos _iTichDiemRepos;
         ICtTichDiemRepos _iCtTichDiemRepos;
         IHoaDonRepos _iHoaDonRepos;
+        IKhachHangRepos _iKhachHangRepos;
         public LichSuTichDiemServices()
         {
             _iLichSuTichDiemRepos = new LichSuTichDiemRepos();
@@ -66,20 +67,22 @@ namespace _2.BUS.Services
         {
             var lst = (from lstd in _iLichSuTichDiemRepos.GetAll()
                        join td in _iTichDiemRepos.GetAll() on lstd.IdTichDiem equals td.Id
-                       //join c in (from cttd in _iCtTichDiemRepos.GetAll()
-                       //           join hd in _iHoaDonRepos.GetAll() on cttd.Id equals hd.Id
-                       //           select new HoaDonViews()
-                       //           {
-                       //               Id = hd.Id,
-                       //               IdHoaDon = cttd.IdHoaDon,
-                       //               MaHD = hd.Ma,
-                       //               TrangThai = cttd.TrangThai,
-                       //               HeSoTich = cttd.HeSoTich,
-                       //               TongTienSauKhiGiam = hd.TongTienSauKhiGiam
-                       //           }).ToList() on lstd.IdCttinhDiem equals c.Id
+                       join hd in _iHoaDonRepos.GetAll() on lstd.IdHoaDon equals hd.Id
+                       join c in (from cttd in _iCtTichDiemRepos.GetAll()
+                                  join hd in _iHoaDonRepos.GetAll() on cttd.Id equals hd.Id
+                                  join kh in _iKhachHangRepos.GetAll() on hd.Id equals kh.Id
+                                  select new HoaDonViews()
+                                  {
+                                      Id = hd.Id,
+                                      TenKh = kh.Ten,
+                                      MaHD = hd.Ma,
+                                      TrangThai = cttd.TrangThai
+                                  }).ToList() on lstd.IdHoaDon equals c.Id
                        select new LichSuTichDiemView()
                        {
                            Id = lstd.Id,
+                           IdHoaDon = hd.Id,
+                           TenKH = c.TenKh,
                            SoDiemDung = lstd.SoDiemDung,
                            NgayTichDiem = lstd.NgayTichDiem,
                            TrangThai = lstd.TrangThai

@@ -35,8 +35,22 @@ namespace _3.PL.Views
             _lstCtsle = new List<ChiTietSaleView>();
             lstSale = new List<SaleView>();
             tb_ma.Enabled = false;
-            loadcbb();
-            loadlb();
+            cbb_loaiKM.Items.Add("%");
+            cbb_loaiKM.Items.Add("Tiền mặt");
+            cbb_trangthai.Items.Add("Đang áp dụng");
+            cbb_trangthai.Items.Add("Ngừng áp dụng");
+            dtp_end.Value = DateTime.Now;
+            dtp_start.Value = DateTime.Now;
+            cbb_locKM.Items.Add("Tất cả");
+            cbb_locKM.Items.Add("%");
+            cbb_locKM.Items.Add("Tiền mặt");
+            cbb_locTrangthai.Items.Add("Tất cả");
+            cbb_locTrangthai.Items.Add("Đang áp dụng");
+            cbb_locTrangthai.Items.Add("Ngừng áp dụng");
+
+
+            cbb_locKM.SelectedIndex = 0;
+            cbb_locTrangthai.SelectedIndex = 0;
             loadKM();
             loadCTSP();
          
