@@ -57,17 +57,17 @@ namespace _3.PL
         private void LoadCbb()
         {
             cbbTenSP.Items.Clear();
-            _ISanPhamServices.GetAll().ForEach(x => cbbTenSP.Items.Add(x.Ten));
+            _ISanPhamServices.GetAll().Where(x=>x.TrangThai ==0).ToList().ForEach(x => cbbTenSP.Items.Add(x.Ten));
             cbbSize.Items.Clear();
-            _ISizeServices.GetAll().ForEach(x => cbbSize.Items.Add(x.Size));
+            _ISizeServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbSize.Items.Add(x.Size));
             CbbChatLieu.Items.Clear();
-            _IChatLieuServices.GetAll().ForEach(x => CbbChatLieu.Items.Add(x.Ten));
+            _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => CbbChatLieu.Items.Add(x.Ten));
             cbbMauSac.Items.Clear();
-            _IMauSacServices.GetAll().ForEach(x => cbbMauSac.Items.Add(x.Ten));
+            _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbMauSac.Items.Add(x.Ten));
             cbbTeam.Items.Clear();
-            _ITeamServices.GetAll().ForEach(x => cbbTeam.Items.Add(x.Ten));
+            _ITeamServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbTeam.Items.Add(x.Ten));
             CbbNhomHang.Items.Clear();
-            _IKieuSpServices.GetAll().ForEach(x => CbbNhomHang.Items.Add(x.Ten));
+            _IKieuSpServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => CbbNhomHang.Items.Add(x.Ten));
         }
 
         private void lblclose_Click(object sender, EventArgs e)
@@ -120,6 +120,7 @@ namespace _3.PL
         private Guid IdCL() => _IChatLieuServices.GetAll().Find(x => x.Ten == CbbChatLieu.Texts).Id;
         private Guid IdTeam() => _ITeamServices.GetAll().Find(x=>x.Ten == cbbTeam.Texts).Id;
         private Guid IdSize() => _ISizeServices.GetAll().Find(x => x.Size == cbbSize.Texts).Id;
+
         private List<AnhViews> GetListAnh(Guid? Id) => _IAnhServices.GetAll().Where(x => x.IdChiTietSp == Id).ToList();
         private bool CheckTrungSP(Guid idsp, Guid idmausac, Guid Idsize, Guid idteam, Guid idClieu)
         {
@@ -242,6 +243,7 @@ namespace _3.PL
                         };
                         _IAnhServices.Add(Anh2);
                         this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -255,7 +257,6 @@ namespace _3.PL
             {
                 this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
             }
-            this.Close();
         }
 
         public void Alert(string msg, Form_Alert.enmType type)

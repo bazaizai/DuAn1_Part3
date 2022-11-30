@@ -18,6 +18,7 @@ namespace _3.PL.Views
     {
         int x;
         IChiTietSpServices _IChiTietSpServices;
+        public event EventHandler Onclick;
         public ViewSP()
         {
             InitializeComponent();
@@ -86,6 +87,8 @@ namespace _3.PL.Views
 
         private Guid Id;
         public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
+
+
 
 
         private string N_Hang;
@@ -192,6 +195,7 @@ namespace _3.PL.Views
                 else
                     FrmChiTietSP.CheckCB.Add(Guid.Parse(ID.Text), false);
             }
+            Onclick?.Invoke(this, e);
         }
     }
 }

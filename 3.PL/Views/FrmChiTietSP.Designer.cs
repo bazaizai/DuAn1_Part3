@@ -36,6 +36,7 @@
             this.txtSearch = new CustomControls.RJControls.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -80,7 +82,7 @@
             this.btnHienThiTatCa.FlatAppearance.BorderSize = 0;
             this.btnHienThiTatCa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHienThiTatCa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnHienThiTatCa.Location = new System.Drawing.Point(1399, 13);
+            this.btnHienThiTatCa.Location = new System.Drawing.Point(1190, 9);
             this.btnHienThiTatCa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHienThiTatCa.Name = "btnHienThiTatCa";
             this.btnHienThiTatCa.Size = new System.Drawing.Size(190, 46);
@@ -102,7 +104,7 @@
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThem.Location = new System.Drawing.Point(1095, 12);
+            this.btnThem.Location = new System.Drawing.Point(1394, 9);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(190, 46);
@@ -184,12 +186,21 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(212)))), ((int)(((byte)(229)))));
+            this.panel2.Controls.Add(this.panel7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 66);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 868);
             this.panel2.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.DimGray;
+            this.panel7.Location = new System.Drawing.Point(12, 7);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(360, 858);
+            this.panel7.TabIndex = 0;
             // 
             // panel3
             // 
@@ -206,10 +217,10 @@
             // 
             this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(32, 7);
+            this.panel4.Location = new System.Drawing.Point(12, 7);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1182, 858);
+            this.panel4.Size = new System.Drawing.Size(1216, 858);
             this.panel4.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -220,7 +231,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 53);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1182, 805);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1216, 805);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel5
@@ -238,7 +249,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1182, 53);
+            this.panel5.Size = new System.Drawing.Size(1216, 53);
             this.panel5.TabIndex = 0;
             // 
             // checkBox1
@@ -267,7 +278,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(861, 15);
+            this.label9.Location = new System.Drawing.Point(852, 15);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(117, 23);
@@ -278,7 +289,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(705, 15);
+            this.label7.Location = new System.Drawing.Point(691, 15);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 23);
@@ -289,7 +300,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(559, 15);
+            this.label5.Location = new System.Drawing.Point(572, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 23);
@@ -300,7 +311,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(379, 15);
+            this.label4.Location = new System.Drawing.Point(336, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 23);
@@ -311,7 +322,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(231, 15);
+            this.label3.Location = new System.Drawing.Point(195, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 23);
@@ -322,7 +333,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(82, 15);
+            this.label2.Location = new System.Drawing.Point(77, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 23);
@@ -344,6 +355,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -374,5 +386,6 @@
         private CustomControls.RJControls.RJButton btnThem;
         private CustomControls.RJControls.RJButton btnHienThiTatCa;
         private CustomControls.RJControls.RJComboBox CbbThaoTac;
+        private System.Windows.Forms.Panel panel7;
     }
 }

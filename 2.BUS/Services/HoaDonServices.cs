@@ -82,25 +82,25 @@ namespace _2.BUS.Services
         public List<HoaDonViews> GetAll()
         {
             var lst = (from a in hoaDonRepos.GetAll()
-                       //join b in (from a in khachHangRepos.GetAll()
-                       //           join b in tichDiemRepos.GetAll() on a.IdtichDiem equals b.Id
-                       //           select new KhachHangView()
-                       //           {
-                       //               Id = a.Id,
-                       //               Ten = a.Ten,
-                       //               Ho = a.Ho,
-                       //               TenDem = a.TenDem,
-                       //               Sdt = a.Sdt,
-                       //               DiaChi = a.DiaChi,
-                       //               IdtichDiem = a.IdtichDiem,
-                       //               Email = a.Email,
-                       //               Ma = a.Ma,
-                       //               TrangThai = a.TrangThai,
-                       //               NgaySinh = a.NgaySinh,
-                       //               SoDiem = b.SoDiem
-                       //           }
-                       //           ).ToList() on a.IdKh equals b.Id
-                       //join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
+                           //join b in (from a in khachHangRepos.GetAll()
+                           //           join b in tichDiemRepos.GetAll() on a.IdtichDiem equals b.Id
+                           //           select new KhachHangView()
+                           //           {
+                           //               Id = a.Id,
+                           //               Ten = a.Ten,
+                           //               Ho = a.Ho,
+                           //               TenDem = a.TenDem,
+                           //               Sdt = a.Sdt,
+                           //               DiaChi = a.DiaChi,
+                           //               IdtichDiem = a.IdtichDiem,
+                           //               Email = a.Email,
+                           //               Ma = a.Ma,
+                           //               TrangThai = a.TrangThai,
+                           //               NgaySinh = a.NgaySinh,
+                           //               SoDiem = b.SoDiem
+                           //           }
+                           //           ).ToList() on a.IdKh equals b.Id
+                       join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
                        //join d in ptthanhToanRepos.GetAll() on a.IdPttt equals d.Id
                        //join e in hinhThucMhRepos.GetAll() on a.IdHt equals e.Id
                        //join f in uuDaiTichDiemRepos.GetAll() on a.IdUdtichDiem equals f.Id
@@ -136,7 +136,7 @@ namespace _2.BUS.Services
                            //HoNv = c.Ho,
                            //TenDemNv = c.TenDem,
                            //TenNv = c.Ten,
-                           //MaNv = c.Ma,
+                           MaNv = c.Ma,
                            IdPttt = a.IdPttt,
                            //TenPttt = d.Ten,
                            //MaPttt = d.Ma,

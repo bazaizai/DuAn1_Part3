@@ -51,10 +51,9 @@ namespace _3.PL.Views
         {
             CbbThaoTac.Items.Clear();
             CbbThaoTac.Texts = "Thao tác";
-            CbbThaoTac.Items.Add("Áp dụng khuyến mãi");
-            CbbThaoTac.Items.Add("Ngưng áp dụng khuyến mãi");
-            CbbThaoTac.Items.Add("Ngưng áp dụng khuyến mãi");
-            CbbThaoTac.Items.Add("Dừng bán");
+            CbbThaoTac.Items.Add("Áp dụng KM");
+            CbbThaoTac.Items.Add("Không áp dụng KM");
+            CbbThaoTac.Items.Add("Ngừng bán");
             CbbThaoTac.Items.Add("Mở bán");
         }
 
@@ -82,10 +81,10 @@ namespace _3.PL.Views
         {
             LoadCbb();
             flowLayoutPanel1.Controls.Clear();
-            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
+            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
             if (txtSearch.Texts.Trim() != "")
             {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).ToList();
+                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
             }
 
             ViewSP[] Sp = new ViewSP[CTSP.Count];
@@ -113,10 +112,17 @@ namespace _3.PL.Views
                 {
                     Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
                 }
-                if (NoCheck())
+                Sp[i].Onclick += (ss, ee) =>
                 {
-                    CbbThaoTac.Visible = false;
-                }
+                    var Obj = (ViewSP)ss;
+                    if (NoCheck())
+                    {
+                        CbbThaoTac.Visible = false;
+                    }else
+                    {
+                        CbbThaoTac.Visible = true;
+                    }
+                };
                 Sp[i].TopLevel = false;
                 Sp[i].FormBorderStyle = FormBorderStyle.None;
                 Sp[i].Dock = DockStyle.Top;
@@ -158,12 +164,12 @@ namespace _3.PL.Views
         {
             if (txtSearch.Texts != "")
             {
-                btnHienThiTatCa.Visible = false;
+                btnHienThiTatCa.Visible = true;
                 flowLayoutPanel1.Controls.Clear();
-                List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
+                List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
                 if (txtSearch.Texts.Trim() != "")
                 {
-                    CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).OrderByDescending(X => X.MaQr).ToList();
+                    CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
                 }
                 ViewSP[] Sp = new ViewSP[CTSP.Count];
                 for (int i = 0; i < CTSP.Count; i++)
@@ -198,13 +204,18 @@ namespace _3.PL.Views
                         }
                         else Sp[i].ChBox.Checked = false;
                     }
-                    if (NoCheck())
+                    Sp[i].Onclick += (ss, ee) =>
                     {
-                        CbbThaoTac.Visible = false;
-                    }else
-                    {
-                        CbbThaoTac.Visible = true;
-                    }
+                        var Obj = (ViewSP)ss;
+                        if (NoCheck())
+                        {
+                            CbbThaoTac.Visible = false;
+                        }
+                        else
+                        {
+                            CbbThaoTac.Visible = true;
+                        }
+                    };
                     Sp[i].TopLevel = false;
                     Sp[i].FormBorderStyle = FormBorderStyle.None;
                     Sp[i].Dock = DockStyle.Top;
@@ -226,7 +237,7 @@ namespace _3.PL.Views
             List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
             if (txtSearch.Texts.Trim() != "")
             {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).OrderByDescending(X => X.MaQr).ToList();
+                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
             }
             ViewSP[] Sp = new ViewSP[CTSP.Count];
             for (int i = 0; i < CTSP.Count; i++)
@@ -261,14 +272,18 @@ namespace _3.PL.Views
                     }
                     else Sp[i].ChBox.Checked = false;
                 }
-                if (NoCheck())
+                Sp[i].Onclick += (ss, ee) =>
                 {
-                    CbbThaoTac.Visible = false;
-                }
-                else
-                {
-                    CbbThaoTac.Visible = true;
-                }
+                    var Obj = (ViewSP)ss;
+                    if (NoCheck())
+                    {
+                        CbbThaoTac.Visible = false;
+                    }
+                    else
+                    {
+                        CbbThaoTac.Visible = true;
+                    }
+                };
                 Sp[i].TopLevel = false;
                 Sp[i].FormBorderStyle = FormBorderStyle.None;
                 Sp[i].Dock = DockStyle.Top;
@@ -281,13 +296,12 @@ namespace _3.PL.Views
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            txtSearch.Texts = "";
             btnHienThiTatCa.Visible=false;
             flowLayoutPanel1.Controls.Clear();
             List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
             if (txtSearch.Texts.Trim() != "")
             {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(txtSearch.Texts.ToLower()) || x.TenSP.ToLower().Contains(txtSearch.Texts.ToLower())).OrderByDescending(X => X.MaQr).ToList();
+                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
             }
             ViewSP[] Sp = new ViewSP[CTSP.Count];
             for (int i = 0; i < CTSP.Count; i++)
@@ -320,9 +334,29 @@ namespace _3.PL.Views
                     CbbThaoTac.Visible = true;
                 }else
                 {
-                    Sp[i].ChBox.Checked = false;
+                    if (CheckCB.ContainsKey(CTSP[i].Id))
+                    {
+                        CheckCB[CTSP[i].Id] = false;
+                    }
+                    else
+                    {
+                        CheckCB.Add(CTSP[i].Id, false);
+                       
+                    }
                     CbbThaoTac.Visible = false;
                 }
+                Sp[i].Onclick += (ss, ee) =>
+                {
+                    var Obj = (ViewSP)ss;
+                    if (NoCheck())
+                    {
+                        CbbThaoTac.Visible = false;
+                    }
+                    else
+                    {
+                        CbbThaoTac.Visible = true;
+                    }
+                };
                 Sp[i].TopLevel = false;
                 Sp[i].FormBorderStyle = FormBorderStyle.None;
                 Sp[i].Dock = DockStyle.Top;
@@ -330,6 +364,29 @@ namespace _3.PL.Views
                 Sp[i].BringToFront();
                 Sp[i].Show();
             }
+        }
+        public static string RemoveUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
+    "đ",
+    "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",
+    "í","ì","ỉ","ĩ","ị",
+    "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",
+    "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",
+    "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+    "d",
+    "e","e","e","e","e","e","e","e","e","e","e",
+    "i","i","i","i","i",
+    "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",
+    "u","u","u","u","u","u","u","u","u","u","u",
+    "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
         }
     }
 }

@@ -26,8 +26,9 @@ namespace _3.PL.Views
         IMauSacServices _IMauSacServices;
         ITeamServices _ITeamServices;
         IChiTietSpServices _IChiTietSpServices;
-        AnhServices _IAnhServices;
-
+        IKieuSpServices _IKieuSpServices;
+        IAnhServices _IAnhServices;
+        IChiTietKieuSpService _IChiTietKieuSpService;
         private int Count;
         public int N { get => Count; set { Count = value; N = value; } }
 
@@ -41,6 +42,7 @@ namespace _3.PL.Views
             _ITeamServices = new TeamServices();
             _IChiTietSpServices = new ChiTietSpServices();
             _IAnhServices = new AnhServices();
+            _IKieuSpServices = new KieuSpServices();
             cbbKhuyenMai.Items.Add("Áp dụng");
             cbbKhuyenMai.Items.Add("Không áp dụng");
             cbbKhuyenMai.SelectedIndex = 0;
@@ -233,21 +235,22 @@ namespace _3.PL.Views
         private Guid IdCL() => _IChatLieuServices.GetAll().Find(x => x.Ten == CbbChatLieu.Texts).Id;
         private Guid IdTeam() => _ITeamServices.GetAll().Find(x => x.Ten == cbbTeam.Texts).Id;
         private Guid IdSize() => _ISizeServices.GetAll().Find(x => x.Size == cbbSize.Texts).Id;
-
-
+        private Guid IDKieuSP() => _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id;
 
         private void LoadCbb()
         {
             cbbTenSP.Items.Clear();
-            _ISanPhamServices.GetAll().ForEach(x => cbbTenSP.Items.Add(x.Ten));
+            _ISanPhamServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbTenSP.Items.Add(x.Ten));
             cbbSize.Items.Clear();
-            _ISizeServices.GetAll().ForEach(x => cbbSize.Items.Add(x.Size));
+            _ISizeServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbSize.Items.Add(x.Size));
             CbbChatLieu.Items.Clear();
-            _IChatLieuServices.GetAll().ForEach(x => CbbChatLieu.Items.Add(x.Ten));
+            _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => CbbChatLieu.Items.Add(x.Ten));
             cbbMauSac.Items.Clear();
-            _IMauSacServices.GetAll().ForEach(x => cbbMauSac.Items.Add(x.Ten));
+            _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbMauSac.Items.Add(x.Ten));
             cbbTeam.Items.Clear();
-            _ITeamServices.GetAll().ForEach(x => cbbTeam.Items.Add(x.Ten));
+            _ITeamServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => cbbTeam.Items.Add(x.Ten));
+            CbbNhomHang.Items.Clear();
+            _IKieuSpServices.GetAll().Where(x => x.TrangThai == 0).ToList().ForEach(x => CbbNhomHang.Items.Add(x.Ten));
         }
         private void rjCircularPictureBox1_Click(object sender, EventArgs e)
         {
@@ -385,6 +388,8 @@ namespace _3.PL.Views
                         var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
                         anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
                         _IAnhServices.Update(anh);
+                        var KSP = _IChiTietKieuSpService.GetAll().Find(x => x.Id == sp.IdKieuSP);
+                        //KSP.
                         this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
                         this.Close();
                     }

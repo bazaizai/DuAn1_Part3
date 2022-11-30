@@ -133,7 +133,7 @@
             this.rjCircularPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox3.GradientAngle = 50F;
             this.rjCircularPictureBox3.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox3.Location = new System.Drawing.Point(562, 664);
+            this.rjCircularPictureBox3.Location = new System.Drawing.Point(562, 660);
             this.rjCircularPictureBox3.Name = "rjCircularPictureBox3";
             this.rjCircularPictureBox3.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +151,7 @@
             this.rjCircularPictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox2.GradientAngle = 50F;
             this.rjCircularPictureBox2.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox2.Location = new System.Drawing.Point(562, 591);
+            this.rjCircularPictureBox2.Location = new System.Drawing.Point(562, 587);
             this.rjCircularPictureBox2.Name = "rjCircularPictureBox2";
             this.rjCircularPictureBox2.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,7 +187,7 @@
             this.rjCircularPictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox5.GradientAngle = 50F;
             this.rjCircularPictureBox5.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox5.Location = new System.Drawing.Point(1210, 171);
+            this.rjCircularPictureBox5.Location = new System.Drawing.Point(1210, 169);
             this.rjCircularPictureBox5.Name = "rjCircularPictureBox5";
             this.rjCircularPictureBox5.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,7 +205,7 @@
             this.rjCircularPictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox4.GradientAngle = 50F;
             this.rjCircularPictureBox4.Image = global::_3.PL.Properties.Resources.add;
-            this.rjCircularPictureBox4.Location = new System.Drawing.Point(1210, 98);
+            this.rjCircularPictureBox4.Location = new System.Drawing.Point(1210, 97);
             this.rjCircularPictureBox4.Name = "rjCircularPictureBox4";
             this.rjCircularPictureBox4.Size = new System.Drawing.Size(48, 48);
             this.rjCircularPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

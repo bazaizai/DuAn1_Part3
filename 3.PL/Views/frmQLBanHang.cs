@@ -34,6 +34,7 @@ namespace _3.PL.Views
         IKhachHangServices _IKhachHangServices;
         IPtthanhToanServices _IPtthanhToanServices;
         IHinhThucMhServices _IHinhThucMhServices;
+        INhanVienServices _iNhanVienServices;
         TabPage tabPage;
         int doifrom = 0;
         public string GetSdt { get; set; }
@@ -53,6 +54,7 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
             _IHinhThucMhServices = new HinhThucMhServices();
             _IChiTietHDServices = new ChiTietHDServices();
+            _iNhanVienServices = new NhanVienServices();
             pnlfill.Height = this.Height - pnlbutton.Height;
             rdoTaiQuay.Checked = true;
             CbbGiamGia.SelectedIndex = 0;
@@ -88,6 +90,7 @@ namespace _3.PL.Views
                 TabPage tabPage = new TabPage();
                 tabPage.Text = y.MaHD;
                 tabPage.Name = y.MaHD;
+                txtMaNhanVien.Texts = _HoaDonServices.GetAll().Find(x => x.MaHD == tabPage.Name).MaNv;
                 TabHoaDon.TabPages.Add(tabPage);
                 int stt = 1;
                 if (TabHoaDon.TabCount == 1)
@@ -137,6 +140,7 @@ namespace _3.PL.Views
             {
                 Id = Guid.NewGuid(),
                 MaHD = MaTT(),
+                IdNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.Id).FirstOrDefault(),
                 NgayTao = DateTime.Now,
                 TrangThai = 0,
             };
@@ -431,6 +435,7 @@ namespace _3.PL.Views
             txtTienThua1.Text = "";
             txthtThanhToan.Texts = "";
             txtsearchKH.Texts = "";
+            txtMaNhanVien.Texts = _HoaDonServices.GetAll().Find(x => x.MaHD == tabPage.Name).MaNv;
             LoadGia();
             LoadTienThua();
         }
@@ -1507,5 +1512,6 @@ namespace _3.PL.Views
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+
     }
 }
