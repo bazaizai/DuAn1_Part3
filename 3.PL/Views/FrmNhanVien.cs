@@ -200,24 +200,7 @@ namespace _3.PL.Views
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            NhanVienView cvv = new NhanVienView()
-            {
-                Id = Guid.Parse(dtgv_show.CurrentRow.Cells[0].Value.ToString()),
-                IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
-                Ma = dtgv_show.CurrentRow.Cells[1].Value.ToString(),
-                Ten = XoaDauCach(tb_ten.Text.Trim()),
-                TenDem = tb_tendem.Text,
-                Ho = XoaDauCach(tb_ho.Text.Trim()),
-                GioiTinh = cbb_gioitinh.Text,
-                NgaySinh = dtp_ngaysinh.Value,
-                DiaChi = tb_diachi.Text,
-                Sdt = tb_sdt.Text,
-                Cccd = tb_cccd.Text,
-                MatKhau = tb_matkhau.Text,
-                Email = tb_email.Text,
-                TaiKhoan = tb_taikhoan.Text,
-                TrangThai = rdb_hoatdong.Checked ? 0 : 1
-            };
+
             DialogResult dialog = MessageBox.Show("Bạn có muốn sửa không!", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
@@ -259,6 +242,24 @@ namespace _3.PL.Views
                 }
                 else
                 {
+                    NhanVienView cvv = new NhanVienView()
+                    {
+                        Id = Guid.Parse(dtgv_show.CurrentRow.Cells[0].Value.ToString()),
+                        IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
+                        Ma = dtgv_show.CurrentRow.Cells[1].Value.ToString(),
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
+                        TenDem = tb_tendem.Text,
+                        Ho = XoaDauCach(tb_ho.Text.Trim()),
+                        GioiTinh = cbb_gioitinh.Text,
+                        NgaySinh = dtp_ngaysinh.Value,
+                        DiaChi = tb_diachi.Text,
+                        Sdt = tb_sdt.Text,
+                        Cccd = tb_cccd.Text,
+                        MatKhau = tb_matkhau.Text,
+                        Email = tb_email.Text,
+                        TaiKhoan = tb_taikhoan.Text,
+                        TrangThai = rdb_hoatdong.Checked ? 0 : 1
+                    };
                     _iNhanVien.Update(cvv);
                     MessageBox.Show("sửa thành công");
                     loadData();
