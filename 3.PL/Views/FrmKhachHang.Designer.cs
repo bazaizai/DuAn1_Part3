@@ -51,16 +51,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_timkiem = new System.Windows.Forms.TextBox();
             this.dtg_show = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_kh = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -326,6 +326,55 @@
             this.dtg_show.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dtg_show_RowPrePaint);
             this.dtg_show.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtg_show_MouseClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // Stt
+            // 
+            this.Stt.FillWeight = 340.9091F;
+            this.Stt.HeaderText = "STT";
+            this.Stt.MinimumWidth = 8;
+            this.Stt.Name = "Stt";
+            // 
+            // Ma
+            // 
+            this.Ma.FillWeight = 51.81818F;
+            this.Ma.HeaderText = "Mã";
+            this.Ma.MinimumWidth = 8;
+            this.Ma.Name = "Ma";
+            // 
+            // Ten
+            // 
+            this.Ten.FillWeight = 51.81818F;
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 8;
+            this.Ten.Name = "Ten";
+            // 
+            // Sdt
+            // 
+            this.Sdt.FillWeight = 51.81818F;
+            this.Sdt.HeaderText = "Số điện thoại";
+            this.Sdt.MinimumWidth = 8;
+            this.Sdt.Name = "Sdt";
+            // 
+            // diachi
+            // 
+            this.diachi.FillWeight = 51.81818F;
+            this.diachi.HeaderText = "Địa chỉ";
+            this.diachi.MinimumWidth = 8;
+            this.diachi.Name = "diachi";
+            // 
+            // trangthai
+            // 
+            this.trangthai.FillWeight = 51.81818F;
+            this.trangthai.HeaderText = "Trạng thái";
+            this.trangthai.MinimumWidth = 8;
+            this.trangthai.Name = "trangthai";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dtg_show);
@@ -336,9 +385,9 @@
             this.panel1.Controls.Add(this.cbb_locsdt);
             this.panel1.Controls.Add(this.tb_timkiem);
             this.panel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.panel1.Location = new System.Drawing.Point(568, 113);
+            this.panel1.Location = new System.Drawing.Point(540, 113);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1109, 389);
+            this.panel1.Size = new System.Drawing.Size(1115, 389);
             this.panel1.TabIndex = 24;
             // 
             // lb_kh
@@ -353,57 +402,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // trangthai
-            // 
-            this.trangthai.FillWeight = 51.81818F;
-            this.trangthai.HeaderText = "Trạng thái";
-            this.trangthai.MinimumWidth = 8;
-            this.trangthai.Name = "trangthai";
-            // 
-            // diachi
-            // 
-            this.diachi.FillWeight = 51.81818F;
-            this.diachi.HeaderText = "Địa chỉ";
-            this.diachi.MinimumWidth = 8;
-            this.diachi.Name = "diachi";
-            // 
-            // Sdt
-            // 
-            this.Sdt.FillWeight = 51.81818F;
-            this.Sdt.HeaderText = "Số điện thoại";
-            this.Sdt.MinimumWidth = 8;
-            this.Sdt.Name = "Sdt";
-            // 
-            // Ten
-            // 
-            this.Ten.FillWeight = 51.81818F;
-            this.Ten.HeaderText = "Tên";
-            this.Ten.MinimumWidth = 8;
-            this.Ten.Name = "Ten";
-            // 
-            // Ma
-            // 
-            this.Ma.FillWeight = 51.81818F;
-            this.Ma.HeaderText = "Mã";
-            this.Ma.MinimumWidth = 8;
-            this.Ma.Name = "Ma";
-            // 
-            // Stt
-            // 
-            this.Stt.FillWeight = 340.9091F;
-            this.Stt.HeaderText = "STT";
-            this.Stt.MinimumWidth = 8;
-            this.Stt.Name = "Stt";
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
             // 
             // FrmKhachHang
             // 

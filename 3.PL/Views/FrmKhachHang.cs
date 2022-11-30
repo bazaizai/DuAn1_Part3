@@ -509,7 +509,14 @@ namespace _3.PL.Views
         int x;
         private void timer1_Tick(object sender, EventArgs e)
         {
-                           
+
+            Random random = new Random();
+            int one = random.Next(0, 255);
+            int two = random.Next(0, 255);
+            int three = random.Next(0, 255);
+            int four = random.Next(0, 255);
+
+            lb_kh.ForeColor = Color.FromArgb(one, two, three, four);
         }
 
         private void FrmKhachHang_Load(object sender, EventArgs e)
