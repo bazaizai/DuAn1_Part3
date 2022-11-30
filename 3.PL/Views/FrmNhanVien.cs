@@ -74,6 +74,8 @@ namespace _3.PL.Views
         }
         public void loadComboBox()
         {
+            _iChucVu = new ChucVuServices();
+            _iNhanVien = new NhanVienServices();
             cbb_chucvu.Items.Clear();
             cbb_gioitinh.Items.Clear();
             cbb_loc.Items.Clear();
