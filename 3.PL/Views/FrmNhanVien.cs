@@ -77,12 +77,11 @@ namespace _3.PL.Views
             cbb_chucvu.Items.Clear();
             cbb_gioitinh.Items.Clear();
             cbb_loc.Items.Clear();
-            foreach (var item in _iChucVu.GetAll())
+            foreach (var item in _iChucVu.GetAll().Where(c => c.TrangThai == 0))
             {
-                if (item.TrangThai == 0)
-                {
-                    cbb_chucvu.Items.Add(item.Ten);
-                }
+
+                cbb_chucvu.Items.Add(item.Ten);
+
             }
             cbb_gioitinh.Items.Add("Nam");
             cbb_gioitinh.Items.Add("Nữ");
@@ -484,5 +483,6 @@ namespace _3.PL.Views
             if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+
     }
 }
