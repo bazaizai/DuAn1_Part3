@@ -18,11 +18,13 @@ namespace _3.PL.Views
     {
         ILichSuTichDiemServices _iLichSuTichDiemServices;
         LichSuTichDiemView _lichSuTichDiemView;
+        List<LichSuTichDiemView> _lstLichSuTichDiem;
         public FrmLichSuTichDiem()
         {
             InitializeComponent();
             _iLichSuTichDiemServices = new LichSuTichDiemServices();
             _lichSuTichDiemView = new LichSuTichDiemView();
+            _lstLichSuTichDiem = new List<LichSuTichDiemView>();
             loadLS();
             LoadData();
         }
@@ -37,20 +39,22 @@ namespace _3.PL.Views
         public void LoadData()
         {
             int stt = 1;
-            dtg_show.ColumnCount = 5;
+            dtg_show.ColumnCount = 6;
             dtg_show.Columns[0].Name = "Id";
             dtg_show.Columns[0].Visible = false;
             dtg_show.Columns[1].Name = "STT";          
             dtg_show.Columns[2].Name = "Số điểm dùng";          
-            dtg_show.Columns[2].Name = "Ngày tích điểm";          
-            dtg_show.Columns[3].Name = "Trạng thái";
+            dtg_show.Columns[3].Name = "Ngày tích điểm";          
+            dtg_show.Columns[4].Name = "Trạng thái";
+            dtg_show.Columns[5].Name = "Selected";
 
 
             dtg_show.Rows.Clear();
             var lst = _iLichSuTichDiemServices.GetAll();
+            //_lstLichSuTichDiem = _iLichSuTichDiemServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c => c.Ma).ToList();
             foreach (var item in lst)
             {
-                dtg_show.Rows.Add(item.Id, stt++,item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
+                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động", item.Selected);
             }
             AddHeaderCheckBox();
             HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
@@ -121,11 +125,16 @@ namespace _3.PL.Views
         private void loadLS()
         {
             dtg_show.Rows.Clear();
-
+            int stt = 1;
             foreach (var item in _iLichSuTichDiemServices.GetAll())
             {
-                dtg_show.Rows.Add(item.Id,item.NgayTichDiem, item.SoDiemDung, item.TrangThai);
+                dtg_show.Rows.Add(item.Id, stt++,item.TenKH, item.NgayTichDiem, item.SoDiemDung, item.TrangThai, item.Selected);
             }
+
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

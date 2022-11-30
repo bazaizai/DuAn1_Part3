@@ -35,7 +35,6 @@ namespace _3.PL.Views
             _lstCtsle = new List<ChiTietSaleView>();
             lstSale = new List<SaleView>();
             tb_ma.Enabled = false;
-<<<<<<< HEAD
             cbb_loaiKM.Items.Add("%");
             cbb_loaiKM.Items.Add("Tiền mặt");
             cbb_trangthai.Items.Add("Đang áp dụng");
@@ -52,12 +51,6 @@ namespace _3.PL.Views
 
             cbb_locKM.SelectedIndex = 0;
             cbb_locTrangthai.SelectedIndex = 0;
-
-
-=======
-            loadcbb();
-            loadlb();
->>>>>>> develop
             loadKM();
             loadCTSP();
          

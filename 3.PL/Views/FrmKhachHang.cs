@@ -92,14 +92,6 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
-<<<<<<< HEAD
-                else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
-=======
-                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
->>>>>>> develop
-                {
-                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
-                }
                 else if (CheckValidate.hasSpecialChar(tb_ten.Text))
                 {
                     MessageBox.Show("Tên không hợp lệ!");
@@ -116,10 +108,6 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Số điện thoại không hợp lệ!");
                 }
-                //else if (_iKhachHangServices.GetAll().Any(c => c.Email == tb_email.Text))
-                //{
-                //    MessageBox.Show("Email bị trùng");
-                //}
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
                     MessageBox.Show("Không được để trống trạng thái!");
@@ -138,7 +126,7 @@ namespace _3.PL.Views
                     {
                         Id = new Guid(),
                         IdtichDiem = tichdiem.Id,
-                        Ten = XoaDauCach(tb_ten.Text.Trim()),
+                        Ten = XoaDauCach(VietHoaChuCaiDau(tb_ten.Text.Trim())),
                         DiaChi = tb_diachi.Text,
                         Sdt = tb_sdt.Text,
                         TrangThai = rdb_hd.Checked ? 1 : 0
@@ -163,25 +151,22 @@ namespace _3.PL.Views
                 //{
                 //    MessageBox.Show("Mã bị trùng");
                 //}
-                if (tb_ten.Text == "")
+                if (_khachHangView.Id == Guid.Empty)
+                {
+                    MessageBox.Show("Vui lòng chọn khách hàng cần sửa!");
+                }
+                else if (tb_ten.Text == "")
                 {
                     MessageBox.Show("Không được để trống tên!");
-                }
+                }               
                 else if (tb_ten.Text.Length < 2)
                 {
                     MessageBox.Show("Tên quá ngắn!");
                 }
-<<<<<<< HEAD
-                //else if (!CheckValidate.KiemTraHoTen(XoaDauCach(tb_ten.Text)))
+                //else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
                 //{
                 //    MessageBox.Show("Phải viết hoa chữ cái đầu!");
                 //}
-=======
-                else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
-                {
-                    MessageBox.Show("Phải viết hoa chữ cái đầu!");
-                }
->>>>>>> develop
                 else if (CheckValidate.hasSpecialChar(tb_ten.Text))
                 {
                     MessageBox.Show("Tên không hợp lệ!");
@@ -204,7 +189,7 @@ namespace _3.PL.Views
                 }
                 else
                 {
-                    _khachHangView.Ten = XoaDauCach(tb_ten.Text.Trim());
+                    _khachHangView.Ten = XoaDauCach(VietHoaChuCaiDau(tb_ten.Text.Trim()));
                     _khachHangView.DiaChi = tb_diachi.Text;
                     _khachHangView.Sdt = tb_sdt.Text;
                     _khachHangView.TrangThai = rdb_hd.Checked ? 1 : 0;
@@ -434,60 +419,7 @@ namespace _3.PL.Views
                 }
             }
         }
-
-        private static readonly string[] VietnameseSigns = new string[]
-        {
-            "aAeEoOuUiIdDyY",
-
-        "áàạảãâấầậẩẫăắằặẳẵ",
-
-        "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-
-        "éèẹẻẽêếềệểễ",
-
-        "ÉÈẸẺẼÊẾỀỆỂỄ",
-
-        "óòọỏõôốồộổỗơớờợởỡ",
-
-        "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-
-        "úùụủũưứừựửữ",
-
-        "ÚÙỤỦŨƯỨỪỰỬỮ",
-
-        "íìịỉĩ",
-
-        "ÍÌỊỈĨ",
-
-        "đ",
-
-        "Đ",
-
-        "ýỳỵỷỹ",
-
-        "ÝỲỴỶỸ"
-        };
-
-
-
-
-        public static string RemoveDauTV(string str)
-        {
-            //Tiến hành thay thế , lọc bỏ dấu cho chuỗi
-
-            for (int i = 1; i < VietnameseSigns.Length; i++)
-
-            {
-
-                for (int j = 0; j < VietnameseSigns[i].Length; j++)
-
-                    str = str.Replace(VietnameseSigns[i][j], VietnameseSigns[0][i - 1]);
-
-            }
-
-            return str;
-        }
-
+       
         private void dtg_show_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
 
@@ -498,7 +430,7 @@ namespace _3.PL.Views
 
         }
 
-<<<<<<< HEAD
+
         //private string RemoveWhiteSpace(string z)
         //{
         //    string x = "";
@@ -520,9 +452,7 @@ namespace _3.PL.Views
             }
             return s;
         }
-
-=======
->>>>>>> develop
+             
         private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -538,7 +468,7 @@ namespace _3.PL.Views
         }
 
         //string titleCase = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
-        public static string CapitalizeFirstLetter(string value)
+        public static string VietHoaChuCaiDau(string value)
         {
             value = value.ToLower();
             char[] array = value.ToCharArray();
@@ -562,7 +492,7 @@ namespace _3.PL.Views
             }
             return new string(array);
         }
-<<<<<<< HEAD
+
 
         private void tb_ten_TextChanged(object sender, EventArgs e)
         {
@@ -571,7 +501,10 @@ namespace _3.PL.Views
                 tb_ten.Text = "";
             }
         }
-=======
->>>>>>> develop
+
+        private void tb_sdt_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

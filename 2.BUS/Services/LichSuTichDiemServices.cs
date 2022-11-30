@@ -66,6 +66,7 @@ namespace _2.BUS.Services
         {
             var lst = (from lstd in _iLichSuTichDiemRepos.GetAll()
                        join td in _iTichDiemRepos.GetAll() on lstd.IdTichDiem equals td.Id
+                       join hd in _iHoaDonRepos.GetAll() on lstd.IdHoaDon equals hd.Id
                        //join c in (from cttd in _iCtTichDiemRepos.GetAll()
                        //           join hd in _iHoaDonRepos.GetAll() on cttd.Id equals hd.Id
                        //           select new HoaDonViews()
@@ -80,6 +81,8 @@ namespace _2.BUS.Services
                        select new LichSuTichDiemView()
                        {
                            Id = lstd.Id,
+                           IdHoaDon = hd.IdKh,
+                           TenKH = Convert.ToString(lstd.IdHoaDon),
                            SoDiemDung = lstd.SoDiemDung,
                            NgayTichDiem = lstd.NgayTichDiem,
                            TrangThai = lstd.TrangThai
