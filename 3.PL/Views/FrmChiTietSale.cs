@@ -296,7 +296,7 @@ namespace _3.PL.Views
         }
         private void ClearForm()
         {
-            tb_ten.Text = "";
+            tb_ten.Texts = "";
             tb_timkiemkm.Text = "";
             tb_ma.Text = "";
             cbb_trangthai.Texts = "";
@@ -308,6 +308,7 @@ namespace _3.PL.Views
             cbb_loaiKM.Texts = "%";
             IDCtsp = Guid.Empty;
             IDsale = Guid.Empty;
+            cbb_trangthai.SelectedIndex = 0;
         }
 
 
@@ -787,6 +788,7 @@ namespace _3.PL.Views
 
             cbb_locKM.SelectedIndex = 0;
             cbb_locTrangthai.SelectedIndex = 1;
+            cbb_trangthai.SelectedIndex = 0;
             cbb_loaiKM.SelectedIndex = 0;
             dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
             dtp_end.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
