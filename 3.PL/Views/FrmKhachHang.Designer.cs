@@ -51,13 +51,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_timkiem = new System.Windows.Forms.TextBox();
             this.dtg_show = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_kh = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -304,14 +297,6 @@
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_show.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Stt,
-            this.Ma,
-            this.Ten,
-            this.Sdt,
-            this.diachi,
-            this.trangthai});
             this.dtg_show.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtg_show.Location = new System.Drawing.Point(3, 83);
             this.dtg_show.Name = "dtg_show";
@@ -325,55 +310,6 @@
             this.dtg_show.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtg_show_DataBindingComplete);
             this.dtg_show.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dtg_show_RowPrePaint);
             this.dtg_show.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtg_show_MouseClick);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // Stt
-            // 
-            this.Stt.FillWeight = 340.9091F;
-            this.Stt.HeaderText = "STT";
-            this.Stt.MinimumWidth = 8;
-            this.Stt.Name = "Stt";
-            // 
-            // Ma
-            // 
-            this.Ma.FillWeight = 51.81818F;
-            this.Ma.HeaderText = "Mã";
-            this.Ma.MinimumWidth = 8;
-            this.Ma.Name = "Ma";
-            // 
-            // Ten
-            // 
-            this.Ten.FillWeight = 51.81818F;
-            this.Ten.HeaderText = "Tên";
-            this.Ten.MinimumWidth = 8;
-            this.Ten.Name = "Ten";
-            // 
-            // Sdt
-            // 
-            this.Sdt.FillWeight = 51.81818F;
-            this.Sdt.HeaderText = "Số điện thoại";
-            this.Sdt.MinimumWidth = 8;
-            this.Sdt.Name = "Sdt";
-            // 
-            // diachi
-            // 
-            this.diachi.FillWeight = 51.81818F;
-            this.diachi.HeaderText = "Địa chỉ";
-            this.diachi.MinimumWidth = 8;
-            this.diachi.Name = "diachi";
-            // 
-            // trangthai
-            // 
-            this.trangthai.FillWeight = 51.81818F;
-            this.trangthai.HeaderText = "Trạng thái";
-            this.trangthai.MinimumWidth = 8;
-            this.trangthai.Name = "trangthai";
             // 
             // panel1
             // 
@@ -408,6 +344,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1680, 519);
             this.Controls.Add(this.lb_kh);
@@ -427,6 +364,7 @@
             this.Controls.Add(this.tb_ten);
             this.Controls.Add(this.tb_ma);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmKhachHang";
@@ -465,12 +403,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lb_kh;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trangthai;
     }
 }

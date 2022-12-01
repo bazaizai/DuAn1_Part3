@@ -17,14 +17,29 @@ namespace _3.PL.Views
     public partial class FrmLichSuTichDiem : Form
     {
         ILichSuTichDiemServices _iLichSuTichDiemServices;
+        IHoaDonServices _iHoaDonServices;
+        ITichDiemServices _iTichDiemServices;
+        ICtTichDiemServices _iCongThucTichDiemServices;
+        
         LichSuTichDiemView _lichSuTichDiemView;
+        HoaDonViews _hoaDonViews;
+        TichDiemView _tichDiemView;
+        CtTinhDiemView _ctTichDiemView;
         List<LichSuTichDiemView> _lstLichSuTichDiem;
+        List<HoaDonViews> _lstHoaDonViews;
         public FrmLichSuTichDiem()
         {
             InitializeComponent();
             _iLichSuTichDiemServices = new LichSuTichDiemServices();
+            _iHoaDonServices = new HoaDonServices();
+            _iTichDiemServices = new TichDiemServices();
+            _iCongThucTichDiemServices = new CtTichDiemServices();
             _lichSuTichDiemView = new LichSuTichDiemView();
+            _tichDiemView = new TichDiemView();
+            _hoaDonViews = new HoaDonViews();
+            _ctTichDiemView = new CtTinhDiemView();
             _lstLichSuTichDiem = new List<LichSuTichDiemView>();
+            _lstHoaDonViews = new List<HoaDonViews>();
             loadLS();
             LoadData();
         }
@@ -39,48 +54,30 @@ namespace _3.PL.Views
         public void LoadData()
         {
             int stt = 1;
-            dtg_show.ColumnCount = 6;
+            dtg_show.ColumnCount = 8;
             dtg_show.Columns[0].Name = "Id";
             dtg_show.Columns[0].Visible = false;
             dtg_show.Columns[1].Name = "STT";          
-            dtg_show.Columns[2].Name = "Số điểm dùng";          
-            dtg_show.Columns[3].Name = "Ngày tích điểm";          
-            dtg_show.Columns[4].Name = "Trạng thái";
-            dtg_show.Columns[5].Name = "Selected";
+            dtg_show.Columns[2].Name = "Mã hóa đơn";          
+            dtg_show.Columns[3].Name = "Mã nhân viên";          
+            dtg_show.Columns[4].Name = "Tên khách hàng";          
+            dtg_show.Columns[5].Name = "Số điểm dùng";          
+            dtg_show.Columns[6].Name = "Ngày tích điểm";          
+            dtg_show.Columns[7].Name = "Trạng thái";
 
 
             dtg_show.Rows.Clear();
             var lst = _iLichSuTichDiemServices.GetAll();
+            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(c => c.MaHD.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(x=>x.MaHD).ToList();
             //_lstLichSuTichDiem = _iLichSuTichDiemServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c => c.Ma).ToList();
             foreach (var item in lst)
             {
-                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
+                dtg_show.Rows.Add(item.Id, stt++,item.MaHD, item.MaNV, item.TenKH, item.SoDiemDung, item.NgayTichDiem, item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
-            AddHeaderCheckBox();
-            HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
+            //AddHeaderCheckBox();
+            //HeaderCheckBox.MouseClick += new MouseEventHandler(cbb_loaiKM_MouseClick);
         }
-        //private void btn_them_Click(object sender, EventArgs e)
-        //{
-        //    var x = new LichSuTichDiemView()
-        //    {
-        //        Id = new Guid(),
-        //        SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text),
-        //        NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value),
-        //        TrangThai = rdb_hd.Checked ? 1 : 0
-        //    };
-        //    MessageBox.Show(_iLichSuTichDiemServices.Add(x));
-        //    ClearForm();
-        //}
 
-
-        private void btn_sua_Click(object sender, EventArgs e)
-        {
-            //_lichSuTichDiemView.SoDiemDung = Convert.ToInt32(tb_sodiemdung.Text);
-            //_lichSuTichDiemView.NgayTichDiem = Convert.ToDateTime(dtp_ngaytichdiem.Value);
-            //_lichSuTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
-            MessageBox.Show(_iLichSuTichDiemServices.Update(_lichSuTichDiemView));
-            ClearForm();
-        }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -103,12 +100,12 @@ namespace _3.PL.Views
         CheckBox HeaderCheckBox = null;
         bool IsHeaderCheckBoxClicked = false;
 
-        private void AddHeaderCheckBox()
-        {
-            HeaderCheckBox = new CheckBox();
-            HeaderCheckBox.Size = new Size(15, 15);
-            this.dtg_show.Controls.Add(HeaderCheckBox);
-        }
+        //private void AddHeaderCheckBox()
+        //{
+        //    HeaderCheckBox = new CheckBox();
+        //    HeaderCheckBox.Size = new Size(15, 15);
+        //    this.dtg_show.Controls.Add(HeaderCheckBox);
+        //}
         private void HeaderCheckBoxClick(CheckBox checkBox)
         {
             IsHeaderCheckBoxClicked = true;
@@ -128,7 +125,7 @@ namespace _3.PL.Views
             int stt = 1;
             foreach (var item in _iLichSuTichDiemServices.GetAll())
             {
-                dtg_show.Rows.Add(item.Id, stt++, item.TenKH, item.NgayTichDiem, item.SoDiemDung, item.TrangThai);
+                dtg_show.Rows.Add(item.Id, stt++,item.MaHD, item.MaNV, item.TenKH, item.NgayTichDiem, item.SoDiemDung, item.TrangThai);
             }
 
         }

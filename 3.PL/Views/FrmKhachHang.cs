@@ -34,6 +34,7 @@ namespace _3.PL.Views
             _lstKhachHang = new List<KhachHangView>();
             LoadData();
             LoadCbb();
+            //CanChinhSize();
         }
         private string _message;
         public FrmKhachHang(string Message) : this()
@@ -56,6 +57,16 @@ namespace _3.PL.Views
             dtg_show.Columns[7].Name = "Số điểm";
             dtg_show.Columns[8].Name = "Trạng thái";
             tb_ma.Enabled = false;
+
+            dtg_show.Columns[1].Width = 40;
+            dtg_show.Columns[2].Width = 40;
+            dtg_show.Columns[3].Width = 160;
+            dtg_show.Columns[4].Width = 100;
+            dtg_show.Columns[5].Width = 90;
+            dtg_show.Columns[6].Width = 80;
+            dtg_show.Columns[7].Width = 40;
+            dtg_show.Columns[8].Width = 130;
+   
 
             dtg_show.Rows.Clear();
             _lstKhachHang = _iKhachHangServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c=>c.Ma).ToList();
@@ -524,5 +535,11 @@ namespace _3.PL.Views
             timer1.Start();
             timer1.Enabled = true;
         }
+
+        //public void CanChinhSize()
+        //{
+        //    FrmKhachHang frmKhachHang = new FrmKhachHang();
+        //    frmKhachHang.dtg_show.Columns[1].Width = 60;
+        //}
     }
 }
