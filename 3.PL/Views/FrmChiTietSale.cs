@@ -21,11 +21,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using _3.PL.Properties;
 using System.Threading;
 using System.IO;
+using System.Drawing.Printing;
 
 namespace _3.PL.Views
 {
     public partial class FrmChiTietSale : Form
     {
+        private IKieuSpServices _kieuSpServices;
+        private IChiTietKieuSpService _chiTietkieuspservices;    
+
         private IChiTietSaleServices _IchiTietSaleServices;
         private IChiTietSpServices _chiTietSpServices;
         private ISaleServices _SaleServices;
@@ -46,6 +50,8 @@ namespace _3.PL.Views
             _lstCtsle = new List<ChiTietSaleView>();
             lstSale = new List<SaleView>();
             _ChiTietSpViews = new List<ChiTietSpViews>();
+            _kieuSpServices = new KieuSpServices();
+            _chiTietkieuspservices = new ChiTietKieuSpServices();
             tbTrangthai();
         }
 
@@ -127,11 +133,11 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp = "Mũ thời trang",
+                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = true,
                     };
                     selcted.Add(sPSelected);
-
+                   
                 }
                 else
                 {
@@ -141,7 +147,7 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp = "Mũ thời trang",
+                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = false,
                     };
                     selcted.Add(sPSelected);
@@ -172,7 +178,7 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp = "Mũ thời trang",
+                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = true,
                     };
                     selcted.Add(sPSelected);
@@ -186,7 +192,7 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp = "Mũ thời trang",
+                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = false,
                     };
                     selcted.Add(sPSelected);
@@ -665,7 +671,7 @@ namespace _3.PL.Views
                             TenSanPham = x.TenSP,
                             MauSac = x.TenMauSac,
                             Team = x.TenTeam,
-                            KieuSp = "Mũ thời trang",
+                            KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
                             Selected = false,
                         };
                         selcted.Add(sPSelected);
@@ -694,7 +700,7 @@ namespace _3.PL.Views
                             TenSanPham = x.TenSP,
                             MauSac = x.TenMauSac,
                             Team = x.TenTeam,
-                            KieuSp = "Mũ thời trang",
+                            KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
                             Selected = true,
                         };
                         selcted.Add(sPSelected);
