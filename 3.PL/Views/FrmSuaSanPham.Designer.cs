@@ -91,6 +91,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
+            this.lblNameNhom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).BeginInit();
@@ -960,11 +961,22 @@
             this.lblID.Text = "ID";
             this.lblID.Visible = false;
             // 
+            // lblNameNhom
+            // 
+            this.lblNameNhom.AutoSize = true;
+            this.lblNameNhom.Location = new System.Drawing.Point(58, 640);
+            this.lblNameNhom.Name = "lblNameNhom";
+            this.lblNameNhom.Size = new System.Drawing.Size(24, 20);
+            this.lblNameNhom.TabIndex = 84;
+            this.lblNameNhom.Text = "ID";
+            this.lblNameNhom.Visible = false;
+            // 
             // FrmSuaSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 800);
+            this.Controls.Add(this.lblNameNhom);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.rjCircularPictureBox3);
@@ -1027,7 +1039,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSuaSanPham";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSuaSanPham";
+            this.Text = "6";
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).EndInit();
@@ -1109,5 +1121,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblNameNhom;
     }
 }

@@ -82,7 +82,6 @@
             this.lblNhomHang = new System.Windows.Forms.Label();
             this.lblTenHang = new System.Windows.Forms.Label();
             this.lblMaHang = new System.Windows.Forms.Label();
-
             this.CheckBoxDP = new System.Windows.Forms.CheckBox();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.guna2TabControl2 = new Guna.UI2.WinForms.Guna2TabControl();
