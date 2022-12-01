@@ -71,6 +71,9 @@
     <Compile Update="Views\FrmHinhThucMh.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>

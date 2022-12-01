@@ -398,5 +398,13 @@ namespace _3.PL.Views
             timer1.Start();
             timer1.Enabled = true;
         }
+
+        private void tb_mucuudai_TextChanged(object sender, EventArgs e)
+        {
+            if(cbb_loaihinhkm.Text == "%" && Convert.ToDecimal(tb_mucuudai.Text) > 100)
+            {
+                tb_mucuudai.Text = "100";
+            }
+        }
     }
 }
