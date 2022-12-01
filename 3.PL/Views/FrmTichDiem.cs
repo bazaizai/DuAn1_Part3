@@ -23,13 +23,15 @@ namespace _3.PL.Views
             _iTichDiemServices = new TichDiemServices();
             _tichDiemView = new TichDiemView();
             LoadData();
+
+
         }
         public void ClearForm()
         {
             LoadData();
-            tb_sodiem.Text = "";
-            rdb_hd.Checked = false;
-            rdb_khd.Checked = false;
+            //tb_sodiem.Text = "";
+            //rdb_hd.Checked = false;
+            //rdb_khd.Checked = false;
         }
         public void LoadData()
         {
@@ -38,7 +40,7 @@ namespace _3.PL.Views
             dtg_show.Columns[0].Name = "Id";
             dtg_show.Columns[0].Visible = false;
             dtg_show.Columns[1].Name = "STT";
-            dtg_show.Columns[2].Name = "Số điểm";
+            dtg_show.Columns[2].Name = "Tổng số điểm";
             dtg_show.Columns[3].Name = "Trạng thái";
 
 
@@ -51,29 +53,22 @@ namespace _3.PL.Views
         }
         private void btn_them_Click(object sender, EventArgs e)
         {
-            var x = new TichDiemView()
-            {
-                Id = new Guid(),
-                SoDiem = Convert.ToInt32(tb_sodiem.Text),
-                TrangThai = rdb_hd.Checked ? 1 : 0
-            };
-            MessageBox.Show(_iTichDiemServices.Add(x));
-            ClearForm();
+            //var x = new TichDiemView()
+            //{
+            //    Id = new Guid(),
+            //    SoDiem = Convert.ToInt32(tb_sodiem.Text),
+            //    TrangThai = rdb_hd.Checked ? 1 : 0
+            //};
+            //MessageBox.Show(_iTichDiemServices.Add(x));
+            //ClearForm();
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_iTichDiemServices.Delete(_tichDiemView));
-            ClearForm();
+            //MessageBox.Show(_iTichDiemServices.Delete(_tichDiemView));
+            //ClearForm();
         }
 
-        private void btn_sua_Click(object sender, EventArgs e)
-        {
-            _tichDiemView.SoDiem = Convert.ToInt32(tb_sodiem.Text);
-            _tichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
-            MessageBox.Show(_iTichDiemServices.Update(_tichDiemView));
-            ClearForm();
-        }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -86,10 +81,20 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dtg_show.Rows[e.RowIndex];
                 _tichDiemView = _iTichDiemServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_sodiem.Text = Convert.ToString(_tichDiemView.SoDiem);
                 rdb_hd.Checked = _tichDiemView.TrangThai == 1;
                 rdb_khd.Checked = _tichDiemView.TrangThai == 0;
             }
+        }
+
+        private void tb_ct_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            _tichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
+            MessageBox.Show(_iTichDiemServices.Update(_tichDiemView));
+            ClearForm();
         }
     }
 }

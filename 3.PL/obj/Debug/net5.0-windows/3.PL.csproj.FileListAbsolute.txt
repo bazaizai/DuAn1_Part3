@@ -3,7 +3,6 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.deps.json
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.runtimeconfig.json
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.runtimeconfig.dev.json
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.dll
-C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\BarcodeStandard.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Bunifu.Licensing.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\Bunifu.UI.WinForms.1.5.3.dll
@@ -91,11 +90,13 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Component
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomControls.RJControls.RJComboBox.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomControls.RJControls.RJTextBox.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Properties.Resources.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Clone.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomAlertBoxDemo.Form_Alert.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChatLieu.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSale.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChiTietSP.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmChucVu.resources
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmCongThuc.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmDoiMK.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmForgotPW.resources
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmGiaiDau.resources
@@ -133,4 +134,6 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\refint\3.PL.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\3.PL.genruntimeconfig.cache
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\bin\Debug\net5.0-windows\3.PL.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
+C:\Users\ADMIN\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\CustomMessageBox.Private.FormMessageBox.resources

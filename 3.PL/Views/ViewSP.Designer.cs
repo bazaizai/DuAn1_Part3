@@ -715,8 +715,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblTenSPtt;
         private System.Windows.Forms.Panel panel2;
+
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl2;
+
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton btnCapNhat;
         private System.Windows.Forms.Label ID;

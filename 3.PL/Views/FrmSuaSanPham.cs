@@ -43,17 +43,12 @@ namespace _3.PL.Views
             _IChiTietSpServices = new ChiTietSpServices();
             _IAnhServices = new AnhServices();
             _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
             cbbKhuyenMai.Items.Add("Áp dụng");
             cbbKhuyenMai.Items.Add("Không áp dụng");
             cbbKhuyenMai.SelectedIndex = 0;
             RdoDangBan.Checked = true;
             LoadCbb();
-        }
-        private FrmChiTietSP Mainform = null;
-        public FrmSuaSanPham(Form Call)
-        {
-            Mainform = Call as FrmChiTietSP;
-            InitializeComponent();
         }
 
         private Image image;
@@ -210,7 +205,7 @@ namespace _3.PL.Views
 
 
         private string IKSP;
-        public string IDKSP { get => IKSP; set { IKSP = value; lblIDNhomHang.Text = value; } }
+        public string IDKSP { get => IKSP; set { IKSP = value; lblNameNhom.Text = value; } }
 
 
         private string CheckTT;
@@ -270,7 +265,7 @@ namespace _3.PL.Views
 
         private void rjCircularPictureBox2_Click(object sender, EventArgs e)
         {
-            FrmMauSac frmMauSac = new FrmMauSac();
+            FrmQLKieuSP frmMauSac = new FrmQLKieuSP();
             frmMauSac.ShowDialog();
             LoadCbb();
         }
@@ -388,16 +383,15 @@ namespace _3.PL.Views
                         sp.GiaBan = decimal.Parse(txtGiaBan.Texts);
                         sp.TrangThaiKhuyenMai = cbbKhuyenMai.Texts == "Áp dụng" ? 0 : 1;
                         sp.TrangThai = RdoDangBan.Checked ? 0 : 1;
+                        sp.MoTa = txtGhiChu.Texts;
                         _IChiTietSpServices.Update(sp);
                         var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
                         anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
                         _IAnhServices.Update(anh);
-                        //MessageBox.Show(_IKieuSpServices.GetById(Guid.Parse()));
-                        MessageBox.Show(lblID.Text);
-                        var KSP = _IChiTietKieuSpService.GetAll().Find(x => x.Id == Guid.Parse(lblID.Text) && x.IdKieuSp == Guid.Parse(lblIDNhomHang.Text));
-                        KSP.IdChiTietSp = sp.Id;
-                        KSP.IdKieuSp = IDKieuSP();
-                        _IChiTietKieuSpService.Update(KSP);
+                        var CTK = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.IdKieuSp == _IKieuSpServices.GetAll().Find(x => x.Ten == lblNameNhom.Text).Id);
+                        CTK.IdChiTietSp = sp.Id;
+                        CTK.IdKieuSp = IDKieuSP();
+                        _IChiTietKieuSpService.Update(CTK);
                         this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
                         this.Close();
                     }

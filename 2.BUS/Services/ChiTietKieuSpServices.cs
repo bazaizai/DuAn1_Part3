@@ -14,16 +14,16 @@ namespace _2.BUS.Services
 {
     public class ChiTietKieuSpServices : IChiTietKieuSpService
     {
-        IChiTietKieuSpRespos _IChiTietSpRespo;
+        IChiTietKieuSpRespos _IChiTietKieuSpRespos;
         public ChiTietKieuSpServices()
         {
-            _IChiTietSpRespo = new ChiTietKieuSpRespos();
+            _IChiTietKieuSpRespos = new ChiTietKieuSpRespos();
         }
-        public string Add(ChiTietKieuSpViews Obj) => Obj != null && _IChiTietSpRespo.Add(new ChiTietKieuSp(Obj.IdKieuSp, Obj.IdChiTietSp, Obj.TrangThai)) ? "Add success" : "Add not success";
+        public string Add(ChiTietKieuSpViews Obj) => Obj != null && _IChiTietKieuSpRespos.Add(new ChiTietKieuSp(Obj.IdKieuSp, Obj.IdChiTietSp, Obj.TrangThai)) ? "Add success" : "Add not success";
 
-        public string Delete(ChiTietKieuSpViews Obj)=>Obj != null && _IChiTietSpRespo.Delete(_IChiTietSpRespo.GetAll().Find(x => x.Id == Obj.Id)) ? "Delete success" : "Delete not succsess";
+        public string Delete(ChiTietKieuSpViews Obj)=>Obj != null && _IChiTietKieuSpRespos.Delete(_IChiTietKieuSpRespos.GetAll().Find(x => x.Id == Obj.Id)) ? "Delete success" : "Delete not succsess";
 
-        public List<ChiTietKieuSpViews> GetAll() => (from a in _IChiTietSpRespo.GetAll() 
+        public List<ChiTietKieuSpViews> GetAll() => (from a in _IChiTietKieuSpRespos.GetAll() 
                                                    select new ChiTietKieuSpViews()
                                                    {
                                                        Id = a.Id,
@@ -36,11 +36,11 @@ namespace _2.BUS.Services
         public string Update(ChiTietKieuSpViews Obj)
         {
             if (Obj == null) return "Update not success";
-            var x = _IChiTietSpRespo.GetById(Obj.Id);
+            var x = _IChiTietKieuSpRespos.GetById(Obj.Id);
             x.IdChiTietSp = Obj.IdChiTietSp;
             x.TrangThai = Obj.TrangThai;
             x.IdKieuSp = Obj.IdKieuSp;
-            _IChiTietSpRespo.Update(x);
+            _IChiTietKieuSpRespos.Update(x);
             return "Update success";
         }
     }

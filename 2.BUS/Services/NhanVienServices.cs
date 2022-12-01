@@ -15,10 +15,12 @@ namespace _2.BUS.Services
     {
         private INhanVienRepos _iNhanVienRepos;
         private IChucVuRepos _iChucVuRepos;
+        private IKhachHangRepos _iKhachHangRepos;
         public NhanVienServices()
         {
             _iNhanVienRepos = new NhanVienRepos();
             _iChucVuRepos = new ChucVuRepos();
+            _iKhachHangRepos = new KhachHangRepos();
         }
         public string MaTS()
         {
@@ -54,33 +56,38 @@ namespace _2.BUS.Services
         public string Delete(NhanVienView obj)
         {
             if (obj == null) return "xóa thất bại";
-            NhanVien nv = new NhanVien()
+            var a = _iKhachHangRepos.GetAll().Find(c => c.Idnv == obj.Id);
+            if (a == null)
             {
-                Id = obj.Id,
-                IdCv = obj.IdCv,
-                Ma = obj.Ma,
-                Ten = obj.Ten,
-                TenDem = obj.TenDem,
-                Ho = obj.Ho,
-                GioiTinh = obj.GioiTinh,
-                NgaySinh = obj.NgaySinh,
-                DiaChi = obj.DiaChi,
-                Sdt = obj.Sdt,
-                Cccd = obj.Cccd,
-                MatKhau = obj.MatKhau,
-                Email = obj.Email,
-                TaiKhoan = obj.TaiKhoan,
-                TrangThai = obj.TrangThai
-            };
-            if (_iNhanVienRepos.Delete(nv)) return "xóa thành công";
-            return "xóa thất bại";
+                NhanVien nv = new NhanVien()
+                {
+                    Id = obj.Id,
+                    IdCv = obj.IdCv,
+                    Ma = obj.Ma,
+                    Ten = obj.Ten,
+                    TenDem = obj.TenDem,
+                    Ho = obj.Ho,
+                    GioiTinh = obj.GioiTinh,
+                    NgaySinh = obj.NgaySinh,
+                    DiaChi = obj.DiaChi,
+                    Sdt = obj.Sdt,
+                    Cccd = obj.Cccd,
+                    MatKhau = obj.MatKhau,
+                    Email = obj.Email,
+                    TaiKhoan = obj.TaiKhoan,
+                    TrangThai = obj.TrangThai
+                };
+                if (_iNhanVienRepos.Delete(nv)) return "xóa thành công";
+                return "xóa thất bại";
+            }
+            return "Nhân viên đã liên kết với khách hàng";
         }
 
         public List<NhanVienView> GetAll()
         {
             List<NhanVienView> _lstNhanVien = new List<NhanVienView>();
             _lstNhanVien = (
-                from a in _iNhanVienRepos.GetAll()
+                from a in _iNhanVienRepos.GetAll().OrderBy(c => c.Ma)
                 join b in _iChucVuRepos.GetAll() on a.IdCv equals b.Id
                 select new NhanVienView()
                 {

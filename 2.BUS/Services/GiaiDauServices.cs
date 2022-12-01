@@ -15,10 +15,12 @@ namespace _2.BUS.Services
     {
         private IGiaiDauRepos _giaiDauRepos;
         private List<GiaiDauView> lstGiaidau;
+        private ITeamRepos _teamRepos;
         public GiaiDauServices()
         {
             _giaiDauRepos = new GiaiDauRepos();
             lstGiaidau = new List<GiaiDauView>();
+            _teamRepos = new TeamRepos();
         }
         public string Add(GiaiDauView giaiDau)
         {
@@ -40,25 +42,34 @@ namespace _2.BUS.Services
             if (_giaiDauRepos.Delete(x)) return "Xóa thành công";
             return "Xóa thất bại";
         }
-     
+
         public string Delete(GiaiDauView giaiDau)
         {
             if (giaiDau == null) return "Xóa thất bại";
-            GiaiDau giaiDau1 = new GiaiDau()
+            var a = _teamRepos.GetAll().Find(c => c.IdGd == giaiDau.Id);
+            if (a == null)
             {
-                Id = giaiDau.Id,
-                Ma = giaiDau.Ma,
-                Ten = giaiDau.Ten,
-                TrangThai = giaiDau.TrangThai,
-            };
-            _giaiDauRepos.Delete(giaiDau1);
-            return "Xóa thành công";
+                GiaiDau giaiDau1 = new GiaiDau()
+                {
+                    Id = giaiDau.Id,
+                    Ma = giaiDau.Ma,
+                    Ten = giaiDau.Ten,
+                    TrangThai = giaiDau.TrangThai,
+                };
+                if (_giaiDauRepos.Delete(giaiDau1))
+                {
+                    return "Thành công";
+                }
+                else return "Thất bại";
+            }
+            return "Giải đấu đã được liên kết với một bảng khác";
         }
 
         public List<GiaiDauView> GetAll()
         {
             lstGiaidau = (from a in _giaiDauRepos.GetAll()
-                          select new GiaiDauView{
+                          select new GiaiDauView
+                          {
                               Id = a.Id,
                               Ma = a.Ma,
                               Ten = a.Ten,
@@ -75,8 +86,8 @@ namespace _2.BUS.Services
         public string MaTS()
         {
             if (_giaiDauRepos.GetAll().Count == 0) return "GD1";
-            return "GD" + (_giaiDauRepos.GetAll().Max(x => Convert.ToInt32(x.Ma.Substring(2, x.Ma.Length - 2)) )+1);
-            
+            return "GD" + (_giaiDauRepos.GetAll().Max(x => Convert.ToInt32(x.Ma.Substring(2, x.Ma.Length - 2))) + 1);
+
         }
         public string Update(GiaiDauView giaiDau)
         {

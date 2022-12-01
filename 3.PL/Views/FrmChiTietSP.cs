@@ -107,6 +107,7 @@ namespace _3.PL.Views
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
                 Sp[i].GhiChu = CTSP[i].MoTa;
+                
                 var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
                 if (ctksp != null)
                 {
@@ -152,7 +153,66 @@ namespace _3.PL.Views
         {
             FrmThemSP sp = new FrmThemSP();
             sp.ShowDialog();
-            LoadData();
+            txtSearch.Texts = "";
+            flowLayoutPanel1.Controls.Clear();
+            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
+            if (txtSearch.Texts.Trim() != "")
+            {
+                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
+            }
+            ViewSP[] Sp = new ViewSP[CTSP.Count];
+            for (int i = 0; i < CTSP.Count; i++)
+            {
+                Sp[i] = new ViewSP();
+                Sp[i].MauSac = CTSP[i].TenMauSac;
+                Sp[i].ChatLieu = CTSP[i].TenChatLieu;
+                Sp[i].Team = CTSP[i].TenTeam;
+                Sp[i].Size = CTSP[i].Size;
+                Sp[i].IDSP = CTSP[i].Id;
+                Sp[i].MaHang = CTSP[i].MaQr;
+                Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
+                Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
+                Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
+                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
+                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
+                Sp[i].BaoHanh = CTSP[i].BaoHanh;
+                Sp[i].GhiChu = CTSP[i].MoTa;
+                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
+                if (ctksp != null)
+                {
+                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                }
+                if (CheckCB.ContainsKey(Sp[i].IDSP))
+                {
+                    if (CheckCB[Sp[i].IDSP] == true)
+                    {
+                        Sp[i].ChBox.Checked = true;
+                    }
+                    else Sp[i].ChBox.Checked = false;
+                }
+                Sp[i].Onclick += (ss, ee) =>
+                {
+                    var Obj = (ViewSP)ss;
+                    if (NoCheck())
+                    {
+                        CbbThaoTac.Visible = false;
+                    }
+                    else
+                    {
+                        CbbThaoTac.Visible = true;
+                    }
+                };
+                Sp[i].TopLevel = false;
+                Sp[i].FormBorderStyle = FormBorderStyle.None;
+                Sp[i].Dock = DockStyle.Top;
+                flowLayoutPanel1.Controls.Add(Sp[i]);
+                Sp[i].BringToFront();
+                Sp[i].Show();
+            }
+            btnHienThiTatCa.Visible = false;
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)

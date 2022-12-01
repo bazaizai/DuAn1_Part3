@@ -57,13 +57,15 @@
             // 
             // bt_xoaform
             // 
+            this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoaform.ForeColor = System.Drawing.SystemColors.Control;
             this.bt_xoaform.Location = new System.Drawing.Point(491, 194);
             this.bt_xoaform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoaform.Name = "bt_xoaform";
-            this.bt_xoaform.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoaform.Size = new System.Drawing.Size(78, 37);
             this.bt_xoaform.TabIndex = 59;
             this.bt_xoaform.Text = "Xóa form";
-            this.bt_xoaform.UseVisualStyleBackColor = true;
+            this.bt_xoaform.UseVisualStyleBackColor = false;
             this.bt_xoaform.Click += new System.EventHandler(this.bt_xoaform_Click);
             // 
             // rdb_khd
@@ -104,17 +106,21 @@
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(399, 23);
             this.tb_timkiem.TabIndex = 55;
+            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
             // dtg_show
             // 
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Location = new System.Drawing.Point(43, 370);
             this.dtg_show.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
+            this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 51;
             this.dtg_show.RowTemplate.Height = 29;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -124,35 +130,41 @@
             // 
             // bt_xoa
             // 
+            this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoa.ForeColor = System.Drawing.SystemColors.Control;
             this.bt_xoa.Location = new System.Drawing.Point(491, 150);
             this.bt_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(82, 22);
+            this.bt_xoa.Size = new System.Drawing.Size(78, 37);
             this.bt_xoa.TabIndex = 53;
             this.bt_xoa.Text = "xóa";
-            this.bt_xoa.UseVisualStyleBackColor = true;
+            this.bt_xoa.UseVisualStyleBackColor = false;
             this.bt_xoa.Click += new System.EventHandler(this.bt_xoa_Click);
             // 
             // tb_them
             // 
+            this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.tb_them.ForeColor = System.Drawing.SystemColors.Control;
             this.tb_them.Location = new System.Drawing.Point(491, 102);
             this.tb_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_them.Name = "tb_them";
-            this.tb_them.Size = new System.Drawing.Size(82, 22);
+            this.tb_them.Size = new System.Drawing.Size(78, 37);
             this.tb_them.TabIndex = 52;
             this.tb_them.Text = "Thêm";
-            this.tb_them.UseVisualStyleBackColor = true;
+            this.tb_them.UseVisualStyleBackColor = false;
             this.tb_them.Click += new System.EventHandler(this.tb_them_Click);
             // 
             // bt_update
             // 
+            this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_update.ForeColor = System.Drawing.SystemColors.Control;
             this.bt_update.Location = new System.Drawing.Point(491, 56);
             this.bt_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_update.Name = "bt_update";
-            this.bt_update.Size = new System.Drawing.Size(82, 22);
+            this.bt_update.Size = new System.Drawing.Size(78, 37);
             this.bt_update.TabIndex = 51;
             this.bt_update.Text = "Sửa";
-            this.bt_update.UseVisualStyleBackColor = true;
+            this.bt_update.UseVisualStyleBackColor = false;
             this.bt_update.Click += new System.EventHandler(this.bt_update_Click);
             // 
             // label3
@@ -258,6 +270,8 @@
             this.tb_mucgiam.Name = "tb_mucgiam";
             this.tb_mucgiam.Size = new System.Drawing.Size(216, 23);
             this.tb_mucgiam.TabIndex = 65;
+            this.tb_mucgiam.TextChanged += new System.EventHandler(this.tb_mucgiam_TextChanged);
+            this.tb_mucgiam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_mucgiam_KeyPress);
             // 
             // dtp_start
             // 
@@ -290,6 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(629, 542);
             this.Controls.Add(this.cbb_loaiKm);
             this.Controls.Add(this.dtp_end);
@@ -316,6 +331,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_ma);
             this.Name = "FrmSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSale";
             this.Load += new System.EventHandler(this.FrmSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).EndInit();

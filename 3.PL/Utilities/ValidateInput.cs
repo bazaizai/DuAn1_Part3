@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace _3.PL.Utilities
 {
@@ -75,6 +76,16 @@ namespace _3.PL.Utilities
             var indecimal = txt.Replace(".", string.Empty);
             var outdecimal = indecimal.Replace("đ", string.Empty);
             return Convert.ToDecimal(outdecimal);
+        }
+        public static bool hasSpecialChar(string input)
+        {
+            string specialChar = @"\|!#$%&()=?»«@£§€{}.;'<>_,";
+            foreach (var item in specialChar)
+            {
+                if (input.Contains(item)) return true;
+            }
+
+            return false;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,9 +87,17 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Vui lòng chọn team cần sửa");
                 }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được bỏ trống");
+                }
                 else if(_TeamServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id !=  _idteam) != null)
                 {
-
+                    MessageBox.Show($"Team bị trùng");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
@@ -102,7 +111,7 @@ namespace _3.PL.Views
                         Id = _idteam,
                         IdGd=ac.Id,
                         Ma = tb_ma.Text,
-                        Ten = tb_ten.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
                     MessageBox.Show(_TeamServices.Update(TeamView));
@@ -131,6 +140,14 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tên bị trùng");
                 }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được bỏ trống");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
                     MessageBox.Show("Vui lòng chọn trạng thái");
@@ -141,7 +158,7 @@ namespace _3.PL.Views
                     {
                         Id = Guid.Empty,
                         IdGd = ac.Id,
-                        Ma = tb_ma.Text,
+                        Ma = XoaDauCach(tb_ten.Text.Trim()),
                         Ten = tb_ten.Text,
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
@@ -197,6 +214,23 @@ namespace _3.PL.Views
             cbb_giaidau.Text = dtg_show.CurrentRow.Cells[3].Value.ToString();
             rdb_hd.Checked = dtg_show.CurrentRow.Cells[4].Value.ToString() == "Hoạt động";
             rdb_khd.Checked = dtg_show.CurrentRow.Cells[4].Value.ToString() == "Không hoạt động";
+        }
+
+        private void tb_ten_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_ten.Text == " ")
+            {
+                tb_ten.Text = "";
+            }
+        }
+        private string XoaDauCach(string s)
+        {
+
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
         }
     }
 }

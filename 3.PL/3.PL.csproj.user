@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
   <ItemGroup>
     <Compile Update="Components\Hats.cs">
       <SubType>UserControl</SubType>
@@ -34,7 +35,19 @@
     <Compile Update="CustomControlls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Views\Clone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Form_Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmChatLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmChiTietSale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChiTietSP.cs">
@@ -43,7 +56,22 @@
     <Compile Update="Views\FrmChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmCongThuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmDoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmForgotPW.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmGiaiDau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmGiaoCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmHinhThucMh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmKhachHang.cs">
@@ -52,10 +80,19 @@
     <Compile Update="Views\FrmKichCo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmLichSuTichDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmMauSac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmNhanCa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmNhanVien.cs">
@@ -65,33 +102,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmQLBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Form_Alert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmChiTietSale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmDoiMK.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmForgotPW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmGiaoCa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmHinhThucMh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmLichSuTichDiem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmNhanCa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmQLChiTietSp.cs">

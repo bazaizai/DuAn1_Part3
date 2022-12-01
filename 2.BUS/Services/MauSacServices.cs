@@ -56,7 +56,7 @@ namespace _2.BUS.Services
         {
             List<MauSacView> _lstMauSac = new List<MauSacView>();
             _lstMauSac = (
-                from a in _iMauSacRepos.GetAll()
+                from a in _iMauSacRepos.GetAll().OrderBy(c => c.Ma)
                 select new MauSacView()
                 {
                     Id = a.Id,

@@ -32,7 +32,6 @@
             this.pnlGiaoDich = new System.Windows.Forms.Panel();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.btnQLHoaDon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -108,11 +107,10 @@
             this.pnlGiaoDich.BackColor = System.Drawing.Color.RosyBrown;
             this.pnlGiaoDich.Controls.Add(this.iconButton6);
             this.pnlGiaoDich.Controls.Add(this.iconButton4);
-            this.pnlGiaoDich.Controls.Add(this.iconButton5);
             this.pnlGiaoDich.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlGiaoDich.Location = new System.Drawing.Point(0, 1221);
             this.pnlGiaoDich.Name = "pnlGiaoDich";
-            this.pnlGiaoDich.Size = new System.Drawing.Size(244, 180);
+            this.pnlGiaoDich.Size = new System.Drawing.Size(244, 120);
             this.pnlGiaoDich.TabIndex = 16;
             this.pnlGiaoDich.Visible = false;
             // 
@@ -130,13 +128,14 @@
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 32;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(0, 120);
+            this.iconButton6.Location = new System.Drawing.Point(0, 60);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton6.Size = new System.Drawing.Size(244, 60);
             this.iconButton6.TabIndex = 2;
-            this.iconButton6.Text = "Lịch Sử Giao Ca";
+            this.iconButton6.Text = "Lịch Sử Tích Điểm";
             this.iconButton6.UseVisualStyleBackColor = false;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // iconButton4
             // 
@@ -152,35 +151,13 @@
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 32;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(0, 60);
+            this.iconButton4.Location = new System.Drawing.Point(0, 0);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(244, 60);
             this.iconButton4.TabIndex = 1;
             this.iconButton4.Text = "QL Hóa đơn";
             this.iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.iconButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton5.ForeColor = System.Drawing.Color.White;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 32;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton5.Size = new System.Drawing.Size(244, 60);
-            this.iconButton5.TabIndex = 0;
-            this.iconButton5.Text = "Đơn Ship";
-            this.iconButton5.UseVisualStyleBackColor = false;
             // 
             // btnQLHoaDon
             // 
@@ -226,6 +203,7 @@
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click_1);
             // 
             // iconButton2
             // 
@@ -808,9 +786,7 @@
         private CustomControls.RJControls.RJCircularPictureBox rjCircularPictureBox1;
         private System.Windows.Forms.Panel pnlBody;
         private System.Windows.Forms.Panel pnlGiaoDich;
-        private FontAwesome.Sharp.IconButton iconButton6;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton btnQLHoaDon;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -819,5 +795,6 @@
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton8;
         private FontAwesome.Sharp.IconButton iconButton7;
+        private FontAwesome.Sharp.IconButton iconButton6;
     }
 }

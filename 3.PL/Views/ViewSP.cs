@@ -1,10 +1,12 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,9 @@ namespace _3.PL.Views
             pnlbody.Height = panel2.Height;
             this.Height = pnlbody.Height;
         }
+
+
+
 
         private string TenSP;
         public string TenHang { get => TenSP; set { TenSP = value; lblTenHang.Text = value; lblTenSPtt.Text = value; } }
@@ -92,9 +97,9 @@ namespace _3.PL.Views
         private Guid Id;
         public Guid IDSP { get => Id; set { Id = value; ID.Text = value.ToString(); } }
 
-        public Guid IDKSP
+        public string IDKSP
         {
-            get { return _IKieuSpServices.GetAll().Find(x => x.Ten == this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1)).Id; }
+            get { return _IKieuSpServices.GetAll().Find(x => x.Ten == this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1)).Id.ToString(); }
         }
 
         private string N_Hang;
@@ -155,8 +160,8 @@ namespace _3.PL.Views
             fixSP.CheckTrangThai = this.lblTrangThai.Text;
             fixSP.KhuyenMai = this.lblADKM.Text;
             fixSP.Mota = this.lblGhiChu.Text;
-            fixSP.IDKSP = this.IDKSP.ToString();
             fixSP.NhomHang = this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1);
+            fixSP.IDKSP = this.lblNhomHang1.Text.Substring(this.lblNhomHang1.Text.LastIndexOf(">") + 1);
             fixSP.ShowDialog();
             if (fixSP.N == 2)
             {
@@ -166,17 +171,20 @@ namespace _3.PL.Views
                 this.lblSize.Text = fixSP.GetSize;
                 this.lblChatLieu.Text = fixSP.GetChatLieu;
                 this.lblTeam.Text = fixSP.Getteam;
-                this.lblGiaNhap.Text = fixSP.GetGiaNhap;
-                this.lblGiaBan.Text = fixSP.GetGiaBan;
-                this.lblSoLuongTon.Text = fixSP.GetSoLuong;
+                this.lblGiaNhap.Text= this.lblGiaNhap1.Text = double.Parse(fixSP.GetGiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                this.lblGiaBan.Text = this.lblGiaBan1.Text = double.Parse(fixSP.GetGiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                this.lblSoLuongTon.Text= this.lblSoLuongTon1.Text = fixSP.GetSoLuong;
                 this.lblBaoHanh.Text = fixSP.GetBaoHanh;
                 this.lblTrangThai.Text = fixSP.GetTrangThai;
                 this.lblADKM.Text = fixSP.GetKhuyenMai;
                 this.lblGhiChu.Text = fixSP.GetGhiChu;
-                    var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == fixSP.IDSP);
+                var ctksp = new ChiTietKieuSpViews();
+                _IChiTietKieuSpService = new ChiTietKieuSpServices();
+                ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == fixSP.IDSP);
                 if (ctksp != null)
                 {
-                    this.lblNhomHang.Text = this.lblNhomHang1.Text = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                    this.lblNhomHang.Text = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                    this.lblNhomHang1.Text = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
                 }
             }
         }
@@ -213,8 +221,9 @@ namespace _3.PL.Views
                 if (FrmChiTietSP.CheckCB.ContainsKey(Guid.Parse(ID.Text)))
                 {
                     FrmChiTietSP.CheckCB[Guid.Parse(ID.Text)] = true;
-                }else
-                FrmChiTietSP.CheckCB.Add(Guid.Parse(ID.Text), true);
+                }
+                else
+                    FrmChiTietSP.CheckCB.Add(Guid.Parse(ID.Text), true);
             }
             else
             {

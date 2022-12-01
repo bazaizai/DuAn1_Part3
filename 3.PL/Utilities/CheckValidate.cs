@@ -9,19 +9,9 @@ namespace _3.PL.Utilities
 {
     public class CheckValidate
     {
-        public static bool CheckEmpty(string Msg) => string.IsNullOrEmpty(Msg.Trim());
-        public static bool InputIsOnlyNumber(string Msg) => int.TryParse(Msg.Trim(), out int x);
-
-        public static bool IsValidVietNamPhoneNumber(string phoneNum)
-        {
-            if (string.IsNullOrEmpty(phoneNum))
-                return false;
-            string sMailPattern = @"^((0(\d){9}))$";
-            return Regex.IsMatch(phoneNum.Trim(), sMailPattern);
-        }
         public static bool hasSpecialChar(string input)
         {
-            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            string specialChar = @"`~\|!#$%&/()=?»«@£§€{}.-;'<>_,";
             foreach (var item in specialChar)
             {
                 if (input.Contains(item)) return true;
@@ -40,6 +30,17 @@ namespace _3.PL.Utilities
                 if (char.IsLower(arr[i][0]) == true) return false;
             }
             return true;
+        }    
+
+        public static bool CheckEmpty(string Msg) => string.IsNullOrEmpty(Msg.Trim());
+        public static bool InputIsOnlyNumber(string Msg) => int.TryParse(Msg.Trim(), out int x);
+
+        public static bool IsValidVietNamPhoneNumber(string phoneNum)
+        {
+            if (string.IsNullOrEmpty(phoneNum))
+                return false;
+            string sMailPattern = @"^((0(\d){9}))$";
+            return Regex.IsMatch(phoneNum.Trim(), sMailPattern);
         }
         public static bool IsValidEmail(string email)
         {

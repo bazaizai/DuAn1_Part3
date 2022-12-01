@@ -17,6 +17,7 @@ namespace _2.BUS.ViewModels
 
         public string Ten { get; set; }
         public int? TrangThai { get; set; }
+        
 
 
     }
