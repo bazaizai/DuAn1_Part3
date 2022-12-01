@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_thoat = new FontAwesome.Sharp.IconButton();
+            this.Btn_an = new FontAwesome.Sharp.IconButton();
+            this.btn_nho = new FontAwesome.Sharp.IconButton();
             this.tb_mk = new System.Windows.Forms.TextBox();
             this.tb_tk = new System.Windows.Forms.TextBox();
             this.lb_ForgotPassword = new System.Windows.Forms.Label();
@@ -46,6 +49,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel1.Controls.Add(this.btn_thoat);
+            this.panel1.Controls.Add(this.Btn_an);
+            this.panel1.Controls.Add(this.btn_nho);
             this.panel1.Controls.Add(this.tb_mk);
             this.panel1.Controls.Add(this.tb_tk);
             this.panel1.Controls.Add(this.lb_ForgotPassword);
@@ -60,6 +66,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(709, 805);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_thoat
+            // 
+            this.btn_thoat.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btn_thoat.FlatAppearance.BorderSize = 0;
+            this.btn_thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_thoat.IconChar = FontAwesome.Sharp.IconChar.Multiply;
+            this.btn_thoat.IconColor = System.Drawing.Color.Black;
+            this.btn_thoat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_thoat.IconSize = 45;
+            this.btn_thoat.Location = new System.Drawing.Point(661, 3);
+            this.btn_thoat.Name = "btn_thoat";
+            this.btn_thoat.Size = new System.Drawing.Size(45, 45);
+            this.btn_thoat.TabIndex = 25;
+            this.btn_thoat.Text = " ";
+            this.btn_thoat.UseVisualStyleBackColor = false;
+            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
+            // 
+            // Btn_an
+            // 
+            this.Btn_an.FlatAppearance.BorderSize = 0;
+            this.Btn_an.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_an.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.Btn_an.IconColor = System.Drawing.Color.Black;
+            this.Btn_an.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Btn_an.IconSize = 45;
+            this.Btn_an.Location = new System.Drawing.Point(559, 3);
+            this.Btn_an.Name = "Btn_an";
+            this.Btn_an.Size = new System.Drawing.Size(45, 45);
+            this.Btn_an.TabIndex = 24;
+            this.Btn_an.Text = " ";
+            this.Btn_an.UseVisualStyleBackColor = true;
+            this.Btn_an.Click += new System.EventHandler(this.Btn_an_Click);
+            // 
+            // btn_nho
+            // 
+            this.btn_nho.FlatAppearance.BorderSize = 0;
+            this.btn_nho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nho.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.btn_nho.IconColor = System.Drawing.Color.Black;
+            this.btn_nho.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_nho.Location = new System.Drawing.Point(610, 3);
+            this.btn_nho.Name = "btn_nho";
+            this.btn_nho.Size = new System.Drawing.Size(45, 45);
+            this.btn_nho.TabIndex = 23;
+            this.btn_nho.Text = " ";
+            this.btn_nho.UseVisualStyleBackColor = true;
+            this.btn_nho.Click += new System.EventHandler(this.btn_nho_Click);
             // 
             // tb_mk
             // 
@@ -211,5 +265,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_mk;
         private System.Windows.Forms.TextBox tb_tk;
+        private FontAwesome.Sharp.IconButton btn_thoat;
+        private FontAwesome.Sharp.IconButton Btn_an;
+        private FontAwesome.Sharp.IconButton btn_nho;
     }
 }

@@ -68,12 +68,10 @@ namespace _3.PL.Views
       
 
         private void lb_ForgotPassword_Click(object sender, EventArgs e)
-        {
-           
+        {           
             FrmForgotPW frmForgotPW = new FrmForgotPW();
             this.Hide();
-            frmForgotPW.ShowDialog();
-            
+            frmForgotPW.ShowDialog();            
         }
 
         private void tb_tk_MouseClick(object sender, MouseEventArgs e)
@@ -86,6 +84,19 @@ namespace _3.PL.Views
             tb_mk.Text = "";
         }
 
-       
+        private void Btn_an_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_thoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_nho_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

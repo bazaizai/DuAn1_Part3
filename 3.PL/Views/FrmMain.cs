@@ -1,4 +1,6 @@
-﻿using FontAwesome.Sharp;
+﻿using _2.BUS.IServices;
+using _2.BUS.Services;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,8 @@ namespace _3.PL.Views
 {
     public partial class FrmMain : Form
     {
+        private INhanVienServices _iNhanVienServices;
+        private IChucVuServices _iChucVuServices;
         private Form CurrentFormChild;
         private IconButton currentBtn;
         private Panel LeftBorderBtn;
@@ -23,6 +27,8 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             HidePanel();
+            _iChucVuServices = new ChucVuServices();
+            _iNhanVienServices = new NhanVienServices();
             LeftBorderBtn = new Panel();
             LeftBorderBtn.Size = new Size(7, QLSP.Height);
             pnlMenu.Controls.Add(LeftBorderBtn);
@@ -108,7 +114,7 @@ namespace _3.PL.Views
         }
 
 
-       
+
         private void OpenChildForm(Form ChildForm)
         {
             if (CurrentFormChild != null)
@@ -153,7 +159,7 @@ namespace _3.PL.Views
                 SubMenu.Visible = false;
                 ResetLeftBorder();
             }
-                
+
         }
 
         private void CheckMenuPanel()
@@ -175,7 +181,7 @@ namespace _3.PL.Views
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            
+
             if (pnlbtn1.Visible == false)
             {
                 ActivateButton(sender, RGBColors.color1);
@@ -183,16 +189,35 @@ namespace _3.PL.Views
             }
             else
             {
-                pnlbtn1.Visible=false;  
+                pnlbtn1.Visible = false;
             }
-            
+
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new frmQLChiTietSp());
-            HideSubMenu();
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+
+                lblHome.Text = btnCTSP.Text;
+                OpenChildForm(new frmQLChiTietSp());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnCTSP.Text;
+                    OpenChildForm(new frmQLChiTietSp());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
         private void btnSP_Click(object sender, EventArgs e)
         {
@@ -202,9 +227,27 @@ namespace _3.PL.Views
         }
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-            lblHome.Text = btnKieusp.Text;
-            OpenChildForm(new FrmQLKieuSP());
-            HideSubMenu();
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnKieusp.Text;
+                OpenChildForm(new FrmQLKieuSP());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnKieusp.Text;
+                    OpenChildForm(new FrmQLKieuSP());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }          
         }
         private void iconButton3_Click(object sender, EventArgs e)
         {
@@ -227,9 +270,9 @@ namespace _3.PL.Views
             }
             else
             {
-                pnlbtn5.Visible=false;
+                pnlbtn5.Visible = false;
             }
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -298,23 +341,79 @@ namespace _3.PL.Views
 
         private void BtnGiaiDau_Click(object sender, EventArgs e)
         {
-            lblHome.Text = BtnGiaiDau.Text;
-            OpenChildForm(new FrmGiaiDau());
-            HideSubMenu();
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+
+                lblHome.Text = BtnGiaiDau.Text;
+                OpenChildForm(new FrmGiaiDau());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = BtnGiaiDau.Text;
+                    OpenChildForm(new FrmGiaiDau());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void btnNhanvien_Click(object sender, EventArgs e)
         {
-            lblHome.Text = btnNhanvien.Text;
-            OpenChildForm(new FrmNhanVien());
-            HideSubMenu();
+           
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnNhanvien.Text;
+                OpenChildForm(new FrmNhanVien());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnNhanvien.Text;
+                    OpenChildForm(new FrmNhanVien());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void btnChucvu_Click(object sender, EventArgs e)
-        {
-            lblHome.Text = btnChucvu.Text;
-            OpenChildForm(new FrmChucVu());
-            HideSubMenu();
+        {          
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnChucvu.Text;
+                OpenChildForm(new FrmChucVu());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnChucvu.Text;
+                    OpenChildForm(new FrmChucVu());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void pnlBody_Paint(object sender, PaintEventArgs e)
@@ -323,31 +422,105 @@ namespace _3.PL.Views
         }
 
         private void iconButton10_Click(object sender, EventArgs e)
-        {
-            lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new FrmTeam());
-            HideSubMenu();
+        {           
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnCTSP.Text;
+                OpenChildForm(new FrmTeam());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnCTSP.Text;
+                    OpenChildForm(new FrmTeam());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void iconButton9_Click(object sender, EventArgs e)
         {
-            lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new FrmKichCo());
-            HideSubMenu();
+            
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnCTSP.Text;
+                OpenChildForm(new FrmKichCo());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnCTSP.Text;
+                    OpenChildForm(new FrmKichCo());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
-            lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new FrmChatLieu());
-            HideSubMenu();
+            
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnCTSP.Text;
+                OpenChildForm(new FrmChatLieu());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnCTSP.Text;
+                    OpenChildForm(new FrmChatLieu());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void iconButton7_Click(object sender, EventArgs e)
-        {
-            lblHome.Text = btnCTSP.Text;
-            OpenChildForm(new FrmMauSac());
-            HideSubMenu();
+        {          
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = btnCTSP.Text;
+                OpenChildForm(new FrmMauSac());
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = btnCTSP.Text;
+                    OpenChildForm(new FrmMauSac());
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void iconButton1_Click_2(object sender, EventArgs e)
@@ -375,5 +548,7 @@ namespace _3.PL.Views
                 pnlGiaoDich.Visible = false;
             }
         }
+
+       
     }
 }
