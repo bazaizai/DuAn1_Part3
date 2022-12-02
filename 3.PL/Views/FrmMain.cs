@@ -372,7 +372,10 @@ namespace _3.PL.Views
 
         private void iconButton2_Click_1(object sender, EventArgs e)
         {
-
+            lblHome.Text = iconButton2.Text;
+            OpenChildForm(new FrmChiTietSale());
+            ActivateButton(sender, RGBColors.color1);
+            HideSubMenu();
         }
 
         private void btnQLHoaDon_Click(object sender, EventArgs e)
@@ -386,6 +389,21 @@ namespace _3.PL.Views
             {
                 pnlGiaoDich.Visible = false;
             }
+        }
+
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+            lblHome.Text = iconButton3.Text;
+            OpenChildForm(new FrmUuDaiTichDiem());
+            ActivateButton(sender, RGBColors.color1);
+            HideSubMenu();
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = iconButton6.Text;
+            OpenChildForm(new FrmLichSuTichDiem());
+            HideSubMenu();
         }
     }
 }

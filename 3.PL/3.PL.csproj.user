@@ -38,6 +38,9 @@
     <Compile Update="Views\Clone.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>

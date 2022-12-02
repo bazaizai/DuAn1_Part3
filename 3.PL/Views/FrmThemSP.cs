@@ -18,6 +18,7 @@ using _3.PL.Properties;
 using CustomControls.RJControls;
 using _3.PL.Utilities;
 using System.Security.Cryptography.Xml;
+using _3.PL.CustomControlls;
 
 namespace _3.PL
 {
@@ -191,71 +192,78 @@ namespace _3.PL
             }
             return true;
         }
+
+
+        private bool HopThoai() => RJMessageBox.Show("Bạn có muốn thực hiện hành động này không ?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes;
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
+            if (HopThoai())
             {
-                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
+                if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
                 {
-                    try
+                    if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
                     {
-                        var x = new ChiTietSpViews()
+                        try
                         {
-                            Id = Guid.NewGuid(),
-                            IdChatLieu = IdCL(),
-                            IdSp = IdSp(),
-                            IdMauSac = IdMs(),
-                            IdSize = IdSize(),
-                            IdTeam = IdTeam(),
-                            MaQr = Mats(),
-                            BaoHanh = txtBaoHanh.Texts,
-                            SoLuongTon = int.Parse(txtSoLuong.Texts),
-                            GiaBan = decimal.Parse(txtGiaBan.Texts),
-                            GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
-                            TrangThai = RdoDangBan.Checked ? 0 : 1,
-                            TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1
-                        };
-                        _IChiTietSpServices.Add(x);
+                            var x = new ChiTietSpViews()
+                            {
+                                Id = Guid.NewGuid(),
+                                IdChatLieu = IdCL(),
+                                IdSp = IdSp(),
+                                IdMauSac = IdMs(),
+                                IdSize = IdSize(),
+                                IdTeam = IdTeam(),
+                                MaQr = Mats(),
+                                BaoHanh = txtBaoHanh.Texts,
+                                SoLuongTon = int.Parse(txtSoLuong.Texts),
+                                GiaBan = decimal.Parse(txtGiaBan.Texts),
+                                GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
+                                TrangThai = RdoDangBan.Checked ? 0 : 1,
+                                TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1,
+                                MoTa = txtGhiChu.Texts
+                            };
+                            _IChiTietSpServices.Add(x);
 
-                        var ctksp = new ChiTietKieuSpViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
-                            TrangThai = x.TrangThai,
-                        };
-                        _IChiTietKieuSpService.Add(ctksp);
+                            var ctksp = new ChiTietKieuSpViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                                TrangThai = x.TrangThai,
+                            };
+                            _IChiTietKieuSpService.Add(ctksp);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128,x.MaQr);
-                        var Anh1 = new AnhViews()
+                            Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
+                            var Anh1 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Barcode"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh1);
+                            var Anh2 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Anh"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh2);
+                            this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                            this.Close();
+                        }
+                        catch (Exception ex)
                         {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Barcode"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh1);
-                        var Anh2 = new AnhViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Anh"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh2);
-                        this.Alert("Thêm thành công", Form_Alert.enmType.Success);
-                        this.Close();
+                            MessageBox.Show(ex.Message);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    else
+                        this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
                 }
                 else
-                    this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
-            }
-            else
-            {
-                this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                {
+                    this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                }
             }
         }
 
@@ -267,136 +275,144 @@ namespace _3.PL
 
         private void btnLuuThemMoi_Click(object sender, EventArgs e)
         {
-            if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
+            if (HopThoai())
             {
-                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
+                if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
                 {
-                    try
+                    if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
                     {
-                        var x = new ChiTietSpViews()
+                        try
                         {
-                            Id = Guid.NewGuid(),
-                            IdChatLieu = IdCL(),
-                            IdSp = IdSp(),
-                            IdMauSac = IdMs(),
-                            IdSize = IdSize(),
-                            IdTeam = IdTeam(),
-                            MaQr = Mats(),
-                            BaoHanh = txtBaoHanh.Texts,
-                            SoLuongTon = int.Parse(txtSoLuong.Texts),
-                            GiaBan = decimal.Parse(txtGiaBan.Texts),
-                            GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
-                            TrangThai = RdoDangBan.Checked ? 0 : 1,
-                            TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1
-                        };
-                        _IChiTietSpServices.Add(x);
+                            var x = new ChiTietSpViews()
+                            {
+                                Id = Guid.NewGuid(),
+                                IdChatLieu = IdCL(),
+                                IdSp = IdSp(),
+                                IdMauSac = IdMs(),
+                                IdSize = IdSize(),
+                                IdTeam = IdTeam(),
+                                MaQr = Mats(),
+                                BaoHanh = txtBaoHanh.Texts,
+                                SoLuongTon = int.Parse(txtSoLuong.Texts),
+                                GiaBan = decimal.Parse(txtGiaBan.Texts),
+                                GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
+                                TrangThai = RdoDangBan.Checked ? 0 : 1,
+                                TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1,
+                                MoTa = txtGhiChu.Texts
+                            };
+                            _IChiTietSpServices.Add(x);
 
-                        var ctksp = new ChiTietKieuSpViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
-                            TrangThai = x.TrangThai,
-                        };
-                        _IChiTietKieuSpService.Add(ctksp);
+                            var ctksp = new ChiTietKieuSpViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                                TrangThai = x.TrangThai,
+                            };
+                            _IChiTietKieuSpService.Add(ctksp);
 
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
-                        var Anh1 = new AnhViews()
+                            Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
+                            var Anh1 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Barcode"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh1);
+                            var Anh2 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Anh"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh2);
+                            this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                        }
+                        catch (Exception ex)
                         {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Barcode"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh1);
-                        var Anh2 = new AnhViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Anh"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh2);
-                        this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                            MessageBox.Show(ex.Message);
+                        }
+                        Reset();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    Reset();
+                    else
+                        this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
                 }
                 else
-                    this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
-            }
-            else
-            {
-                this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                {
+                    this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                }
             }
         }
 
         private void btnLuuSaochep_Click(object sender, EventArgs e)
         {
-            if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
+            if (HopThoai())
             {
-                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
+                if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
                 {
-                    try
+                    if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()))
                     {
-                        var x = new ChiTietSpViews()
+                        try
                         {
-                            Id = Guid.NewGuid(),
-                            IdChatLieu = IdCL(),
-                            IdSp = IdSp(),
-                            IdMauSac = IdMs(),
-                            IdSize = IdSize(),
-                            IdTeam = IdTeam(),
-                            MaQr = Mats(),
-                            BaoHanh = txtBaoHanh.Texts,
-                            SoLuongTon = int.Parse(txtSoLuong.Texts),
-                            GiaBan = decimal.Parse(txtGiaBan.Texts),
-                            GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
-                            TrangThai = RdoDangBan.Checked ? 0 : 1,
-                            TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1
-                        };
-                        _IChiTietSpServices.Add(x);
+                            var x = new ChiTietSpViews()
+                            {
+                                Id = Guid.NewGuid(),
+                                IdChatLieu = IdCL(),
+                                IdSp = IdSp(),
+                                IdMauSac = IdMs(),
+                                IdSize = IdSize(),
+                                IdTeam = IdTeam(),
+                                MaQr = Mats(),
+                                BaoHanh = txtBaoHanh.Texts,
+                                SoLuongTon = int.Parse(txtSoLuong.Texts),
+                                GiaBan = decimal.Parse(txtGiaBan.Texts),
+                                GiaNhap = decimal.Parse(txtGiaNhap1.Texts),
+                                TrangThai = RdoDangBan.Checked ? 0 : 1,
+                                TrangThaiKhuyenMai = cbbKhuyenMai.SelectedIndex == 0 ? 0 : 1,
+                                MoTa = txtGhiChu.Texts
+                            };
+                            _IChiTietSpServices.Add(x);
 
-                        var ctksp = new ChiTietKieuSpViews()
+                            var ctksp = new ChiTietKieuSpViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
+                                TrangThai = x.TrangThai,
+                            };
+                            _IChiTietKieuSpService.Add(ctksp);
+                            Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
+                            var Anh1 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Barcode"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh1);
+                            var Anh2 = new AnhViews()
+                            {
+                                IdChiTietSp = x.Id,
+                                TenAnh = String.Concat("Anh"),
+                                DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
+                                TrangThai = 0
+                            };
+                            _IAnhServices.Add(Anh2);
+                            this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                        }
+                        catch (Exception ex)
                         {
-                            IdChiTietSp = x.Id,
-                            IdKieuSp = _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id,
-                            TrangThai = x.TrangThai,
-                        };
-                        _IChiTietKieuSpService.Add(ctksp);
-                        Image barcode = _barcode.Encode(BarcodeLib.TYPE.CODE128, x.MaQr);
-                        var Anh1 = new AnhViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Barcode"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(barcode, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh1);
-                        var Anh2 = new AnhViews()
-                        {
-                            IdChiTietSp = x.Id,
-                            TenAnh = String.Concat("Anh"),
-                            DuongDan = (byte[])(new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]))),
-                            TrangThai = 0
-                        };
-                        _IAnhServices.Add(Anh2);
-                        this.Alert("Thêm thành công", Form_Alert.enmType.Success);
+                            MessageBox.Show(ex.Message);
+                        }
+                        txtMaSP.Texts = Mats();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    txtMaSP.Texts = Mats();
+                    else
+                        this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
                 }
                 else
-                    this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
-            }
-            else
-            {
-                this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                {
+                    this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                }
             }
         }
 

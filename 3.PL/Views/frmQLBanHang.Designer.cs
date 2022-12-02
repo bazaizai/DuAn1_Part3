@@ -47,6 +47,7 @@
             this.rdoTaiQuay = new System.Windows.Forms.RadioButton();
             this.txtTienThua1 = new System.Windows.Forms.TextBox();
             this.txtTongTienPTra1 = new System.Windows.Forms.TextBox();
+            this.txtMucUuDai1 = new System.Windows.Forms.TextBox();
             this.txtTongTien2 = new System.Windows.Forms.TextBox();
             this.txtTongTien1 = new System.Windows.Forms.TextBox();
             this.txtMaHD1 = new System.Windows.Forms.TextBox();
@@ -77,6 +78,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlKhachHang = new System.Windows.Forms.Panel();
+            this.lblUuDaiTichLuy = new System.Windows.Forms.Label();
             this.btnCloseKH = new CustomControls.RJControls.RJCircularPictureBox();
             this.lblMucTichLuy = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
@@ -232,6 +234,7 @@
             this.tabPage1.Controls.Add(this.rdoTaiQuay);
             this.tabPage1.Controls.Add(this.txtTienThua1);
             this.tabPage1.Controls.Add(this.txtTongTienPTra1);
+            this.tabPage1.Controls.Add(this.txtMucUuDai1);
             this.tabPage1.Controls.Add(this.txtTongTien2);
             this.tabPage1.Controls.Add(this.txtTongTien1);
             this.tabPage1.Controls.Add(this.txtMaHD1);
@@ -388,6 +391,19 @@
             this.txtTongTienPTra1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTongTienPTra1.Size = new System.Drawing.Size(282, 28);
             this.txtTongTienPTra1.TabIndex = 20;
+            // 
+            // txtMucUuDai1
+            // 
+            this.txtMucUuDai1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
+            this.txtMucUuDai1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMucUuDai1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMucUuDai1.Location = new System.Drawing.Point(153, 170);
+            this.txtMucUuDai1.Name = "txtMucUuDai1";
+            this.txtMucUuDai1.ReadOnly = true;
+            this.txtMucUuDai1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMucUuDai1.Size = new System.Drawing.Size(282, 23);
+            this.txtMucUuDai1.TabIndex = 20;
+            this.txtMucUuDai1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtTongTien2
             // 
@@ -853,6 +869,7 @@
             // pnlKhachHang
             // 
             this.pnlKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            this.pnlKhachHang.Controls.Add(this.lblUuDaiTichLuy);
             this.pnlKhachHang.Controls.Add(this.btnCloseKH);
             this.pnlKhachHang.Controls.Add(this.lblMucTichLuy);
             this.pnlKhachHang.Controls.Add(this.lblDiaChi);
@@ -862,6 +879,17 @@
             this.pnlKhachHang.Name = "pnlKhachHang";
             this.pnlKhachHang.Size = new System.Drawing.Size(340, 125);
             this.pnlKhachHang.TabIndex = 5;
+            // 
+            // lblUuDaiTichLuy
+            // 
+            this.lblUuDaiTichLuy.AutoSize = true;
+            this.lblUuDaiTichLuy.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUuDaiTichLuy.ForeColor = System.Drawing.Color.Black;
+            this.lblUuDaiTichLuy.Location = new System.Drawing.Point(24, 100);
+            this.lblUuDaiTichLuy.Name = "lblUuDaiTichLuy";
+            this.lblUuDaiTichLuy.Size = new System.Drawing.Size(121, 20);
+            this.lblUuDaiTichLuy.TabIndex = 2;
+            this.lblUuDaiTichLuy.Text = "lblUuDaiTichLuy";
             // 
             // btnCloseKH
             // 
@@ -885,7 +913,7 @@
             this.lblMucTichLuy.AutoSize = true;
             this.lblMucTichLuy.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMucTichLuy.ForeColor = System.Drawing.Color.Black;
-            this.lblMucTichLuy.Location = new System.Drawing.Point(23, 90);
+            this.lblMucTichLuy.Location = new System.Drawing.Point(23, 76);
             this.lblMucTichLuy.Name = "lblMucTichLuy";
             this.lblMucTichLuy.Size = new System.Drawing.Size(130, 25);
             this.lblMucTichLuy.TabIndex = 0;
@@ -896,7 +924,7 @@
             this.lblDiaChi.AutoSize = true;
             this.lblDiaChi.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDiaChi.ForeColor = System.Drawing.Color.Black;
-            this.lblDiaChi.Location = new System.Drawing.Point(23, 65);
+            this.lblDiaChi.Location = new System.Drawing.Point(23, 51);
             this.lblDiaChi.Name = "lblDiaChi";
             this.lblDiaChi.Size = new System.Drawing.Size(86, 25);
             this.lblDiaChi.TabIndex = 0;
@@ -907,7 +935,7 @@
             this.lblSoDT.AutoSize = true;
             this.lblSoDT.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblSoDT.ForeColor = System.Drawing.Color.Black;
-            this.lblSoDT.Location = new System.Drawing.Point(23, 40);
+            this.lblSoDT.Location = new System.Drawing.Point(23, 26);
             this.lblSoDT.Name = "lblSoDT";
             this.lblSoDT.Size = new System.Drawing.Size(76, 25);
             this.lblSoDT.TabIndex = 0;
@@ -918,7 +946,7 @@
             this.lblTen.AutoSize = true;
             this.lblTen.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTen.ForeColor = System.Drawing.Color.Black;
-            this.lblTen.Location = new System.Drawing.Point(23, 15);
+            this.lblTen.Location = new System.Drawing.Point(23, 1);
             this.lblTen.Name = "lblTen";
             this.lblTen.Size = new System.Drawing.Size(62, 25);
             this.lblTen.TabIndex = 0;
@@ -2397,5 +2425,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private CustomControls.RJControls.RJTextBox txtMucUuDai;
+        private System.Windows.Forms.Label lblUuDaiTichLuy;
+        private System.Windows.Forms.TextBox txtMucUuDai1;
     }
 }

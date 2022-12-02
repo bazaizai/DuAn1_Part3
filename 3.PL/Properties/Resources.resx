@@ -121,8 +121,20 @@
   <data name="PngItem_1114675" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PngItem_1114675.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aDDkh1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aDDkh1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tải xuống" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tải xuống.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AddKhachHnag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddKhachHnag2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="question1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CapNhat2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CapNhat2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,17 +142,20 @@
   <data name="AddKhachHnag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddKhachHnag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="error2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Meyki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meyki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tải xuống" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tải xuống.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="aDDkh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aDDkh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_cancel_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_cancel_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-user-male-80" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-user-male-80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,6 +175,9 @@
   <data name="ThemMoi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThemMoi2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconFix1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconFix1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,6 +196,9 @@
   <data name="CapNhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CapNhat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CapNhat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CapNhat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,14 +214,17 @@
   <data name="IconAddImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconAddImg.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="error1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sale_pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sale_pic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="aDDkh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aDDkh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ThemMoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ThemMoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exclamation1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Iconfix 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Iconfix 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,10 +232,16 @@
   <data name="close11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ThemMoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ThemMoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_cancel_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_cancel_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="aDDkh1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aDDkh1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chat2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
