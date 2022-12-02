@@ -37,7 +37,6 @@ namespace _3.PL.Views
             tb_manv.Text = "";
             tb_makh.Text = "";
             tb_tenkh.Text = "";
-            tb_tennv.Text = "";
             tb_pttt.Text = "";
             tb_hinhthucmh.Text = "";
             tb_mucuudai.Text = "";
@@ -61,25 +60,23 @@ namespace _3.PL.Views
             dtg_show.Columns[2].Name = "Mã HĐ";
             dtg_show.Columns[3].Name = "Mã NV";
             dtg_show.Columns[4].Name = "Mã KH";
-            dtg_show.Columns[5].Name = "Tên NV";
-            dtg_show.Columns[6].Name = "Tên KH";
-            dtg_show.Columns[7].Name = "Phương thức thanh toán";
-            dtg_show.Columns[8].Name = "Hình thức mua hàng";
-            dtg_show.Columns[9].Name = "Mức ưu đãi";
-            dtg_show.Columns[10].Name = "Ngày tạo";
-            dtg_show.Columns[11].Name = "Ngày thanh toán";
-            dtg_show.Columns[12].Name = "Giảm giá";
-            dtg_show.Columns[13].Name = "Hình thức giảm giá";
-            dtg_show.Columns[14].Name = "Tổng tiền";
-            dtg_show.Columns[15].Name = "Tiền khách đưa";
-            dtg_show.Columns[16].Name = "Trạng thái";
+            dtg_show.Columns[5].Name = "Tên KH";
+            dtg_show.Columns[6].Name = "Phương thức thanh toán";
+            dtg_show.Columns[7].Name = "Hình thức mua hàng";
+            dtg_show.Columns[8].Name = "Mức ưu đãi";
+            dtg_show.Columns[9].Name = "Ngày tạo";
+            dtg_show.Columns[10].Name = "Ngày thanh toán";
+            dtg_show.Columns[11].Name = "Giảm giá";
+            dtg_show.Columns[12].Name = "Hình thức giảm giá";
+            dtg_show.Columns[13].Name = "Tổng tiền";
+            dtg_show.Columns[14].Name = "Tiền khách đưa";
+            dtg_show.Columns[15].Name = "Trạng thái";
             dtg_show.Rows.Clear();
 
             tb_mahd.Enabled = false;
             tb_manv.Enabled = false;
             tb_makh.Enabled = false;
             tb_tenkh.Enabled = false;
-            tb_tennv.Enabled = false;
             tb_pttt.Enabled = false;
             tb_hinhthucmh.Enabled = false;
             tb_mucuudai.Enabled = false;
@@ -92,10 +89,12 @@ namespace _3.PL.Views
             rdb_hd.Enabled = false;
             rdb_khd.Enabled = false;
 
-            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x => x.MaHD.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.MaNv.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.TenKh.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c => c.MaHD).ToList();
+            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x => x.TrangThai != 0 && x.TrangThaiGiaoHang != 2 && x.TrangThai != 1).ToList();
+            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x =>( x.MaHD.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.MaNv.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.TenKh.ToLower().Contains(tb_timkiem.Text.ToLower())) && (x.TrangThai != 0 && x.TrangThaiGiaoHang != 2 && x.TrangThai != 1)).OrderBy(c => c.MaHD).ToList();
+
             foreach (var item in _lstHoaDonViews)
             {
-                dtg_show.Rows.Add(item.Id, stt++, item.MaHD, item.MaNv, item.MaKh, item.TenNv, item.TenKh, item.TenPttt, item.TenHt, item.MucUuDai, item.NgayTao, item.NgayThanhToan, item.GiamGia, item.HinhThucGiamGia, item.TongTien, item.TienKhachDua, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                dtg_show.Rows.Add(item.Id, stt++, item.MaHD, item.MaNv, item.MaKh, item.TenKh, item.TenPttt, item.TenHt, item.MucUuDai, item.NgayTao, item.NgayThanhToan, item.GiamGia, item.HinhThucGiamGia, item.TongTien , item.TienKhachDua, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
         }
 
@@ -114,7 +113,6 @@ namespace _3.PL.Views
                 tb_manv.Text = _hoaDonView.MaNv;
                 tb_makh.Text = _hoaDonView.MaKh;
                 tb_tenkh.Text = _hoaDonView.TenKh;
-                tb_tennv.Text = _hoaDonView.TenNv;
                 tb_pttt.Text = _hoaDonView.TenPttt;
                 tb_hinhthucmh.Text = _hoaDonView.TenHt;
                 tb_mucuudai.Text = Convert.ToDecimal(_hoaDonView.MucUuDai).ToString();
