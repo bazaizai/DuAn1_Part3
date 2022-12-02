@@ -52,6 +52,7 @@ namespace _3.PL.Views
             _ChiTietSpViews = new List<ChiTietSpViews>();
             _kieuSpServices = new KieuSpServices();
             _chiTietkieuspservices = new ChiTietKieuSpServices();
+       
             tbTrangthai();
         }
 
@@ -312,6 +313,7 @@ namespace _3.PL.Views
                     MessageBox.Show(_SaleServices.Add(saleView));
                     ClearForm();
                     loadKM();
+                    cbb_locTrangthai.SelectedIndex = 0;
                 }
             }
             else
@@ -397,6 +399,7 @@ namespace _3.PL.Views
                     MessageBox.Show(_SaleServices.Update(saleView));
                     ClearForm();
                     loadKM();
+                    cbb_locTrangthai.SelectedIndex=0;
 
                 }
             }

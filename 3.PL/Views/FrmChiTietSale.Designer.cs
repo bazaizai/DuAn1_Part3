@@ -471,7 +471,7 @@
             this.cbb_loaiKM.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbb_loaiKM.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.cbb_loaiKM.BorderSize = 1;
-            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_loaiKM.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_loaiKM.ForeColor = System.Drawing.Color.Black;
             this.cbb_loaiKM.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
