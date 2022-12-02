@@ -2,6 +2,7 @@
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Components;
+using _3.PL.CustomControlls;
 using _3.PL.Properties;
 using BarcodeLib;
 using CustomControls.RJControls;
@@ -29,7 +30,7 @@ namespace _3.PL.Views
         IChiTietKieuSpService _IChiTietKieuSpService;
         public static Dictionary<Guid, bool> CheckCB;
 
-
+        private int intShow;
         private int x;
         public int Count { get => x; set { x = value; x = value; } }
 
@@ -41,10 +42,11 @@ namespace _3.PL.Views
             _IanhServices = new AnhServices();
             _IKieuSpServices = new KieuSpServices();
             _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            rdoTatCa.Checked = true;
             x = 1;
+            intShow = 0;
             LoadData();
         }
-
 
 
         private void LoadCbb()
@@ -57,6 +59,45 @@ namespace _3.PL.Views
             CbbThaoTac.Items.Add("Mở bán");
         }
 
+        private bool HopThoai(int count) => RJMessageBox.Show("Bạn có muốn thực hiện hành động này với " + count.ToString() + " sản phẩm đã chọn không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        private void CbbThaoTac_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HopThoai(CheckCB.Where(x => x.Value == true).ToList().Count))
+            {
+                foreach (var x in CheckCB.Where(x => x.Value == true))
+                {
+                    var sp = _IChiTietSpServices.GetById(x.Key);
+                    if (CbbThaoTac.Texts == "Áp dụng KM")
+                    {
+                        sp.TrangThaiKhuyenMai = 0;
+                    }
+                    if (CbbThaoTac.Texts == "Không áp dụng KM")
+                    {
+                        sp.TrangThaiKhuyenMai = 1;
+                    }
+                    if (CbbThaoTac.Texts == "Ngừng bán")
+                    {
+                        sp.TrangThai = 1;
+                    }
+                    if (CbbThaoTac.Texts == "Mở bán")
+                    {
+                        sp.TrangThai = 0;
+                    }
+                    _IChiTietSpServices.Update(sp);
+                }
+                CheckCB = new Dictionary<Guid, bool>();
+                checkBox1.Checked = false;
+                CbbThaoTac.Visible = false;
+                _IChiTietSpServices = new ChiTietSpServices();
+                LoadData();
+            }else
+            {
+                LoadCbb();
+            }
+            
+
+           
+        }
         private void LoadAll()
         {
             InitializeComponent();
@@ -107,7 +148,7 @@ namespace _3.PL.Views
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
                 Sp[i].GhiChu = CTSP[i].MoTa;
-                
+
                 var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
                 if (ctksp != null)
                 {
@@ -119,9 +160,11 @@ namespace _3.PL.Views
                     if (NoCheck())
                     {
                         CbbThaoTac.Visible = false;
-                    }else
+                    }
+                    else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -203,6 +246,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -274,6 +318,7 @@ namespace _3.PL.Views
                         else
                         {
                             CbbThaoTac.Visible = true;
+                            CbbThaoTac.Texts = "Thao tác";
                         }
                     };
                     Sp[i].TopLevel = false;
@@ -342,6 +387,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -356,7 +402,7 @@ namespace _3.PL.Views
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            btnHienThiTatCa.Visible=false;
+            btnHienThiTatCa.Visible = false;
             flowLayoutPanel1.Controls.Clear();
             List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
             if (txtSearch.Texts.Trim() != "")
@@ -392,7 +438,9 @@ namespace _3.PL.Views
                 {
                     Sp[i].ChBox.Checked = true;
                     CbbThaoTac.Visible = true;
-                }else
+                    CbbThaoTac.Texts = "Thao tác";
+                }
+                else
                 {
                     if (CheckCB.ContainsKey(CTSP[i].Id))
                     {
@@ -401,7 +449,7 @@ namespace _3.PL.Views
                     else
                     {
                         CheckCB.Add(CTSP[i].Id, false);
-                       
+
                     }
                     CbbThaoTac.Visible = false;
                 }
@@ -415,6 +463,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -447,6 +496,21 @@ namespace _3.PL.Views
                 text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
             }
             return text;
+        }
+
+        private void rjButton1_Click_1(object sender, EventArgs e)
+        {
+            intShow++;
+            if (intShow % 2 == 1)
+            {
+                pnlbodySoLuongTon.Visible = false;
+                BtnShowSoLuong.Text = "Show";
+            }
+            else
+            {
+                pnlbodySoLuongTon.Visible = true;
+                BtnShowSoLuong.Text = "Hide";
+            }
         }
     }
 }

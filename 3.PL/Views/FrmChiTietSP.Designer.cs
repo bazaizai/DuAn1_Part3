@@ -37,6 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pnlbodySoLuongTon = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.rdoHetHang = new CustomControls.RJControls.RJRadioButton();
+            this.rdoConHang = new CustomControls.RJControls.RJRadioButton();
+            this.rdoTatCa = new CustomControls.RJControls.RJRadioButton();
+            this.pnlSoLuong = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.BtnShowSoLuong = new CustomControls.RJControls.RJButton();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -52,6 +62,12 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.pnlbodySoLuongTon.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.pnlSoLuong.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -147,6 +163,7 @@
             this.CbbThaoTac.TabIndex = 2;
             this.CbbThaoTac.Texts = "";
             this.CbbThaoTac.Visible = false;
+            this.CbbThaoTac.OnSelectedIndexChanged += new System.EventHandler(this.CbbThaoTac_OnSelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -197,10 +214,139 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.DimGray;
+            this.panel7.Controls.Add(this.pnlbodySoLuongTon);
+            this.panel7.Controls.Add(this.pnlSoLuong);
             this.panel7.Location = new System.Drawing.Point(12, 7);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(360, 858);
             this.panel7.TabIndex = 0;
+            // 
+            // pnlbodySoLuongTon
+            // 
+            this.pnlbodySoLuongTon.Controls.Add(this.panel11);
+            this.pnlbodySoLuongTon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlbodySoLuongTon.Location = new System.Drawing.Point(0, 53);
+            this.pnlbodySoLuongTon.Name = "pnlbodySoLuongTon";
+            this.pnlbodySoLuongTon.Size = new System.Drawing.Size(360, 99);
+            this.pnlbodySoLuongTon.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.rdoHetHang);
+            this.panel11.Controls.Add(this.rdoConHang);
+            this.panel11.Controls.Add(this.rdoTatCa);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(42, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(318, 99);
+            this.panel11.TabIndex = 0;
+            // 
+            // rdoHetHang
+            // 
+            this.rdoHetHang.AutoSize = true;
+            this.rdoHetHang.CheckedColor = System.Drawing.Color.MediumSlateBlue;
+            this.rdoHetHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdoHetHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoHetHang.Location = new System.Drawing.Point(0, 64);
+            this.rdoHetHang.MinimumSize = new System.Drawing.Size(0, 21);
+            this.rdoHetHang.Name = "rdoHetHang";
+            this.rdoHetHang.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.rdoHetHang.Size = new System.Drawing.Size(318, 32);
+            this.rdoHetHang.TabIndex = 2;
+            this.rdoHetHang.TabStop = true;
+            this.rdoHetHang.Text = "Hết Hàng";
+            this.rdoHetHang.UnCheckedColor = System.Drawing.Color.Gray;
+            this.rdoHetHang.UseVisualStyleBackColor = true;
+            // 
+            // rdoConHang
+            // 
+            this.rdoConHang.AutoSize = true;
+            this.rdoConHang.CheckedColor = System.Drawing.Color.MediumSlateBlue;
+            this.rdoConHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdoConHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoConHang.Location = new System.Drawing.Point(0, 32);
+            this.rdoConHang.MinimumSize = new System.Drawing.Size(0, 21);
+            this.rdoConHang.Name = "rdoConHang";
+            this.rdoConHang.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.rdoConHang.Size = new System.Drawing.Size(318, 32);
+            this.rdoConHang.TabIndex = 1;
+            this.rdoConHang.TabStop = true;
+            this.rdoConHang.Text = "Còn Hàng";
+            this.rdoConHang.UnCheckedColor = System.Drawing.Color.Gray;
+            this.rdoConHang.UseVisualStyleBackColor = true;
+            // 
+            // rdoTatCa
+            // 
+            this.rdoTatCa.AutoSize = true;
+            this.rdoTatCa.CheckedColor = System.Drawing.Color.MediumSlateBlue;
+            this.rdoTatCa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdoTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoTatCa.Location = new System.Drawing.Point(0, 0);
+            this.rdoTatCa.MinimumSize = new System.Drawing.Size(0, 21);
+            this.rdoTatCa.Name = "rdoTatCa";
+            this.rdoTatCa.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.rdoTatCa.Size = new System.Drawing.Size(318, 32);
+            this.rdoTatCa.TabIndex = 0;
+            this.rdoTatCa.TabStop = true;
+            this.rdoTatCa.Text = "Tất cả";
+            this.rdoTatCa.UnCheckedColor = System.Drawing.Color.Gray;
+            this.rdoTatCa.UseVisualStyleBackColor = true;
+            // 
+            // pnlSoLuong
+            // 
+            this.pnlSoLuong.Controls.Add(this.panel8);
+            this.pnlSoLuong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSoLuong.Location = new System.Drawing.Point(0, 0);
+            this.pnlSoLuong.Name = "pnlSoLuong";
+            this.pnlSoLuong.Size = new System.Drawing.Size(360, 53);
+            this.pnlSoLuong.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(360, 53);
+            this.panel8.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.BtnShowSoLuong);
+            this.panel9.Controls.Add(this.label8);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(360, 53);
+            this.panel9.TabIndex = 2;
+            // 
+            // BtnShowSoLuong
+            // 
+            this.BtnShowSoLuong.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnShowSoLuong.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnShowSoLuong.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnShowSoLuong.BorderRadius = 15;
+            this.BtnShowSoLuong.BorderSize = 0;
+            this.BtnShowSoLuong.FlatAppearance.BorderSize = 0;
+            this.BtnShowSoLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowSoLuong.ForeColor = System.Drawing.Color.White;
+            this.BtnShowSoLuong.Location = new System.Drawing.Point(247, 8);
+            this.BtnShowSoLuong.Name = "BtnShowSoLuong";
+            this.BtnShowSoLuong.Size = new System.Drawing.Size(101, 38);
+            this.BtnShowSoLuong.TabIndex = 1;
+            this.BtnShowSoLuong.Text = "Hide";
+            this.BtnShowSoLuong.TextColor = System.Drawing.Color.White;
+            this.BtnShowSoLuong.UseVisualStyleBackColor = false;
+            this.BtnShowSoLuong.Click += new System.EventHandler(this.rjButton1_Click_1);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 23);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Số lượng tồn";
             // 
             // panel3
             // 
@@ -356,6 +502,14 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.pnlbodySoLuongTon.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.pnlSoLuong.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -387,5 +541,15 @@
         private CustomControls.RJControls.RJButton btnHienThiTatCa;
         private CustomControls.RJControls.RJComboBox CbbThaoTac;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pnlbodySoLuongTon;
+        private System.Windows.Forms.Panel panel11;
+        private CustomControls.RJControls.RJRadioButton rdoTatCa;
+        private System.Windows.Forms.Panel pnlSoLuong;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label8;
+        private CustomControls.RJControls.RJRadioButton rdoHetHang;
+        private CustomControls.RJControls.RJRadioButton rdoConHang;
+        private CustomControls.RJControls.RJButton BtnShowSoLuong;
     }
 }
