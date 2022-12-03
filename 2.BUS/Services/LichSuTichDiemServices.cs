@@ -32,6 +32,9 @@ namespace _2.BUS.Services
                 var x = new LstichDiem()
                 {
                     Id = obj.Id,
+                    IdCttichDiem = obj.IdCttichDiem,
+                    IdHoaDon = obj.IdHoaDon,
+                    IdTichDiem = obj.IdTichDiem,
                     SoDiemDung = obj.SoDiemDung,
                     NgayTichDiem = obj.NgayTichDiem,
                     TrangThai = obj.TrangThai
@@ -122,6 +125,9 @@ namespace _2.BUS.Services
                 var x = new LstichDiem()
                 {
                     Id = obj.Id,
+                    IdHoaDon= obj.IdHoaDon,
+                    IdCttichDiem= obj.IdCttichDiem,
+                    IdTichDiem= obj.IdTichDiem,
                     SoDiemDung = obj.SoDiemDung,
                     NgayTichDiem = obj.NgayTichDiem,
                     TrangThai = obj.TrangThai

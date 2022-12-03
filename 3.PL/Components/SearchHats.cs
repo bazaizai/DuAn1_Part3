@@ -29,6 +29,16 @@ namespace _3.PL.Components
         public double Price { get => price; set { price = value; Gia.Text = "Giá: " + double.Parse(price.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ"; } }
         public Guid IdSPCTSP { get => _Idspct; set { _Idspct = value; IdSPCT.Text = value.ToString(); } }
 
+
+        private double _GIaGiam;
+        public double GiaGiam { get => _GIaGiam; set { _GIaGiam = value; lblGiaGiam.Text = "Giá: " + double.Parse(_GIaGiam.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ"; ; } }
+
+
+        private string _MucGiam;
+        public string MucGiam { get => _MucGiam; set { _MucGiam = value; lblPT.Text = value; } }
+
+
+
         private void SearchHats_Click(object sender, EventArgs e)
         {
             Onclick?.Invoke(this, e);

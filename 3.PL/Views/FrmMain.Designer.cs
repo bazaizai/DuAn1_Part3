@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlGiaoDich = new System.Windows.Forms.Panel();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -59,7 +60,6 @@
             this._tru = new FontAwesome.Sharp.IconPictureBox();
             this._X = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btbHome = new FontAwesome.Sharp.IconPictureBox();
             this.rjCircularPictureBox1 = new CustomControls.RJControls.RJCircularPictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
@@ -590,7 +590,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::_3.PL.Properties.Resources.Meyki;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 261);
@@ -601,12 +601,11 @@
             // 
             // ptnTileBar
             // 
-            this.ptnTileBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.ptnTileBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
             this.ptnTileBar.Controls.Add(this._ToNho);
             this.ptnTileBar.Controls.Add(this._tru);
             this.ptnTileBar.Controls.Add(this._X);
             this.ptnTileBar.Controls.Add(this.lblHome);
-            this.ptnTileBar.Controls.Add(this.label1);
             this.ptnTileBar.Controls.Add(this.btbHome);
             this.ptnTileBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ptnTileBar.Location = new System.Drawing.Point(265, 0);
@@ -619,7 +618,7 @@
             // 
             this._ToNho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._ToNho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this._ToNho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
             this._ToNho.Cursor = System.Windows.Forms.Cursors.Hand;
             this._ToNho.ForeColor = System.Drawing.Color.Gainsboro;
             this._ToNho.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
@@ -637,7 +636,7 @@
             // 
             this._tru.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._tru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this._tru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
             this._tru.Cursor = System.Windows.Forms.Cursors.Hand;
             this._tru.ForeColor = System.Drawing.Color.Gainsboro;
             this._tru.IconChar = FontAwesome.Sharp.IconChar.Minus;
@@ -676,18 +675,9 @@
             this.lblHome.TabIndex = 2;
             this.lblHome.Text = "Home";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
             // btbHome
             // 
-            this.btbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.btbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
             this.btbHome.ForeColor = System.Drawing.Color.Gainsboro;
             this.btbHome.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.btbHome.IconColor = System.Drawing.Color.Gainsboro;
@@ -708,7 +698,7 @@
             this.rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.rjCircularPictureBox1.BorderSize = 2;
             this.rjCircularPictureBox1.GradientAngle = 50F;
-            this.rjCircularPictureBox1.Image = global::_3.PL.Properties.Resources.Meyki;
+            this.rjCircularPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("rjCircularPictureBox1.Image")));
             this.rjCircularPictureBox1.Location = new System.Drawing.Point(336, 141);
             this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             this.rjCircularPictureBox1.Size = new System.Drawing.Size(543, 543);
@@ -721,7 +711,7 @@
             this.pnlBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.pnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(244)))));
             this.pnlBody.CausesValidation = false;
             this.pnlBody.Controls.Add(this.rjCircularPictureBox1);
             this.pnlBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -771,7 +761,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconPictureBox btbHome;
         private System.Windows.Forms.Label lblHome;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label _X;
         private FontAwesome.Sharp.IconPictureBox _tru;
         private FontAwesome.Sharp.IconPictureBox _ToNho;

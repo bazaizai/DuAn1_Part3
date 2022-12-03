@@ -28,9 +28,14 @@ namespace _3.PL.Views
         IAnhServices _IanhServices;
         IKieuSpServices _IKieuSpServices;
         IChiTietKieuSpService _IChiTietKieuSpService;
+        IMauSacServices _IMauSacServices;
+        IChatLieuServices _IChatLieuServices;
+        CheckBox box;
         public static Dictionary<Guid, bool> CheckCB;
 
-        private int intShow;
+        private int ShowSL;
+        private int ShowTT;
+        private int ShowCL;
         private int x;
         public int Count { get => x; set { x = value; x = value; } }
 
@@ -42,11 +47,18 @@ namespace _3.PL.Views
             _IanhServices = new AnhServices();
             _IKieuSpServices = new KieuSpServices();
             _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            LoadMauSac();
+            LoadChatLieu();
             rdoTatCa.Checked = true;
             x = 1;
-            intShow = 0;
+            ShowCL = 0;
+            ShowSL = 0;
+            ShowTT = 0;
             LoadData();
         }
+
 
 
         private void LoadCbb()
@@ -498,18 +510,105 @@ namespace _3.PL.Views
             return text;
         }
 
-        private void rjButton1_Click_1(object sender, EventArgs e)
+        private void rjButton1_Click_2(object sender, EventArgs e)
         {
-            intShow++;
-            if (intShow % 2 == 1)
+            ShowSL++;
+            if (ShowSL % 2 == 1)
             {
                 pnlbodySoLuongTon.Visible = false;
-                BtnShowSoLuong.Text = "Show";
+                BtnShowSL.Text = "Show";
             }
             else
             {
                 pnlbodySoLuongTon.Visible = true;
-                BtnShowSoLuong.Text = "Hide";
+                BtnShowSL.Text = "Hide";
+            }
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            ShowTT++;
+            if (ShowTT % 2 == 1)
+            {
+                pnlBodyTrangThai.Visible = false;
+                BtnShowTT.Text = "Show";
+            }
+            else
+            {
+                pnlBodyTrangThai.Visible = true;
+                BtnShowTT.Text = "Hide";
+            }
+        }
+
+        private void chkTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            chkDangBan.Checked = false;
+            chkNgungBan.Checked = false;
+        }
+
+        private void chkDangBan_CheckedChanged(object sender, EventArgs e)
+        {
+            chkTatCa.Checked = false;
+            chkNgungBan.Checked = false;
+        }
+
+        private void chkNgungBan_CheckedChanged(object sender, EventArgs e)
+        {
+            chkTatCa.Checked = false;
+            chkDangBan.Checked = false;
+        }
+        private void LoadMauSac()
+        {
+            for (int i = 0; i < _IMauSacServices.GetAll().Where(x=>x.TrangThai == 0).ToList().Count; i++)
+            {
+                box = new CheckBox();
+                box.Text = _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                box.Dock = DockStyle.Top;
+                box.Padding = new Padding(0,5,0,0);
+                box.AutoSize = true;
+                PnlMauSac.Controls.Add(box);
+                box.CheckedChanged += new EventHandler(CheckBoxClick); 
+            }
+        }
+
+        private void CheckBoxClick(object sender, EventArgs e)
+        {
+            CheckBox item = (CheckBox)sender;
+            if (item.Checked)
+            {
+                MessageBox.Show("Thông minh");
+            }else
+            {
+                MessageBox.Show("Rất thông minh");
+            }
+        }
+
+        private void LoadChatLieu()
+        {
+            for (int i = 0; i < _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList().Count; i++)
+            {
+                box = new CheckBox();
+                box.Text = _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                box.Dock = DockStyle.Top;
+                box.Padding = new Padding(0, 5, 0, 0);
+                box.AutoSize = true;
+                pnlChatLieu.Controls.Add(box);
+                box.CheckedChanged += new EventHandler(CheckBoxClick);
+            }
+        }
+
+        private void rjButton1_Click_1(object sender, EventArgs e)
+        {
+            ShowCL++;
+            if (ShowTT % 2 == 1)
+            {
+                pnlBodyMS.Visible = false;
+                BtnShowMS.Text = "Show";
+            }
+            else
+            {
+                pnlBodyMS.Visible = true;
+                BtnShowMS.Text = "Hide";
             }
         }
     }
