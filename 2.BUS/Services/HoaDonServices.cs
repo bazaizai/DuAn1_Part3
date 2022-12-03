@@ -172,7 +172,7 @@ namespace _2.BUS.Services
                                       SoDiem = b.SoDiem
                                   }
                                   ).ToList() on a.IdKh equals b.Id
-                       //join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
+                       join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
                        join d in ptthanhToanRepos.GetAll() on a.IdPttt equals d.Id
                        join e in hinhThucMhRepos.GetAll() on a.IdHt equals e.Id
                        join f in uuDaiTichDiemRepos.GetAll() on a.IdUdtichDiem equals f.Id
@@ -204,11 +204,11 @@ namespace _2.BUS.Services
                            TenKh = b.Ten,
                            SoDiemKH = b.SoDiem,
                            MaKh = b.Ma,
-                           //IdNv = c.Id,
-                           //HoNv = c.Ho,
-                           //TenDemNv = c.TenDem,
-                           //TenNv = c.Ten,
-                           //MaNv = c.Ma,
+                           IdNv = c.Id,
+                           HoNv = c.Ho,
+                           TenDemNv = c.TenDem,
+                           TenNv = c.Ten,
+                           MaNv = c.Ma,
                            IdPttt = d.Id,
                            TenPttt = d.Ten,
                            MaPttt = d.Ma,
