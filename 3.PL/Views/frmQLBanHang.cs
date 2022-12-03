@@ -175,8 +175,6 @@ namespace _3.PL.Views
             CbbGiamGia.SelectedIndex = 0;
             pnlKhachHang.Visible = false;
         }
-
-
         private void LoadItem()
         {
             LoadALL();
