@@ -13,7 +13,8 @@ namespace _3.PL.Properties
         public string MauSac { get; set; }
         public string Team { get; set; }
         public string KieuSp { get; set; }
-
+    
+        public string TrangThai { get; set; }
         public bool Selected { get; set; }
     }
 }
