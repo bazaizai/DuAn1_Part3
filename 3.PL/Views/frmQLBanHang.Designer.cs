@@ -401,7 +401,7 @@
             this.txtMucUuDai1.Name = "txtMucUuDai1";
             this.txtMucUuDai1.ReadOnly = true;
             this.txtMucUuDai1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMucUuDai1.Size = new System.Drawing.Size(282, 23);
+            this.txtMucUuDai1.Size = new System.Drawing.Size(282, 28);
             this.txtMucUuDai1.TabIndex = 20;
             this.txtMucUuDai1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -887,7 +887,7 @@
             this.lblUuDaiTichLuy.ForeColor = System.Drawing.Color.Black;
             this.lblUuDaiTichLuy.Location = new System.Drawing.Point(24, 100);
             this.lblUuDaiTichLuy.Name = "lblUuDaiTichLuy";
-            this.lblUuDaiTichLuy.Size = new System.Drawing.Size(121, 20);
+            this.lblUuDaiTichLuy.Size = new System.Drawing.Size(146, 25);
             this.lblUuDaiTichLuy.TabIndex = 2;
             this.lblUuDaiTichLuy.Text = "lblUuDaiTichLuy";
             // 

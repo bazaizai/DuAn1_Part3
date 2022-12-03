@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -112,36 +113,36 @@ namespace _3.PL.Views
         }
         private void btn_them_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn có muốn thêm không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dlr = RJMessageBox.Show("Bạn có muốn thêm không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if(dlr == DialogResult.Yes)
             {
                 if (tb_mucuudai.Text == "")
                 {
-                    MessageBox.Show("Không được để trống mức ưu đãi");
+                    RJMessageBox.Show("Không được để trống mức ưu đãi");
                 }
                 else if (tb_sodiem.Text == "")
                 {
-                    MessageBox.Show("Không được để trống số điểm");
+                    RJMessageBox.Show("Không được để trống số điểm");
                 }
                 else if (_iUuDaiTichDiemServices.GetAll().Any(c => c.SoDiem == Convert.ToDecimal(tb_sodiem.Text)))
                 {
-                    MessageBox.Show("Điểm bị trùng với ưu đãi khác!");
+                    RJMessageBox.Show("Điểm bị trùng với ưu đãi khác!");
                 }
                 else if (ValidateInput.CheckIntInput(tb_sodiem.Text) == false || Convert.ToDecimal(tb_sodiem.Text) == 0)
                 {
-                    MessageBox.Show("Vui lòng nhập đúng số điểm");
+                    RJMessageBox.Show("Vui lòng nhập đúng số điểm");
                 }
                 else if (Convert.ToDecimal(tb_mucuudai.Text) == 0)
                 {
-                    MessageBox.Show("Mức ưu đãi không được bằng 0");
+                    RJMessageBox.Show("Mức ưu đãi không được bằng 0");
                 }
                 else if (cbb_loaihinhkm.Text == "%" && Convert.ToDecimal(tb_mucuudai.Text) > 100)
                 {
-                    MessageBox.Show("Không được quá 100%");
+                    RJMessageBox.Show("Không được quá 100%");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
-                    MessageBox.Show("Vui lòng chọn trạng thái");
+                    RJMessageBox.Show("Vui lòng chọn trạng thái");
                 }
                 else
                 {
@@ -153,13 +154,13 @@ namespace _3.PL.Views
                         SoDiem = Convert.ToDecimal(tb_sodiem.Text),
                         TrangThai = rdb_hd.Checked ? 1 : 0
                     };
-                    MessageBox.Show(_iUuDaiTichDiemServices.Add(x));
+                    RJMessageBox.Show(_iUuDaiTichDiemServices.Add(x));
                     ClearForm();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn!");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn!");
             }
             
            
@@ -167,22 +168,22 @@ namespace _3.PL.Views
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn có muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dlr = RJMessageBox.Show("Bạn có muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (dlr == DialogResult.Yes)
             {
                 if (_uuDaiTichDiemView.Id == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn ưu đãi cần xóa!");
+                    RJMessageBox.Show("Vui lòng chọn ưu đãi cần xóa!");
                 }
                 else
                 {
-                    MessageBox.Show(_iUuDaiTichDiemServices.Delete(_uuDaiTichDiemView));
+                    RJMessageBox.Show(_iUuDaiTichDiemServices.Delete(_uuDaiTichDiemView));
                     ClearForm();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn!");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn!");
             }
                
             
@@ -190,12 +191,12 @@ namespace _3.PL.Views
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn có muốn cập nhật không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dlr = RJMessageBox.Show("Bạn có muốn cập nhật không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (dlr == DialogResult.Yes)
             {
                 if (_uuDaiTichDiemView.Id == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn ưu đã cần cập nhật!");
+                    RJMessageBox.Show("Vui lòng chọn ưu đã cần cập nhật!");
                 }
                 else
                 {
@@ -203,14 +204,14 @@ namespace _3.PL.Views
                     _uuDaiTichDiemView.MucUuDai = Convert.ToDecimal(tb_mucuudai.Text);
                     _uuDaiTichDiemView.SoDiem = Convert.ToDecimal(tb_sodiem.Text);
                     _uuDaiTichDiemView.TrangThai = rdb_hd.Checked ? 1 : 0;
-                    MessageBox.Show(_iUuDaiTichDiemServices.Update(_uuDaiTichDiemView));
+                    RJMessageBox.Show(_iUuDaiTichDiemServices.Update(_uuDaiTichDiemView));
                     ClearForm();
                 }
                
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn!");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn!");
             }
             
         }
@@ -401,9 +402,15 @@ namespace _3.PL.Views
 
         private void tb_mucuudai_TextChanged(object sender, EventArgs e)
         {
-            if(cbb_loaihinhkm.Text == "%" && Convert.ToDecimal(tb_mucuudai.Text) > 100)
+            if(cbb_loaihinhkm.SelectedIndex == 0)
             {
-                tb_mucuudai.Text = "100";
+                if(tb_mucuudai.Text != "")
+                {
+                    if (Convert.ToDecimal(tb_mucuudai.Text) > 100)
+                    {
+                        tb_mucuudai.Text = 100.ToString();
+                    }
+                }
             }
         }
     }
