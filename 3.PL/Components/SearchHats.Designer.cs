@@ -33,14 +33,12 @@
             this.IdSPCT = new System.Windows.Forms.Label();
             this.Gia = new System.Windows.Forms.Label();
             this.TenSP = new System.Windows.Forms.Label();
-            this.Anh = new CustomControls.RJControls.RJCircularPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPT = new System.Windows.Forms.Label();
             this.lblGiaGiam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.Anh)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,23 +90,6 @@
             this.TenSP.TabIndex = 20;
             this.TenSP.Text = "SanPham";
             // 
-            // Anh
-            // 
-            this.Anh.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.Anh.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.Anh.BorderColor2 = System.Drawing.Color.HotPink;
-            this.Anh.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.Anh.BorderSize = 2;
-            this.Anh.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Anh.GradientAngle = 50F;
-            this.Anh.Location = new System.Drawing.Point(0, 0);
-            this.Anh.Margin = new System.Windows.Forms.Padding(0);
-            this.Anh.Name = "Anh";
-            this.Anh.Size = new System.Drawing.Size(89, 89);
-            this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Anh.TabIndex = 19;
-            this.Anh.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -146,9 +127,9 @@
             // 
             this.panel1.Controls.Add(this.TenSP);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(89, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 28);
+            this.panel1.Size = new System.Drawing.Size(356, 28);
             this.panel1.TabIndex = 27;
             // 
             // timer1
@@ -175,14 +156,12 @@
             this.Controls.Add(this.lblPT);
             this.Controls.Add(this.SoLuong);
             this.Controls.Add(this.IdSPCT);
-            this.Controls.Add(this.Anh);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "SearchHats";
             this.Size = new System.Drawing.Size(356, 96);
             this.Load += new System.EventHandler(this.SearchHats_Load);
             this.Click += new System.EventHandler(this.SearchHats_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.Anh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
