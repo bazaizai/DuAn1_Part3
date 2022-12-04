@@ -61,9 +61,9 @@
             // 
             this.tb_TimKiem.BackColor = System.Drawing.Color.White;
             this.tb_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_TimKiem.Location = new System.Drawing.Point(137, 34);
+            this.tb_TimKiem.Location = new System.Drawing.Point(157, 37);
             this.tb_TimKiem.Name = "tb_TimKiem";
-            this.tb_TimKiem.Size = new System.Drawing.Size(311, 31);
+            this.tb_TimKiem.Size = new System.Drawing.Size(279, 31);
             this.tb_TimKiem.TabIndex = 76;
             this.tb_TimKiem.TextChanged += new System.EventHandler(this.tb_TimKiem_TextChanged);
             // 
@@ -80,7 +80,7 @@
             this.groupBox3.Controls.Add(this.lb_Ma);
             this.groupBox3.Controls.Add(this.tb_Ma);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(33, 480);
+            this.groupBox3.Location = new System.Drawing.Point(43, 33);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(669, 280);
             this.groupBox3.TabIndex = 75;
@@ -100,13 +100,13 @@
             // 
             this.tb_Cm.Location = new System.Drawing.Point(157, 143);
             this.tb_Cm.Name = "tb_Cm";
-            this.tb_Cm.Size = new System.Drawing.Size(301, 31);
+            this.tb_Cm.Size = new System.Drawing.Size(378, 31);
             this.tb_Cm.TabIndex = 13;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(379, 202);
+            this.radioButton2.Location = new System.Drawing.Point(349, 202);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(186, 29);
             this.radioButton2.TabIndex = 12;
@@ -147,7 +147,7 @@
             // 
             this.tb_Ten.Location = new System.Drawing.Point(157, 93);
             this.tb_Ten.Name = "tb_Ten";
-            this.tb_Ten.Size = new System.Drawing.Size(301, 31);
+            this.tb_Ten.Size = new System.Drawing.Size(378, 31);
             this.tb_Ten.TabIndex = 7;
             // 
             // lb_Ma
@@ -163,7 +163,7 @@
             // 
             this.tb_Ma.Location = new System.Drawing.Point(157, 38);
             this.tb_Ma.Name = "tb_Ma";
-            this.tb_Ma.Size = new System.Drawing.Size(301, 31);
+            this.tb_Ma.Size = new System.Drawing.Size(378, 31);
             this.tb_Ma.TabIndex = 0;
             // 
             // groupBox2
@@ -174,7 +174,7 @@
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(784, 480);
+            this.groupBox2.Location = new System.Drawing.Point(805, 33);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(203, 280);
             this.groupBox2.TabIndex = 74;
@@ -230,7 +230,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
             this.groupBox1.Controls.Add(this.dtg_Show);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(33, 31);
+            this.groupBox1.Location = new System.Drawing.Point(43, 462);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(965, 293);
             this.groupBox1.TabIndex = 73;
@@ -260,7 +260,7 @@
             this.groupBox4.Controls.Add(this.cbb_loc);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(33, 350);
+            this.groupBox4.Location = new System.Drawing.Point(43, 342);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(965, 88);
             this.groupBox4.TabIndex = 84;
@@ -270,7 +270,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(584, 39);
+            this.label4.Location = new System.Drawing.Point(559, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 25);
             this.label4.TabIndex = 92;
@@ -284,7 +284,7 @@
             "Tất cả",
             "Hoạt động",
             "Không hoạt động"});
-            this.cbb_loc.Location = new System.Drawing.Point(689, 34);
+            this.cbb_loc.Location = new System.Drawing.Point(664, 34);
             this.cbb_loc.Name = "cbb_loc";
             this.cbb_loc.Size = new System.Drawing.Size(255, 33);
             this.cbb_loc.TabIndex = 91;
@@ -293,7 +293,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 37);
+            this.label3.Location = new System.Drawing.Point(46, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 25);
             this.label3.TabIndex = 88;
