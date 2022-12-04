@@ -69,10 +69,13 @@ namespace _1.DAL.Repositories
             {
                 if (obj == null) return false;
                 var tempobj = context.LstichDiems.FirstOrDefault(c => c.Id == obj.Id);
+                tempobj.IdHoaDon = obj.IdHoaDon;
+                tempobj.IdCttichDiem = obj.IdCttichDiem;
+                tempobj.IdTichDiem = obj.IdTichDiem;
                 tempobj.SoDiemDung = obj.SoDiemDung;
                 tempobj.NgayTichDiem = obj.NgayTichDiem;
                 tempobj.TrangThai = obj.TrangThai;
-                context.Update(tempobj);
+                context.LstichDiems.Update(tempobj);
                 context.SaveChanges();
                 return true;
             }

@@ -38,6 +38,15 @@
     <Compile Update="Views\Clone.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmQLBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmThongTinSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FormMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,6 +60,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChiTietSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmChonSale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChucVu.cs">
@@ -102,9 +114,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmPtthanhToan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\frmQLBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmQLChiTietSp.cs">
