@@ -28,7 +28,7 @@ namespace _3.PL.Views
     public partial class FrmChiTietSale : Form
     {
         private IKieuSpServices _kieuSpServices;
-        private IChiTietKieuSpService _chiTietkieuspservices;    
+        private IChiTietKieuSpService _chiTietkieuspservices;
 
         private IChiTietSaleServices _IchiTietSaleServices;
         private IChiTietSpServices _chiTietSpServices;
@@ -52,6 +52,7 @@ namespace _3.PL.Views
             _ChiTietSpViews = new List<ChiTietSpViews>();
             _kieuSpServices = new KieuSpServices();
             _chiTietkieuspservices = new ChiTietKieuSpServices();
+
             tbTrangthai();
         }
 
@@ -71,6 +72,8 @@ namespace _3.PL.Views
 
         private void loadKM()
         {
+          
+            lstSale = _SaleServices.GetAll();        
             dtg_show.Rows.Clear();
             dtg_show.ColumnCount = 9;
             dtg_show.Columns[0].Name = "ID";
@@ -83,12 +86,12 @@ namespace _3.PL.Views
             dtg_show.Columns[6].Name = "Mức giảm";
             dtg_show.Columns[7].Name = "Mô tả";
             dtg_show.Columns[8].Name = "Trạng thái";
-            lstSale = _SaleServices.GetAll();
+            lstSale = _SaleServices.GetAll().ToList();
             if (tb_timkiemkm.Text != "")
             {
                 lstSale = lstSale.Where(c => c.Ten.ToLower().Contains(tb_timkiemkm.Text.ToLower())).ToList();
             }
-            foreach (var item in lstSale.Where(c => c.TrangThai == 0))
+            foreach (var item in lstSale)
             {
                 dtg_show.Rows.Add(item.Id, item.Ma, item.Ten, item.NgayBatDau, item.NgayKetThuc, item.LoaiHinhKm,
                     item.MucGiam, item.MoTa, item.TrangThai == 0 ? "Đang áp dụng" : item.TrangThai == 1 ? "Ngừng áp dụng" : item.TrangThai == 2 ? "Chưa áp dụng" : "Lỗi");
@@ -124,6 +127,7 @@ namespace _3.PL.Views
             List<SPSelected> selcted = new List<SPSelected>();
             foreach (var item in _chiTietSpServices.GetAll().Where(c => c.TrangThaiKhuyenMai == 0))
             {
+                var trangthai = _IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == item.Id);
                 //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
                 if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == item.Id) != null)
                 {
@@ -133,12 +137,14 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
+                        KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = true,
+                        TrangThai = trangthai.TrangThai == 0 ? "Đang áp dụng" : trangthai.TrangThai == 1 ? "Ngừng áp dụng" : "Chưa áp dụng",
                     };
                     selcted.Add(sPSelected);
-                   
+
                 }
+                
                 else
                 {
                     SPSelected sPSelected = new SPSelected()
@@ -147,8 +153,9 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
+                        KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = false,
+                        TrangThai = "Không áp dụng"
                     };
                     selcted.Add(sPSelected);
                 }
@@ -169,6 +176,7 @@ namespace _3.PL.Views
             }
             foreach (var item in _ChiTietSpViews)
             {
+                var trangthai = _IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == item.Id);
                 //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
                 if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == item.Id) != null)
                 {
@@ -178,8 +186,9 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
+                        KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = true,
+                        TrangThai = trangthai.TrangThai == 0 ? "Đang áp dụng" : trangthai.TrangThai == 1 ? "Ngừng áp dụng" : "Chưa áp dụng"
                     };
                     selcted.Add(sPSelected);
 
@@ -192,8 +201,9 @@ namespace _3.PL.Views
                         TenSanPham = item.TenSP,
                         MauSac = item.TenMauSac,
                         Team = item.TenTeam,
-                        KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
+                        KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == item.Id).IdKieuSp).Ten,
                         Selected = false,
+                        TrangThai = "Không áp dụng"
                     };
                     selcted.Add(sPSelected);
                 }
@@ -312,6 +322,7 @@ namespace _3.PL.Views
                     MessageBox.Show(_SaleServices.Add(saleView));
                     ClearForm();
                     loadKM();
+                    cbb_locTrangthai.SelectedIndex = 0;
                 }
             }
             else
@@ -336,10 +347,7 @@ namespace _3.PL.Views
         }
 
 
-        private void tb_timkiemkm_TextChanged(object sender, EventArgs e)
-        {
-            loadKM();
-        }
+
 
         private void bt_sua_Click(object sender, EventArgs e)
         {
@@ -382,6 +390,7 @@ namespace _3.PL.Views
 
                 else
                 {
+                    var a = _SaleServices.GetAll().FirstOrDefault(c => c.Id == IDsale);
                     SaleView saleView = new SaleView()
                     {
                         Id = IDsale,
@@ -397,6 +406,7 @@ namespace _3.PL.Views
                     MessageBox.Show(_SaleServices.Update(saleView));
                     ClearForm();
                     loadKM();
+                    cbb_locTrangthai.SelectedIndex = 0;
 
                 }
             }
@@ -662,8 +672,9 @@ namespace _3.PL.Views
                 }
                 foreach (var x in _ChiTietSpViews)
                 {
+
                     //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
-                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id) == null)
+                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id && c.TrangThai == 0) != null)
                     {
                         SPSelected sPSelected = new SPSelected()
                         {
@@ -671,8 +682,10 @@ namespace _3.PL.Views
                             TenSanPham = x.TenSP,
                             MauSac = x.TenMauSac,
                             Team = x.TenTeam,
-                            KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
-                            Selected = false,
+                            KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
+                            Selected = true,
+                            TrangThai = "Áp dụng"
+
                         };
                         selcted.Add(sPSelected);
 
@@ -692,7 +705,7 @@ namespace _3.PL.Views
                 foreach (var x in _ChiTietSpViews)
                 {
                     //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
-                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id) != null)
+                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id && c.TrangThai == 1) != null)
                     {
                         SPSelected sPSelected = new SPSelected()
                         {
@@ -700,16 +713,76 @@ namespace _3.PL.Views
                             TenSanPham = x.TenSP,
                             MauSac = x.TenMauSac,
                             Team = x.TenTeam,
-                            KieuSp =  _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
+                            KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
                             Selected = true,
+                            TrangThai = "Ngừng áp dụng"
                         };
                         selcted.Add(sPSelected);
 
                     }
 
                 }
+
                 dtg_sp.DataSource = selcted;
 
+            }
+            else if (cbb_locSp.SelectedIndex == 3)
+            {
+                List<SPSelected> selcted = new List<SPSelected>();
+                _ChiTietSpViews = _chiTietSpServices.GetAll().Where(c => c.TrangThaiKhuyenMai == 0).ToList();
+                if (tb_timkiemSp.Text != "")
+                {
+                    _ChiTietSpViews = _ChiTietSpViews.Where(c => c.TenSP.ToLower().Contains(tb_timkiemSp.Text.ToLower())).ToList();
+                }
+                foreach (var x in _ChiTietSpViews)
+                {
+                    //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
+                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id && c.TrangThai == 2) != null)
+                    {
+                        SPSelected sPSelected = new SPSelected()
+                        {
+                            Id = x.Id.ToString(),
+                            TenSanPham = x.TenSP,
+                            MauSac = x.TenMauSac,
+                            Team = x.TenTeam,
+                            KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
+                            Selected = true,
+                            TrangThai = "Chưa áp dụng"
+                        };
+                        selcted.Add(sPSelected);
+
+                    }
+
+                }
+            }
+            else if (cbb_locSp.SelectedIndex == 4)
+            {
+                List<SPSelected> selcted = new List<SPSelected>();
+                _ChiTietSpViews = _chiTietSpServices.GetAll().Where(c => c.TrangThaiKhuyenMai == 0).ToList();
+                if (tb_timkiemSp.Text != "")
+                {
+                    _ChiTietSpViews = _ChiTietSpViews.Where(c => c.TenSP.ToLower().Contains(tb_timkiemSp.Text.ToLower())).ToList();
+                }
+                foreach (var x in _ChiTietSpViews)
+                {
+                    //dtg_sp.Rows.Add(item.Id, item.TenSP, item.TenMauSac, item.TenTeam);
+                    if (_IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdSale == IDsale && c.IdChiTietSp == x.Id) == null)
+                    {
+                        SPSelected sPSelected = new SPSelected()
+                        {
+                            Id = x.Id.ToString(),
+                            TenSanPham = x.TenSP,
+                            MauSac = x.TenMauSac,
+                            Team = x.TenTeam,
+                            KieuSp = _kieuSpServices.GetAll().FirstOrDefault(c => c.Id == _chiTietkieuspservices.GetAll().FirstOrDefault(c => c.IdChiTietSp == x.Id).IdKieuSp).Ten,
+                            Selected = false,
+                            TrangThai = "Không áp dụng"
+                        };
+                        selcted.Add(sPSelected);
+
+                    }
+
+                }
             }
 
 
@@ -731,6 +804,7 @@ namespace _3.PL.Views
             cbb_locTrangthai.Items.Add("Đang áp dụng");
             cbb_locTrangthai.Items.Add("Ngừng áp dụng");
             cbb_locTrangthai.Items.Add("Chưa bắt đầu");
+            cbb_locTrangthai.Items.Add("Không áp dụng");
             label12.Text = DateTime.Now.ToLongTimeString();
             loadKM();
             loadCTSP();
@@ -766,18 +840,35 @@ namespace _3.PL.Views
                     {
                         MessageBox.Show("Mã sale đã không còn khả dụng");
                     }
-
                     else
                     {
-                        foreach (var item in chiTietSaleViews)
-                        {
-                            _IchiTietSaleServices.Delete(item);
-                        }
-
+                        var id = new List<Guid?>();
                         foreach (var item in selcted)
                         {
-                            var x = _IchiTietSaleServices.GetAll().FirstOrDefault(c => c.IdChiTietSp == Guid.Parse(item.Id) && c.TrangThai == 0);
-                            if (x == null)
+                            var x = _IchiTietSaleServices.GetAll().Where(c => c.IdChiTietSp == Guid.Parse(item.Id) && (c.TrangThai == 0 || c.TrangThai == 2) && c.IdSale != IDsale).ToList();
+                            if (x.Count != 0)
+                            {
+                                foreach (var item2 in x)
+                                {
+                                    d++;
+                                    if (id.Count() != 0)
+                                    {
+                                        if (id.FirstOrDefault(c => c == item2.IdSale) == null)
+                                        {
+                                            id.Add(item2.IdSale);
+                                        }
+                                    }
+                                    else { id.Add(item2.IdSale); }
+                                }
+                            }
+                        }
+                        if (d == 0)
+                        {
+                            foreach (var item in chiTietSaleViews)
+                            {
+                                _IchiTietSaleServices.Delete(item);
+                            }
+                            foreach (var item in selcted)
                             {
                                 ChiTietSaleView chiTietSaleView = new ChiTietSaleView()
                                 {
@@ -788,18 +879,51 @@ namespace _3.PL.Views
                                 };
                                 _IchiTietSaleServices.Add(chiTietSaleView);
                             }
-                            else
-                            {
-                                d++;
-                            }
-                        }
-                        if (d == 0)
-                        {
                             MessageBox.Show("Áp dụng thành công");
                         }
                         else
                         {
-                            MessageBox.Show(d.ToString() + "  sản phẩm không được áp dụng do nó đã được giảm giá bằng 1 mã khác");
+                            int dd = 0;
+                            var salechon = _SaleServices.GetAll().Find(c => c.Id == IDsale);
+                            foreach (var item in id)
+                            {
+                                var sale = _SaleServices.GetAll().Find(c => c.Id == item);
+                                if (sale.NgayKetThuc < salechon.NgayBatDau || sale.NgayBatDau > salechon.NgayKetThuc)
+                                {
+
+                                }
+                                else dd++;
+                            }
+                            if (dd == 0)
+                            {
+                                foreach (var ctsp in selcted)
+                                {
+                                    ChiTietSaleView chiTietSaleView = new ChiTietSaleView()
+                                    {
+                                        Id = Guid.NewGuid(),
+                                        IdChiTietSp = Guid.Parse(ctsp.Id),
+                                        IdSale = IDsale,
+
+                                    };
+                                    _IchiTietSaleServices.Add(chiTietSaleView);
+                                }
+                                MessageBox.Show("Áp dụng thành công");
+                            }
+                            else
+                            {
+                                foreach (var ctsp in selcted)
+                                {
+                                    ChiTietSaleView chiTietSaleView = new ChiTietSaleView()
+                                    {
+                                        Id = Guid.NewGuid(),
+                                        IdChiTietSp = Guid.Parse(ctsp.Id),
+                                        IdSale = IDsale,
+                                        TrangThai = 2
+                                    };
+                                    _IchiTietSaleServices.Add(chiTietSaleView);
+                                }
+                                MessageBox.Show("Áp dụng thành công");
+                            }
                         }
                     }
                 }
@@ -809,8 +933,6 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Bạn đã hủy sửa");
             }
-
-
         }
 
         private void dtg_show_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -859,7 +981,7 @@ namespace _3.PL.Views
                                 IdSale = x.IdSale,
                                 TrangThai = 1
                             };
-                            _IchiTietSaleServices.Delete(view);
+                            _IchiTietSaleServices.Update(view);
                         }
 
                     }
@@ -880,7 +1002,7 @@ namespace _3.PL.Views
                                 Id = x.Id,
                                 IdChiTietSp = x.IdChiTietSp,
                                 IdSale = x.IdSale,
-                                TrangThai = 1
+                                TrangThai = 2
                             };
                             _IchiTietSaleServices.Update(view);
                         }

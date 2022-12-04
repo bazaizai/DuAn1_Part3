@@ -43,12 +43,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btloadlai = new System.Windows.Forms.Button();
             this.dtg_sp = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KieuSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bt_them2 = new CustomControls.RJControls.RJButton();
             this.ck_all = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -73,6 +67,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KieuSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_show)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_sp)).BeginInit();
@@ -249,6 +250,7 @@
             this.MauSac,
             this.Team,
             this.KieuSp,
+            this.TrangThai,
             this.Selected});
             this.dtg_sp.Location = new System.Drawing.Point(29, 358);
             this.dtg_sp.Name = "dtg_sp";
@@ -256,47 +258,6 @@
             this.dtg_sp.RowTemplate.Height = 25;
             this.dtg_sp.Size = new System.Drawing.Size(561, 154);
             this.dtg_sp.TabIndex = 122;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // TenSanPham
-            // 
-            this.TenSanPham.DataPropertyName = "TenSanPham";
-            this.TenSanPham.HeaderText = "TênSP";
-            this.TenSanPham.Name = "TenSanPham";
-            this.TenSanPham.ReadOnly = true;
-            // 
-            // MauSac
-            // 
-            this.MauSac.DataPropertyName = "MauSac";
-            this.MauSac.HeaderText = "Màu Sắc";
-            this.MauSac.Name = "MauSac";
-            this.MauSac.ReadOnly = true;
-            // 
-            // Team
-            // 
-            this.Team.DataPropertyName = "Team";
-            this.Team.HeaderText = "Team";
-            this.Team.Name = "Team";
-            this.Team.ReadOnly = true;
-            // 
-            // KieuSp
-            // 
-            this.KieuSp.DataPropertyName = "KieuSP";
-            this.KieuSp.HeaderText = "Kiểu SP";
-            this.KieuSp.Name = "KieuSp";
-            // 
-            // Selected
-            // 
-            this.Selected.DataPropertyName = "Selected";
-            this.Selected.HeaderText = "Selected";
-            this.Selected.Name = "Selected";
             // 
             // bt_them2
             // 
@@ -471,7 +432,7 @@
             this.cbb_loaiKM.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbb_loaiKM.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.cbb_loaiKM.BorderSize = 1;
-            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_loaiKM.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_loaiKM.ForeColor = System.Drawing.Color.Black;
             this.cbb_loaiKM.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -682,6 +643,53 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // TenSanPham
+            // 
+            this.TenSanPham.DataPropertyName = "TenSanPham";
+            this.TenSanPham.HeaderText = "TênSP";
+            this.TenSanPham.Name = "TenSanPham";
+            this.TenSanPham.ReadOnly = true;
+            // 
+            // MauSac
+            // 
+            this.MauSac.DataPropertyName = "MauSac";
+            this.MauSac.HeaderText = "Màu Sắc";
+            this.MauSac.Name = "MauSac";
+            this.MauSac.ReadOnly = true;
+            // 
+            // Team
+            // 
+            this.Team.DataPropertyName = "Team";
+            this.Team.HeaderText = "Team";
+            this.Team.Name = "Team";
+            this.Team.ReadOnly = true;
+            // 
+            // KieuSp
+            // 
+            this.KieuSp.DataPropertyName = "KieuSP";
+            this.KieuSp.HeaderText = "Kiểu SP";
+            this.KieuSp.Name = "KieuSp";
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
+            // 
+            // Selected
+            // 
+            this.Selected.DataPropertyName = "Selected";
+            this.Selected.HeaderText = "Selected";
+            this.Selected.Name = "Selected";
+            // 
             // FrmChiTietSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -739,15 +747,16 @@
         private System.Windows.Forms.Label label1;
         private CustomControls.RJControls.RJButton bt_them2;
         private System.Windows.Forms.DataGridView dtg_sp;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btloadlai;
+        private CustomControls.RJControls.RJTextBox tb_trangthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MauSac;
         private System.Windows.Forms.DataGridViewTextBoxColumn Team;
         private System.Windows.Forms.DataGridViewTextBoxColumn KieuSp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btloadlai;
-        private CustomControls.RJControls.RJTextBox tb_trangthai;
     }
 }

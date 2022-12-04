@@ -136,9 +136,9 @@ namespace _3.PL.Views
                 {
                     RJMessageBox.Show("Mức ưu đãi không được bằng 0");
                 }
-                else if (cbb_loaihinhkm.Text == "%" && Convert.ToDecimal(tb_mucuudai.Text) > 100)
+                else if (cbb_loaihinhkm.SelectedIndex == 0 && Convert.ToDecimal(tb_mucuudai.Text) > 99)
                 {
-                    RJMessageBox.Show("Không được quá 100%");
+                    RJMessageBox.Show("Ưu đãi không được quá 99%");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
