@@ -68,6 +68,7 @@ namespace _1.DAL.Repositories
                 temp.HinhThucGiamGia = obj.HinhThucGiamGia;
                 temp.TienShip = obj.TienShip;
                 temp.TrangThaiGiaoHang = obj.TrangThaiGiaoHang;
+                temp.TongTien = obj.TongTien;
                 temp.SoTienGiam = obj.SoTienGiam;
                 temp.TienKhachDua = obj.TienKhachDua;
                 temp.TrangThai = obj.TrangThai;

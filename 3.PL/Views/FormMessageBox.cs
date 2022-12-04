@@ -277,6 +277,7 @@ public partial class FormMessageBox : Form
         ReleaseCapture();
         SendMessage(this.Handle, 0x112, 0xf012, 0);
     }
-    #endregion
-}
+        #endregion
+
+    }
 }
