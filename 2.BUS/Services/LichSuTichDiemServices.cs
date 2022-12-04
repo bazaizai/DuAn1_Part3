@@ -18,12 +18,14 @@ namespace _2.BUS.Services
         ICtTichDiemRepos _iCtTichDiemRepos;
         IHoaDonRepos _iHoaDonRepos;
         IKhachHangRepos _iKhachHangRepos;
+        INhanVienRepos _iNhanVienRepos;
         public LichSuTichDiemServices()
         {
             _iLichSuTichDiemRepos = new LichSuTichDiemRepos();
             _iTichDiemRepos = new TichDiemRepos();
             _iCtTichDiemRepos = new CtTichDiemRepos();
             _iHoaDonRepos = new HoaDonRepos();
+            _iNhanVienRepos = new NhanVienRepos();
         }
         public string Add(LichSuTichDiemView obj)
         {
@@ -68,21 +70,23 @@ namespace _2.BUS.Services
             var lst = (from lstd in _iLichSuTichDiemRepos.GetAll()
                        join td in _iTichDiemRepos.GetAll() on lstd.IdTichDiem equals td.Id
                        join hd in _iHoaDonRepos.GetAll() on lstd.IdHoaDon equals hd.Id
-                       join c in (from cttd in _iCtTichDiemRepos.GetAll()
-                                  join hd in _iHoaDonRepos.GetAll() on cttd.Id equals hd.Id
+                       join c in (from hd in _iHoaDonRepos.GetAll() join nv in _iNhanVienRepos.GetAll() on hd.IdNv equals nv.Id
                                   join kh in _iKhachHangRepos.GetAll() on hd.Id equals kh.Id
                                   select new HoaDonViews()
                                   {
                                       Id = hd.Id,
                                       TenKh = kh.Ten,
+                                      MaNv = nv.Ma,
                                       MaHD = hd.Ma,
-                                      TrangThai = cttd.TrangThai
+                                      TrangThai = hd.TrangThai
                                   }).ToList() on lstd.IdHoaDon equals c.Id
                        select new LichSuTichDiemView()
                        {
                            Id = lstd.Id,
                            IdHoaDon = hd.Id,
                            TenKH = c.TenKh,
+                           MaNV = c.MaNv,
+                           MaHD = c.MaHD,
                            SoDiemDung = lstd.SoDiemDung,
                            NgayTichDiem = lstd.NgayTichDiem,
                            TrangThai = lstd.TrangThai

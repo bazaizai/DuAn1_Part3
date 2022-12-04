@@ -327,6 +327,7 @@
             this.tb_mucuudai.Name = "tb_mucuudai";
             this.tb_mucuudai.Size = new System.Drawing.Size(360, 37);
             this.tb_mucuudai.TabIndex = 30;
+            this.tb_mucuudai.TextChanged += new System.EventHandler(this.tb_mucuudai_TextChanged);
             this.tb_mucuudai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_mucuudai_KeyPress);
             // 
             // lb_doi
