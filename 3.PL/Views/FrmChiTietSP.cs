@@ -161,7 +161,7 @@ namespace _3.PL.Views
                 Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
                 Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
                 Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+               Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].Size;
                 Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
@@ -236,7 +236,7 @@ namespace _3.PL.Views
                 Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
                 Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
                 Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+               Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].Size;
                 Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
@@ -308,7 +308,7 @@ namespace _3.PL.Views
                     Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
                     Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
                     Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                    Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+                   Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].Size;
                     Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                     Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                     Sp[i].BaoHanh = CTSP[i].BaoHanh;
@@ -377,7 +377,7 @@ namespace _3.PL.Views
                 Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
                 Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
                 Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+               Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].Size;
                 Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
@@ -442,7 +442,7 @@ namespace _3.PL.Views
                 Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
                 Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
                 Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
+               Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].Size;
                 Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
@@ -582,10 +582,8 @@ namespace _3.PL.Views
             CheckBox item = (CheckBox)sender;
             if (item.Checked)
             {
-                MessageBox.Show("Thông minh");
             }else
             {
-                MessageBox.Show("Rất thông minh");
             }
         }
 

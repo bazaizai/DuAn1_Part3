@@ -43,7 +43,7 @@ namespace _3.PL.Views
         //Structs
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(0,0,0);
+            public static Color color1 = Color.FromArgb(253, 255, 255);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
@@ -58,7 +58,7 @@ namespace _3.PL.Views
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(48, 143, 157);
+                currentBtn.BackColor = Color.FromArgb(35, 39, 42);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -78,10 +78,10 @@ namespace _3.PL.Views
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(48, 143, 157);
-                currentBtn.ForeColor = Color.FromArgb(252, 253, 253);
+                currentBtn.BackColor = Color.FromArgb(35, 39, 42);
+                currentBtn.ForeColor = Color.FromArgb(253, 255, 255);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.FromArgb(252, 253, 253);
+                currentBtn.IconColor = Color.FromArgb(253, 255, 255);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -630,6 +630,23 @@ namespace _3.PL.Views
             lblHome.Text = iconButton6.Text;
             OpenChildForm(new FrmLichSuTichDiem());
             HideSubMenu();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int one = random.Next(0, 255);
+            int two = random.Next(0, 255);
+            int three = random.Next(0, 255);
+            int four = random.Next(0, 255);
+
+            rjCircularPictureBox1.BackColor = Color.FromArgb(one, two, three, four);
+            pictureBox1.BackColor = Color.FromArgb(one, two, three, four);
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

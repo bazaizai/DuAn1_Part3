@@ -104,7 +104,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(136)))), ((int)(((byte)(144)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel1.Controls.Add(this.btnHienThiTatCa);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.panel6);
@@ -119,21 +119,21 @@
             // btnHienThiTatCa
             // 
             this.btnHienThiTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHienThiTatCa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.btnHienThiTatCa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnHienThiTatCa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnHienThiTatCa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnHienThiTatCa.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnHienThiTatCa.BorderRadius = 10;
             this.btnHienThiTatCa.BorderSize = 0;
             this.btnHienThiTatCa.FlatAppearance.BorderSize = 0;
             this.btnHienThiTatCa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHienThiTatCa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHienThiTatCa.ForeColor = System.Drawing.Color.White;
             this.btnHienThiTatCa.Location = new System.Drawing.Point(1190, 9);
             this.btnHienThiTatCa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHienThiTatCa.Name = "btnHienThiTatCa";
             this.btnHienThiTatCa.Size = new System.Drawing.Size(190, 46);
             this.btnHienThiTatCa.TabIndex = 21;
             this.btnHienThiTatCa.Text = "Hiển thị tất cả";
-            this.btnHienThiTatCa.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHienThiTatCa.TextColor = System.Drawing.Color.White;
             this.btnHienThiTatCa.UseVisualStyleBackColor = false;
             this.btnHienThiTatCa.Visible = false;
             this.btnHienThiTatCa.Click += new System.EventHandler(this.rjButton1_Click);
@@ -141,21 +141,21 @@
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.btnThem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnThem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnThem.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnThem.BorderRadius = 10;
             this.btnThem.BorderSize = 0;
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(1394, 9);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(190, 46);
             this.btnThem.TabIndex = 20;
             this.btnThem.Text = "+ Thêm Mới";
-            this.btnThem.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnThem.TextColor = System.Drawing.Color.White;
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -173,16 +173,16 @@
             // 
             // CbbThaoTac
             // 
-            this.CbbThaoTac.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CbbThaoTac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.CbbThaoTac.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.CbbThaoTac.BorderSize = 1;
             this.CbbThaoTac.Dock = System.Windows.Forms.DockStyle.Left;
             this.CbbThaoTac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CbbThaoTac.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbbThaoTac.ForeColor = System.Drawing.Color.DimGray;
+            this.CbbThaoTac.ForeColor = System.Drawing.Color.White;
             this.CbbThaoTac.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.CbbThaoTac.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CbbThaoTac.ListTextColor = System.Drawing.Color.DimGray;
+            this.CbbThaoTac.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
+            this.CbbThaoTac.ListTextColor = System.Drawing.Color.White;
             this.CbbThaoTac.Location = new System.Drawing.Point(330, 0);
             this.CbbThaoTac.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CbbThaoTac.MinimumSize = new System.Drawing.Size(250, 34);
@@ -196,14 +196,14 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSearch.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
+            this.txtSearch.BorderColor = System.Drawing.Color.White;
             this.txtSearch.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtSearch.BorderRadius = 15;
             this.txtSearch.BorderSize = 2;
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
             this.txtSearch.Location = new System.Drawing.Point(0, 0);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5);
             this.txtSearch.Multiline = false;
@@ -222,6 +222,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(66, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -243,7 +244,7 @@
             // panel7
             // 
             this.panel7.AutoScroll = true;
-            this.panel7.BackColor = System.Drawing.Color.DimGray;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(212)))), ((int)(((byte)(229)))));
             this.panel7.Controls.Add(this.pnlbdchatLieu);
             this.panel7.Controls.Add(this.panel16);
             this.panel7.Controls.Add(this.pnlBodyMS);
@@ -259,8 +260,10 @@
             // 
             // pnlbdchatLieu
             // 
+            this.pnlbdchatLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.pnlbdchatLieu.Controls.Add(this.pnlChatLieu);
             this.pnlbdchatLieu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlbdchatLieu.ForeColor = System.Drawing.Color.White;
             this.pnlbdchatLieu.Location = new System.Drawing.Point(0, 503);
             this.pnlbdchatLieu.Name = "pnlbdchatLieu";
             this.pnlbdchatLieu.Size = new System.Drawing.Size(360, 97);
@@ -271,6 +274,7 @@
             this.pnlChatLieu.AutoScroll = true;
             this.pnlChatLieu.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlChatLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pnlChatLieu.ForeColor = System.Drawing.Color.White;
             this.pnlChatLieu.Location = new System.Drawing.Point(42, 0);
             this.pnlChatLieu.Name = "pnlChatLieu";
             this.pnlChatLieu.Size = new System.Drawing.Size(318, 97);
@@ -278,7 +282,7 @@
             // 
             // panel16
             // 
-            this.panel16.BackColor = System.Drawing.Color.Gray;
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel16.Controls.Add(this.btnShowChatLieu);
             this.panel16.Controls.Add(this.label13);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
@@ -289,8 +293,8 @@
             // 
             // btnShowChatLieu
             // 
-            this.btnShowChatLieu.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnShowChatLieu.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnShowChatLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnShowChatLieu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnShowChatLieu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnShowChatLieu.BorderRadius = 15;
             this.btnShowChatLieu.BorderSize = 0;
@@ -309,6 +313,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(6, 16);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(78, 23);
@@ -317,8 +322,10 @@
             // 
             // pnlBodyMS
             // 
+            this.pnlBodyMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.pnlBodyMS.Controls.Add(this.PnlMauSac);
             this.pnlBodyMS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBodyMS.ForeColor = System.Drawing.Color.White;
             this.pnlBodyMS.Location = new System.Drawing.Point(0, 353);
             this.pnlBodyMS.Name = "pnlBodyMS";
             this.pnlBodyMS.Size = new System.Drawing.Size(360, 97);
@@ -329,6 +336,7 @@
             this.PnlMauSac.AutoScroll = true;
             this.PnlMauSac.Dock = System.Windows.Forms.DockStyle.Right;
             this.PnlMauSac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PnlMauSac.ForeColor = System.Drawing.Color.White;
             this.PnlMauSac.Location = new System.Drawing.Point(42, 0);
             this.PnlMauSac.Name = "PnlMauSac";
             this.PnlMauSac.Size = new System.Drawing.Size(318, 97);
@@ -336,7 +344,7 @@
             // 
             // panel13
             // 
-            this.panel13.BackColor = System.Drawing.Color.Gray;
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel13.Controls.Add(this.BtnShowMS);
             this.panel13.Controls.Add(this.label12);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
@@ -347,8 +355,8 @@
             // 
             // BtnShowMS
             // 
-            this.BtnShowMS.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnShowMS.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnShowMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.BtnShowMS.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.BtnShowMS.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.BtnShowMS.BorderRadius = 15;
             this.BtnShowMS.BorderSize = 0;
@@ -367,6 +375,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(6, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 23);
@@ -375,6 +384,7 @@
             // 
             // pnlBodyTrangThai
             // 
+            this.pnlBodyTrangThai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.pnlBodyTrangThai.Controls.Add(this.panel14);
             this.pnlBodyTrangThai.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBodyTrangThai.Location = new System.Drawing.Point(0, 203);
@@ -398,6 +408,7 @@
             this.chkNgungBan.AutoSize = true;
             this.chkNgungBan.Dock = System.Windows.Forms.DockStyle.Top;
             this.chkNgungBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkNgungBan.ForeColor = System.Drawing.Color.White;
             this.chkNgungBan.Location = new System.Drawing.Point(0, 54);
             this.chkNgungBan.Name = "chkNgungBan";
             this.chkNgungBan.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -412,6 +423,7 @@
             this.chkDangBan.AutoSize = true;
             this.chkDangBan.Dock = System.Windows.Forms.DockStyle.Top;
             this.chkDangBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkDangBan.ForeColor = System.Drawing.Color.White;
             this.chkDangBan.Location = new System.Drawing.Point(0, 27);
             this.chkDangBan.Name = "chkDangBan";
             this.chkDangBan.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -426,6 +438,7 @@
             this.chkTatCa.AutoSize = true;
             this.chkTatCa.Dock = System.Windows.Forms.DockStyle.Top;
             this.chkTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkTatCa.ForeColor = System.Drawing.Color.White;
             this.chkTatCa.Location = new System.Drawing.Point(0, 0);
             this.chkTatCa.Name = "chkTatCa";
             this.chkTatCa.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -437,7 +450,7 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.Gray;
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel12.Controls.Add(this.BtnShowTT);
             this.panel12.Controls.Add(this.label11);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -448,8 +461,8 @@
             // 
             // BtnShowTT
             // 
-            this.BtnShowTT.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnShowTT.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnShowTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.BtnShowTT.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.BtnShowTT.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.BtnShowTT.BorderRadius = 15;
             this.BtnShowTT.BorderSize = 0;
@@ -468,6 +481,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(6, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 23);
@@ -476,6 +490,7 @@
             // 
             // pnlbodySoLuongTon
             // 
+            this.pnlbodySoLuongTon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.pnlbodySoLuongTon.Controls.Add(this.panel11);
             this.pnlbodySoLuongTon.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlbodySoLuongTon.Location = new System.Drawing.Point(0, 53);
@@ -500,6 +515,7 @@
             this.rdoHetHang.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rdoHetHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.rdoHetHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoHetHang.ForeColor = System.Drawing.Color.White;
             this.rdoHetHang.Location = new System.Drawing.Point(0, 64);
             this.rdoHetHang.MinimumSize = new System.Drawing.Size(0, 21);
             this.rdoHetHang.Name = "rdoHetHang";
@@ -517,6 +533,7 @@
             this.rdoConHang.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rdoConHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.rdoConHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoConHang.ForeColor = System.Drawing.Color.White;
             this.rdoConHang.Location = new System.Drawing.Point(0, 32);
             this.rdoConHang.MinimumSize = new System.Drawing.Size(0, 21);
             this.rdoConHang.Name = "rdoConHang";
@@ -534,6 +551,7 @@
             this.rdoTatCa.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.rdoTatCa.Dock = System.Windows.Forms.DockStyle.Top;
             this.rdoTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdoTatCa.ForeColor = System.Drawing.Color.White;
             this.rdoTatCa.Location = new System.Drawing.Point(0, 0);
             this.rdoTatCa.MinimumSize = new System.Drawing.Size(0, 21);
             this.rdoTatCa.Name = "rdoTatCa";
@@ -576,7 +594,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.Gray;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel10.Controls.Add(this.BtnShowSL);
             this.panel10.Controls.Add(this.label10);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
@@ -587,8 +605,8 @@
             // 
             // BtnShowSL
             // 
-            this.BtnShowSL.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnShowSL.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnShowSL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.BtnShowSL.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.BtnShowSL.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.BtnShowSL.BorderRadius = 15;
             this.BtnShowSL.BorderSize = 0;
@@ -607,6 +625,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(6, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 23);
@@ -664,7 +683,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(220)))), ((int)(((byte)(234)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 53);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -674,7 +693,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.Blue;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel5.Controls.Add(this.checkBox1);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label9);
@@ -705,6 +724,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(1059, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -716,6 +736,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(850, 15);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
@@ -727,6 +748,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(693, 15);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -738,6 +760,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(572, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -749,6 +772,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(336, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -760,6 +784,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(195, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -771,6 +796,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(77, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";

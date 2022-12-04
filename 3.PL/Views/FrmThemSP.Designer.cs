@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblclose = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
@@ -91,6 +90,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.btnLuuSaochep = new CustomControls.RJControls.RJButton();
             this.btnLuuThemMoi = new CustomControls.RJControls.RJButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Anh)).BeginInit();
@@ -104,7 +104,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(218)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel1.Controls.Add(this.lblclose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -125,19 +125,9 @@
             this.lblclose.Text = "X";
             this.lblclose.Click += new System.EventHandler(this.lblclose_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(14, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm Hàng";
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(218)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.rjTextBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -151,6 +141,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(58, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 23);
@@ -165,7 +156,7 @@
             this.rjTextBox1.BorderRadius = 0;
             this.rjTextBox1.BorderSize = 2;
             this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.White;
             this.rjTextBox1.Location = new System.Drawing.Point(54, -5);
             this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox1.Multiline = false;
@@ -191,14 +182,14 @@
             // 
             // txtMaSP
             // 
-            this.txtMaSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtMaSP.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtMaSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtMaSP.BorderColor = System.Drawing.Color.White;
             this.txtMaSP.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtMaSP.BorderRadius = 0;
             this.txtMaSP.BorderSize = 1;
             this.txtMaSP.Enabled = false;
             this.txtMaSP.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtMaSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtMaSP.ForeColor = System.Drawing.Color.White;
             this.txtMaSP.Location = new System.Drawing.Point(205, 373);
             this.txtMaSP.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaSP.Multiline = false;
@@ -234,15 +225,15 @@
             // 
             // cbbMauSac
             // 
-            this.cbbMauSac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.cbbMauSac.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbMauSac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbMauSac.BorderColor = System.Drawing.Color.White;
             this.cbbMauSac.BorderSize = 1;
             this.cbbMauSac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cbbMauSac.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbbMauSac.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbMauSac.ForeColor = System.Drawing.Color.White;
             this.cbbMauSac.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbbMauSac.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbbMauSac.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbMauSac.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbMauSac.ListTextColor = System.Drawing.Color.White;
             this.cbbMauSac.Location = new System.Drawing.Point(205, 509);
             this.cbbMauSac.MinimumSize = new System.Drawing.Size(225, 30);
             this.cbbMauSac.Name = "cbbMauSac";
@@ -253,15 +244,15 @@
             // 
             // cbbTenSP
             // 
-            this.cbbTenSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.cbbTenSP.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbTenSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbTenSP.BorderColor = System.Drawing.Color.White;
             this.cbbTenSP.BorderSize = 1;
             this.cbbTenSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cbbTenSP.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbbTenSP.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbTenSP.ForeColor = System.Drawing.Color.White;
             this.cbbTenSP.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbbTenSP.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbbTenSP.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbTenSP.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbTenSP.ListTextColor = System.Drawing.Color.White;
             this.cbbTenSP.Location = new System.Drawing.Point(205, 436);
             this.cbbTenSP.MinimumSize = new System.Drawing.Size(225, 30);
             this.cbbTenSP.Name = "cbbTenSP";
@@ -282,15 +273,15 @@
             // 
             // CbbNhomHang
             // 
-            this.CbbNhomHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.CbbNhomHang.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.CbbNhomHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.CbbNhomHang.BorderColor = System.Drawing.Color.White;
             this.CbbNhomHang.BorderSize = 1;
             this.CbbNhomHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CbbNhomHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CbbNhomHang.ForeColor = System.Drawing.Color.DimGray;
+            this.CbbNhomHang.ForeColor = System.Drawing.Color.White;
             this.CbbNhomHang.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.CbbNhomHang.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CbbNhomHang.ListTextColor = System.Drawing.Color.DimGray;
+            this.CbbNhomHang.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.CbbNhomHang.ListTextColor = System.Drawing.Color.White;
             this.CbbNhomHang.Location = new System.Drawing.Point(205, 582);
             this.CbbNhomHang.MinimumSize = new System.Drawing.Size(225, 30);
             this.CbbNhomHang.Name = "CbbNhomHang";
@@ -321,15 +312,15 @@
             // 
             // CbbChatLieu
             // 
-            this.CbbChatLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.CbbChatLieu.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.CbbChatLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.CbbChatLieu.BorderColor = System.Drawing.Color.White;
             this.CbbChatLieu.BorderSize = 1;
             this.CbbChatLieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CbbChatLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CbbChatLieu.ForeColor = System.Drawing.Color.DimGray;
+            this.CbbChatLieu.ForeColor = System.Drawing.Color.White;
             this.CbbChatLieu.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.CbbChatLieu.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CbbChatLieu.ListTextColor = System.Drawing.Color.DimGray;
+            this.CbbChatLieu.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.CbbChatLieu.ListTextColor = System.Drawing.Color.White;
             this.CbbChatLieu.Location = new System.Drawing.Point(853, 92);
             this.CbbChatLieu.MinimumSize = new System.Drawing.Size(225, 30);
             this.CbbChatLieu.Name = "CbbChatLieu";
@@ -350,15 +341,15 @@
             // 
             // cbbTeam
             // 
-            this.cbbTeam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.cbbTeam.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbTeam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbTeam.BorderColor = System.Drawing.Color.White;
             this.cbbTeam.BorderSize = 1;
             this.cbbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cbbTeam.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbbTeam.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbTeam.ForeColor = System.Drawing.Color.White;
             this.cbbTeam.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbbTeam.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbbTeam.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbTeam.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbTeam.ListTextColor = System.Drawing.Color.White;
             this.cbbTeam.Location = new System.Drawing.Point(853, 165);
             this.cbbTeam.MinimumSize = new System.Drawing.Size(225, 30);
             this.cbbTeam.Name = "cbbTeam";
@@ -419,15 +410,15 @@
             // 
             // cbbKhuyenMai
             // 
-            this.cbbKhuyenMai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.cbbKhuyenMai.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbKhuyenMai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbKhuyenMai.BorderColor = System.Drawing.Color.White;
             this.cbbKhuyenMai.BorderSize = 1;
             this.cbbKhuyenMai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cbbKhuyenMai.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbbKhuyenMai.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbKhuyenMai.ForeColor = System.Drawing.Color.White;
             this.cbbKhuyenMai.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbbKhuyenMai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbbKhuyenMai.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbKhuyenMai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbKhuyenMai.ListTextColor = System.Drawing.Color.White;
             this.cbbKhuyenMai.Location = new System.Drawing.Point(853, 581);
             this.cbbKhuyenMai.MinimumSize = new System.Drawing.Size(225, 30);
             this.cbbKhuyenMai.Name = "cbbKhuyenMai";
@@ -438,13 +429,13 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtGhiChu.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtGhiChu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtGhiChu.BorderColor = System.Drawing.Color.White;
             this.txtGhiChu.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtGhiChu.BorderRadius = 15;
             this.txtGhiChu.BorderSize = 1;
             this.txtGhiChu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtGhiChu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGhiChu.ForeColor = System.Drawing.Color.White;
             this.txtGhiChu.Location = new System.Drawing.Point(699, 656);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.txtGhiChu.Multiline = false;
@@ -480,8 +471,8 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
-            this.btnLuu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
+            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnLuu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnLuu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnLuu.BorderRadius = 15;
             this.btnLuu.BorderSize = 0;
@@ -532,13 +523,13 @@
             // 
             // txtBaoHanh
             // 
-            this.txtBaoHanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtBaoHanh.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtBaoHanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtBaoHanh.BorderColor = System.Drawing.Color.White;
             this.txtBaoHanh.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtBaoHanh.BorderRadius = 0;
             this.txtBaoHanh.BorderSize = 1;
             this.txtBaoHanh.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtBaoHanh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBaoHanh.ForeColor = System.Drawing.Color.White;
             this.txtBaoHanh.Location = new System.Drawing.Point(853, 443);
             this.txtBaoHanh.Margin = new System.Windows.Forms.Padding(4);
             this.txtBaoHanh.Multiline = false;
@@ -564,13 +555,13 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtSoLuong.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtSoLuong.BorderColor = System.Drawing.Color.White;
             this.txtSoLuong.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtSoLuong.BorderRadius = 0;
             this.txtSoLuong.BorderSize = 1;
             this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtSoLuong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSoLuong.ForeColor = System.Drawing.Color.White;
             this.txtSoLuong.Location = new System.Drawing.Point(853, 374);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoLuong.Multiline = false;
@@ -597,15 +588,15 @@
             // 
             // cbbSize
             // 
-            this.cbbSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.cbbSize.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbSize.BorderColor = System.Drawing.Color.White;
             this.cbbSize.BorderSize = 1;
             this.cbbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cbbSize.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbbSize.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbSize.ForeColor = System.Drawing.Color.White;
             this.cbbSize.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbbSize.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbbSize.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbSize.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.cbbSize.ListTextColor = System.Drawing.Color.White;
             this.cbbSize.Location = new System.Drawing.Point(205, 655);
             this.cbbSize.MinimumSize = new System.Drawing.Size(225, 30);
             this.cbbSize.Name = "cbbSize";
@@ -734,13 +725,13 @@
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtGiaBan.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtGiaBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtGiaBan.BorderColor = System.Drawing.Color.White;
             this.txtGiaBan.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtGiaBan.BorderRadius = 0;
             this.txtGiaBan.BorderSize = 1;
             this.txtGiaBan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGiaBan.ForeColor = System.Drawing.Color.White;
             this.txtGiaBan.Location = new System.Drawing.Point(853, 302);
             this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaBan.Multiline = false;
@@ -767,13 +758,13 @@
             // 
             // txtGiaNhap1
             // 
-            this.txtGiaNhap1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.txtGiaNhap1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtGiaNhap1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.txtGiaNhap1.BorderColor = System.Drawing.Color.White;
             this.txtGiaNhap1.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtGiaNhap1.BorderRadius = 0;
             this.txtGiaNhap1.BorderSize = 1;
             this.txtGiaNhap1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtGiaNhap1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGiaNhap1.ForeColor = System.Drawing.Color.White;
             this.txtGiaNhap1.Location = new System.Drawing.Point(853, 233);
             this.txtGiaNhap1.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaNhap1.Multiline = false;
@@ -916,8 +907,8 @@
             // 
             // rjButton1
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 15;
             this.rjButton1.BorderSize = 0;
@@ -946,8 +937,8 @@
             // 
             // btnLuuSaochep
             // 
-            this.btnLuuSaochep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
-            this.btnLuuSaochep.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
+            this.btnLuuSaochep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnLuuSaochep.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnLuuSaochep.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnLuuSaochep.BorderRadius = 15;
             this.btnLuuSaochep.BorderSize = 0;
@@ -967,8 +958,8 @@
             // 
             // btnLuuThemMoi
             // 
-            this.btnLuuThemMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
-            this.btnLuuThemMoi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(141)))), ((int)(((byte)(66)))));
+            this.btnLuuThemMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnLuuThemMoi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnLuuThemMoi.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnLuuThemMoi.BorderRadius = 15;
             this.btnLuuThemMoi.BorderSize = 0;
@@ -986,11 +977,22 @@
             this.btnLuuThemMoi.UseVisualStyleBackColor = false;
             this.btnLuuThemMoi.Click += new System.EventHandler(this.btnLuuThemMoi_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Thêm Hàng";
+            // 
             // FrmThemSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(1330, 789);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.rjCircularPictureBox3);
@@ -1052,6 +1054,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmThemSP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1076,7 +1079,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblclose;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
@@ -1137,5 +1139,6 @@
         private System.Windows.Forms.Label label29;
         private CustomControls.RJControls.RJButton btnLuuSaochep;
         private CustomControls.RJControls.RJButton btnLuuThemMoi;
+        private System.Windows.Forms.Label label1;
     }
 }
