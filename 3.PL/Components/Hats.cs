@@ -24,6 +24,7 @@ namespace _3.PL.Components
         private Image _Icon;
         private Guid _Idspct;
         public event EventHandler Onselect = null;
+        public event EventHandler OnclickAnh = null;
 
 
         public Hats()
@@ -71,6 +72,11 @@ namespace _3.PL.Components
         private void Hats_Load(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void Anh_Click(object sender, EventArgs e)
+        {
+            OnclickAnh?.Invoke(this, e);
         }
     }
 }

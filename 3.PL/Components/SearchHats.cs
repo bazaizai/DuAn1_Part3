@@ -43,5 +43,21 @@ namespace _3.PL.Components
         {
             Onclick?.Invoke(this, e);
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int one = random.Next(0, 255);
+            int two = random.Next(0, 255);
+            int three = random.Next(0, 255);
+            int four = random.Next(0, 255);
+            lblPT.ForeColor = Color.FromArgb(one, two, three, four);
+        }
+
+        private void SearchHats_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+
     }
 }

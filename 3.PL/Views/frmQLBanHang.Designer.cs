@@ -175,9 +175,9 @@
             this.ListItem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlTimeLine = new System.Windows.Forms.Panel();
-            this.rjButton6 = new CustomControls.RJControls.RJButton();
-            this.rjButton5 = new CustomControls.RJControls.RJButton();
-            this.rjButton3 = new CustomControls.RJControls.RJButton();
+            this.btndangGiao = new CustomControls.RJControls.RJButton();
+            this.btnChoLayHang = new CustomControls.RJControls.RJButton();
+            this.btnChoXuLy = new CustomControls.RJControls.RJButton();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -2325,70 +2325,74 @@
             // 
             // pnlTimeLine
             // 
-            this.pnlTimeLine.Controls.Add(this.rjButton6);
-            this.pnlTimeLine.Controls.Add(this.rjButton5);
-            this.pnlTimeLine.Controls.Add(this.rjButton3);
+            this.pnlTimeLine.Controls.Add(this.btndangGiao);
+            this.pnlTimeLine.Controls.Add(this.btnChoLayHang);
+            this.pnlTimeLine.Controls.Add(this.btnChoXuLy);
             this.pnlTimeLine.Location = new System.Drawing.Point(397, 4);
             this.pnlTimeLine.Name = "pnlTimeLine";
             this.pnlTimeLine.Size = new System.Drawing.Size(428, 44);
             this.pnlTimeLine.TabIndex = 0;
+            this.pnlTimeLine.Visible = false;
             // 
-            // rjButton6
+            // btndangGiao
             // 
-            this.rjButton6.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton6.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 0;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(280, 0);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(140, 44);
-            this.rjButton6.TabIndex = 2;
-            this.rjButton6.Text = "Đang Giao";
-            this.rjButton6.TextColor = System.Drawing.Color.White;
-            this.rjButton6.UseVisualStyleBackColor = false;
+            this.btndangGiao.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btndangGiao.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btndangGiao.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btndangGiao.BorderRadius = 0;
+            this.btndangGiao.BorderSize = 0;
+            this.btndangGiao.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btndangGiao.FlatAppearance.BorderSize = 0;
+            this.btndangGiao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndangGiao.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btndangGiao.ForeColor = System.Drawing.Color.White;
+            this.btndangGiao.Location = new System.Drawing.Point(280, 0);
+            this.btndangGiao.Name = "btndangGiao";
+            this.btndangGiao.Size = new System.Drawing.Size(140, 44);
+            this.btndangGiao.TabIndex = 2;
+            this.btndangGiao.Text = "Đang Giao";
+            this.btndangGiao.TextColor = System.Drawing.Color.White;
+            this.btndangGiao.UseVisualStyleBackColor = false;
             // 
-            // rjButton5
+            // btnChoLayHang
             // 
-            this.rjButton5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton5.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton5.BorderRadius = 0;
-            this.rjButton5.BorderSize = 0;
-            this.rjButton5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rjButton5.FlatAppearance.BorderSize = 0;
-            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(140, 0);
-            this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(140, 44);
-            this.rjButton5.TabIndex = 1;
-            this.rjButton5.Text = "Chờ lấy hàng";
-            this.rjButton5.TextColor = System.Drawing.Color.White;
-            this.rjButton5.UseVisualStyleBackColor = false;
+            this.btnChoLayHang.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnChoLayHang.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnChoLayHang.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnChoLayHang.BorderRadius = 0;
+            this.btnChoLayHang.BorderSize = 0;
+            this.btnChoLayHang.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnChoLayHang.FlatAppearance.BorderSize = 0;
+            this.btnChoLayHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChoLayHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnChoLayHang.ForeColor = System.Drawing.Color.White;
+            this.btnChoLayHang.Location = new System.Drawing.Point(140, 0);
+            this.btnChoLayHang.Name = "btnChoLayHang";
+            this.btnChoLayHang.Size = new System.Drawing.Size(140, 44);
+            this.btnChoLayHang.TabIndex = 1;
+            this.btnChoLayHang.Text = "Chờ lấy hàng";
+            this.btnChoLayHang.TextColor = System.Drawing.Color.White;
+            this.btnChoLayHang.UseVisualStyleBackColor = false;
             // 
-            // rjButton3
+            // btnChoXuLy
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 0;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(0, 0);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(140, 44);
-            this.rjButton3.TabIndex = 0;
-            this.rjButton3.Text = "Chờ xử lý";
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnChoXuLy.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnChoXuLy.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnChoXuLy.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnChoXuLy.BorderRadius = 0;
+            this.btnChoXuLy.BorderSize = 0;
+            this.btnChoXuLy.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnChoXuLy.FlatAppearance.BorderSize = 0;
+            this.btnChoXuLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChoXuLy.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnChoXuLy.ForeColor = System.Drawing.Color.White;
+            this.btnChoXuLy.Location = new System.Drawing.Point(0, 0);
+            this.btnChoXuLy.Name = "btnChoXuLy";
+            this.btnChoXuLy.Size = new System.Drawing.Size(140, 44);
+            this.btnChoXuLy.TabIndex = 0;
+            this.btnChoXuLy.Text = "Chờ xử lý";
+            this.btnChoXuLy.TextColor = System.Drawing.Color.White;
+            this.btnChoXuLy.UseVisualStyleBackColor = false;
             // 
             // frmQLBanHang
             // 
@@ -2547,9 +2551,9 @@
         private System.Windows.Forms.Label lblUuDaiTichLuy;
         private System.Windows.Forms.TextBox txtMucUuDai1;
         private System.Windows.Forms.Panel panel7;
-        private CustomControls.RJControls.RJButton rjButton6;
-        private CustomControls.RJControls.RJButton rjButton5;
-        private CustomControls.RJControls.RJButton rjButton3;
+        private CustomControls.RJControls.RJButton btndangGiao;
+        private CustomControls.RJControls.RJButton btnChoLayHang;
+        private CustomControls.RJControls.RJButton btnChoXuLy;
         private System.Windows.Forms.Panel pnlTimeLine;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tpthongtinhd;

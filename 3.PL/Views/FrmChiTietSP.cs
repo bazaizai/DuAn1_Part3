@@ -31,11 +31,16 @@ namespace _3.PL.Views
         IMauSacServices _IMauSacServices;
         IChatLieuServices _IChatLieuServices;
         CheckBox box;
+        private List<string> _ListChatLieu;
+        private List<string> _ListMauSac;
+
+
         public static Dictionary<Guid, bool> CheckCB;
 
         private int ShowSL;
         private int ShowTT;
         private int ShowCL;
+        private int ShowMS;
         private int x;
         public int Count { get => x; set { x = value; x = value; } }
 
@@ -56,6 +61,7 @@ namespace _3.PL.Views
             ShowCL = 0;
             ShowSL = 0;
             ShowTT = 0;
+            ShowMS = 0;
             LoadData();
         }
 
@@ -599,8 +605,8 @@ namespace _3.PL.Views
 
         private void rjButton1_Click_1(object sender, EventArgs e)
         {
-            ShowCL++;
-            if (ShowTT % 2 == 1)
+            ShowMS++;
+            if (ShowMS % 2 == 1)
             {
                 pnlBodyMS.Visible = false;
                 BtnShowMS.Text = "Show";
@@ -610,6 +616,22 @@ namespace _3.PL.Views
                 pnlBodyMS.Visible = true;
                 BtnShowMS.Text = "Hide";
             }
+        }
+
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+            ShowCL++;
+            if (ShowCL % 2 == 1)
+            {
+                pnlbdchatLieu.Visible = false;
+                btnShowChatLieu.Text = "Show";
+            }
+            else
+            {
+                pnlbdchatLieu.Visible = true;
+                btnShowChatLieu.Text = "Hide";
+            }
+
         }
     }
 }

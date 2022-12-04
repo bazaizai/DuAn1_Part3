@@ -130,33 +130,33 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(40, 78);
+            this.panel2.Location = new System.Drawing.Point(40, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 2);
+            this.panel2.Size = new System.Drawing.Size(200, 1);
             this.panel2.TabIndex = 3;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(40, 106);
+            this.panel3.Location = new System.Drawing.Point(40, 105);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 2);
+            this.panel3.Size = new System.Drawing.Size(200, 1);
             this.panel3.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Location = new System.Drawing.Point(40, 134);
+            this.panel4.Location = new System.Drawing.Point(40, 133);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 2);
+            this.panel4.Size = new System.Drawing.Size(200, 1);
             this.panel4.TabIndex = 3;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Location = new System.Drawing.Point(40, 161);
+            this.panel5.Location = new System.Drawing.Point(40, 160);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 2);
+            this.panel5.Size = new System.Drawing.Size(200, 1);
             this.panel5.TabIndex = 3;
             // 
             // lblTenKH
@@ -222,9 +222,9 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel6.Location = new System.Drawing.Point(40, 188);
+            this.panel6.Location = new System.Drawing.Point(40, 187);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 2);
+            this.panel6.Size = new System.Drawing.Size(200, 1);
             this.panel6.TabIndex = 3;
             // 
             // lblID

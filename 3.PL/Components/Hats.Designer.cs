@@ -40,7 +40,11 @@
             this.lblPhuongThuc = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Anh)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // IdSPCT
@@ -59,23 +63,23 @@
             // Add
             // 
             this.Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
-            this.Add.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.Add.BackColor = System.Drawing.Color.Red;
+            this.Add.BackgroundColor = System.Drawing.Color.Red;
             this.Add.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.Add.BorderRadius = 15;
             this.Add.BorderSize = 0;
             this.Add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add.FlatAppearance.BorderSize = 0;
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Add.ForeColor = System.Drawing.Color.Black;
-            this.Add.Location = new System.Drawing.Point(142, 152);
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Add.ForeColor = System.Drawing.Color.Ivory;
+            this.Add.Location = new System.Drawing.Point(162, 150);
             this.Add.Margin = new System.Windows.Forms.Padding(0);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(107, 29);
+            this.Add.Size = new System.Drawing.Size(105, 42);
             this.Add.TabIndex = 12;
             this.Add.Text = "Add";
-            this.Add.TextColor = System.Drawing.Color.Black;
+            this.Add.TextColor = System.Drawing.Color.Ivory;
             this.Add.UseVisualStyleBackColor = false;
             this.Add.Click += new System.EventHandler(this.Add_Click_1);
             // 
@@ -95,11 +99,11 @@
             // 
             this.TenSP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TenSP.AutoSize = true;
-            this.TenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TenSP.ForeColor = System.Drawing.Color.Black;
-            this.TenSP.Location = new System.Drawing.Point(5, 0);
+            this.TenSP.Location = new System.Drawing.Point(3, 4);
             this.TenSP.Name = "TenSP";
-            this.TenSP.Size = new System.Drawing.Size(99, 25);
+            this.TenSP.Size = new System.Drawing.Size(106, 25);
             this.TenSP.TabIndex = 10;
             this.TenSP.Text = "SanPham";
             // 
@@ -111,6 +115,7 @@
             this.Anh.BorderColor2 = System.Drawing.Color.HotPink;
             this.Anh.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.Anh.BorderSize = 2;
+            this.Anh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Anh.GradientAngle = 50F;
             this.Anh.Location = new System.Drawing.Point(5, 39);
             this.Anh.Margin = new System.Windows.Forms.Padding(0);
@@ -119,6 +124,7 @@
             this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Anh.TabIndex = 9;
             this.Anh.TabStop = false;
+            this.Anh.Click += new System.EventHandler(this.Anh_Click);
             // 
             // SoLuong
             // 
@@ -148,7 +154,7 @@
             // 
             this.lblGiaSauKhiGiam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGiaSauKhiGiam.AutoSize = true;
-            this.lblGiaSauKhiGiam.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGiaSauKhiGiam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGiaSauKhiGiam.ForeColor = System.Drawing.Color.Red;
             this.lblGiaSauKhiGiam.Location = new System.Drawing.Point(143, 123);
             this.lblGiaSauKhiGiam.Name = "lblGiaSauKhiGiam";
@@ -183,11 +189,40 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.TenSP);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(270, 32);
+            this.panel1.TabIndex = 23;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(-14, -10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(364, 12);
+            this.panel2.TabIndex = 24;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(268, -7);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(250, 215);
+            this.panel3.TabIndex = 25;
+            // 
             // Hats
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPhuongThuc);
             this.Controls.Add(this.lblGiaSauKhiGiam);
@@ -196,12 +231,13 @@
             this.Controls.Add(this.IdSPCT);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Gia);
-            this.Controls.Add(this.TenSP);
             this.Controls.Add(this.Anh);
             this.Name = "Hats";
             this.Size = new System.Drawing.Size(270, 194);
             this.Load += new System.EventHandler(this.Hats_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Anh)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +256,8 @@
         private System.Windows.Forms.Label lblPhuongThuc;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

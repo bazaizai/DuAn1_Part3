@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -41,6 +42,8 @@ namespace _3.PL.Views
         ILichSuTichDiemServices _ILichSuTichDiemServices;
         ITichDiemServices _ITichDiemServices;
         IChiTietSaleServices _IChiTietSaleServices;
+        IKieuSpServices _IKieuSpServices;
+        IChiTietKieuSpService _IChiTietKieuSpService;
         ISaleServices _ISaleServices;
         IKichCoServices _IKichCoServices;
         TabPage tabPage;
@@ -69,6 +72,8 @@ namespace _3.PL.Views
             _ILichSuTichDiemServices = new LichSuTichDiemServices();
             _ITichDiemServices = new TichDiemServices();
             _IKichCoServices = new KichCoServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
             pnlfill.Height = this.Height - pnlbutton.Height;
             rdoTaiQuay.Checked = true;
             CbbGiamGia.SelectedIndex = 0;
@@ -195,7 +200,7 @@ namespace _3.PL.Views
                 if (ListAnh[i].SoLuongTon > 0)
                 {
                     Hat[i] = new Hats();
-                    Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IChatLieuServices.GetAll().Find(x => x.Id == ListAnh[i].IdChatLieu).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
+                    Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
                     Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
                     Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
                     Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
@@ -221,6 +226,27 @@ namespace _3.PL.Views
                     }
 
                     ListItem.Controls.Add(Hat[i]);
+                    Hat[i].OnclickAnh += (ss, ee) =>
+                    {
+                        var isp = (Hats)ss;
+                        var ObjSP = _IChiTietSpServices.GetById(isp.IdSPCTSP);
+                        FrmThongTinSP sp = new FrmThongTinSP();
+                        sp.TenSP = isp.TenSP1;
+                        sp.Team = _ITeamServices.GetAll().Find(x => x.Id == ObjSP.IdTeam).Ten;
+                        sp.ChatLieu = _IChatLieuServices.GetAll().Find(x => x.Id == ObjSP.IdChatLieu).Ten;
+                        sp.MauSac = _IMauSacServices.GetAll().Find(x => x.Id == ObjSP.IdMauSac).Ten;
+                        sp.SizeSp = _ISizeServices.GetAll().Find(x => x.Id == ObjSP.IdSize).Size;
+                        var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id);
+                        if (ctksp != null)
+                        {
+                            sp.NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                        }
+                        var QR = _IanhServices.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id && x.TenAnh == "Barcode");
+                        sp.AnhMQr = Image.FromStream(new MemoryStream((byte[])QR.DuongDan));
+                        var Anh = _IanhServices.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id && x.TenAnh == "Anh");
+                        sp.AnhSP1 = Image.FromStream(new MemoryStream((byte[])Anh.DuongDan));
+                        sp.ShowDialog();
+                    };
                     Hat[i].Onselect += (ss, ee) =>
                     {
                         var wdg = (Hats)ss;
@@ -335,7 +361,7 @@ namespace _3.PL.Views
                 else
                 {
                     Hat[i] = new Hats();
-                    Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten;
+                    Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
                     Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
                     Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
                     Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
@@ -360,6 +386,27 @@ namespace _3.PL.Views
                         Hat[i].LoaiKM = "Sale: " + Sale.MucGiam + Sale.LoaiHinhKm;
                     }
                     ListItem.Controls.Add(Hat[i]);
+                    Hat[i].OnclickAnh += (ss, ee) =>
+                    {
+                        var isp = (Hats)ss;
+                        var ObjSP = _IChiTietSpServices.GetById(isp.IdSPCTSP);
+                        FrmThongTinSP sp = new FrmThongTinSP();
+                        sp.TenSP = isp.TenSP1;
+                        sp.Team = _ITeamServices.GetAll().Find(x => x.Id == ObjSP.IdTeam).Ten;
+                        sp.ChatLieu = _IChatLieuServices.GetAll().Find(x => x.Id == ObjSP.IdChatLieu).Ten;
+                        sp.SizeSp = _ISizeServices.GetAll().Find(x => x.Id == ObjSP.IdSize).Size;
+                        sp.MauSac = _IMauSacServices.GetAll().Find(x => x.Id == ObjSP.IdMauSac).Ten;
+                        var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id);
+                        if (ctksp != null)
+                        {
+                            sp.NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                        }
+                        var QR = _IanhServices.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id && x.TenAnh == "Barcode");
+                        sp.AnhMQr = Image.FromStream(new MemoryStream((byte[])QR.DuongDan));
+                        var Anh = _IanhServices.GetAll().Find(x => x.IdChiTietSp == ObjSP.Id && x.TenAnh == "Anh");
+                        sp.AnhSP1 = Image.FromStream(new MemoryStream((byte[])Anh.DuongDan));
+                        sp.ShowDialog();
+                    };
                     Hat[i].Onselect += (ss, ee) =>
                     {
                         if (TabHoaDon.SelectedTab != null)
@@ -375,6 +422,23 @@ namespace _3.PL.Views
                     };
                 }
 
+            }
+        }
+        private string TenKsp(Guid Id, string sp)
+        {
+            if (Id == null)
+            {
+                return sp;
+            }
+            else
+            {
+                var temp = _IKieuSpServices.GetAll().FirstOrDefault(c => c.Id == Id);
+                sp = temp.Ten + ">>" + sp;
+                if (temp.IdCha == null)
+                {
+                    return sp;
+                }
+                else { return TenKsp(Guid.Parse(temp.IdCha.ToString()), sp); }
             }
         }
 
@@ -1450,7 +1514,7 @@ namespace _3.PL.Views
                     if (ListAnh[i].SoLuongTon > 0)
                     {
                         Hat[i] = new SearchHats();
-                        Hat[i].TenSP1 = Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IChatLieuServices.GetAll().Find(x => x.Id == ListAnh[i].IdChatLieu).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
+                        Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
                         Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
                         Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
                         Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
@@ -1542,7 +1606,7 @@ namespace _3.PL.Views
                     else
                     {
                         Hat[i] = new SearchHats();
-                        Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten;
+                        Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
                         Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
                         Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
                         Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
@@ -1708,6 +1772,7 @@ namespace _3.PL.Views
             {
                 LoadItem();
                 btngiaohang.Text = "Giao hàng";
+                pnlTimeLine.Visible = false;
                 pnlfill.Controls.Clear();
                 pnlfill.Controls.Add(TabHoaDon);
                 TabHoaDon.Dock = DockStyle.Fill;
@@ -1726,6 +1791,8 @@ namespace _3.PL.Views
             else
             {
                 LoadHoaDon();
+                pnlTimeLine.Visible = true;
+                pnlTimeLine.Dock = DockStyle.Left;
                 btngiaohang.Text = "Bán hàng";
                 pnlfill.Controls.Clear();
                 pnlfill.Controls.Add(dgvGiaoHang);
@@ -1780,6 +1847,7 @@ namespace _3.PL.Views
                     txtmahdgh.Texts = wdg.MaHD;
                     txtmanvgh.Texts = wdg.MaNV;
                     var HoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == wdg.MaHD);
+                    TimeLineTrangThaiGiaoHang(HoaDon);
                     txtngaytaogh.Texts = HoaDon.NgayTao.ToString();
                     txttongtiengh.Texts = HoaDon.TongTien.ToString();
                     txtpttt.Texts = _IPtthanhToanServices.GetAll().Find(x => x.Id == HoaDon.IdPttt).Ten;
@@ -1799,6 +1867,16 @@ namespace _3.PL.Views
                     txttrangthaitt.Texts = HoaDon.TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán";
                 };
 
+            }
+        }
+
+        private void TimeLineTrangThaiGiaoHang(HoaDonViews Hd)
+        {
+            if (Hd.TrangThaiGiaoHang == 1)
+            {
+                btnChoXuLy.BackColor = Color.Red;
+                btnChoLayHang.BackColor = Color.MediumSlateBlue;
+                btndangGiao.BackColor = Color.MediumSlateBlue;
             }
         }
         private void rjButton1_Click_3(object sender, EventArgs e)

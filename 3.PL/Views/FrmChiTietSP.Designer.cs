@@ -37,10 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
+            this.pnlbdchatLieu = new System.Windows.Forms.Panel();
             this.pnlChatLieu = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.rjButton2 = new CustomControls.RJControls.RJButton();
+            this.btnShowChatLieu = new CustomControls.RJControls.RJButton();
             this.label13 = new System.Windows.Forms.Label();
             this.pnlBodyMS = new System.Windows.Forms.Panel();
             this.PnlMauSac = new System.Windows.Forms.Panel();
@@ -84,7 +84,7 @@
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel17.SuspendLayout();
+            this.pnlbdchatLieu.SuspendLayout();
             this.panel16.SuspendLayout();
             this.pnlBodyMS.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -244,7 +244,7 @@
             // 
             this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.DimGray;
-            this.panel7.Controls.Add(this.panel17);
+            this.panel7.Controls.Add(this.pnlbdchatLieu);
             this.panel7.Controls.Add(this.panel16);
             this.panel7.Controls.Add(this.pnlBodyMS);
             this.panel7.Controls.Add(this.panel13);
@@ -257,14 +257,14 @@
             this.panel7.Size = new System.Drawing.Size(360, 858);
             this.panel7.TabIndex = 0;
             // 
-            // panel17
+            // pnlbdchatLieu
             // 
-            this.panel17.Controls.Add(this.pnlChatLieu);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 503);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(360, 97);
-            this.panel17.TabIndex = 9;
+            this.pnlbdchatLieu.Controls.Add(this.pnlChatLieu);
+            this.pnlbdchatLieu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlbdchatLieu.Location = new System.Drawing.Point(0, 503);
+            this.pnlbdchatLieu.Name = "pnlbdchatLieu";
+            this.pnlbdchatLieu.Size = new System.Drawing.Size(360, 97);
+            this.pnlbdchatLieu.TabIndex = 9;
             // 
             // pnlChatLieu
             // 
@@ -279,7 +279,7 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.Gray;
-            this.panel16.Controls.Add(this.rjButton2);
+            this.panel16.Controls.Add(this.btnShowChatLieu);
             this.panel16.Controls.Add(this.label13);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 450);
@@ -287,23 +287,24 @@
             this.panel16.Size = new System.Drawing.Size(360, 53);
             this.panel16.TabIndex = 8;
             // 
-            // rjButton2
+            // btnShowChatLieu
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 15;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(247, 8);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(101, 38);
-            this.rjButton2.TabIndex = 1;
-            this.rjButton2.Text = "Hide";
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnShowChatLieu.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnShowChatLieu.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnShowChatLieu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnShowChatLieu.BorderRadius = 15;
+            this.btnShowChatLieu.BorderSize = 0;
+            this.btnShowChatLieu.FlatAppearance.BorderSize = 0;
+            this.btnShowChatLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowChatLieu.ForeColor = System.Drawing.Color.White;
+            this.btnShowChatLieu.Location = new System.Drawing.Point(247, 8);
+            this.btnShowChatLieu.Name = "btnShowChatLieu";
+            this.btnShowChatLieu.Size = new System.Drawing.Size(101, 38);
+            this.btnShowChatLieu.TabIndex = 1;
+            this.btnShowChatLieu.Text = "Hide";
+            this.btnShowChatLieu.TextColor = System.Drawing.Color.White;
+            this.btnShowChatLieu.UseVisualStyleBackColor = false;
+            this.btnShowChatLieu.Click += new System.EventHandler(this.rjButton2_Click_1);
             // 
             // label13
             // 
@@ -794,7 +795,7 @@
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
+            this.pnlbdchatLieu.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlBodyMS.ResumeLayout(false);
@@ -871,10 +872,10 @@
         private System.Windows.Forms.Panel panel13;
         private CustomControls.RJControls.RJButton BtnShowMS;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel pnlbdchatLieu;
         private System.Windows.Forms.Panel pnlChatLieu;
         private System.Windows.Forms.Panel panel16;
-        private CustomControls.RJControls.RJButton rjButton2;
+        private CustomControls.RJControls.RJButton btnShowChatLieu;
         private System.Windows.Forms.Label label13;
     }
 }
