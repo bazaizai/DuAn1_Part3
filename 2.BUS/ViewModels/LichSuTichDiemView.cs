@@ -15,5 +15,8 @@ namespace _2.BUS.ViewModels
         public decimal? SoDiemDung { get; set; }
         public DateTime? NgayTichDiem { get; set; }
         public int? TrangThai { get; set; }
+        public string TenKH { get; set; }
+        public string MaNV { get; set; }
+        public string MaHD { get; set; }
     }
 }

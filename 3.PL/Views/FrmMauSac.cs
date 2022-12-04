@@ -71,11 +71,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("không được để trống trạng thái");
                 }
+                else if (hasSpecialChar(tbt_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else
                 {
                     _iMauSac.Add(GetData());
                     MessageBox.Show("thêm thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -108,11 +113,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("không được để trống trạng thái");
                 }
+                else if (hasSpecialChar(tbt_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else
                 {
                     _iMauSac.Update(cvv);
                     MessageBox.Show("sửa thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -144,6 +154,7 @@ namespace _3.PL.Views
                     _iMauSac.Delete(_msv);
                     MessageBox.Show("xóa thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -152,7 +163,7 @@ namespace _3.PL.Views
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private void clear()
         {
             tbt_ma.Text = "";
             tbt_ten.Text = "";
@@ -163,6 +174,25 @@ namespace _3.PL.Views
         private void tb_timkiem_TextChanged(object sender, EventArgs e)
         {
             LoadData();
+        }
+        public static bool hasSpecialChar(string input)
+        {
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            foreach (var item in specialChar)
+            {
+                if (input.Contains(item)) return true;
+            }
+
+            return false;
+        }
+        private string XoaDauCach(string s)
+        {
+
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
         }
     }
 }

@@ -27,21 +27,21 @@ namespace _2.BUS.Services
                 HeSoTich = obj.HeSoTich,
                 TrangThai = obj.TrangThai
             };
-            if (_iCtTinhDiemRepos.Add(vcv)) return "thêm thành công";
-            return "thêm thất bại";
+            if (_iCtTinhDiemRepos.Add(vcv)) return "Thêm thành công";
+            return "Thêm thất bại";
         }
 
         public string Delete(CtTinhDiemView obj)
         {
-            if (obj == null) return "xóa thất bại";
+            if (obj == null) return "Xóa thất bại";
             CttichDiem vcv = new CttichDiem()
             {
                 Id = obj.Id,
                 HeSoTich = obj.HeSoTich,
                 TrangThai = obj.TrangThai
             };
-            if (_iCtTinhDiemRepos.Delete(vcv)) return "xóa thành công";
-            return "xóa thất bại";
+            if (_iCtTinhDiemRepos.Delete(vcv)) return "Xóa thành công";
+            return "Xóa thất bại";
         }
 
         public List<CtTinhDiemView> GetAll()
@@ -60,15 +60,15 @@ namespace _2.BUS.Services
 
         public string Update(CtTinhDiemView obj)
         {
-            if (obj == null) return "sửa thất bại";
+            if (obj == null) return "Cập nhật thất bại";
             CttichDiem vcv = new CttichDiem()
             {
                 Id = obj.Id,
                 HeSoTich = obj.HeSoTich,
                 TrangThai = obj.TrangThai
             };
-            if (_iCtTinhDiemRepos.Update(vcv)) return "sửa thành công";
-            return "sửa thất bại";
+            if (_iCtTinhDiemRepos.Update(vcv)) return "Cập nhật thành công";
+            return "Cập nhật thất bại";
         }
     }
 }

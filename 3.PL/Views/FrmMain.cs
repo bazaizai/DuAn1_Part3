@@ -26,12 +26,14 @@ namespace _3.PL.Views
         public FrmMain()
         {
             InitializeComponent();
-            HidePanel();
             _iChucVuServices = new ChucVuServices();
             _iNhanVienServices = new NhanVienServices();
+            HidePanel();
             LeftBorderBtn = new Panel();
             LeftBorderBtn.Size = new Size(7, QLSP.Height);
             pnlMenu.Controls.Add(LeftBorderBtn);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -41,7 +43,7 @@ namespace _3.PL.Views
         //Structs
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(254, 85, 0);
+            public static Color color1 = Color.FromArgb(0,0,0);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
@@ -77,9 +79,9 @@ namespace _3.PL.Views
             if (currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(48, 143, 157);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.ForeColor = Color.FromArgb(252, 253, 253);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.FromArgb(252, 253, 253);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -114,7 +116,7 @@ namespace _3.PL.Views
         }
 
 
-
+       
         private void OpenChildForm(Form ChildForm)
         {
             if (CurrentFormChild != null)
@@ -145,7 +147,9 @@ namespace _3.PL.Views
             if (pnlbtn5.Visible == true)
                 pnlbtn5.Visible = false;
             if (pnlbtn9.Visible == true)
-                pnlbtn9.Visible = false;
+                pnlbtn9.Visible = false; 
+            if (pnlGiaoDich.Visible == true)
+                pnlGiaoDich.Visible = false;
         }
         private void ShowSubMenu(Panel SubMenu)
         {
@@ -159,7 +163,7 @@ namespace _3.PL.Views
                 SubMenu.Visible = false;
                 ResetLeftBorder();
             }
-
+                
         }
 
         private void CheckMenuPanel()
@@ -181,7 +185,7 @@ namespace _3.PL.Views
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-
+            
             if (pnlbtn1.Visible == false)
             {
                 ActivateButton(sender, RGBColors.color1);
@@ -189,20 +193,19 @@ namespace _3.PL.Views
             }
             else
             {
-                pnlbtn1.Visible = false;
+                pnlbtn1.Visible=false;  
             }
-
+            
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
-        {
+        {          
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
             {
-
                 lblHome.Text = btnCTSP.Text;
-                OpenChildForm(new frmQLChiTietSp());
+                OpenChildForm(new FrmChiTietSP());
                 HideSubMenu();
             }
             else
@@ -212,7 +215,7 @@ namespace _3.PL.Views
                 if (Properties.Settings.Default.check == true)
                 {
                     lblHome.Text = btnCTSP.Text;
-                    OpenChildForm(new frmQLChiTietSp());
+                    OpenChildForm(new FrmChiTietSP());
                     HideSubMenu();
                 }
                 Properties.Settings.Default.check = false;
@@ -227,6 +230,8 @@ namespace _3.PL.Views
         }
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
+           
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -247,7 +252,7 @@ namespace _3.PL.Views
                 }
                 Properties.Settings.Default.check = false;
                 Properties.Settings.Default.Save();
-            }          
+            }
         }
         private void iconButton3_Click(object sender, EventArgs e)
         {
@@ -270,9 +275,9 @@ namespace _3.PL.Views
             }
             else
             {
-                pnlbtn5.Visible = false;
+                pnlbtn5.Visible=false;
             }
-
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -293,9 +298,17 @@ namespace _3.PL.Views
         private void _ToNho_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
+            {
+
                 WindowState = FormWindowState.Maximized;
+                this.StartPosition = FormStartPosition.CenterScreen;
+            }
             else
+            {
                 WindowState = FormWindowState.Normal;
+                this.StartPosition = FormStartPosition.CenterScreen;
+            }
+             
         }
 
         private void _tru_Click(object sender, EventArgs e)
@@ -341,11 +354,12 @@ namespace _3.PL.Views
 
         private void BtnGiaiDau_Click(object sender, EventArgs e)
         {
+            
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
             {
-
                 lblHome.Text = BtnGiaiDau.Text;
                 OpenChildForm(new FrmGiaiDau());
                 HideSubMenu();
@@ -367,7 +381,8 @@ namespace _3.PL.Views
 
         private void btnNhanvien_Click(object sender, EventArgs e)
         {
-           
+            
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -392,7 +407,9 @@ namespace _3.PL.Views
         }
 
         private void btnChucvu_Click(object sender, EventArgs e)
-        {          
+        {
+           
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -422,7 +439,9 @@ namespace _3.PL.Views
         }
 
         private void iconButton10_Click(object sender, EventArgs e)
-        {           
+        {
+
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -449,6 +468,7 @@ namespace _3.PL.Views
         private void iconButton9_Click(object sender, EventArgs e)
         {
             
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -475,6 +495,7 @@ namespace _3.PL.Views
         private void iconButton8_Click(object sender, EventArgs e)
         {
             
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -499,7 +520,9 @@ namespace _3.PL.Views
         }
 
         private void iconButton7_Click(object sender, EventArgs e)
-        {          
+        {
+            
+            //
             var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
             var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
             if (idCv == idNv)
@@ -533,7 +556,31 @@ namespace _3.PL.Views
 
         private void iconButton2_Click_1(object sender, EventArgs e)
         {
-
+           
+            //
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = iconButton2.Text;
+                OpenChildForm(new FrmChiTietSale());
+                ActivateButton(sender, RGBColors.color1);
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = iconButton2.Text;
+                    OpenChildForm(new FrmChiTietSale());
+                    ActivateButton(sender, RGBColors.color1);
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void btnQLHoaDon_Click(object sender, EventArgs e)
@@ -549,6 +596,40 @@ namespace _3.PL.Views
             }
         }
 
-       
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+            
+            //
+            var idNv = _iNhanVienServices.GetAll().Where(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).Select(p => p.IdCv).FirstOrDefault();
+            var idCv = _iChucVuServices.GetAll().Where(p => p.Ten == "Quản lý").Select(p => p.Id).FirstOrDefault();
+            if (idCv == idNv)
+            {
+                lblHome.Text = iconButton3.Text;
+                OpenChildForm(new FrmUuDaiTichDiem());
+                ActivateButton(sender, RGBColors.color1);
+                HideSubMenu();
+            }
+            else
+            {
+                FrmXacNhan form = new FrmXacNhan();
+                form.ShowDialog();
+                if (Properties.Settings.Default.check == true)
+                {
+                    lblHome.Text = iconButton3.Text;
+                    OpenChildForm(new FrmUuDaiTichDiem());
+                    ActivateButton(sender, RGBColors.color1);
+                    HideSubMenu();
+                }
+                Properties.Settings.Default.check = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            lblHome.Text = iconButton6.Text;
+            OpenChildForm(new FrmLichSuTichDiem());
+            HideSubMenu();
+        }
     }
 }

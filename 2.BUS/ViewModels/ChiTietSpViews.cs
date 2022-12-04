@@ -22,14 +22,16 @@ namespace _2.BUS.ViewModels
         public Guid? IdSize { get; set; }
         public Guid? IdTeam { get; set; }
         public Guid? IdChatLieu { get; set; }
+        public Guid? IdKieuSP { get; set; }
         public string MaQr { get; set; }
-        public string BaoHanh { get; set; }
+        public string BaoHanh { get; set; } 
         public string MoTa { get; set; }
         public int? SoLuongTon { get; set; }
         public decimal? GiaNhap { get; set; }
         public decimal? GiaBan { get; set; }
         public int? TrangThai { get; set; }
         public int? TrangThaiKhuyenMai { get; set; }
+
 
         //Bảng màu sắc
         public string TenMauSac { get; set; }
@@ -41,7 +43,8 @@ namespace _2.BUS.ViewModels
         public string TenChatLieu { get; set; }
         //Bang Team
         public string TenTeam { get; set; }
-
+        //kieu sp
+        public string TenKieuSp { get; set; }
 
         public ChiTietSpViews(Guid id, Guid? idSp, Guid? idMauSac, Guid? idSize, Guid? idTeam, Guid? idChatLieu, string maQr, string baoHanh, string moTa, int? soLuongTon, decimal? giaNhap, decimal? giaBan, int? trangThai, int? trangThaiKhuyenMai)
         {

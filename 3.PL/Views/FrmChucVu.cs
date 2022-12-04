@@ -53,7 +53,7 @@ namespace _3.PL.Views
             {
                 Id = new Guid(),
                 Ma = tbt_ma.Text,
-                Ten = tbt_ten.Text,
+                Ten = XoaDauCach(tbt_ten.Text.Trim()),
                 TrangThai = rdb_hoatdong.Checked ? 0 : 1,
             };
             return cvv;
@@ -72,11 +72,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("không được để trống trạng thái");
                 }
+                else if (hasSpecialChar(tbt_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else
                 {
                     _iChucVu.Add(GetData());
                     MessageBox.Show("thêm thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -91,7 +96,7 @@ namespace _3.PL.Views
             {
                 Id = Guid.Parse(dtg_show.CurrentRow.Cells[0].Value.ToString()),
                 Ma = tbt_ma.Text,
-                Ten = tbt_ten.Text,
+                Ten = XoaDauCach(tbt_ten.Text.Trim()),
                 TrangThai = rdb_hoatdong.Checked ? 0 : 1,
             };
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa không", "thông báo", MessageBoxButtons.YesNo);
@@ -109,11 +114,16 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("không được để trống trạng thái");
                 }
+                else if (hasSpecialChar(tbt_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else
                 {
                     _iChucVu.Update(cvv);
                     MessageBox.Show("sửa thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -145,6 +155,7 @@ namespace _3.PL.Views
                     _iChucVu.Delete(_cvv);
                     MessageBox.Show("xóa thành công");
                     LoadData();
+                    clear();
                 }
             }
             else
@@ -153,7 +164,7 @@ namespace _3.PL.Views
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        public void clear()
         {
             tbt_ma.Text = "";
             tbt_ten.Text = "";
@@ -169,6 +180,25 @@ namespace _3.PL.Views
         private void tb_timkiem_TextChanged(object sender, EventArgs e)
         {
             LoadData();
+        }
+        public static bool hasSpecialChar(string input)
+        {
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            foreach (var item in specialChar)
+            {
+                if (input.Contains(item)) return true;
+            }
+
+            return false;
+        }
+        private string XoaDauCach(string s)
+        {
+
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
         }
     }
 }

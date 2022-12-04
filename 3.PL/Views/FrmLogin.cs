@@ -86,7 +86,7 @@ namespace _3.PL.Views
 
         private void Btn_an_Click(object sender, EventArgs e)
         {
-
+            WindowState = FormWindowState.Minimized;
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
@@ -94,9 +94,6 @@ namespace _3.PL.Views
             Application.Exit();
         }
 
-        private void btn_nho_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

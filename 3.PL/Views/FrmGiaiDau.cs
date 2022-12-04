@@ -2,6 +2,7 @@
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace _3.PL.Views
             _giaiDauServices = new GiaiDauServices();
             lstGiaiDau = new List<GiaiDauView>();
             loadData();
-            tb_ma.Enabled = false ;
+            tb_ma.Enabled = false;
 
         }
 
@@ -49,7 +50,7 @@ namespace _3.PL.Views
             {
                 dtg_show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
-          
+
         }
         private void ClearForm()
         {
@@ -58,6 +59,7 @@ namespace _3.PL.Views
             tb_ma.Text = "";
             rdb_hd.Checked = false;
             rdb_khd.Checked = false;
+            _idgd = Guid.Empty;
 
         }
         private void tb_them_Click(object sender, EventArgs e)
@@ -65,17 +67,25 @@ namespace _3.PL.Views
             DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-               if(_giaiDauServices.GetAll().Any(c=>c.Ten==tb_ten.Text))
+                if (_giaiDauServices.GetAll().Any(c => c.Ten == tb_ten.Text))
                 {
                     MessageBox.Show("Giải đấu bị trùng");
-                }                 
+                }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được bỏ trống");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
                 else
                 {
                     GiaiDauView giaiDauView = new GiaiDauView()
                     {
-                        Id = Guid.Empty,
+                        Id = Guid.NewGuid(),
                         Ma = tb_ma.Text,
-                        Ten = tb_ten.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
                     MessageBox.Show(_giaiDauServices.Add(giaiDauView));
@@ -121,17 +131,25 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Vui lòng chọn giải đấu cần sửa");
                 }
-                if (_giaiDauServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id!= _idgd )!=null  )
+                if (_giaiDauServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id != _idgd) != null)
                 {
                     MessageBox.Show("Giải đấu bị trùng");
+                }
+                else if (ValidateInput.hasSpecialChar(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không hợp lệ");
+                }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên không được bỏ trống");
                 }
                 else
                 {
                     GiaiDauView giaiDauView = new GiaiDauView()
                     {
                         Id = _idgd,
-                        Ma= tb_ma.Text,
-                        Ten = tb_ten.Text,
+                        Ma = tb_ma.Text,
+                        Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
                     MessageBox.Show(_giaiDauServices.Update(giaiDauView));
@@ -164,6 +182,29 @@ namespace _3.PL.Views
         private void tb_timkiem_TextChanged(object sender, EventArgs e)
         {
             loadData();
+        }
+     
+        private string XoaDauCach(string s)
+        {
+
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
+
+        private void tb_ten_TextChanged(object sender, EventArgs e)
+        {
+            if(tb_ten.Text==" ")
+            {
+                tb_ten.Text="";
+            }    
+        }
+
+        private void dtg_show_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

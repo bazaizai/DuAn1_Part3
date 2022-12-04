@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_thoat = new FontAwesome.Sharp.IconButton();
             this.Btn_an = new FontAwesome.Sharp.IconButton();
-            this.btn_nho = new FontAwesome.Sharp.IconButton();
             this.tb_mk = new System.Windows.Forms.TextBox();
             this.tb_tk = new System.Windows.Forms.TextBox();
             this.lb_ForgotPassword = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.panel1.BackColor = System.Drawing.Color.MediumTurquoise;
             this.panel1.Controls.Add(this.btn_thoat);
             this.panel1.Controls.Add(this.Btn_an);
-            this.panel1.Controls.Add(this.btn_nho);
             this.panel1.Controls.Add(this.tb_mk);
             this.panel1.Controls.Add(this.tb_tk);
             this.panel1.Controls.Add(this.lb_ForgotPassword);
@@ -92,28 +90,13 @@
             this.Btn_an.IconColor = System.Drawing.Color.Black;
             this.Btn_an.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Btn_an.IconSize = 45;
-            this.Btn_an.Location = new System.Drawing.Point(559, 3);
+            this.Btn_an.Location = new System.Drawing.Point(610, 3);
             this.Btn_an.Name = "Btn_an";
             this.Btn_an.Size = new System.Drawing.Size(45, 45);
             this.Btn_an.TabIndex = 24;
             this.Btn_an.Text = " ";
             this.Btn_an.UseVisualStyleBackColor = true;
             this.Btn_an.Click += new System.EventHandler(this.Btn_an_Click);
-            // 
-            // btn_nho
-            // 
-            this.btn_nho.FlatAppearance.BorderSize = 0;
-            this.btn_nho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_nho.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btn_nho.IconColor = System.Drawing.Color.Black;
-            this.btn_nho.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_nho.Location = new System.Drawing.Point(610, 3);
-            this.btn_nho.Name = "btn_nho";
-            this.btn_nho.Size = new System.Drawing.Size(45, 45);
-            this.btn_nho.TabIndex = 23;
-            this.btn_nho.Text = " ";
-            this.btn_nho.UseVisualStyleBackColor = true;
-            this.btn_nho.Click += new System.EventHandler(this.btn_nho_Click);
             // 
             // tb_mk
             // 
@@ -184,8 +167,7 @@
             // 
             // rjCircularPictureBox1
             // 
-            this.rjCircularPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjCircularPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             this.rjCircularPictureBox1.BorderColor = System.Drawing.Color.RoyalBlue;
             this.rjCircularPictureBox1.BorderColor2 = System.Drawing.Color.HotPink;
@@ -267,6 +249,5 @@
         private System.Windows.Forms.TextBox tb_tk;
         private FontAwesome.Sharp.IconButton btn_thoat;
         private FontAwesome.Sharp.IconButton Btn_an;
-        private FontAwesome.Sharp.IconButton btn_nho;
     }
 }

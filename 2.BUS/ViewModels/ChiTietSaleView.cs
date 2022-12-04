@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace _2.BUS.ViewModels
 {
@@ -21,5 +22,9 @@ namespace _2.BUS.ViewModels
         public string TenSanPham { get; set; }
         public Guid? IdSp { get; set; }
         public string TenSale { get; set; }
+        public string MauSac { get; set; }
+        public string Team { get; set; }
+
+
     }
 }

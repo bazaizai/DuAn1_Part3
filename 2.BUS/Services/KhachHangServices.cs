@@ -54,7 +54,7 @@ namespace _2.BUS.Services
                 var x = new KhachHang()
                 {
                     Id = obj.Id,
-                    IdtichDiem = obj.IdtichDiem
+                    IdtichDiem = obj.IdtichDiem,
                     
                 };
                 if (_iKhachHangRepos.Delete(x)) return "Xóa thành công";
@@ -79,7 +79,7 @@ namespace _2.BUS.Services
                            Ma = a.Ma,
                            Ten = a.Ten,
                            Sdt = a.Sdt,
-                           NhaMang = a.Sdt.StartsWith("03") || a.Sdt.StartsWith("09") ? "Viettel" : a.Sdt.StartsWith("07") ? "Mobifone" : a.Sdt.StartsWith("08") ? "Vinaphone" : "Nhà mạng vô danh",
+                           NhaMang = a.Sdt.StartsWith("03") || a.Sdt.StartsWith("09") ? "Viettel" : a.Sdt.StartsWith("07") ? "Mobifone" : a.Sdt.StartsWith("08") ? "Vinaphone" : "Không xác định",
                            DiaChi = a.DiaChi,
                            SoDiem = b.SoDiem,
                            TrangThai = a.TrangThai,

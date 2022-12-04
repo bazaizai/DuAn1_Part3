@@ -1,14 +1,17 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -32,6 +35,7 @@ namespace _3.PL.Views
             _lstKhachHang = new List<KhachHangView>();
             LoadData();
             LoadCbb();
+            //CanChinhSize();
         }
         private string _message;
         public FrmKhachHang(string Message) : this()
@@ -55,6 +59,16 @@ namespace _3.PL.Views
             dtg_show.Columns[8].Name = "Trạng thái";
             tb_ma.Enabled = false;
 
+            dtg_show.Columns[1].Width = 40;
+            dtg_show.Columns[2].Width = 40;
+            dtg_show.Columns[3].Width = 160;
+            dtg_show.Columns[4].Width = 100;
+            dtg_show.Columns[5].Width = 90;
+            dtg_show.Columns[6].Width = 80;
+            dtg_show.Columns[7].Width = 40;
+            dtg_show.Columns[8].Width = 130;
+   
+
             dtg_show.Rows.Clear();
             _lstKhachHang = _iKhachHangServices.GetAll().Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.Sdt.ToLower().Contains(tb_timkiem.Text.ToLower())).OrderBy(c=>c.Ma).ToList();
             foreach (var item in _lstKhachHang)
@@ -67,7 +81,6 @@ namespace _3.PL.Views
         {
             LoadData();
             _khachHangView.Id = Guid.Empty;
-            tb_ma.Text = "";
             tb_ten.Text = "";
             tb_diachi.Text = "";
             tb_sdt.Text = "";
@@ -76,36 +89,40 @@ namespace _3.PL.Views
         }
         private void btn_them_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn thêm không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_iKhachHangServices.GetAll().Any(c => c.Ma == tb_ma.Text))
                 {
-                    MessageBox.Show("Mã bị trùng");
+                    RJMessageBox.Show("Mã bị trùng");
                 }
-                else if (tb_ten.Text == "")
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
-                    MessageBox.Show("Không được để trống tên!");
-                }               
+                    RJMessageBox.Show("Không được để trống tên!");
+                } 
+                else if (tb_ten.Text.Length < 2)
+                {
+                    RJMessageBox.Show("Tên quá ngắn!");
+                }
+                else if (CheckValidate.hasSpecialChar(tb_ten.Text))
+                {
+                    RJMessageBox.Show("Tên không hợp lệ!");
+                }             
                 else if (tb_sdt.Text == "")
                 {
-                    MessageBox.Show("Không được để trống số điện thoại!");
+                    RJMessageBox.Show("Không được để trống số điện thoại!");
                 }
                 else if (_iKhachHangServices.GetAll().Any(c => c.Sdt == tb_sdt.Text))
                 {
-                    MessageBox.Show("Số điện thoại bị trùng");
+                    RJMessageBox.Show("Số điện thoại bị trùng");
                 }
                 else if (!CheckValidate.IsValidVietNamPhoneNumber(tb_sdt.Text))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ!");
+                    RJMessageBox.Show("Số điện thoại không hợp lệ!");
                 }
-                //else if (_iKhachHangServices.GetAll().Any(c => c.Email == tb_email.Text))
-                //{
-                //    MessageBox.Show("Email bị trùng");
-                //}
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
-                    MessageBox.Show("Không được để trống trạng thái!");
+                    RJMessageBox.Show("Không được để trống trạng thái!");
                 }
                 else
                 {
@@ -113,98 +130,110 @@ namespace _3.PL.Views
                     {
                         Id = Guid.NewGuid(),
                         SoDiem = 0,
-                        TrangThai = 0
+                        TrangThai = 1
                     };
-                    MessageBox.Show(_itichDiemServices.Add(tichdiem));
+                    RJMessageBox.Show(_itichDiemServices.Add(tichdiem));
                     var y = _itichDiemServices.GetAll().FirstOrDefault(c => c.Id == _tichDiemView.Id);
                     var x = new KhachHangView()
                     {
                         Id = new Guid(),
                         IdtichDiem = tichdiem.Id,
-                        Ten = tb_ten.Text,
+                        Ten = XoaDauCach(VietHoaChuCaiDau(tb_ten.Text.Trim())),
                         DiaChi = tb_diachi.Text,
                         Sdt = tb_sdt.Text,
                         TrangThai = rdb_hd.Checked ? 1 : 0
                     };
 
-                    MessageBox.Show(_iKhachHangServices.Add(x));
+                    RJMessageBox.Show(_iKhachHangServices.Add(x));
                     ClearForm();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn");
             }
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn sửa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn sửa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //else if (_iKhachHangServices.GetAll().Any(c => c.Ma == tb_ma.Text))
                 //{
-                //    MessageBox.Show("Mã bị trùng");
+                //    RJMessageBox.Show("Mã bị trùng");
                 //}
-                if (tb_ten.Text == "")
+                if (_khachHangView.Id == Guid.Empty)
                 {
-                    MessageBox.Show("Không được để trống tên!");
+                    RJMessageBox.Show("Vui lòng chọn khách hàng cần sửa!");
+                }
+                else if (tb_ten.Text == "")
+                {
+                    RJMessageBox.Show("Không được để trống tên!");
+                }               
+                else if (tb_ten.Text.Length < 2)
+                {
+                    RJMessageBox.Show("Tên quá ngắn!");
+                }
+                //else if (!CheckValidate.KiemTraHoTen(tb_ten.Text))
+                //{
+                //    RJMessageBox.Show("Phải viết hoa chữ cái đầu!");
+                //}
+                else if (CheckValidate.hasSpecialChar(tb_ten.Text))
+                {
+                    RJMessageBox.Show("Tên không hợp lệ!");
                 }
                 else if (tb_sdt.Text == "")
                 {
-                    MessageBox.Show("Không được để trống số điện thoại!");
+                    RJMessageBox.Show("Không được để trống số điện thoại!");
                 }
                 //else if (_iKhachHangServices.GetAll().Any(c => c.Sdt == tb_sdt.Text))
                 //{
-                //    MessageBox.Show("Số điện thoại bị trùng");
+                //    RJMessageBox.Show("Số điện thoại bị trùng");
                 //}
                 else if (!CheckValidate.IsValidVietNamPhoneNumber(tb_sdt.Text))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ!");
+                    RJMessageBox.Show("Số điện thoại không hợp lệ!");
                 }
-                //else if (_iKhachHangServices.GetAll().Any(c => c.Email == tb_email.Text))
-                //{
-                //    MessageBox.Show("Email bị trùng");
-                //}
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
-                    MessageBox.Show("Không được để trống trạng thái!");
+                    RJMessageBox.Show("Không được để trống trạng thái!");
                 }
                 else
                 {
-                    _khachHangView.Ten = tb_ten.Text;
+                    _khachHangView.Ten = XoaDauCach(VietHoaChuCaiDau(tb_ten.Text.Trim()));
                     _khachHangView.DiaChi = tb_diachi.Text;
                     _khachHangView.Sdt = tb_sdt.Text;
                     _khachHangView.TrangThai = rdb_hd.Checked ? 1 : 0;
-                    MessageBox.Show(_iKhachHangServices.Update(_khachHangView));
+                    RJMessageBox.Show(_iKhachHangServices.Update(_khachHangView));
                     ClearForm();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn");
             }
 
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_khachHangView.Id == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn khách hàng cần xóa!");
+                    RJMessageBox.Show("Vui lòng chọn khách hàng cần xóa!");
                 }
                 else
                 {
-                    MessageBox.Show(_iKhachHangServices.Delete(_khachHangView));
+                    RJMessageBox.Show(_iKhachHangServices.Delete(_khachHangView));
                     ClearForm();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn");
             }
 
         }
@@ -220,7 +249,6 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dtg_show.Rows[e.RowIndex];
                 _khachHangView = _iKhachHangServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_ma.Text = _khachHangView.Ma;
                 tb_ten.Text = _khachHangView.Ten;
                 tb_diachi.Text = _khachHangView.DiaChi;
                 tb_sdt.Text = _khachHangView.Sdt;
@@ -403,59 +431,116 @@ namespace _3.PL.Views
                 }
             }
         }
-
-        private static readonly string[] VietnameseSigns = new string[]
+       
+        private void dtg_show_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            "aAeEoOuUiIdDyY",
 
-        "áàạảãâấầậẩẫăắằặẳẵ",
-
-        "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-
-        "éèẹẻẽêếềệểễ",
-
-        "ÉÈẸẺẼÊẾỀỆỂỄ",
-
-        "óòọỏõôốồộổỗơớờợởỡ",
-
-        "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-
-        "úùụủũưứừựửữ",
-
-        "ÚÙỤỦŨƯỨỪỰỬỮ",
-
-        "íìịỉĩ",
-
-        "ÍÌỊỈĨ",
-
-        "đ",
-
-        "Đ",
-
-        "ýỳỵỷỹ",
-
-        "ÝỲỴỶỸ"
-        };
-
-
-
-
-        public static string RemoveDauTV(string str)
-        {
-            //Tiến hành thay thế , lọc bỏ dấu cho chuỗi
-
-            for (int i = 1; i < VietnameseSigns.Length; i++)
-
-            {
-
-                for (int j = 0; j < VietnameseSigns[i].Length; j++)
-
-                    str = str.Replace(VietnameseSigns[i][j], VietnameseSigns[0][i - 1]);
-
-            }
-
-            return str;
         }
 
+        private void dtg_show_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+
+        }
+
+
+        //private string RemoveWhiteSpace(string z)
+        //{
+        //    string x = "";
+        //    string[] list = z.Split(' ');
+        //    for (int i = 0; i < list.Length; i++)
+        //    {
+        //        x += " " + list[i];
+                
+        //    }
+        //    return x;
+        //}
+
+        private string XoaDauCach(string s)
+        {
+ 
+            while (s.Trim().Contains("  "))
+            {
+                s = s.Replace("  ", " "); // Xóa 2 dấu cách thành 1 dấu cho đến khi hết
+            }
+            return s;
+        }
+             
+        private void tb_ten_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+
+
+        }
+
+        private void tb_sdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        //string titleCase = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        public static string VietHoaChuCaiDau(string value)
+        {
+            value = value.ToLower();
+            char[] array = value.ToCharArray();
+            if (array.Length >= 1)
+            {
+                if (char.IsLower(array[0]))
+                {
+                    array[0] = char.ToUpper(array[0]);
+                }
+            }
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i - 1] == ' ')
+                {
+                    if (char.IsLower(array[i]))
+                    {
+                        array[i] = char.ToUpper(array[i]);
+                    }
+                }
+            }
+            return new string(array);
+        }
+
+
+        private void tb_ten_TextChanged(object sender, EventArgs e)
+        {
+            if(tb_ten.Text == " ")
+            {
+                tb_ten.Text = "";
+            }
+        }
+
+        private void tb_sdt_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+        int x;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            Random random = new Random();
+            int one = random.Next(0, 255);
+            int two = random.Next(0, 255);
+            int three = random.Next(0, 255);
+            int four = random.Next(0, 255);
+
+            lb_kh.ForeColor = Color.FromArgb(one, two, three, four);
+        }
+
+        private void FrmKhachHang_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            timer1.Enabled = true;
+        }
+
+        //public void CanChinhSize()
+        //{
+        //    FrmKhachHang frmKhachHang = new FrmKhachHang();
+        //    frmKhachHang.dtg_show.Columns[1].Width = 60;
+        //}
     }
 }

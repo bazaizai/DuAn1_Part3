@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_clear = new System.Windows.Forms.Button();
             this.rdb_khonghd = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.dtg_show = new System.Windows.Forms.DataGridView();
@@ -132,19 +131,6 @@
             this.btn_xoa.UseVisualStyleBackColor = false;
             this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
-            // btn_clear
-            // 
-            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
-            this.btn_clear.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(415, 163);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(84, 37);
-            this.btn_clear.TabIndex = 10;
-            this.btn_clear.Text = "Xóa form";
-            this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
-            // 
             // rdb_khonghd
             // 
             this.rdb_khonghd.AutoSize = true;
@@ -175,6 +161,7 @@
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Location = new System.Drawing.Point(40, 244);
             this.dtg_show.Name = "dtg_show";
+            this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowTemplate.Height = 25;
             this.dtg_show.Size = new System.Drawing.Size(459, 150);
             this.dtg_show.TabIndex = 13;
@@ -214,7 +201,6 @@
             this.Controls.Add(this.dtg_show);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rdb_khonghd);
-            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.tbt_ten);
@@ -241,7 +227,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_xoa;
-        private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.RadioButton rdb_khonghd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtg_show;

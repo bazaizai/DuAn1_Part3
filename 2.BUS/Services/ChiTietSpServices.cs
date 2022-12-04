@@ -6,10 +6,6 @@ using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Versioning;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
@@ -22,6 +18,8 @@ namespace _2.BUS.Services
         IChatLieuRepos _IChatLieuRepos;
         ITeamRepos _ITeamRepos;
         IGiaiDauRepos _IGiaiDauRepos;
+        IKieuSpRepos _IKieuSpRepos;
+        IChiTietKieuSpRespos _IChiTietKieuSpRespos;
         public ChiTietSpServices()
         {
             _IChiTietSpRespos = new ChiTietSpRespos();
@@ -31,6 +29,8 @@ namespace _2.BUS.Services
             _IChatLieuRepos = new ChatLieuRepos();
             _ITeamRepos = new TeamRepos();
             _IGiaiDauRepos = new GiaiDauRepos();
+            _IKieuSpRepos =new KieuSpRepos();
+            _IChiTietKieuSpRespos = new ChiTietKieuSpRespos();
         }
         public bool Add(ChiTietSpViews Obj) => Obj != null && _IChiTietSpRespos.Add(new ChiTietSp(Obj.Id,Obj.IdSp, Obj.IdMauSac, Obj.IdSize, Obj.IdTeam, Obj.IdChatLieu,Obj.MaQr, Obj.BaoHanh, Obj.MoTa, Obj.SoLuongTon, Obj.GiaNhap, Obj.GiaBan, Obj.TrangThaiKhuyenMai, Obj.TrangThai));
 
@@ -38,11 +38,20 @@ namespace _2.BUS.Services
 
 
         public List<ChiTietSpViews> GetAll() => (from spct in _IChiTietSpRespos.GetAll()
-                                                    join s in _ISizeRepos.GetAll() on spct.IdKichCo equals s.Id
-                                                    join ms in _IMauSacRepos.GetAll() on spct.IdMauSac equals ms.Id
-                                                    join sp in _ISanPhamRepos.GetAll() on spct.IdSp equals sp.Id
-                                                    join cl in _IChatLieuRepos.GetAll() on spct.IdChatLieu equals cl.Id
-                                                    join t in (from gd in _IGiaiDauRepos.GetAll()
+                                                 join s in _ISizeRepos.GetAll() on spct.IdKichCo equals s.Id
+                                                 join ms in _IMauSacRepos.GetAll() on spct.IdMauSac equals ms.Id
+                                                 join sp in _ISanPhamRepos.GetAll() on spct.IdSp equals sp.Id
+                                                 join cl in _IChatLieuRepos.GetAll() on spct.IdChatLieu equals cl.Id
+                                                 //join ksp in (from ctksp in _IChiTietKieuSpRespos.GetAll() 
+                                                 //             join InKieusp in _IKieuSpRepos.GetAll() on ctksp.IdKieuSp equals InKieusp.Id 
+                                                 //             select new ChiTietKieuSpViews()
+                                                 //{
+                                                 //    Id = ctksp.Id,
+                                                 //    IdKieuSp = InKieusp.Id,
+                                                 //    IdChiTietSp = ctksp.IdChiTietSp,
+                                                 //    TenKieuSP = InKieusp.Ten
+                                                 //}).ToList() on spct.Id equals ksp.IdSPct
+                                                  join t in (from gd in _IGiaiDauRepos.GetAll()
                                                                join Team in _ITeamRepos.GetAll() on gd.Id equals Team.IdGd
                                                                select new TeamView()
                                                                {
@@ -53,28 +62,30 @@ namespace _2.BUS.Services
                                                                    TenGiaiDau = gd.Ten,
                                                                    TrangThai = Team.TrangThai
                                                                }).ToList() on spct.IdTeam equals t.Id
-                                                    select new ChiTietSpViews()
-                                                    {
-                                                        Id = spct.Id,
-                                                        IdSp = spct.IdSp,
-                                                        IdMauSac = spct.IdMauSac,
-                                                        IdSize = spct.IdKichCo,
-                                                        IdTeam = spct.IdTeam,
-                                                        IdChatLieu = spct.IdChatLieu,
-                                                        BaoHanh = spct.BaoHanh,
-                                                        MoTa = spct.MoTa,
-                                                        SoLuongTon = spct.SoLuongTon,
-                                                        GiaNhap = spct.GiaNhap,
-                                                        GiaBan = spct.GiaBan,
-                                                        TrangThai = spct.TrangThai,
-                                                        TrangThaiKhuyenMai = spct.TrangThaiKhuyenMai,
-                                                        TenMauSac = ms.Ten,
-                                                        TenSP = sp.Ten,
-                                                        Size = s.Size,
-                                                        TenChatLieu = cl.Ten,
-                                                        TenTeam = t.Ten
-
-                                                    }).ToList();
+                                                 select new ChiTietSpViews()
+                                                 {
+                                                     Id = spct.Id,
+                                                     IdSp = spct.IdSp,
+                                                     IdMauSac = spct.IdMauSac,
+                                                     IdSize = spct.IdKichCo,
+                                                     IdTeam = spct.IdTeam,
+                                                     IdChatLieu = spct.IdChatLieu,
+                                                     BaoHanh = spct.BaoHanh,
+                                                     MoTa = spct.MoTa,
+                                                     MaQr = spct.MaQr,
+                                                     SoLuongTon = spct.SoLuongTon,
+                                                     GiaNhap = spct.GiaNhap,
+                                                     GiaBan = spct.GiaBan,
+                                                     TrangThai = spct.TrangThai,
+                                                     TrangThaiKhuyenMai = spct.TrangThaiKhuyenMai,
+                                                     TenMauSac = ms.Ten,
+                                                     TenSP = sp.Ten,
+                                                     Size = s.Size,
+                                                     TenChatLieu = cl.Ten,
+                                                     TenTeam = t.Ten,
+                                                     //IdKieuSP = ksp.IdKieuSp,
+                                                     //TenKieuSp = ksp.TenKieuSP
+                                                 }).ToList();
 
 
         public ChiTietSpViews GetById(Guid Id) => GetAll().Find(x => x.Id == Id);

@@ -83,6 +83,7 @@
             this.dtgv_show.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgv_show.Name = "dtgv_show";
             this.dtgv_show.ReadOnly = true;
+            this.dtgv_show.RowHeadersVisible = false;
             this.dtgv_show.RowHeadersWidth = 51;
             this.dtgv_show.RowTemplate.Height = 29;
             this.dtgv_show.Size = new System.Drawing.Size(790, 232);
@@ -145,6 +146,7 @@
             this.tb_sdt.Name = "tb_sdt";
             this.tb_sdt.Size = new System.Drawing.Size(206, 27);
             this.tb_sdt.TabIndex = 50;
+            this.tb_sdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_sdt_KeyPress);
             // 
             // label9
             // 
@@ -189,6 +191,7 @@
             this.tb_ho.Name = "tb_ho";
             this.tb_ho.Size = new System.Drawing.Size(182, 27);
             this.tb_ho.TabIndex = 46;
+            this.tb_ho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ho_KeyPress);
             // 
             // label5
             // 
@@ -211,6 +214,7 @@
             this.tb_tendem.Name = "tb_tendem";
             this.tb_tendem.Size = new System.Drawing.Size(182, 27);
             this.tb_tendem.TabIndex = 44;
+            this.tb_tendem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_tendem_KeyPress);
             // 
             // label7
             // 
@@ -280,6 +284,7 @@
             this.tb_ten.Name = "tb_ten";
             this.tb_ten.Size = new System.Drawing.Size(182, 27);
             this.tb_ten.TabIndex = 38;
+            this.tb_ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ten_KeyPress);
             // 
             // label2
             // 
@@ -340,6 +345,7 @@
             this.tb_cccd.Name = "tb_cccd";
             this.tb_cccd.Size = new System.Drawing.Size(206, 27);
             this.tb_cccd.TabIndex = 62;
+            this.tb_cccd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_cccd_KeyPress);
             // 
             // label11
             // 

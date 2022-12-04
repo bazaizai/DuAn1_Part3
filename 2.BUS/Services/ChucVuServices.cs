@@ -14,9 +14,11 @@ namespace _2.BUS.Services
     public class ChucVuServices : IChucVuServices
     {
         private IChucVuRepos _iChucVuRepos;
+        private INhanVienRepos _inhanVienRepos;
         public ChucVuServices()
         {
             _iChucVuRepos = new ChucVuRepos();
+            _inhanVienRepos = new NhanVienRepos();
         }
         public string MaTS()
         {
@@ -41,22 +43,27 @@ namespace _2.BUS.Services
         public string Delete(ChucVuView obj)
         {
             if (obj == null) return "xóa thất bại";
-            ChucVu vcv = new ChucVu()
+            var a = _inhanVienRepos.GetAll().Find(c => c.IdCv == obj.Id);
+            if (a == null)
             {
-                Id = obj.Id,
-                Ma = obj.Ma,
-                Ten = obj.Ten,
-                TrangThai = obj.TrangThai
-            };
-            if (_iChucVuRepos.Delete(vcv)) return "xóa thành công";
-            return "xóa thất bại";
+                ChucVu vcv = new ChucVu()
+                {
+                    Id = obj.Id,
+                    Ma = obj.Ma,
+                    Ten = obj.Ten,
+                    TrangThai = obj.TrangThai
+                };
+                if (_iChucVuRepos.Delete(vcv)) return "xóa thành công";
+                return "xóa thất bại";
+            }
+            return "Chức vụ đã liên kết với nhân viên";
         }
 
         public List<ChucVuView> GetAll()
         {
             List<ChucVuView> _lstChucVu = new List<ChucVuView>();
             _lstChucVu = (
-                from a in _iChucVuRepos.GetAll()
+                from a in _iChucVuRepos.GetAll().OrderBy(c=>c.Ma)
                 select new ChucVuView()
                 {
                     Id = a.Id,
@@ -77,7 +84,7 @@ namespace _2.BUS.Services
                 Ten = obj.Ten,
                 TrangThai = obj.TrangThai
             };
-            if(_iChucVuRepos.Update(vcv)) return"sửa thành công";
+            if (_iChucVuRepos.Update(vcv)) return "sửa thành công";
             return "sửa thất bại";
         }
     }

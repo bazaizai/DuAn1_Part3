@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
   <ItemGroup>
     <Compile Update="Components\Hats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\HoaDonS.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Components\SearchHats.cs">
@@ -31,6 +35,12 @@
     <Compile Update="CustomControlls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Views\Clone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -40,7 +50,13 @@
     <Compile Update="Views\FrmChiTietSale.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmChiTietSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmCongThuc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmDoiMK.cs">
@@ -56,6 +72,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmHinhThucMh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmKhachHang.cs">
@@ -103,7 +122,13 @@
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmSuaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmTichDiem.cs">
@@ -113,6 +138,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmXacNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ViewSP.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

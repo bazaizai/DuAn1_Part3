@@ -31,7 +31,6 @@
             this.dtg_show = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.rdb_khonghd = new System.Windows.Forms.RadioButton();
-            this.btn_clear = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.tbt_ten = new System.Windows.Forms.TextBox();
@@ -82,19 +81,6 @@
             this.rdb_khonghd.TabStop = true;
             this.rdb_khonghd.Text = "Không hoạt động";
             this.rdb_khonghd.UseVisualStyleBackColor = true;
-            // 
-            // btn_clear
-            // 
-            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
-            this.btn_clear.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(441, 146);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(84, 40);
-            this.btn_clear.TabIndex = 22;
-            this.btn_clear.Text = "Xóa form";
-            this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_xoa
             // 
@@ -216,7 +202,6 @@
             this.Controls.Add(this.dtg_show);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rdb_khonghd);
-            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.tbt_ten);
@@ -239,7 +224,6 @@
         private System.Windows.Forms.DataGridView dtg_show;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdb_khonghd;
-        private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.TextBox tbt_ten;

@@ -143,24 +143,12 @@ namespace _3.PL.Views
             }
         }
 
-        private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _selectId = Guid.Parse(Cell(0));
-
-        }
 
         private void txtSearch__TextChanged(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void dtgView_DoubleClick(object sender, EventArgs e)
-        {
-            tabthongtin.SelectedTab = tabInput;
-            _selectId = Guid.Parse(Cell(0));
-            txtMa.Texts = Cell(2);
-            txtTen.Texts = Cell(3);
-        }
         private bool check(KieuSpView objchinh, KieuSpView obj)
         {
             if (obj.IdCha == null && obj.Id != objchinh.Id)
@@ -185,6 +173,19 @@ namespace _3.PL.Views
                 }
                 else { return check(objchinh, temp); }
             }
+        }
+
+        private void dtgView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            _selectId = Guid.Parse(Cell(0));
+        }
+
+        private void dtgView_DoubleClick_1(object sender, EventArgs e)
+        {
+            tabthongtin.SelectedTab = tabInput;
+            _selectId = Guid.Parse(Cell(0));
+            txtMa.Texts = Cell(2);
+            txtTen.Texts = Cell(3);
         }
     }
 }

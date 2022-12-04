@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.IServices
 {
-    public interface IChiTietKieuSpViewService
+    public interface IChiTietKieuSpService
     {
         string Add(ChiTietKieuSpViews Obj);
         string Update(ChiTietKieuSpViews Obj);
