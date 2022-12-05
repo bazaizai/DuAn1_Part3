@@ -59,7 +59,7 @@
             // 
             this.tb_TimKiem.BackColor = System.Drawing.Color.White;
             this.tb_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_TimKiem.Location = new System.Drawing.Point(178, 33);
+            this.tb_TimKiem.Location = new System.Drawing.Point(192, 33);
             this.tb_TimKiem.Name = "tb_TimKiem";
             this.tb_TimKiem.Size = new System.Drawing.Size(267, 31);
             this.tb_TimKiem.TabIndex = 81;
@@ -87,7 +87,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(399, 195);
+            this.radioButton2.Location = new System.Drawing.Point(404, 195);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(186, 29);
             this.radioButton2.TabIndex = 12;
@@ -155,7 +155,7 @@
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(821, 60);
+            this.groupBox2.Location = new System.Drawing.Point(821, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(203, 280);
             this.groupBox2.TabIndex = 79;
@@ -242,9 +242,9 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.tb_TimKiem);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(59, 337);
+            this.groupBox4.Location = new System.Drawing.Point(45, 337);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(965, 88);
+            this.groupBox4.Size = new System.Drawing.Size(979, 88);
             this.groupBox4.TabIndex = 83;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm kiếm";
@@ -252,7 +252,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(559, 38);
+            this.label3.Location = new System.Drawing.Point(570, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 25);
             this.label3.TabIndex = 92;
@@ -266,7 +266,7 @@
             "Tất cả",
             "Hoạt động",
             "Không hoạt động"});
-            this.cbb_loc.Location = new System.Drawing.Point(664, 33);
+            this.cbb_loc.Location = new System.Drawing.Point(678, 33);
             this.cbb_loc.Name = "cbb_loc";
             this.cbb_loc.Size = new System.Drawing.Size(255, 33);
             this.cbb_loc.TabIndex = 91;

@@ -84,7 +84,7 @@
             // 
             // tb_sdt
             // 
-            this.tb_sdt.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_sdt.BackColor = System.Drawing.Color.White;
             this.tb_sdt.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_sdt.Location = new System.Drawing.Point(134, 260);
             this.tb_sdt.Name = "tb_sdt";
@@ -95,7 +95,7 @@
             // 
             // tb_diachi
             // 
-            this.tb_diachi.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_diachi.BackColor = System.Drawing.Color.White;
             this.tb_diachi.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_diachi.Location = new System.Drawing.Point(134, 339);
             this.tb_diachi.Name = "tb_diachi";
@@ -104,7 +104,7 @@
             // 
             // tb_ten
             // 
-            this.tb_ten.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_ten.BackColor = System.Drawing.Color.White;
             this.tb_ten.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_ten.Location = new System.Drawing.Point(134, 183);
             this.tb_ten.Name = "tb_ten";
@@ -115,7 +115,7 @@
             // 
             // tb_ma
             // 
-            this.tb_ma.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_ma.BackColor = System.Drawing.Color.White;
             this.tb_ma.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_ma.Location = new System.Drawing.Point(134, 105);
             this.tb_ma.Name = "tb_ma";
@@ -211,6 +211,7 @@
             // 
             // cbb_locsdt
             // 
+            this.cbb_locsdt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cbb_locsdt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_locsdt.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbb_locsdt.FormattingEnabled = true;
@@ -259,6 +260,7 @@
             // 
             // cbb_loctrangthai
             // 
+            this.cbb_loctrangthai.BackColor = System.Drawing.Color.DarkGray;
             this.cbb_loctrangthai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_loctrangthai.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbb_loctrangthai.FormattingEnabled = true;
@@ -281,7 +283,7 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_timkiem.BackColor = System.Drawing.Color.White;
             this.tb_timkiem.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_timkiem.Location = new System.Drawing.Point(120, 28);
             this.tb_timkiem.Name = "tb_timkiem";
@@ -294,7 +296,7 @@
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_show.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dtg_show.BackgroundColor = System.Drawing.Color.White;
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.GridColor = System.Drawing.SystemColors.Window;

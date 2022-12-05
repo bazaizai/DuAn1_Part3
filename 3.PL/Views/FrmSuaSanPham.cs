@@ -2,6 +2,7 @@
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using BarcodeLib;
 using CustomAlertBoxDemo;
@@ -236,6 +237,8 @@ namespace _3.PL.Views
         private Guid IdSize() => _ISizeServices.GetAll().Find(x => x.Size == cbbSize.Texts).Id;
         private Guid IDKieuSP() => _IKieuSpServices.GetAll().Find(x => x.Ten == CbbNhomHang.Texts).Id;
 
+
+        private bool HopThoai() => RJMessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes;
         private void LoadCbb()
         {
             cbbTenSP.Items.Clear();
@@ -362,52 +365,54 @@ namespace _3.PL.Views
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            Count = 2;
-            if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
+            if (HopThoai())
             {
-                var Obj = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
-                if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()) || (Obj.IdChatLieu == IdCL() && Obj.IdMauSac == IdMs() && Obj.IdTeam == IdTeam() && Obj.IdSp == IdSp() && Obj.IdSize == IdSize()))
+                Count = 2;
+                if (Anh.Image != null && VaLidateTXT() && VaLidatecbb())
                 {
-                    try
+                    var Obj = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
+                    if (!CheckTrungSP(IdSp(), IdMs(), IdSize(), IdTeam(), IdCL()) || (Obj.IdChatLieu == IdCL() && Obj.IdMauSac == IdMs() && Obj.IdTeam == IdTeam() && Obj.IdSp == IdSp() && Obj.IdSize == IdSize()))
                     {
-                        var sp = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
-                        sp.IdSp = IdSp();
-                        sp.IdMauSac = IdMs();
-                        sp.IdSize = IdSize();
-                        sp.IdTeam = IdTeam();
-                        sp.IdChatLieu = IdCL();
-                        sp.BaoHanh = txtBaoHanh.Texts;
-                        sp.MoTa = txtGhiChu.Texts;
-                        sp.SoLuongTon = int.Parse(txtSoLuong.Texts);
-                        sp.GiaNhap = decimal.Parse(txtGiaNhap.Texts);
-                        sp.GiaBan = decimal.Parse(txtGiaBan.Texts);
-                        sp.TrangThaiKhuyenMai = cbbKhuyenMai.Texts == "Áp dụng" ? 0 : 1;
-                        sp.TrangThai = RdoDangBan.Checked ? 0 : 1;
-                        sp.MoTa = txtGhiChu.Texts;
-                        _IChiTietSpServices.Update(sp);
-                        var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
-                        anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
-                        _IAnhServices.Update(anh);
-                        var CTK = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.IdKieuSp == _IKieuSpServices.GetAll().Find(x => x.Ten == lblNameNhom.Text).Id);
-                        CTK.IdChiTietSp = sp.Id;
-                        CTK.IdKieuSp = IDKieuSP();
-                        _IChiTietKieuSpService.Update(CTK);
-                        this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
-                        this.Close();
+                        try
+                        {
+                            var sp = _IChiTietSpServices.GetById(Guid.Parse(lblID.Text));
+                            sp.IdSp = IdSp();
+                            sp.IdMauSac = IdMs();
+                            sp.IdSize = IdSize();
+                            sp.IdTeam = IdTeam();
+                            sp.IdChatLieu = IdCL();
+                            sp.BaoHanh = txtBaoHanh.Texts;
+                            sp.MoTa = txtGhiChu.Texts;
+                            sp.SoLuongTon = int.Parse(txtSoLuong.Texts);
+                            sp.GiaNhap = decimal.Parse(txtGiaNhap.Texts);
+                            sp.GiaBan = decimal.Parse(txtGiaBan.Texts);
+                            sp.TrangThaiKhuyenMai = cbbKhuyenMai.Texts == "Áp dụng" ? 0 : 1;
+                            sp.TrangThai = RdoDangBan.Checked ? 0 : 1;
+                            sp.MoTa = txtGhiChu.Texts;
+                            _IChiTietSpServices.Update(sp);
+                            var anh = _IAnhServices.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.TenAnh == "Anh");
+                            anh.DuongDan = (byte[])new ImageConverter().ConvertTo(Anh.Image, typeof(Byte[]));
+                            _IAnhServices.Update(anh);
+                            var CTK = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == sp.Id && x.IdKieuSp == _IKieuSpServices.GetAll().Find(x => x.Ten == lblNameNhom.Text).Id);
+                            CTK.IdChiTietSp = sp.Id;
+                            CTK.IdKieuSp = IDKieuSP();
+                            _IChiTietKieuSpService.Update(CTK);
+                            this.Alert("Cập nhật thành công", Form_Alert.enmType.Success);
+                            this.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    else
+                        this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
                 }
                 else
-                    this.Alert("Sản phẩm này đã tồn tại", Form_Alert.enmType.Warning);
+                {
+                    this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
+                }
             }
-            else
-            {
-                this.Alert("Vui lòng nhập đủ trương *", Form_Alert.enmType.Warning);
-            }
-
         }
     }
 }

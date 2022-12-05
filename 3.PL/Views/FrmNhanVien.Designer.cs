@@ -406,7 +406,7 @@
             // btn_them
             // 
             this.btn_them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_them.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_them.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_them.ForeColor = System.Drawing.Color.White;
             this.btn_them.Location = new System.Drawing.Point(735, 43);
@@ -420,7 +420,7 @@
             // btn_sua
             // 
             this.btn_sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_sua.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_sua.ForeColor = System.Drawing.Color.White;
             this.btn_sua.Location = new System.Drawing.Point(735, 108);
@@ -434,7 +434,7 @@
             // btn_xoa
             // 
             this.btn_xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_xoa.BackColor = System.Drawing.Color.Red;
             this.btn_xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_xoa.ForeColor = System.Drawing.Color.White;
             this.btn_xoa.Location = new System.Drawing.Point(735, 167);

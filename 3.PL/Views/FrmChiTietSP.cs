@@ -2,6 +2,7 @@
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Components;
+using _3.PL.CustomControlls;
 using _3.PL.Properties;
 using BarcodeLib;
 using CustomControls.RJControls;
@@ -27,9 +28,19 @@ namespace _3.PL.Views
         IAnhServices _IanhServices;
         IKieuSpServices _IKieuSpServices;
         IChiTietKieuSpService _IChiTietKieuSpService;
+        IMauSacServices _IMauSacServices;
+        IChatLieuServices _IChatLieuServices;
+        CheckBox box;
+        private List<string> _ListChatLieu;
+        private List<string> _ListMauSac;
+
+
         public static Dictionary<Guid, bool> CheckCB;
 
-
+        private int ShowSL;
+        private int ShowTT;
+        private int ShowCL;
+        private int ShowMS;
         private int x;
         public int Count { get => x; set { x = value; x = value; } }
 
@@ -41,7 +52,16 @@ namespace _3.PL.Views
             _IanhServices = new AnhServices();
             _IKieuSpServices = new KieuSpServices();
             _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            LoadMauSac();
+            LoadChatLieu();
+            rdoTatCa.Checked = true;
             x = 1;
+            ShowCL = 0;
+            ShowSL = 0;
+            ShowTT = 0;
+            ShowMS = 0;
             LoadData();
         }
 
@@ -57,6 +77,45 @@ namespace _3.PL.Views
             CbbThaoTac.Items.Add("Mở bán");
         }
 
+        private bool HopThoai(int count) => RJMessageBox.Show("Bạn có muốn thực hiện hành động này với " + count.ToString() + " sản phẩm đã chọn không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        private void CbbThaoTac_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HopThoai(CheckCB.Where(x => x.Value == true).ToList().Count))
+            {
+                foreach (var x in CheckCB.Where(x => x.Value == true))
+                {
+                    var sp = _IChiTietSpServices.GetById(x.Key);
+                    if (CbbThaoTac.Texts == "Áp dụng KM")
+                    {
+                        sp.TrangThaiKhuyenMai = 0;
+                    }
+                    if (CbbThaoTac.Texts == "Không áp dụng KM")
+                    {
+                        sp.TrangThaiKhuyenMai = 1;
+                    }
+                    if (CbbThaoTac.Texts == "Ngừng bán")
+                    {
+                        sp.TrangThai = 1;
+                    }
+                    if (CbbThaoTac.Texts == "Mở bán")
+                    {
+                        sp.TrangThai = 0;
+                    }
+                    _IChiTietSpServices.Update(sp);
+                }
+                CheckCB = new Dictionary<Guid, bool>();
+                checkBox1.Checked = false;
+                CbbThaoTac.Visible = false;
+                _IChiTietSpServices = new ChiTietSpServices();
+                LoadData();
+            }else
+            {
+                LoadCbb();
+            }
+            
+
+           
+        }
         private void LoadAll()
         {
             InitializeComponent();
@@ -107,7 +166,7 @@ namespace _3.PL.Views
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = CTSP[i].BaoHanh;
                 Sp[i].GhiChu = CTSP[i].MoTa;
-                
+
                 var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
                 if (ctksp != null)
                 {
@@ -119,9 +178,11 @@ namespace _3.PL.Views
                     if (NoCheck())
                     {
                         CbbThaoTac.Visible = false;
-                    }else
+                    }
+                    else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -203,6 +264,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -274,6 +336,7 @@ namespace _3.PL.Views
                         else
                         {
                             CbbThaoTac.Visible = true;
+                            CbbThaoTac.Texts = "Thao tác";
                         }
                     };
                     Sp[i].TopLevel = false;
@@ -342,6 +405,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -356,7 +420,7 @@ namespace _3.PL.Views
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            btnHienThiTatCa.Visible=false;
+            btnHienThiTatCa.Visible = false;
             flowLayoutPanel1.Controls.Clear();
             List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
             if (txtSearch.Texts.Trim() != "")
@@ -392,7 +456,9 @@ namespace _3.PL.Views
                 {
                     Sp[i].ChBox.Checked = true;
                     CbbThaoTac.Visible = true;
-                }else
+                    CbbThaoTac.Texts = "Thao tác";
+                }
+                else
                 {
                     if (CheckCB.ContainsKey(CTSP[i].Id))
                     {
@@ -401,7 +467,7 @@ namespace _3.PL.Views
                     else
                     {
                         CheckCB.Add(CTSP[i].Id, false);
-                       
+
                     }
                     CbbThaoTac.Visible = false;
                 }
@@ -415,6 +481,7 @@ namespace _3.PL.Views
                     else
                     {
                         CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
                     }
                 };
                 Sp[i].TopLevel = false;
@@ -447,6 +514,124 @@ namespace _3.PL.Views
                 text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
             }
             return text;
+        }
+
+        private void rjButton1_Click_2(object sender, EventArgs e)
+        {
+            ShowSL++;
+            if (ShowSL % 2 == 1)
+            {
+                pnlbodySoLuongTon.Visible = false;
+                BtnShowSL.Text = "Show";
+            }
+            else
+            {
+                pnlbodySoLuongTon.Visible = true;
+                BtnShowSL.Text = "Hide";
+            }
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            ShowTT++;
+            if (ShowTT % 2 == 1)
+            {
+                pnlBodyTrangThai.Visible = false;
+                BtnShowTT.Text = "Show";
+            }
+            else
+            {
+                pnlBodyTrangThai.Visible = true;
+                BtnShowTT.Text = "Hide";
+            }
+        }
+
+        private void chkTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            chkDangBan.Checked = false;
+            chkNgungBan.Checked = false;
+        }
+
+        private void chkDangBan_CheckedChanged(object sender, EventArgs e)
+        {
+            chkTatCa.Checked = false;
+            chkNgungBan.Checked = false;
+        }
+
+        private void chkNgungBan_CheckedChanged(object sender, EventArgs e)
+        {
+            chkTatCa.Checked = false;
+            chkDangBan.Checked = false;
+        }
+        private void LoadMauSac()
+        {
+            for (int i = 0; i < _IMauSacServices.GetAll().Where(x=>x.TrangThai == 0).ToList().Count; i++)
+            {
+                box = new CheckBox();
+                box.Text = _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                box.Dock = DockStyle.Top;
+                box.Padding = new Padding(0,5,0,0);
+                box.AutoSize = true;
+                PnlMauSac.Controls.Add(box);
+                box.CheckedChanged += new EventHandler(CheckBoxClick); 
+            }
+        }
+
+        private void CheckBoxClick(object sender, EventArgs e)
+        {
+            CheckBox item = (CheckBox)sender;
+            if (item.Checked)
+            {
+                MessageBox.Show("Thông minh");
+            }else
+            {
+                MessageBox.Show("Rất thông minh");
+            }
+        }
+
+        private void LoadChatLieu()
+        {
+            for (int i = 0; i < _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList().Count; i++)
+            {
+                box = new CheckBox();
+                box.Text = _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                box.Dock = DockStyle.Top;
+                box.Padding = new Padding(0, 5, 0, 0);
+                box.AutoSize = true;
+                pnlChatLieu.Controls.Add(box);
+                box.CheckedChanged += new EventHandler(CheckBoxClick);
+            }
+        }
+
+        private void rjButton1_Click_1(object sender, EventArgs e)
+        {
+            ShowMS++;
+            if (ShowMS % 2 == 1)
+            {
+                pnlBodyMS.Visible = false;
+                BtnShowMS.Text = "Show";
+            }
+            else
+            {
+                pnlBodyMS.Visible = true;
+                BtnShowMS.Text = "Hide";
+            }
+        }
+
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+            ShowCL++;
+            if (ShowCL % 2 == 1)
+            {
+                pnlbdchatLieu.Visible = false;
+                btnShowChatLieu.Text = "Show";
+            }
+            else
+            {
+                pnlbdchatLieu.Visible = true;
+                btnShowChatLieu.Text = "Hide";
+            }
+
         }
     }
 }

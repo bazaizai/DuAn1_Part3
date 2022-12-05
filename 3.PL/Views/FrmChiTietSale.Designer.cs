@@ -48,6 +48,7 @@
             this.MauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KieuSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bt_them2 = new CustomControls.RJControls.RJButton();
             this.ck_all = new System.Windows.Forms.CheckBox();
@@ -249,6 +250,7 @@
             this.MauSac,
             this.Team,
             this.KieuSp,
+            this.TrangThai,
             this.Selected});
             this.dtg_sp.Location = new System.Drawing.Point(29, 358);
             this.dtg_sp.Name = "dtg_sp";
@@ -291,6 +293,12 @@
             this.KieuSp.DataPropertyName = "KieuSP";
             this.KieuSp.HeaderText = "Kiểu SP";
             this.KieuSp.Name = "KieuSp";
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
             // 
             // Selected
             // 
@@ -471,7 +479,7 @@
             this.cbb_loaiKM.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbb_loaiKM.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.cbb_loaiKM.BorderSize = 1;
-            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbb_loaiKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_loaiKM.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_loaiKM.ForeColor = System.Drawing.Color.Black;
             this.cbb_loaiKM.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -739,15 +747,16 @@
         private System.Windows.Forms.Label label1;
         private CustomControls.RJControls.RJButton bt_them2;
         private System.Windows.Forms.DataGridView dtg_sp;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btloadlai;
+        private CustomControls.RJControls.RJTextBox tb_trangthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MauSac;
         private System.Windows.Forms.DataGridViewTextBoxColumn Team;
         private System.Windows.Forms.DataGridViewTextBoxColumn KieuSp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btloadlai;
-        private CustomControls.RJControls.RJTextBox tb_trangthai;
     }
 }
