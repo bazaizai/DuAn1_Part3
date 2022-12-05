@@ -51,7 +51,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(67, 11);
+            this.label6.Location = new System.Drawing.Point(77, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 20);
@@ -60,10 +60,11 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(158, 9);
-            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_timkiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.tb_timkiem.Location = new System.Drawing.Point(181, 12);
+            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_timkiem.Name = "tb_timkiem";
-            this.tb_timkiem.Size = new System.Drawing.Size(546, 27);
+            this.tb_timkiem.Size = new System.Drawing.Size(623, 27);
             this.tb_timkiem.TabIndex = 19;
             this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
@@ -72,7 +73,7 @@
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_show.BackgroundColor = System.Drawing.Color.White;
+            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,14 +85,14 @@
             this.SoDiemDung,
             this.NgayTichDiem,
             this.Trangthai});
-            this.dtg_show.Location = new System.Drawing.Point(2, 39);
-            this.dtg_show.Margin = new System.Windows.Forms.Padding(2);
+            this.dtg_show.Location = new System.Drawing.Point(2, 52);
+            this.dtg_show.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 62;
             this.dtg_show.RowTemplate.Height = 33;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(820, 307);
+            this.dtg_show.Size = new System.Drawing.Size(937, 409);
             this.dtg_show.TabIndex = 0;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
             // 
@@ -152,10 +153,10 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.panel1.Location = new System.Drawing.Point(0, 8);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(824, 353);
+            this.panel1.Size = new System.Drawing.Size(942, 471);
             this.panel1.TabIndex = 21;
             // 
             // ID
@@ -174,13 +175,13 @@
             // 
             // FrmLichSuTichDiem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(824, 361);
+            this.ClientSize = new System.Drawing.Size(942, 481);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FrmLichSuTichDiem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLichSuTichDiem";
