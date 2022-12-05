@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.IdSPCT = new System.Windows.Forms.Label();
+            this.Add = new CustomControls.RJControls.RJButton();
             this.Gia = new System.Windows.Forms.Label();
             this.TenSP = new System.Windows.Forms.Label();
+            this.Anh = new CustomControls.RJControls.RJCircularPictureBox();
             this.SoLuong = new System.Windows.Forms.Label();
             this.lblMa = new System.Windows.Forms.Label();
             this.lblGiaSauKhiGiam = new System.Windows.Forms.Label();
@@ -41,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.Anh)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +59,29 @@
             this.IdSPCT.TabIndex = 17;
             this.IdSPCT.Text = "Số lượng: 500";
             this.IdSPCT.Visible = false;
+            // 
+            // Add
+            // 
+            this.Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.Add.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.Add.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Add.BorderRadius = 15;
+            this.Add.BorderSize = 0;
+            this.Add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Add.FlatAppearance.BorderSize = 0;
+            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Add.ForeColor = System.Drawing.Color.Ivory;
+            this.Add.Location = new System.Drawing.Point(162, 150);
+            this.Add.Margin = new System.Windows.Forms.Padding(0);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(105, 42);
+            this.Add.TabIndex = 12;
+            this.Add.Text = "Add";
+            this.Add.TextColor = System.Drawing.Color.Ivory;
+            this.Add.UseVisualStyleBackColor = false;
+            this.Add.Click += new System.EventHandler(this.Add_Click_1);
             // 
             // Gia
             // 
@@ -74,12 +100,31 @@
             this.TenSP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TenSP.AutoSize = true;
             this.TenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TenSP.ForeColor = System.Drawing.Color.Black;
+            this.TenSP.ForeColor = System.Drawing.Color.White;
             this.TenSP.Location = new System.Drawing.Point(3, 4);
             this.TenSP.Name = "TenSP";
             this.TenSP.Size = new System.Drawing.Size(106, 25);
             this.TenSP.TabIndex = 10;
             this.TenSP.Text = "SanPham";
+            // 
+            // Anh
+            // 
+            this.Anh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Anh.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.Anh.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.Anh.BorderColor2 = System.Drawing.Color.HotPink;
+            this.Anh.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.Anh.BorderSize = 2;
+            this.Anh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Anh.GradientAngle = 50F;
+            this.Anh.Location = new System.Drawing.Point(5, 39);
+            this.Anh.Margin = new System.Windows.Forms.Padding(0);
+            this.Anh.Name = "Anh";
+            this.Anh.Size = new System.Drawing.Size(123, 123);
+            this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Anh.TabIndex = 9;
+            this.Anh.TabStop = false;
+            this.Anh.Click += new System.EventHandler(this.Anh_Click);
             // 
             // SoLuong
             // 
@@ -146,7 +191,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.TenSP);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -174,7 +219,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -184,10 +229,13 @@
             this.Controls.Add(this.lblMa);
             this.Controls.Add(this.SoLuong);
             this.Controls.Add(this.IdSPCT);
+            this.Controls.Add(this.Add);
             this.Controls.Add(this.Gia);
+            this.Controls.Add(this.Anh);
             this.Name = "Hats";
             this.Size = new System.Drawing.Size(270, 194);
             this.Load += new System.EventHandler(this.Hats_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Anh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
