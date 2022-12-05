@@ -59,11 +59,11 @@ namespace _3.PL.Views
         private void loadlb()
         {
 
-            if (cbb_loaiKM.Texts == "%")
+            if (cbb_loaiKM.SelectedIndex == 0)
             {
                 lb_mucgiam.Text = "% giảm";
             }
-            if (cbb_loaiKM.Texts == "Tiền mặt")
+            if (cbb_loaiKM.SelectedIndex == 1)
             {
                 lb_mucgiam.Text = "Số tiền giảm";
             }
@@ -72,8 +72,8 @@ namespace _3.PL.Views
 
         private void loadKM()
         {
-          
-            lstSale = _SaleServices.GetAll();        
+
+            lstSale = _SaleServices.GetAll();
             dtg_show.Rows.Clear();
             dtg_show.ColumnCount = 9;
             dtg_show.Columns[0].Name = "ID";
@@ -144,7 +144,7 @@ namespace _3.PL.Views
                     selcted.Add(sPSelected);
 
                 }
-                
+
                 else
                 {
                     SPSelected sPSelected = new SPSelected()
@@ -803,8 +803,7 @@ namespace _3.PL.Views
             cbb_locTrangthai.Items.Add("Tất cả");
             cbb_locTrangthai.Items.Add("Đang áp dụng");
             cbb_locTrangthai.Items.Add("Ngừng áp dụng");
-            cbb_locTrangthai.Items.Add("Chưa bắt đầu");
-            cbb_locTrangthai.Items.Add("Không áp dụng");
+
             label12.Text = DateTime.Now.ToLongTimeString();
             loadKM();
             loadCTSP();
@@ -817,6 +816,8 @@ namespace _3.PL.Views
             cbb_locSp.Items.Add("Tất cả");
             cbb_locSp.Items.Add("Chưa áp dụng");
             cbb_locSp.Items.Add("Đã áp dụng");
+            cbb_locSp.Items.Add("Chưa bắt đầu");
+            cbb_locSp.Items.Add("Không áp dụng");
             timer1.Start();
             //loadlaiform();
         }
