@@ -298,7 +298,7 @@ namespace _3.PL.Views
                 {
                     RJMessageBox.Show("Nhập đúng mức giảm");
                 }
-                else if (cbb_loaiKM.Texts == "%" && Convert.ToDecimal(tb_mucgiam.Texts) > 100)
+                else if (cbb_loaiKM.Texts == "%" && Convert.ToDecimal(tb_mucgiam.Texts) > 99)
                 {
                     RJMessageBox.Show("Không được giảm quá 100%");
                 }
