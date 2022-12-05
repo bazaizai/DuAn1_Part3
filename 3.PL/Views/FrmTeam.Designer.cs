@@ -49,12 +49,13 @@
             // 
             // bt_xoaform
             // 
-            this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoaform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.bt_xoaform.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_xoaform.ForeColor = System.Drawing.Color.Transparent;
-            this.bt_xoaform.Location = new System.Drawing.Point(614, 189);
-            this.bt_xoaform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_xoaform.Location = new System.Drawing.Point(1053, 378);
+            this.bt_xoaform.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bt_xoaform.Name = "bt_xoaform";
-            this.bt_xoaform.Size = new System.Drawing.Size(98, 42);
+            this.bt_xoaform.Size = new System.Drawing.Size(168, 84);
             this.bt_xoaform.TabIndex = 42;
             this.bt_xoaform.Text = "Xóa form";
             this.bt_xoaform.UseVisualStyleBackColor = false;
@@ -63,9 +64,12 @@
             // rdb_khd
             // 
             this.rdb_khd.AutoSize = true;
-            this.rdb_khd.Location = new System.Drawing.Point(304, 178);
+            this.rdb_khd.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdb_khd.ForeColor = System.Drawing.Color.White;
+            this.rdb_khd.Location = new System.Drawing.Point(521, 356);
+            this.rdb_khd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.rdb_khd.Name = "rdb_khd";
-            this.rdb_khd.Size = new System.Drawing.Size(118, 19);
+            this.rdb_khd.Size = new System.Drawing.Size(193, 34);
             this.rdb_khd.TabIndex = 41;
             this.rdb_khd.TabStop = true;
             this.rdb_khd.Text = "Không hoạt động";
@@ -74,9 +78,12 @@
             // rdb_hd
             // 
             this.rdb_hd.AutoSize = true;
-            this.rdb_hd.Location = new System.Drawing.Point(166, 180);
+            this.rdb_hd.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdb_hd.ForeColor = System.Drawing.Color.White;
+            this.rdb_hd.Location = new System.Drawing.Point(285, 360);
+            this.rdb_hd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.rdb_hd.Name = "rdb_hd";
-            this.rdb_hd.Size = new System.Drawing.Size(83, 19);
+            this.rdb_hd.Size = new System.Drawing.Size(133, 34);
             this.rdb_hd.TabIndex = 40;
             this.rdb_hd.TabStop = true;
             this.rdb_hd.Text = "Hoạt Động";
@@ -85,18 +92,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(94, 234);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(161, 468);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
+            this.label4.Size = new System.Drawing.Size(93, 30);
             this.label4.TabIndex = 39;
             this.label4.Text = "tìm kiếm";
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(166, 226);
-            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_timkiem.Location = new System.Drawing.Point(285, 452);
+            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tb_timkiem.Name = "tb_timkiem";
-            this.tb_timkiem.Size = new System.Drawing.Size(399, 23);
+            this.tb_timkiem.Size = new System.Drawing.Size(681, 35);
             this.tb_timkiem.TabIndex = 38;
             this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
@@ -105,30 +115,31 @@
             this.dtg_show.AllowUserToAddRows = false;
             this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.GridColor = System.Drawing.SystemColors.Highlight;
-            this.dtg_show.Location = new System.Drawing.Point(58, 253);
-            this.dtg_show.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtg_show.Location = new System.Drawing.Point(99, 506);
+            this.dtg_show.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dtg_show.Name = "dtg_show";
             this.dtg_show.ReadOnly = true;
             this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowHeadersWidth = 51;
             this.dtg_show.RowTemplate.Height = 29;
             this.dtg_show.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_show.Size = new System.Drawing.Size(684, 141);
+            this.dtg_show.Size = new System.Drawing.Size(1173, 282);
             this.dtg_show.TabIndex = 37;
             this.dtg_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_show_CellClick);
             // 
             // bt_xoa
             // 
-            this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.bt_xoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_xoa.ForeColor = System.Drawing.Color.Transparent;
-            this.bt_xoa.Location = new System.Drawing.Point(614, 145);
-            this.bt_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_xoa.Location = new System.Drawing.Point(1053, 290);
+            this.bt_xoa.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(98, 42);
+            this.bt_xoa.Size = new System.Drawing.Size(168, 84);
             this.bt_xoa.TabIndex = 36;
             this.bt_xoa.Text = "xóa";
             this.bt_xoa.UseVisualStyleBackColor = false;
@@ -136,12 +147,13 @@
             // 
             // tb_them
             // 
-            this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.tb_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.tb_them.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_them.ForeColor = System.Drawing.Color.Transparent;
-            this.tb_them.Location = new System.Drawing.Point(614, 97);
-            this.tb_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_them.Location = new System.Drawing.Point(1053, 194);
+            this.tb_them.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tb_them.Name = "tb_them";
-            this.tb_them.Size = new System.Drawing.Size(98, 42);
+            this.tb_them.Size = new System.Drawing.Size(168, 84);
             this.tb_them.TabIndex = 35;
             this.tb_them.Text = "Thêm";
             this.tb_them.UseVisualStyleBackColor = false;
@@ -149,12 +161,13 @@
             // 
             // bt_update
             // 
-            this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.bt_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.bt_update.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_update.ForeColor = System.Drawing.Color.Transparent;
-            this.bt_update.Location = new System.Drawing.Point(614, 51);
-            this.bt_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_update.Location = new System.Drawing.Point(1053, 102);
+            this.bt_update.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bt_update.Name = "bt_update";
-            this.bt_update.Size = new System.Drawing.Size(98, 42);
+            this.bt_update.Size = new System.Drawing.Size(168, 84);
             this.bt_update.TabIndex = 34;
             this.bt_update.Text = "Sửa";
             this.bt_update.UseVisualStyleBackColor = false;
@@ -163,70 +176,83 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 180);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(161, 360);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 15);
+            this.label3.Size = new System.Drawing.Size(105, 30);
             this.label3.TabIndex = 33;
             this.label3.Text = "Trạng thái";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 142);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(161, 284);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 15);
+            this.label2.Size = new System.Drawing.Size(45, 30);
             this.label2.TabIndex = 32;
             this.label2.Text = "Tên";
             // 
             // tb_ten
             // 
-            this.tb_ten.Location = new System.Drawing.Point(166, 140);
-            this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_ten.Location = new System.Drawing.Point(285, 280);
+            this.tb_ten.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(276, 23);
+            this.tb_ten.Size = new System.Drawing.Size(470, 35);
             this.tb_ten.TabIndex = 31;
             this.tb_ten.TextChanged += new System.EventHandler(this.tb_ten_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 64);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(161, 128);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 15);
+            this.label1.Size = new System.Drawing.Size(43, 30);
             this.label1.TabIndex = 30;
             this.label1.Text = "Mã";
             // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(166, 62);
-            this.tb_ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_ma.Location = new System.Drawing.Point(285, 124);
+            this.tb_ma.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tb_ma.Name = "tb_ma";
-            this.tb_ma.Size = new System.Drawing.Size(276, 23);
+            this.tb_ma.Size = new System.Drawing.Size(470, 35);
             this.tb_ma.TabIndex = 29;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(94, 103);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(161, 206);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 15);
+            this.label5.Size = new System.Drawing.Size(89, 30);
             this.label5.TabIndex = 44;
             this.label5.Text = "Giải đấu";
             // 
             // cbb_giaidau
             // 
             this.cbb_giaidau.FormattingEnabled = true;
-            this.cbb_giaidau.Location = new System.Drawing.Point(164, 102);
+            this.cbb_giaidau.Location = new System.Drawing.Point(281, 204);
+            this.cbb_giaidau.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbb_giaidau.Name = "cbb_giaidau";
-            this.cbb_giaidau.Size = new System.Drawing.Size(278, 23);
+            this.cbb_giaidau.Size = new System.Drawing.Size(474, 38);
             this.cbb_giaidau.TabIndex = 45;
             // 
             // FrmTeam
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(775, 431);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.ClientSize = new System.Drawing.Size(1329, 862);
             this.Controls.Add(this.cbb_giaidau);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.bt_xoaform);
@@ -243,6 +269,8 @@
             this.Controls.Add(this.tb_ten);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_ma);
+            this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FrmTeam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTeam";

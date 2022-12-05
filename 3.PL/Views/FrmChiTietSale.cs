@@ -22,6 +22,7 @@ using _3.PL.Properties;
 using System.Threading;
 using System.IO;
 using System.Drawing.Printing;
+using _3.PL.CustomControlls;
 
 namespace _3.PL.Views
 {
@@ -36,7 +37,7 @@ namespace _3.PL.Views
         private List<ChiTietSaleView> _lstCtsle;
         private List<SaleView> lstSale;
         private List<ChiTietSpViews> _ChiTietSpViews;
-
+        private SaleView SaleView;
         private Guid IDCtsp;
         private Guid IDsale;
         private ChiTietSpViews chiTietSpViews;
@@ -273,37 +274,37 @@ namespace _3.PL.Views
         private void bt_them_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_SaleServices.GetAll().Any(c => c.Ten == tb_ten.Texts))
                 {
-                    MessageBox.Show("Tên bị trùng");
+                    RJMessageBox.Show("Tên bị trùng");
                 }
                 else if (tb_ten.Texts == "")
                 {
-                    MessageBox.Show("Không được bỏ trống tên");
+                    RJMessageBox.Show("Không được bỏ trống tên");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else if (cbb_loaiKM.Texts == "")
                 {
-                    MessageBox.Show("Vui lòng chọn hình thức giảm");
+                    RJMessageBox.Show("Vui lòng chọn hình thức giảm");
                 }
 
                 else if (ValidateInput.CheckIntInput(tb_mucgiam.Texts) == false || Convert.ToDecimal(tb_mucgiam.Texts) < 0)
                 {
-                    MessageBox.Show("Nhập đúng mức giảm");
+                    RJMessageBox.Show("Nhập đúng mức giảm");
                 }
                 else if (cbb_loaiKM.Texts == "%" && Convert.ToDecimal(tb_mucgiam.Texts) > 100)
                 {
-                    MessageBox.Show("Không được giảm quá 100%");
+                    RJMessageBox.Show("Không được giảm quá 100%");
                 }
                 else if (dtp_end.Value < dtp_start.Value)
                 {
-                    MessageBox.Show("Ngày kết thúc sale không được bé hơn ngày bắt đầu");
+                    RJMessageBox.Show("Ngày kết thúc sale không được bé hơn ngày bắt đầu");
                 }
                 else
                 {
@@ -319,7 +320,7 @@ namespace _3.PL.Views
                         MoTa = tb_mota.Texts,
                         TrangThai = addTrangThai(),
                     };
-                    MessageBox.Show(_SaleServices.Add(saleView));
+                    RJMessageBox.Show(_SaleServices.Add(saleView));
                     ClearForm();
                     loadKM();
                     cbb_locTrangthai.SelectedIndex = 0;
@@ -327,7 +328,7 @@ namespace _3.PL.Views
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy thêm");
+                RJMessageBox.Show("Bạn đã hủy thêm");
             }
         }
         private void ClearForm()
@@ -351,41 +352,41 @@ namespace _3.PL.Views
 
         private void bt_sua_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (IDsale == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn mã sale cần sửa");
+                    RJMessageBox.Show("Vui lòng chọn mã sale cần sửa");
                 }
                 else if (_SaleServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Texts && c.Id != IDsale) != null)
                 {
-                    MessageBox.Show("Tên sale được trùng");
+                    RJMessageBox.Show("Tên sale được trùng");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else if (tb_ten.Texts == "")
                 {
-                    MessageBox.Show("Không được bỏ trống tên");
+                    RJMessageBox.Show("Không được bỏ trống tên");
                 }
                 else if (cbb_loaiKM.Texts == "")
                 {
-                    MessageBox.Show("Vui lòng chọn hình thức giảm");
+                    RJMessageBox.Show("Vui lòng chọn hình thức giảm");
                 }
 
                 else if (ValidateInput.CheckIntInput(tb_mucgiam.Texts) == false || Convert.ToDecimal(tb_mucgiam.Texts) < 0)
                 {
-                    MessageBox.Show("Nhập đúng mức giảm");
+                    RJMessageBox.Show("Nhập đúng mức giảm");
                 }
                 else if (cbb_loaiKM.Texts == "%" && Convert.ToDecimal(tb_mucgiam.Texts) > 100)
                 {
-                    MessageBox.Show("Không được giảm quá 100%");
+                    RJMessageBox.Show("Không được giảm quá 100%");
                 }
                 else if (dtp_end.Value < dtp_start.Value)
                 {
-                    MessageBox.Show("Ngày kết thúc sale không được bé hơn ngày bắt đầu");
+                    RJMessageBox.Show("Ngày kết thúc sale không được bé hơn ngày bắt đầu");
                 }
 
                 else
@@ -403,7 +404,7 @@ namespace _3.PL.Views
                         MoTa = tb_mota.Texts,
                         TrangThai = addTrangThai(),
                     };
-                    MessageBox.Show(_SaleServices.Update(saleView));
+                    RJMessageBox.Show(_SaleServices.Update(saleView));
                     ClearForm();
                     loadKM();
                     cbb_locTrangthai.SelectedIndex = 0;
@@ -412,7 +413,7 @@ namespace _3.PL.Views
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy sửa");
+                RJMessageBox.Show("Bạn đã hủy sửa");
             }
         }
 
@@ -584,6 +585,8 @@ namespace _3.PL.Views
         }
         private void dtg_show_CellClick(object sender, EventArgs e)
         {
+
+
             IDsale = (Guid)(dtg_show.CurrentRow.Cells[0].Value);
             tb_ma.Texts = dtg_show.CurrentRow.Cells[1].Value.ToString();
             tb_ten.Texts = dtg_show.CurrentRow.Cells[2].Value.ToString();
@@ -633,12 +636,12 @@ namespace _3.PL.Views
             //if (dataGridViewCheckBoxCell.Value == ckb.TrueValue)
             //{
             //    _lstCtspAdd.Add(sanpham);
-            //    MessageBox.Show("1");
+            //   RJMessageBox.Show("1");
             //}
             //else
             //{
             //    _lstCtspEdit.Add(sanpham);
-            //    MessageBox.Show("2");
+            //   RJMessageBox.Show("2");
 
             //}
         }
@@ -754,6 +757,7 @@ namespace _3.PL.Views
                     }
 
                 }
+                dtg_sp.DataSource = selcted;
             }
             else if (cbb_locSp.SelectedIndex == 4)
             {
@@ -783,6 +787,8 @@ namespace _3.PL.Views
                     }
 
                 }
+                dtg_sp.DataSource = selcted;
+
             }
 
 
@@ -814,10 +820,12 @@ namespace _3.PL.Views
             dtp_start.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
             dtp_end.CustomFormat = " HH:mm:ss  dd/MM/yyyy";
             cbb_locSp.Items.Add("Tất cả");
-            cbb_locSp.Items.Add("Chưa áp dụng");
             cbb_locSp.Items.Add("Đã áp dụng");
-            cbb_locSp.Items.Add("Chưa bắt đầu");
+            cbb_locSp.Items.Add("Ngừng áp dụng");
+            cbb_locSp.Items.Add("Chưa áp dụng");
             cbb_locSp.Items.Add("Không áp dụng");
+
+
             timer1.Start();
             //loadlaiform();
         }
@@ -825,7 +833,7 @@ namespace _3.PL.Views
         private void bt_them2_Click(object sender, EventArgs e)
         {
             int d = 0;
-            DialogResult result = MessageBox.Show("Bạn có muốn áp dụng thay đổi không ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn áp dụng thay đổi không ?", "Cảnh báo", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -835,11 +843,11 @@ namespace _3.PL.Views
                     List<ChiTietSaleView> chiTietSaleViews = _IchiTietSaleServices.GetAll().Where(c => c.IdSale == IDsale).ToList();
                     if (_SaleServices.GetAll().FirstOrDefault(c => c.Id == IDsale).NgayKetThuc < DateTime.Now)
                     {
-                        MessageBox.Show("Mã sale đã hết hạn sử dụng vui lòng chọn mã khác");
+                        RJMessageBox.Show("Mã sale đã hết hạn sử dụng vui lòng chọn mã khác");
                     }
                     else if (_SaleServices.GetAll().FirstOrDefault(c => c.Id == IDsale).TrangThai == 1)
                     {
-                        MessageBox.Show("Mã sale đã không còn khả dụng");
+                        RJMessageBox.Show("Mã sale đã không còn khả dụng");
                     }
                     else
                     {
@@ -880,7 +888,7 @@ namespace _3.PL.Views
                                 };
                                 _IchiTietSaleServices.Add(chiTietSaleView);
                             }
-                            MessageBox.Show("Áp dụng thành công");
+                            RJMessageBox.Show("Áp dụng thành công");
                         }
                         else
                         {
@@ -908,7 +916,7 @@ namespace _3.PL.Views
                                     };
                                     _IchiTietSaleServices.Add(chiTietSaleView);
                                 }
-                                MessageBox.Show("Áp dụng thành công");
+                                RJMessageBox.Show("Áp dụng thành công");
                             }
                             else
                             {
@@ -923,21 +931,22 @@ namespace _3.PL.Views
                                     };
                                     _IchiTietSaleServices.Add(chiTietSaleView);
                                 }
-                                MessageBox.Show("Áp dụng thành công");
+                                RJMessageBox.Show("Áp dụng thành công");
                             }
                         }
                     }
                 }
-                else MessageBox.Show("Chọn sale trước");
+                else RJMessageBox.Show("Chọn sale trước");
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy sửa");
+                RJMessageBox.Show("Bạn đã hủy sửa");
             }
         }
 
         private void dtg_show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             IDsale = (Guid)(dtg_show.CurrentRow.Cells[0].Value);
             tb_ma.Texts = dtg_show.CurrentRow.Cells[1].Value.ToString();
             tb_ten.Texts = dtg_show.CurrentRow.Cells[2].Value.ToString();
@@ -947,7 +956,7 @@ namespace _3.PL.Views
             tb_mucgiam.Texts = dtg_show.CurrentRow.Cells[6].Value.ToString();
             tb_mota.Texts = dtg_show.CurrentRow.Cells[7].Value.ToString();
             tb_trangthai.Texts = dtg_show.CurrentRow.Cells[8].Value.ToString();
-
+            cbb_locSp.SelectedIndex = 0;
             loadCTsale();
 
         }
@@ -1046,6 +1055,7 @@ namespace _3.PL.Views
                 {
                     loadKM1();
                 }
+
             }
         }
 
@@ -1086,5 +1096,7 @@ namespace _3.PL.Views
         {
             auto();
         }
+
+
     }
 }
