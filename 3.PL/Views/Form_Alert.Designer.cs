@@ -39,12 +39,11 @@
             // 
             // lblMsg
             // 
-            this.lblMsg.AutoSize = true;
             this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMsg.ForeColor = System.Drawing.Color.White;
-            this.lblMsg.Location = new System.Drawing.Point(55, 25);
+            this.lblMsg.Location = new System.Drawing.Point(56, 21);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(114, 20);
+            this.lblMsg.Size = new System.Drawing.Size(261, 50);
             this.lblMsg.TabIndex = 0;
             this.lblMsg.Text = "Message Text";
             // 
@@ -87,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

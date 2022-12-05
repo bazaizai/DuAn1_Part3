@@ -33,12 +33,14 @@
             this.IdSPCT = new System.Windows.Forms.Label();
             this.Gia = new System.Windows.Forms.Label();
             this.TenSP = new System.Windows.Forms.Label();
+            this.Anh = new CustomControls.RJControls.RJCircularPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPT = new System.Windows.Forms.Label();
             this.lblGiaGiam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.Anh)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.SoLuong.ForeColor = System.Drawing.Color.Black;
             this.SoLuong.Location = new System.Drawing.Point(123, 31);
             this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Size = new System.Drawing.Size(49, 13);
+            this.SoLuong.Size = new System.Drawing.Size(60, 16);
             this.SoLuong.TabIndex = 24;
             this.SoLuong.Text = "Số lượng";
             // 
@@ -62,7 +64,7 @@
             this.IdSPCT.ForeColor = System.Drawing.Color.Silver;
             this.IdSPCT.Location = new System.Drawing.Point(29, 89);
             this.IdSPCT.Name = "IdSPCT";
-            this.IdSPCT.Size = new System.Drawing.Size(51, 11);
+            this.IdSPCT.Size = new System.Drawing.Size(64, 12);
             this.IdSPCT.TabIndex = 23;
             this.IdSPCT.Text = "Số lượng: 500";
             this.IdSPCT.Visible = false;
@@ -74,7 +76,7 @@
             this.Gia.ForeColor = System.Drawing.Color.Red;
             this.Gia.Location = new System.Drawing.Point(208, 67);
             this.Gia.Name = "Gia";
-            this.Gia.Size = new System.Drawing.Size(102, 17);
+            this.Gia.Size = new System.Drawing.Size(117, 20);
             this.Gia.TabIndex = 21;
             this.Gia.Text = "Giá: 500.000 đ";
             // 
@@ -86,9 +88,26 @@
             this.TenSP.ForeColor = System.Drawing.Color.Navy;
             this.TenSP.Location = new System.Drawing.Point(0, 0);
             this.TenSP.Name = "TenSP";
-            this.TenSP.Size = new System.Drawing.Size(86, 20);
+            this.TenSP.Size = new System.Drawing.Size(106, 25);
             this.TenSP.TabIndex = 20;
             this.TenSP.Text = "SanPham";
+            // 
+            // Anh
+            // 
+            this.Anh.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.Anh.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.Anh.BorderColor2 = System.Drawing.Color.HotPink;
+            this.Anh.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.Anh.BorderSize = 2;
+            this.Anh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Anh.GradientAngle = 50F;
+            this.Anh.Location = new System.Drawing.Point(0, 0);
+            this.Anh.Margin = new System.Windows.Forms.Padding(0);
+            this.Anh.Name = "Anh";
+            this.Anh.Size = new System.Drawing.Size(89, 89);
+            this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Anh.TabIndex = 19;
+            this.Anh.TabStop = false;
             // 
             // label1
             // 
@@ -97,7 +116,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(208, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 17);
+            this.label1.Size = new System.Drawing.Size(117, 20);
             this.label1.TabIndex = 25;
             this.label1.Text = "Giá: 500.000 đ";
             // 
@@ -109,7 +128,7 @@
             this.lblPT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblPT.Location = new System.Drawing.Point(123, 49);
             this.lblPT.Name = "lblPT";
-            this.lblPT.Size = new System.Drawing.Size(22, 19);
+            this.lblPT.Size = new System.Drawing.Size(25, 23);
             this.lblPT.TabIndex = 26;
             this.lblPT.Text = "%";
             // 
@@ -120,16 +139,16 @@
             this.lblGiaGiam.ForeColor = System.Drawing.Color.Red;
             this.lblGiaGiam.Location = new System.Drawing.Point(208, 47);
             this.lblGiaGiam.Name = "lblGiaGiam";
-            this.lblGiaGiam.Size = new System.Drawing.Size(0, 17);
+            this.lblGiaGiam.Size = new System.Drawing.Size(0, 20);
             this.lblGiaGiam.TabIndex = 25;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.TenSP);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(89, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 28);
+            this.panel1.Size = new System.Drawing.Size(267, 28);
             this.panel1.TabIndex = 27;
             // 
             // timer1
@@ -147,7 +166,7 @@
             // SearchHats
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblGiaGiam);
@@ -156,12 +175,14 @@
             this.Controls.Add(this.lblPT);
             this.Controls.Add(this.SoLuong);
             this.Controls.Add(this.IdSPCT);
+            this.Controls.Add(this.Anh);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "SearchHats";
             this.Size = new System.Drawing.Size(356, 96);
             this.Load += new System.EventHandler(this.SearchHats_Load);
             this.Click += new System.EventHandler(this.SearchHats_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.Anh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

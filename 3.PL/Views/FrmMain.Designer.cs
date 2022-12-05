@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlGiaoDich = new System.Windows.Forms.Panel();
@@ -63,6 +64,7 @@
             this.btbHome = new FontAwesome.Sharp.IconPictureBox();
             this.rjCircularPictureBox1 = new CustomControls.RJControls.RJCircularPictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
             this.pnlGiaoDich.SuspendLayout();
             this.pnlbtn5.SuspendLayout();
@@ -79,7 +81,7 @@
             // pnlMenu
             // 
             this.pnlMenu.AutoScroll = true;
-            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(165)))), ((int)(((byte)(195)))));
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.pnlMenu.Controls.Add(this.pnlGiaoDich);
             this.pnlMenu.Controls.Add(this.btnQLHoaDon);
             this.pnlMenu.Controls.Add(this.iconButton3);
@@ -116,15 +118,15 @@
             // 
             // iconButton6
             // 
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton6.ForeColor = System.Drawing.Color.White;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 32;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,15 +141,15 @@
             // 
             // iconButton4
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton4.ForeColor = System.Drawing.Color.White;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 32;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,14 +163,14 @@
             // 
             // btnQLHoaDon
             // 
-            this.btnQLHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btnQLHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.btnQLHoaDon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQLHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQLHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQLHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnQLHoaDon.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.btnQLHoaDon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnQLHoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnQLHoaDon.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnQLHoaDon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnQLHoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnQLHoaDon.IconSize = 32;
             this.btnQLHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,14 +186,14 @@
             // 
             // iconButton3
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Gifts;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 32;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,14 +209,14 @@
             // 
             // iconButton2
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Gift;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 32;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -230,14 +232,14 @@
             // 
             // iconButton1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -273,14 +275,14 @@
             // 
             // btnBanHang
             // 
-            this.btnBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btnBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.btnBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBanHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBanHang.ForeColor = System.Drawing.Color.White;
+            this.btnBanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBanHang.IconChar = FontAwesome.Sharp.IconChar.Sellcast;
-            this.btnBanHang.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnBanHang.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBanHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBanHang.IconSize = 32;
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -318,15 +320,15 @@
             // 
             // btnChucvu
             // 
-            this.btnChucvu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnChucvu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.btnChucvu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChucvu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnChucvu.FlatAppearance.BorderSize = 0;
             this.btnChucvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChucvu.ForeColor = System.Drawing.Color.White;
-            this.btnChucvu.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.btnChucvu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnChucvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnChucvu.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.btnChucvu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnChucvu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnChucvu.IconSize = 32;
             this.btnChucvu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,15 +343,15 @@
             // 
             // btnNhanvien
             // 
-            this.btnNhanvien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnNhanvien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.btnNhanvien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNhanvien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNhanvien.FlatAppearance.BorderSize = 0;
             this.btnNhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNhanvien.ForeColor = System.Drawing.Color.White;
-            this.btnNhanvien.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.btnNhanvien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnNhanvien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnNhanvien.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.btnNhanvien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnNhanvien.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNhanvien.IconSize = 32;
             this.btnNhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -364,13 +366,13 @@
             // 
             // btnQLNhanVien
             // 
-            this.btnQLNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btnQLNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.btnQLNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQLNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQLNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnQLNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnQLNhanVien.IconChar = FontAwesome.Sharp.IconChar.Palfed;
+            this.btnQLNhanVien.IconChar = FontAwesome.Sharp.IconChar.User;
             this.btnQLNhanVien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnQLNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnQLNhanVien.IconSize = 32;
@@ -404,14 +406,14 @@
             // 
             // iconButton10
             // 
-            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton10.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton10.FlatAppearance.BorderSize = 0;
             this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iconButton10.ForeColor = System.Drawing.Color.White;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Palfed;
+            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Windows;
             this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 32;
@@ -427,15 +429,15 @@
             // 
             // iconButton9
             // 
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton9.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton9.FlatAppearance.BorderSize = 0;
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton9.ForeColor = System.Drawing.Color.White;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton9.IconSize = 32;
             this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -450,15 +452,15 @@
             // 
             // iconButton8
             // 
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton8.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton8.ForeColor = System.Drawing.Color.White;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.IconSize = 32;
             this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -473,15 +475,15 @@
             // 
             // iconButton7
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.iconButton7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton7.ForeColor = System.Drawing.Color.White;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.iconButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 32;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -496,15 +498,15 @@
             // 
             // btnKieusp
             // 
-            this.btnKieusp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnKieusp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.btnKieusp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKieusp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnKieusp.FlatAppearance.BorderSize = 0;
             this.btnKieusp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKieusp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnKieusp.ForeColor = System.Drawing.Color.White;
-            this.btnKieusp.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.btnKieusp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnKieusp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnKieusp.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.btnKieusp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnKieusp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKieusp.IconSize = 32;
             this.btnKieusp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -519,15 +521,15 @@
             // 
             // BtnGiaiDau
             // 
-            this.BtnGiaiDau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.BtnGiaiDau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.BtnGiaiDau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGiaiDau.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnGiaiDau.FlatAppearance.BorderSize = 0;
             this.BtnGiaiDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGiaiDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnGiaiDau.ForeColor = System.Drawing.Color.White;
-            this.BtnGiaiDau.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.BtnGiaiDau.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnGiaiDau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnGiaiDau.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.BtnGiaiDau.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.BtnGiaiDau.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnGiaiDau.IconSize = 32;
             this.BtnGiaiDau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -542,15 +544,15 @@
             // 
             // btnCTSP
             // 
-            this.btnCTSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnCTSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.btnCTSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCTSP.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCTSP.FlatAppearance.BorderSize = 0;
             this.btnCTSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCTSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCTSP.ForeColor = System.Drawing.Color.White;
-            this.btnCTSP.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.btnCTSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnCTSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCTSP.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.btnCTSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCTSP.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCTSP.IconSize = 32;
             this.btnCTSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -565,14 +567,14 @@
             // 
             // QLSP
             // 
-            this.QLSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.QLSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.QLSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QLSP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.QLSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QLSP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.QLSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.QLSP.ForeColor = System.Drawing.Color.White;
-            this.QLSP.IconChar = FontAwesome.Sharp.IconChar.Palfed;
-            this.QLSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.QLSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.QLSP.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
+            this.QLSP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.QLSP.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.QLSP.IconSize = 32;
             this.QLSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -601,7 +603,7 @@
             // 
             // ptnTileBar
             // 
-            this.ptnTileBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
+            this.ptnTileBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ptnTileBar.Controls.Add(this._ToNho);
             this.ptnTileBar.Controls.Add(this._tru);
             this.ptnTileBar.Controls.Add(this._X);
@@ -618,7 +620,7 @@
             // 
             this._ToNho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._ToNho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
+            this._ToNho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this._ToNho.Cursor = System.Windows.Forms.Cursors.Hand;
             this._ToNho.ForeColor = System.Drawing.Color.Gainsboro;
             this._ToNho.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
@@ -636,7 +638,7 @@
             // 
             this._tru.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._tru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
+            this._tru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this._tru.Cursor = System.Windows.Forms.Cursors.Hand;
             this._tru.ForeColor = System.Drawing.Color.Gainsboro;
             this._tru.IconChar = FontAwesome.Sharp.IconChar.Minus;
@@ -677,7 +679,7 @@
             // 
             // btbHome
             // 
-            this.btbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(148)))), ((int)(((byte)(238)))));
+            this.btbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.btbHome.ForeColor = System.Drawing.Color.Gainsboro;
             this.btbHome.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.btbHome.IconColor = System.Drawing.Color.Gainsboro;
@@ -711,7 +713,7 @@
             this.pnlBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(244)))));
+            this.pnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.pnlBody.CausesValidation = false;
             this.pnlBody.Controls.Add(this.rjCircularPictureBox1);
             this.pnlBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -720,6 +722,11 @@
             this.pnlBody.Size = new System.Drawing.Size(1167, 816);
             this.pnlBody.TabIndex = 2;
             this.pnlBody.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBody_Paint);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMain
             // 
@@ -732,6 +739,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIConButon";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.pnlGiaoDich.ResumeLayout(false);
@@ -785,5 +793,6 @@
         private FontAwesome.Sharp.IconButton iconButton8;
         private FontAwesome.Sharp.IconButton iconButton7;
         private FontAwesome.Sharp.IconButton iconButton6;
+        private System.Windows.Forms.Timer timer1;
     }
 }
