@@ -1266,7 +1266,6 @@ namespace _3.PL.Views
                                             hoadon.TongTienSauKhiGiam = ValidateInput.RegexDecimal(txtTongTienPTra1.Text);
                                             hoadon.TongTien = ValidateInput.RegexDecimal(txtTongTien2.Text);
                                             hoadon.HinhThucGiamGia = CbbGiamGia.SelectedIndex == 0 ? "Phần trăm" : "Tiền mặt";
-                                            hoadon.IdHt = _IHinhThucMhServices.GetAll().Find(x => x.Ten == rdoTaiQuay.Text).Id;
                                             hoadon.MoTa = txtMoTa.Texts;
                                             if (txtsearchKH.Texts != "")
                                             {
