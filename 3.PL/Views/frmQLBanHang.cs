@@ -506,7 +506,7 @@ namespace _3.PL.Views
                     int d = 0;
                     foreach (var x in Obj)
                     {
-                        if (GetKH(txtsearchKH.Texts).SoDiem > x.SoDiem && d < x.SoDiem)
+                        if (GetKH(txtsearchKH.Texts).SoDiem >= x.SoDiem && d <= x.SoDiem)
                         {
                             d = Convert.ToInt32(x.SoDiem);
                         }
