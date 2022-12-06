@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
+using _3.PL.CustomControlls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace _3.PL.Views
             {
                 Properties.Settings.Default.check = false;
                 Properties.Settings.Default.Save();
-                MessageBox.Show("Tài khoản không đúng. Bạn không có quyền truy cập", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RJMessageBox.Show("Tài khoản không đúng. Bạn không có quyền truy cập", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
