@@ -2033,9 +2033,6 @@ namespace _3.PL.Views
         {
             if (Hd.TrangThaiGiaoHang == 1)
             {
-                btnChoXuLy.BackColor = Color.Red;
-                btnChoLayHang.BackColor = Color.FromArgb(49, 66, 83);
-                btndangGiao.BackColor = Color.FromArgb(49, 66, 83);
             }
         }
         private void rjButton1_Click_3(object sender, EventArgs e)
@@ -2200,5 +2197,6 @@ namespace _3.PL.Views
                 sp.ShowDialog();
             }
         }
+
     }
 }

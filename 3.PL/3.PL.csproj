@@ -20,4 +20,10 @@
     <ProjectReference Include="..\2.BUS\2.BUS.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\Tich.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

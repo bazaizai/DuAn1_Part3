@@ -344,10 +344,6 @@ namespace _3.PL.Views
             {
                 _LstChatLieu[item.Text] = false;
             }
-            foreach (var x in _LstChatLieu)
-            {
-                MessageBox.Show(""+x.Key.ToString() + "" + x.Value.ToString());
-            }
             GetListSP();
         }
         private void CheckBoxClickSize(object sender, EventArgs e)

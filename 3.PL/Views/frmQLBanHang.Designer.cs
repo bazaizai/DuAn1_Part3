@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLBanHang));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -175,9 +176,15 @@
             this.ListItem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlTimeLine = new System.Windows.Forms.Panel();
-            this.btndangGiao = new CustomControls.RJControls.RJButton();
-            this.btnChoLayHang = new CustomControls.RJControls.RJButton();
-            this.btnChoXuLy = new CustomControls.RJControls.RJButton();
+            this.rjCircularPictureBox4 = new CustomControls.RJControls.RJCircularPictureBox();
+            this.rjCircularPictureBox5 = new CustomControls.RJControls.RJCircularPictureBox();
+            this.rjCircularPictureBox6 = new CustomControls.RJControls.RJCircularPictureBox();
+            this.rjCircularPictureBox7 = new CustomControls.RJControls.RJCircularPictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -204,6 +211,10 @@
             this.pnlKhongTimThay.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlTimeLine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -909,7 +920,7 @@
             this.btnCloseKH.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.btnCloseKH.BorderSize = 2;
             this.btnCloseKH.GradientAngle = 50F;
-            this.btnCloseKH.Image = global::_3.PL.Properties.Resources.close11;
+            this.btnCloseKH.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseKH.Image")));
             this.btnCloseKH.Location = new System.Drawing.Point(304, -1);
             this.btnCloseKH.Name = "btnCloseKH";
             this.btnCloseKH.Size = new System.Drawing.Size(36, 36);
@@ -971,7 +982,7 @@
             this.rjCircularPictureBox3.BorderSize = 2;
             this.rjCircularPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox3.GradientAngle = 50F;
-            this.rjCircularPictureBox3.Image = global::_3.PL.Properties.Resources.aDDkh1;
+            this.rjCircularPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("rjCircularPictureBox3.Image")));
             this.rjCircularPictureBox3.Location = new System.Drawing.Point(385, 5);
             this.rjCircularPictureBox3.Name = "rjCircularPictureBox3";
             this.rjCircularPictureBox3.Size = new System.Drawing.Size(36, 36);
@@ -988,7 +999,7 @@
             this.rjCircularPictureBox2.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.rjCircularPictureBox2.BorderSize = 2;
             this.rjCircularPictureBox2.GradientAngle = 50F;
-            this.rjCircularPictureBox2.Image = global::_3.PL.Properties.Resources.Search;
+            this.rjCircularPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("rjCircularPictureBox2.Image")));
             this.rjCircularPictureBox2.Location = new System.Drawing.Point(2, 10);
             this.rjCircularPictureBox2.Name = "rjCircularPictureBox2";
             this.rjCircularPictureBox2.Size = new System.Drawing.Size(35, 35);
@@ -1005,7 +1016,7 @@
             this.rjCircularPictureBox1.BorderSize = 2;
             this.rjCircularPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjCircularPictureBox1.GradientAngle = 50F;
-            this.rjCircularPictureBox1.Image = global::_3.PL.Properties.Resources.AddKhachHnag1;
+            this.rjCircularPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("rjCircularPictureBox1.Image")));
             this.rjCircularPictureBox1.Location = new System.Drawing.Point(471, 10);
             this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             this.rjCircularPictureBox1.Size = new System.Drawing.Size(42, 42);
@@ -1291,6 +1302,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.XoaSP});
+            this.dgview.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -1408,7 +1420,7 @@
             this.btnAddTab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddTab.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnAddTab.GradientAngle = 50F;
-            this.btnAddTab.Image = global::_3.PL.Properties.Resources.add;
+            this.btnAddTab.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTab.Image")));
             this.btnAddTab.Location = new System.Drawing.Point(0, 0);
             this.btnAddTab.Name = "btnAddTab";
             this.btnAddTab.Size = new System.Drawing.Size(59, 59);
@@ -2083,6 +2095,7 @@
             this.dataGridViewButtonColumn2,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
+            this.dgvGiaoHang.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -2341,74 +2354,132 @@
             // 
             // pnlTimeLine
             // 
-            this.pnlTimeLine.Controls.Add(this.btndangGiao);
-            this.pnlTimeLine.Controls.Add(this.btnChoLayHang);
-            this.pnlTimeLine.Controls.Add(this.btnChoXuLy);
+            this.pnlTimeLine.Controls.Add(this.rjCircularPictureBox4);
+            this.pnlTimeLine.Controls.Add(this.rjCircularPictureBox5);
+            this.pnlTimeLine.Controls.Add(this.rjCircularPictureBox6);
+            this.pnlTimeLine.Controls.Add(this.rjCircularPictureBox7);
+            this.pnlTimeLine.Controls.Add(this.panel7);
+            this.pnlTimeLine.Controls.Add(this.label34);
+            this.pnlTimeLine.Controls.Add(this.label33);
+            this.pnlTimeLine.Controls.Add(this.label32);
+            this.pnlTimeLine.Controls.Add(this.label18);
             this.pnlTimeLine.Location = new System.Drawing.Point(397, 4);
             this.pnlTimeLine.Name = "pnlTimeLine";
-            this.pnlTimeLine.Size = new System.Drawing.Size(428, 44);
+            this.pnlTimeLine.Size = new System.Drawing.Size(489, 44);
             this.pnlTimeLine.TabIndex = 0;
             this.pnlTimeLine.Visible = false;
             // 
-            // btndangGiao
+            // rjCircularPictureBox4
             // 
-            this.btndangGiao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btndangGiao.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btndangGiao.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btndangGiao.BorderRadius = 0;
-            this.btndangGiao.BorderSize = 0;
-            this.btndangGiao.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btndangGiao.FlatAppearance.BorderSize = 0;
-            this.btndangGiao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndangGiao.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btndangGiao.ForeColor = System.Drawing.Color.White;
-            this.btndangGiao.Location = new System.Drawing.Point(280, 0);
-            this.btndangGiao.Name = "btndangGiao";
-            this.btndangGiao.Size = new System.Drawing.Size(140, 44);
-            this.btndangGiao.TabIndex = 2;
-            this.btndangGiao.Text = "Đang Giao";
-            this.btndangGiao.TextColor = System.Drawing.Color.White;
-            this.btndangGiao.UseVisualStyleBackColor = false;
+            this.rjCircularPictureBox4.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.rjCircularPictureBox4.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.rjCircularPictureBox4.BorderColor2 = System.Drawing.Color.HotPink;
+            this.rjCircularPictureBox4.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.rjCircularPictureBox4.BorderSize = 2;
+            this.rjCircularPictureBox4.GradientAngle = 50F;
+            this.rjCircularPictureBox4.Location = new System.Drawing.Point(14, -1);
+            this.rjCircularPictureBox4.Name = "rjCircularPictureBox4";
+            this.rjCircularPictureBox4.Size = new System.Drawing.Size(29, 29);
+            this.rjCircularPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rjCircularPictureBox4.TabIndex = 1;
+            this.rjCircularPictureBox4.TabStop = false;
             // 
-            // btnChoLayHang
+            // rjCircularPictureBox5
             // 
-            this.btnChoLayHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btnChoLayHang.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btnChoLayHang.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnChoLayHang.BorderRadius = 0;
-            this.btnChoLayHang.BorderSize = 0;
-            this.btnChoLayHang.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnChoLayHang.FlatAppearance.BorderSize = 0;
-            this.btnChoLayHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChoLayHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChoLayHang.ForeColor = System.Drawing.Color.White;
-            this.btnChoLayHang.Location = new System.Drawing.Point(140, 0);
-            this.btnChoLayHang.Name = "btnChoLayHang";
-            this.btnChoLayHang.Size = new System.Drawing.Size(140, 44);
-            this.btnChoLayHang.TabIndex = 1;
-            this.btnChoLayHang.Text = "Chờ lấy hàng";
-            this.btnChoLayHang.TextColor = System.Drawing.Color.White;
-            this.btnChoLayHang.UseVisualStyleBackColor = false;
+            this.rjCircularPictureBox5.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.rjCircularPictureBox5.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.rjCircularPictureBox5.BorderColor2 = System.Drawing.Color.HotPink;
+            this.rjCircularPictureBox5.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.rjCircularPictureBox5.BorderSize = 2;
+            this.rjCircularPictureBox5.GradientAngle = 50F;
+            this.rjCircularPictureBox5.Location = new System.Drawing.Point(429, -2);
+            this.rjCircularPictureBox5.Name = "rjCircularPictureBox5";
+            this.rjCircularPictureBox5.Size = new System.Drawing.Size(29, 29);
+            this.rjCircularPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rjCircularPictureBox5.TabIndex = 1;
+            this.rjCircularPictureBox5.TabStop = false;
             // 
-            // btnChoXuLy
+            // rjCircularPictureBox6
             // 
-            this.btnChoXuLy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btnChoXuLy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.btnChoXuLy.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnChoXuLy.BorderRadius = 0;
-            this.btnChoXuLy.BorderSize = 0;
-            this.btnChoXuLy.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnChoXuLy.FlatAppearance.BorderSize = 0;
-            this.btnChoXuLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChoXuLy.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChoXuLy.ForeColor = System.Drawing.Color.White;
-            this.btnChoXuLy.Location = new System.Drawing.Point(0, 0);
-            this.btnChoXuLy.Name = "btnChoXuLy";
-            this.btnChoXuLy.Size = new System.Drawing.Size(140, 44);
-            this.btnChoXuLy.TabIndex = 0;
-            this.btnChoXuLy.Text = "Chờ xử lý";
-            this.btnChoXuLy.TextColor = System.Drawing.Color.White;
-            this.btnChoXuLy.UseVisualStyleBackColor = false;
+            this.rjCircularPictureBox6.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.rjCircularPictureBox6.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.rjCircularPictureBox6.BorderColor2 = System.Drawing.Color.HotPink;
+            this.rjCircularPictureBox6.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.rjCircularPictureBox6.BorderSize = 2;
+            this.rjCircularPictureBox6.GradientAngle = 50F;
+            this.rjCircularPictureBox6.Location = new System.Drawing.Point(155, -2);
+            this.rjCircularPictureBox6.Name = "rjCircularPictureBox6";
+            this.rjCircularPictureBox6.Size = new System.Drawing.Size(29, 29);
+            this.rjCircularPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rjCircularPictureBox6.TabIndex = 1;
+            this.rjCircularPictureBox6.TabStop = false;
+            // 
+            // rjCircularPictureBox7
+            // 
+            this.rjCircularPictureBox7.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.rjCircularPictureBox7.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.rjCircularPictureBox7.BorderColor2 = System.Drawing.Color.HotPink;
+            this.rjCircularPictureBox7.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.rjCircularPictureBox7.BorderSize = 2;
+            this.rjCircularPictureBox7.GradientAngle = 50F;
+            this.rjCircularPictureBox7.Location = new System.Drawing.Point(308, -2);
+            this.rjCircularPictureBox7.Name = "rjCircularPictureBox7";
+            this.rjCircularPictureBox7.Size = new System.Drawing.Size(29, 29);
+            this.rjCircularPictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rjCircularPictureBox7.TabIndex = 1;
+            this.rjCircularPictureBox7.TabStop = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.DarkGray;
+            this.panel7.Location = new System.Drawing.Point(38, 11);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(410, 5);
+            this.panel7.TabIndex = 0;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(408, 27);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(81, 17);
+            this.label34.TabIndex = 2;
+            this.label34.Text = "Hoàn thành";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(296, 27);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(64, 17);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "Đóng gói";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(149, 27);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(44, 17);
+            this.label32.TabIndex = 2;
+            this.label32.Text = "Duyệt";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 17);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Đặt hàng";
             // 
             // frmQLBanHang
             // 
@@ -2452,6 +2523,11 @@
             this.pnlKhongTimThay.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.pnlTimeLine.ResumeLayout(false);
+            this.pnlTimeLine.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2558,9 +2634,6 @@
         private System.Windows.Forms.Label lblUuDaiTichLuy;
         private System.Windows.Forms.TextBox txtMucUuDai1;
         private System.Windows.Forms.Panel panel7;
-        private CustomControls.RJControls.RJButton btndangGiao;
-        private CustomControls.RJControls.RJButton btnChoLayHang;
-        private CustomControls.RJControls.RJButton btnChoXuLy;
         private System.Windows.Forms.Panel pnlTimeLine;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tpthongtinhd;
@@ -2601,5 +2674,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewButtonColumn XoaSP;
+        private CustomControls.RJControls.RJCircularPictureBox rjCircularPictureBox5;
+        private CustomControls.RJControls.RJCircularPictureBox rjCircularPictureBox6;
+        private CustomControls.RJControls.RJCircularPictureBox rjCircularPictureBox7;
+        private CustomControls.RJControls.RJCircularPictureBox rjCircularPictureBox4;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label18;
     }
 }
