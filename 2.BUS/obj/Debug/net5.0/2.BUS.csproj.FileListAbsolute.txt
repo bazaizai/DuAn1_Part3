@@ -13,3 +13,6 @@ C:\Users\ADMIN\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
 C:\Users\ADMIN\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.pdb
 C:\Users\ADMIN\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.pdb
