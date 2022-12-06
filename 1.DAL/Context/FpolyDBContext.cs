@@ -50,6 +50,7 @@ namespace _1.DAL.Context
 
                 optionsBuilder.UseSqlServer("Data Source=BAZAIZAI\\SQLEXPRESS;Initial Catalog=PRO131_GROUP3;Persist Security Info=True;User ID=bazaizai;Password=Hieutre2k3");
 
+
             }
         }
 
