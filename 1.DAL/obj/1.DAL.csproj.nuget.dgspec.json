@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
@@ -13,29 +12,12 @@
         "projectPath": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj",
         "packagesPath": "C:\\Users\\anhtr\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\1.DAL\\obj\\",
-=======
-    "C:\\Users\\ADMIN\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\ADMIN\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj",
-        "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\ADMIN\\Desktop\\DuAn1_Part3\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Desktop\\DuAn1_Part3\\1.DAL\\obj\\",
->>>>>>> develop
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\anhtr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> develop
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
