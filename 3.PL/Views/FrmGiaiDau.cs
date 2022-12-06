@@ -2,6 +2,7 @@
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -64,20 +65,20 @@ namespace _3.PL.Views
         }
         private void tb_them_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_giaiDauServices.GetAll().Any(c => c.Ten == tb_ten.Text))
                 {
-                    MessageBox.Show("Giải đấu bị trùng");
+                    RJMessageBox.Show("Giải đấu bị trùng");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không được bỏ trống");
+                    RJMessageBox.Show("Tên không được bỏ trống");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else
                 {
@@ -88,60 +89,60 @@ namespace _3.PL.Views
                         Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
-                    MessageBox.Show(_giaiDauServices.Add(giaiDauView));
+                    RJMessageBox.Show(_giaiDauServices.Add(giaiDauView));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy thêm");
+                RJMessageBox.Show("Bạn đã hủy thêm");
             }
         }
 
         private void bt_xoa_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_gdv == null)
                 {
-                    MessageBox.Show("Vui lòng chọn giải đấu cần xóa");
+                    RJMessageBox.Show("Vui lòng chọn giải đấu cần xóa");
                 }
                 else
                 {
-                    MessageBox.Show(_giaiDauServices.Delete(_gdv));
+                    RJMessageBox.Show(_giaiDauServices.Delete(_gdv));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy xóa");
+                RJMessageBox.Show("Bạn đã hủy xóa");
             }
 
         }
 
         private void bt_update_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_idgd == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn giải đấu cần sửa");
+                    RJMessageBox.Show("Vui lòng chọn giải đấu cần sửa");
                 }
                 if (_giaiDauServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id != _idgd) != null)
                 {
-                    MessageBox.Show("Giải đấu bị trùng");
+                    RJMessageBox.Show("Giải đấu bị trùng");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không được bỏ trống");
+                    RJMessageBox.Show("Tên không được bỏ trống");
                 }
                 else
                 {
@@ -152,14 +153,14 @@ namespace _3.PL.Views
                         Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
-                    MessageBox.Show(_giaiDauServices.Update(giaiDauView));
+                    RJMessageBox.Show(_giaiDauServices.Update(giaiDauView));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy sửa");
+                RJMessageBox.Show("Bạn đã hủy sửa");
             }
         }
 
@@ -183,7 +184,7 @@ namespace _3.PL.Views
         {
             loadData();
         }
-     
+
         private string XoaDauCach(string s)
         {
 
@@ -196,10 +197,10 @@ namespace _3.PL.Views
 
         private void tb_ten_TextChanged(object sender, EventArgs e)
         {
-            if(tb_ten.Text==" ")
+            if (tb_ten.Text == " ")
             {
-                tb_ten.Text="";
-            }    
+                tb_ten.Text = "";
+            }
         }
 
         private void dtg_show_CellContentClick(object sender, DataGridViewCellEventArgs e)
