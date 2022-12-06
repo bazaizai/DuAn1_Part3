@@ -311,6 +311,7 @@
             this.chkKhongApDung.TabIndex = 2;
             this.chkKhongApDung.Text = "Không áp dụng KM";
             this.chkKhongApDung.UseVisualStyleBackColor = true;
+            this.chkKhongApDung.CheckedChanged += new System.EventHandler(this.chkKhongApDung_CheckedChanged);
             // 
             // chkApDung
             // 
@@ -325,6 +326,7 @@
             this.chkApDung.TabIndex = 1;
             this.chkApDung.Text = "Áp dụng KM";
             this.chkApDung.UseVisualStyleBackColor = true;
+            this.chkApDung.CheckedChanged += new System.EventHandler(this.chkApDung_CheckedChanged);
             // 
             // panel18
             // 
@@ -347,7 +349,7 @@
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(247, 8);
+            this.rjButton2.Location = new System.Drawing.Point(223, 8);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(101, 38);
             this.rjButton2.TabIndex = 1;
@@ -408,7 +410,7 @@
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(247, 8);
+            this.rjButton1.Location = new System.Drawing.Point(226, 8);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(101, 38);
             this.rjButton1.TabIndex = 1;
@@ -469,7 +471,7 @@
             this.btnShowChatLieu.FlatAppearance.BorderSize = 0;
             this.btnShowChatLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowChatLieu.ForeColor = System.Drawing.Color.White;
-            this.btnShowChatLieu.Location = new System.Drawing.Point(247, 8);
+            this.btnShowChatLieu.Location = new System.Drawing.Point(226, 8);
             this.btnShowChatLieu.Name = "btnShowChatLieu";
             this.btnShowChatLieu.Size = new System.Drawing.Size(101, 38);
             this.btnShowChatLieu.TabIndex = 1;
@@ -531,7 +533,7 @@
             this.BtnShowMS.FlatAppearance.BorderSize = 0;
             this.BtnShowMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowMS.ForeColor = System.Drawing.Color.White;
-            this.BtnShowMS.Location = new System.Drawing.Point(247, 8);
+            this.BtnShowMS.Location = new System.Drawing.Point(226, 8);
             this.BtnShowMS.Name = "BtnShowMS";
             this.BtnShowMS.Size = new System.Drawing.Size(101, 38);
             this.BtnShowMS.TabIndex = 1;
@@ -621,7 +623,7 @@
             this.BtnShowTT.FlatAppearance.BorderSize = 0;
             this.BtnShowTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowTT.ForeColor = System.Drawing.Color.White;
-            this.BtnShowTT.Location = new System.Drawing.Point(247, 8);
+            this.BtnShowTT.Location = new System.Drawing.Point(226, 8);
             this.BtnShowTT.Name = "BtnShowTT";
             this.BtnShowTT.Size = new System.Drawing.Size(101, 38);
             this.BtnShowTT.TabIndex = 1;
@@ -769,7 +771,7 @@
             this.BtnShowSL.FlatAppearance.BorderSize = 0;
             this.BtnShowSL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowSL.ForeColor = System.Drawing.Color.White;
-            this.BtnShowSL.Location = new System.Drawing.Point(247, 8);
+            this.BtnShowSL.Location = new System.Drawing.Point(226, 8);
             this.BtnShowSL.Name = "BtnShowSL";
             this.BtnShowSL.Size = new System.Drawing.Size(101, 38);
             this.BtnShowSL.TabIndex = 1;

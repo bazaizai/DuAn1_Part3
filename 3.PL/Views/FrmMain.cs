@@ -635,10 +635,10 @@ namespace _3.PL.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
-            int one = random.Next(0, 255);
+            int one = random.Next(100, 255);
             int two = random.Next(0, 255);
             int three = random.Next(0, 255);
-            int four = random.Next(0, 255);
+            int four = random.Next(0,100);
 
             rjCircularPictureBox1.BackColor = Color.FromArgb(one, two, three, four);
             pictureBox1.BackColor = Color.FromArgb(one, two, three, four);

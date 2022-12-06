@@ -106,6 +106,7 @@ C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmD
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmForgotPW.resources
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmGiaiDau.resources
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmGiaoCa.resources
+C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmGioHang.resources
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmHinhThucMh.resources
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmHoaDon.resources
 C:\Users\Asus\Desktop\DuAn1_Part3\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmKhachHang.resources
