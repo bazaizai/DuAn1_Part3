@@ -76,7 +76,7 @@
             // 
             // btn_them
             // 
-            this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_them.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_them.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_them.ForeColor = System.Drawing.Color.White;
             this.btn_them.Location = new System.Drawing.Point(415, 31);
@@ -107,7 +107,7 @@
             // 
             // btn_sua
             // 
-            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_sua.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_sua.ForeColor = System.Drawing.Color.White;
             this.btn_sua.Location = new System.Drawing.Point(415, 73);
@@ -120,7 +120,7 @@
             // 
             // btn_xoa
             // 
-            this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(143)))), ((int)(((byte)(157)))));
+            this.btn_xoa.BackColor = System.Drawing.Color.Red;
             this.btn_xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_xoa.ForeColor = System.Drawing.Color.White;
             this.btn_xoa.Location = new System.Drawing.Point(415, 116);
@@ -155,12 +155,15 @@
             // 
             // dtg_show
             // 
+            this.dtg_show.AllowUserToAddRows = false;
+            this.dtg_show.AllowUserToDeleteRows = false;
             this.dtg_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_show.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.dtg_show.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_show.Location = new System.Drawing.Point(40, 244);
             this.dtg_show.Name = "dtg_show";
+            this.dtg_show.ReadOnly = true;
             this.dtg_show.RowHeadersVisible = false;
             this.dtg_show.RowTemplate.Height = 25;
             this.dtg_show.Size = new System.Drawing.Size(459, 150);
