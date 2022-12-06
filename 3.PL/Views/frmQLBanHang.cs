@@ -121,7 +121,7 @@ namespace _3.PL.Views
                     decimal tongtien = 0;
                     foreach (var x in list)
                     {
-                        dgview.Rows.Add(x.IdChiTietSp, stt++, x.TenSP + "-" + _ISizeServices.GetAll().Find(y=>y.Id== _IChiTietSpServices.GetById(x.IdChiTietSp.GetValueOrDefault()).IdSize).Size, "+", x.SoLuong, "-",
+                        dgview.Rows.Add(x.IdChiTietSp, stt++, x.TenSP + "-" + _ISizeServices.GetAll().Find(y => y.Id == _IChiTietSpServices.GetById(x.IdChiTietSp.GetValueOrDefault()).IdSize).Size, "+", x.SoLuong, "-",
                     double.Parse(x.DonGia.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ",
                     double.Parse((x.SoLuong * x.DonGia).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ", "X");
                         tongtien += Convert.ToDecimal(Convert.ToDecimal(x.SoLuong) * x.DonGia);
@@ -1384,7 +1384,8 @@ namespace _3.PL.Views
                                                     this.Alert(s, Form_Alert.enmType.Success);
                                                 }
                                             }
-                                        }else
+                                        }
+                                        else
                                         {
 
                                             this.Alert("Số tiền không đủ!", Form_Alert.enmType.Warning);
@@ -1803,7 +1804,8 @@ namespace _3.PL.Views
                 if (_IChiTietHDServices.GetAll().Where(x => x.MaHD == TabHoaDon.SelectedTab.Name).ToList().Count > 0)
                 {
                     btnClear.Visible = true;
-                }else
+                }
+                else
                 {
                     btnClear.Visible = false;
                 }
@@ -1905,7 +1907,7 @@ namespace _3.PL.Views
             LoadALL();
             ListItem.Controls.Clear();
             List<HoaDonS> Hats = new List<HoaDonS>();
-            var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang < 4 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 4 && x.TrangThai == 0)).OrderByDescending(x=>x.MaHD).ToList();
+            var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang < 4 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 4 && x.TrangThai == 0)).OrderByDescending(x => x.MaHD).ToList();
             HoaDonS[] Hat = new HoaDonS[ListAnh.Count];
             for (int i = 0; i < ListAnh.Count; i++)
             {
