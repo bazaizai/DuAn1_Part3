@@ -32,7 +32,7 @@ namespace _3.PL.Views
         IChatLieuServices _IChatLieuServices;
         IKichCoServices _IKichCoServices;
         CheckBox box;
-        private List<ChiTietSpViews> _ListAll;
+        public static List<ChiTietSpViews> _ListAll;
         private Dictionary<string, bool> _LstMauSac;
         private Dictionary<string, bool> _LstChatLieu;
         private Dictionary<string, bool> _LstNhomHang;
@@ -175,6 +175,29 @@ namespace _3.PL.Views
             FrmThemSP sp = new FrmThemSP();
             sp.ShowDialog();
             txtSearch.Texts = "";
+            CheckCB = new Dictionary<Guid, bool>();
+            _LstMauSac = new Dictionary<string, bool>();
+            _LstChatLieu = new Dictionary<string, bool>();
+            _LstSize = new Dictionary<string, bool>();
+            _IChiTietSpServices = new ChiTietSpServices();
+            _IanhServices = new AnhServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            _IKichCoServices = new KichCoServices();
+            _ListAll = new List<ChiTietSpViews>();
+            _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).ToList();
+            LoadMauSac();
+            LoadChatLieu();
+            LoadSize();
+            rdoTatCa.Checked = true;
+            x = 1;
+            ShowCL = 0;
+            ShowSL = 0;
+            ShowTT = 0;
+            ShowMS = 0;
+            LoadData();
             GetListSP();
         }
 
@@ -426,6 +449,15 @@ namespace _3.PL.Views
 
         private void GetListSP()
         {
+            _IChiTietSpServices = new ChiTietSpServices();
+            _IanhServices = new AnhServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            _IKichCoServices = new KichCoServices();
+            _ListAll = new List<ChiTietSpViews>();
+            _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).ToList();
             if (rdoTatCa.Checked)
             {
                 if (!chkDangBan.Checked && !chkNgungBan.Checked)
@@ -731,6 +763,16 @@ namespace _3.PL.Views
         }
 
         private void rdoHetHang_CheckedChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+        }
+
+        private void chkApDung_CheckedChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+        }
+
+        private void chkKhongApDung_CheckedChanged(object sender, EventArgs e)
         {
             GetListSP();
         }
