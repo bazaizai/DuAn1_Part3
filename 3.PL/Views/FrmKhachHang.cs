@@ -60,12 +60,12 @@ namespace _3.PL.Views
             tb_ma.Enabled = false;
 
             dtg_show.Columns[1].Width = 40;
-            dtg_show.Columns[2].Width = 40;
+            dtg_show.Columns[2].Width = 70;
             dtg_show.Columns[3].Width = 160;
             dtg_show.Columns[4].Width = 100;
             dtg_show.Columns[5].Width = 90;
             dtg_show.Columns[6].Width = 80;
-            dtg_show.Columns[7].Width = 40;
+            dtg_show.Columns[7].Width = 100;
             dtg_show.Columns[8].Width = 130;
    
 
@@ -536,6 +536,7 @@ namespace _3.PL.Views
             timer1.Start();
             timer1.Enabled = true;
         }
+
 
         //public void CanChinhSize()
         //{
