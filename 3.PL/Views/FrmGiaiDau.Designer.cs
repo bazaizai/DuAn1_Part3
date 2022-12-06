@@ -65,7 +65,7 @@
             this.rdb_khd.Location = new System.Drawing.Point(355, 203);
             this.rdb_khd.Margin = new System.Windows.Forms.Padding(5);
             this.rdb_khd.Name = "rdb_khd";
-            this.rdb_khd.Size = new System.Drawing.Size(177, 29);
+            this.rdb_khd.Size = new System.Drawing.Size(223, 36);
             this.rdb_khd.TabIndex = 41;
             this.rdb_khd.TabStop = true;
             this.rdb_khd.Text = "Không hoạt động";
@@ -75,10 +75,10 @@
             // 
             this.rdb_hd.AutoSize = true;
             this.rdb_hd.ForeColor = System.Drawing.Color.White;
-            this.rdb_hd.Location = new System.Drawing.Point(163, 203);
+            this.rdb_hd.Location = new System.Drawing.Point(165, 205);
             this.rdb_hd.Margin = new System.Windows.Forms.Padding(5);
             this.rdb_hd.Name = "rdb_hd";
-            this.rdb_hd.Size = new System.Drawing.Size(121, 29);
+            this.rdb_hd.Size = new System.Drawing.Size(152, 36);
             this.rdb_hd.TabIndex = 40;
             this.rdb_hd.TabStop = true;
             this.rdb_hd.Text = "Hoạt Động";
@@ -88,19 +88,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(52, 287);
+            this.label4.Location = new System.Drawing.Point(52, 280);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 25);
+            this.label4.Size = new System.Drawing.Size(113, 32);
             this.label4.TabIndex = 39;
             this.label4.Text = "Tìm kiếm";
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(156, 273);
+            this.tb_timkiem.Location = new System.Drawing.Point(165, 273);
             this.tb_timkiem.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tb_timkiem.Name = "tb_timkiem";
-            this.tb_timkiem.Size = new System.Drawing.Size(596, 33);
+            this.tb_timkiem.Size = new System.Drawing.Size(596, 39);
             this.tb_timkiem.TabIndex = 38;
             this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
@@ -168,10 +168,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(52, 207);
+            this.label3.Location = new System.Drawing.Point(52, 205);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 25);
+            this.label3.Size = new System.Drawing.Size(120, 32);
             this.label3.TabIndex = 33;
             this.label3.Text = "Trạng thái";
             // 
@@ -182,7 +182,7 @@
             this.label2.Location = new System.Drawing.Point(52, 125);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 25);
+            this.label2.Size = new System.Drawing.Size(52, 32);
             this.label2.TabIndex = 32;
             this.label2.Text = "Tên";
             // 
@@ -191,7 +191,7 @@
             this.tb_ten.Location = new System.Drawing.Point(165, 122);
             this.tb_ten.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(587, 33);
+            this.tb_ten.Size = new System.Drawing.Size(587, 39);
             this.tb_ten.TabIndex = 31;
             this.tb_ten.TextChanged += new System.EventHandler(this.tb_ten_TextChanged);
             // 
@@ -202,7 +202,7 @@
             this.label1.Location = new System.Drawing.Point(52, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 25);
+            this.label1.Size = new System.Drawing.Size(48, 32);
             this.label1.TabIndex = 30;
             this.label1.Text = "Mã";
             // 
@@ -211,12 +211,12 @@
             this.tb_ma.Location = new System.Drawing.Point(165, 52);
             this.tb_ma.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tb_ma.Name = "tb_ma";
-            this.tb_ma.Size = new System.Drawing.Size(587, 33);
+            this.tb_ma.Size = new System.Drawing.Size(587, 39);
             this.tb_ma.TabIndex = 29;
             // 
             // FrmGiaiDau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(1080, 665);
