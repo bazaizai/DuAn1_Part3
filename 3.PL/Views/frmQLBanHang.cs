@@ -2210,7 +2210,7 @@ namespace _3.PL.Views
 
         private void dgview_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-          
+
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             var ctsp = _IChiTietSpServices.GetById(Guid.Parse(Cell(0)));
             var hdct = GetHDct(Guid.Parse(Cell(0)));
@@ -2251,14 +2251,14 @@ namespace _3.PL.Views
                     LoadGia();
                     LoadItem();
                     LoadView(TabHoaDon.SelectedTab.Name);
-                   
+
                 }
                 else
                 {
                     dgview.CurrentRow.Cells[4].Value = hdct.SoLuong;
                 }
             }
-            
+
         }
 
         private void dgview_KeyPress(object sender, KeyPressEventArgs e)
@@ -2291,7 +2291,7 @@ namespace _3.PL.Views
             }
         }
 
-      
+
     }
 }
 
