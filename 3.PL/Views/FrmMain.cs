@@ -648,5 +648,12 @@ namespace _3.PL.Views
         {
             timer1.Start();
         }
+
+        private void iconButton4_Click_1(object sender, EventArgs e)
+        {
+            lblHome.Text = iconButton4.Text;
+            OpenChildForm(new FrmHoaDon());
+            HideSubMenu();
+        }
     }
 }

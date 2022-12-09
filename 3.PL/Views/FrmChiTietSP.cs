@@ -344,10 +344,6 @@ namespace _3.PL.Views
             {
                 _LstChatLieu[item.Text] = false;
             }
-            foreach (var x in _LstChatLieu)
-            {
-                MessageBox.Show(""+x.Key.ToString() + "" + x.Value.ToString());
-            }
             GetListSP();
         }
         private void CheckBoxClickSize(object sender, EventArgs e)
@@ -770,11 +766,13 @@ namespace _3.PL.Views
         private void chkApDung_CheckedChanged(object sender, EventArgs e)
         {
             GetListSP();
+            chkKhongApDung.Checked = false;
         }
 
         private void chkKhongApDung_CheckedChanged(object sender, EventArgs e)
         {
             GetListSP();
+            chkApDung.Checked = false;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace _3.PL.Components
            
         }
 
-        private void panel1_Click(object sender, EventArgs e)
+        public void panel1_Click(object sender, EventArgs e)
         {
             Onselect?.Invoke(this, e);
         }
