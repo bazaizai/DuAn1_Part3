@@ -15,6 +15,20 @@ namespace _3.PL.Views
         public Form1()
         {
             InitializeComponent();
+            button1.Click += new EventHandler(button1_Click);
+            button1_Click(null, null);
+
+            //HelloWorldTest();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HelloWorldTest();
+        }
+        private void HelloWorldTest()
+        {
+            MessageBox.Show("Hello World!");
+        }
+
     }
 }

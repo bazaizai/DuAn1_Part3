@@ -39,10 +39,6 @@ namespace _3.PL.Views
             LoadData();
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Properties.Settings.Default.IDSale = Guid.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            this.Close();
-        }
+
     }
 }

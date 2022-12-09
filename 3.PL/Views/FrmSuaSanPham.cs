@@ -223,7 +223,6 @@ namespace _3.PL.Views
             }
         }
 
-
         public string GetTrangThai
         {
             get { return RdoDangBan.Checked ? "Đang Bán" :"Ngừng bán"; }

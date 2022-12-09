@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,24 +43,24 @@ namespace _3.PL.Views
         }
         private void btn_luw_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn lưu không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = RJMessageBox.Show("Bạn có muốn lưu không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //if(tb_quydoi.Text == "")
-                //{
-                //    MessageBox.Show("Không được để trống");
-                //}
-                if (tb_quydoi.Text.Length > 9)
+                if (tb_quydoi.Text == "")
                 {
-                    MessageBox.Show("Không được nhập số tiền lớn như này");
+                    RJMessageBox.Show("Không được để trống");
                 }
-                //else if (Convert.ToInt32(tb_quydoi.Text) == 0)
-                //{
-                //    MessageBox.Show("Không được nhập số tiền bằng 0");
-                //}
+                else if (tb_quydoi.Text.Length > 9)
+                {
+                    RJMessageBox.Show("Không được nhập số tiền lớn như này");
+                }
+                else if (Convert.ToInt32(tb_quydoi.Text) == 0)
+                {
+                    MessageBox.Show("Không được nhập số tiền bằng 0");
+                }
                 else if (radioButton1.Checked == false && radioButton2.Checked == false)
                 {
-                    MessageBox.Show("Không được để trống trạng thái");
+                    RJMessageBox.Show("Không được để trống trạng thái");
                 }
                 else
                 {
@@ -68,7 +69,7 @@ namespace _3.PL.Views
                     {
                         if (tb_quydoi.Text == "")
                         {
-                            MessageBox.Show("Rỗng");
+                            RJMessageBox.Show("Rỗng");
                         }
                         else
                         {
@@ -78,7 +79,8 @@ namespace _3.PL.Views
                                 HeSoTich = Convert.ToInt32(tb_quydoi.Text),
                                 TrangThai = radioButton1.Checked ? 0 : radioButton2.Checked ? 1 : 0
                             };
-                            MessageBox.Show(_iCtTichDiemServices.Add(ctTinhDiemView));
+                            RJMessageBox.Show(_iCtTichDiemServices.Add(ctTinhDiemView));
+                            this.Close();
                         }
                         
                     }
@@ -100,7 +102,8 @@ namespace _3.PL.Views
                             {
                                 ctTinhDiemView.HeSoTich = Convert.ToInt32(tb_quydoi.Text);
                             }
-                            MessageBox.Show(_iCtTichDiemServices.Update(ctTinhDiemView));
+                            RJMessageBox.Show(_iCtTichDiemServices.Update(ctTinhDiemView));
+                            this.Close();
                         }
 
                     }
@@ -110,7 +113,7 @@ namespace _3.PL.Views
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy lựa chọn!");
+                RJMessageBox.Show("Bạn đã hủy lựa chọn!");
             }
             
         }
@@ -120,6 +123,24 @@ namespace _3.PL.Views
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
-     
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_quydoi_TextChanged(object sender, EventArgs e)
+        {
+            if(tb_quydoi.Text != "")
+            {
+                if (Convert.ToInt32(tb_quydoi.Text) == 0)
+                {
+                    radioButton2.Checked = true;
+                    tb_quydoi.Text = 0.ToString();
+                    radioButton1.Checked = false;
+                }
+            }
+           
+        }
     }
 }

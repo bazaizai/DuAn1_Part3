@@ -30,8 +30,8 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMaHD = new CustomControls.RJControls.RJTextBox();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.tb_1 = new CustomControls.RJControls.RJTextBox();
+            this.tb_2 = new CustomControls.RJControls.RJTextBox();
             this.rjButton1 = new CustomControls.RJControls.RJButton();
             this.rjButton2 = new CustomControls.RJControls.RJButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(29, 141);
+            this.label7.Location = new System.Drawing.Point(44, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 20);
             this.label7.TabIndex = 16;
@@ -53,57 +53,57 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 102);
+            this.label1.Location = new System.Drawing.Point(44, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Tài khoản";
             // 
-            // txtMaHD
+            // tb_1
             // 
-            this.txtMaHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtMaHD.BorderColor = System.Drawing.Color.White;
-            this.txtMaHD.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtMaHD.BorderRadius = 0;
-            this.txtMaHD.BorderSize = 2;
-            this.txtMaHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMaHD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMaHD.Location = new System.Drawing.Point(173, 91);
-            this.txtMaHD.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaHD.Multiline = false;
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtMaHD.PasswordChar = false;
-            this.txtMaHD.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtMaHD.PlaceholderText = "";
-            this.txtMaHD.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtMaHD.Size = new System.Drawing.Size(187, 31);
-            this.txtMaHD.TabIndex = 24;
-            this.txtMaHD.Texts = "";
-            this.txtMaHD.UnderlinedStyle = true;
+            this.tb_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.tb_1.BorderColor = System.Drawing.Color.White;
+            this.tb_1.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tb_1.BorderRadius = 0;
+            this.tb_1.BorderSize = 2;
+            this.tb_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_1.ForeColor = System.Drawing.Color.White;
+            this.tb_1.Location = new System.Drawing.Point(173, 91);
+            this.tb_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_1.Multiline = false;
+            this.tb_1.Name = "tb_1";
+            this.tb_1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_1.PasswordChar = false;
+            this.tb_1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_1.PlaceholderText = "";
+            this.tb_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tb_1.Size = new System.Drawing.Size(187, 31);
+            this.tb_1.TabIndex = 24;
+            this.tb_1.Texts = "";
+            this.tb_1.UnderlinedStyle = true;
             // 
-            // rjTextBox1
+            // tb_2
             // 
-            this.rjTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.rjTextBox1.BorderColor = System.Drawing.Color.White;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(172, 130);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = true;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rjTextBox1.Size = new System.Drawing.Size(187, 31);
-            this.rjTextBox1.TabIndex = 25;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = true;
+            this.tb_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.tb_2.BorderColor = System.Drawing.Color.White;
+            this.tb_2.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tb_2.BorderRadius = 0;
+            this.tb_2.BorderSize = 2;
+            this.tb_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_2.ForeColor = System.Drawing.Color.White;
+            this.tb_2.Location = new System.Drawing.Point(172, 130);
+            this.tb_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_2.Multiline = false;
+            this.tb_2.Name = "tb_2";
+            this.tb_2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_2.PasswordChar = true;
+            this.tb_2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_2.PlaceholderText = "";
+            this.tb_2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tb_2.Size = new System.Drawing.Size(187, 31);
+            this.tb_2.TabIndex = 25;
+            this.tb_2.Texts = "";
+            this.tb_2.UnderlinedStyle = true;
             // 
             // rjButton1
             // 
@@ -122,6 +122,7 @@
             this.rjButton1.Text = "Xác nhận";
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // rjButton2
             // 
@@ -140,6 +141,7 @@
             this.rjButton2.Text = "Hủy";
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
             // 
             // label2
             // 
@@ -157,14 +159,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(492, 302);
+            this.ClientSize = new System.Drawing.Size(510, 289);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rjButton2);
             this.Controls.Add(this.rjButton1);
-            this.Controls.Add(this.rjTextBox1);
-            this.Controls.Add(this.txtMaHD);
+            this.Controls.Add(this.tb_2);
+            this.Controls.Add(this.tb_1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmXacNhan";
             this.Text = "FrmXacNhan";
             this.ResumeLayout(false);
@@ -175,8 +178,8 @@
         #endregion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private CustomControls.RJControls.RJTextBox txtMaHD;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private CustomControls.RJControls.RJTextBox tb_1;
+        private CustomControls.RJControls.RJTextBox tb_2;
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton rjButton2;
         private System.Windows.Forms.Label label2;

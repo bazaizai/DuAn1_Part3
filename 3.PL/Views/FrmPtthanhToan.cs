@@ -27,6 +27,7 @@ namespace _3.PL.Views
             tb_Ma.Enabled = false;
             LoadData();
             cbb_loc.Text = "Tất cả";
+            this.CenterToScreen();
         }
     
         public void LoadData()

@@ -30,9 +30,13 @@ namespace _3.PL.Views
         IChiTietKieuSpService _IChiTietKieuSpService;
         IMauSacServices _IMauSacServices;
         IChatLieuServices _IChatLieuServices;
+        IKichCoServices _IKichCoServices;
         CheckBox box;
-        private List<string> _ListChatLieu;
-        private List<string> _ListMauSac;
+        public static List<ChiTietSpViews> _ListAll;
+        private Dictionary<string, bool> _LstMauSac;
+        private Dictionary<string, bool> _LstChatLieu;
+        private Dictionary<string, bool> _LstNhomHang;
+        private Dictionary<string, bool> _LstSize;
 
 
         public static Dictionary<Guid, bool> CheckCB;
@@ -48,14 +52,21 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             CheckCB = new Dictionary<Guid, bool>();
+            _LstMauSac = new Dictionary<string, bool>();
+            _LstChatLieu = new Dictionary<string, bool>();
+            _LstSize = new Dictionary<string, bool>();
             _IChiTietSpServices = new ChiTietSpServices();
             _IanhServices = new AnhServices();
             _IKieuSpServices = new KieuSpServices();
             _IChiTietKieuSpService = new ChiTietKieuSpServices();
             _IMauSacServices = new MauSacServices();
             _IChatLieuServices = new ChatLieuServices();
+            _IKichCoServices = new KichCoServices();
+            _ListAll = new List<ChiTietSpViews>();
+            _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).ToList();
             LoadMauSac();
             LoadChatLieu();
+            LoadSize();
             rdoTatCa.Checked = true;
             x = 1;
             ShowCL = 0;
@@ -108,13 +119,14 @@ namespace _3.PL.Views
                 CbbThaoTac.Visible = false;
                 _IChiTietSpServices = new ChiTietSpServices();
                 LoadData();
-            }else
+            }
+            else
             {
                 LoadCbb();
             }
-            
 
-           
+
+
         }
         private void LoadAll()
         {
@@ -139,59 +151,7 @@ namespace _3.PL.Views
         private void LoadData()
         {
             LoadCbb();
-            flowLayoutPanel1.Controls.Clear();
-            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-            if (txtSearch.Texts.Trim() != "")
-            {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-            }
-
-            ViewSP[] Sp = new ViewSP[CTSP.Count];
-            for (int i = 0; i < CTSP.Count; i++)
-            {
-                Sp[i] = new ViewSP();
-                Sp[i].MauSac = CTSP[i].TenMauSac;
-                Sp[i].ChatLieu = CTSP[i].TenChatLieu;
-                Sp[i].Team = CTSP[i].TenTeam;
-                Sp[i].Size = CTSP[i].Size;
-                Sp[i].IDSP = CTSP[i].Id;
-                Sp[i].MaHang = CTSP[i].MaQr;
-                Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
-                Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
-                Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
-                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
-                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
-                Sp[i].BaoHanh = CTSP[i].BaoHanh;
-                Sp[i].GhiChu = CTSP[i].MoTa;
-
-                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
-                if (ctksp != null)
-                {
-                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
-                }
-                Sp[i].Onclick += (ss, ee) =>
-                {
-                    var Obj = (ViewSP)ss;
-                    if (NoCheck())
-                    {
-                        CbbThaoTac.Visible = false;
-                    }
-                    else
-                    {
-                        CbbThaoTac.Visible = true;
-                        CbbThaoTac.Texts = "Thao tác";
-                    }
-                };
-                Sp[i].TopLevel = false;
-                Sp[i].FormBorderStyle = FormBorderStyle.None;
-                Sp[i].Dock = DockStyle.Top;
-                flowLayoutPanel1.Controls.Add(Sp[i]);
-                Sp[i].BringToFront();
-                Sp[i].Show();
-            }
+            GetListSP();
         }
         private string TenKsp(Guid Id, string sp)
         {
@@ -215,66 +175,30 @@ namespace _3.PL.Views
             FrmThemSP sp = new FrmThemSP();
             sp.ShowDialog();
             txtSearch.Texts = "";
-            flowLayoutPanel1.Controls.Clear();
-            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
-            if (txtSearch.Texts.Trim() != "")
-            {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-            }
-            ViewSP[] Sp = new ViewSP[CTSP.Count];
-            for (int i = 0; i < CTSP.Count; i++)
-            {
-                Sp[i] = new ViewSP();
-                Sp[i].MauSac = CTSP[i].TenMauSac;
-                Sp[i].ChatLieu = CTSP[i].TenChatLieu;
-                Sp[i].Team = CTSP[i].TenTeam;
-                Sp[i].Size = CTSP[i].Size;
-                Sp[i].IDSP = CTSP[i].Id;
-                Sp[i].MaHang = CTSP[i].MaQr;
-                Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
-                Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
-                Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
-                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
-                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
-                Sp[i].BaoHanh = CTSP[i].BaoHanh;
-                Sp[i].GhiChu = CTSP[i].MoTa;
-                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
-                if (ctksp != null)
-                {
-                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
-                }
-                if (CheckCB.ContainsKey(Sp[i].IDSP))
-                {
-                    if (CheckCB[Sp[i].IDSP] == true)
-                    {
-                        Sp[i].ChBox.Checked = true;
-                    }
-                    else Sp[i].ChBox.Checked = false;
-                }
-                Sp[i].Onclick += (ss, ee) =>
-                {
-                    var Obj = (ViewSP)ss;
-                    if (NoCheck())
-                    {
-                        CbbThaoTac.Visible = false;
-                    }
-                    else
-                    {
-                        CbbThaoTac.Visible = true;
-                        CbbThaoTac.Texts = "Thao tác";
-                    }
-                };
-                Sp[i].TopLevel = false;
-                Sp[i].FormBorderStyle = FormBorderStyle.None;
-                Sp[i].Dock = DockStyle.Top;
-                flowLayoutPanel1.Controls.Add(Sp[i]);
-                Sp[i].BringToFront();
-                Sp[i].Show();
-            }
-            btnHienThiTatCa.Visible = false;
+            CheckCB = new Dictionary<Guid, bool>();
+            _LstMauSac = new Dictionary<string, bool>();
+            _LstChatLieu = new Dictionary<string, bool>();
+            _LstSize = new Dictionary<string, bool>();
+            _IChiTietSpServices = new ChiTietSpServices();
+            _IanhServices = new AnhServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            _IKichCoServices = new KichCoServices();
+            _ListAll = new List<ChiTietSpViews>();
+            _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).ToList();
+            LoadMauSac();
+            LoadChatLieu();
+            LoadSize();
+            rdoTatCa.Checked = true;
+            x = 1;
+            ShowCL = 0;
+            ShowSL = 0;
+            ShowTT = 0;
+            ShowMS = 0;
+            LoadData();
+            GetListSP();
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -286,66 +210,7 @@ namespace _3.PL.Views
         {
             if (txtSearch.Texts != "")
             {
-                btnHienThiTatCa.Visible = true;
-                flowLayoutPanel1.Controls.Clear();
-                List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-                if (txtSearch.Texts.Trim() != "")
-                {
-                    CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-                }
-                ViewSP[] Sp = new ViewSP[CTSP.Count];
-                for (int i = 0; i < CTSP.Count; i++)
-                {
-                    Sp[i] = new ViewSP();
-                    Sp[i].MauSac = CTSP[i].TenMauSac;
-                    Sp[i].ChatLieu = CTSP[i].TenChatLieu;
-                    Sp[i].Team = CTSP[i].TenTeam;
-                    Sp[i].Size = CTSP[i].Size;
-                    Sp[i].IDSP = CTSP[i].Id;
-                    Sp[i].MaHang = CTSP[i].MaQr;
-                    Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                    Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                    Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
-                    Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
-                    Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                    Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
-                    Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
-                    Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
-                    Sp[i].BaoHanh = CTSP[i].BaoHanh;
-                    Sp[i].GhiChu = CTSP[i].MoTa;
-                    var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
-                    if (ctksp != null)
-                    {
-                        Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
-                    }
-                    if (CheckCB.ContainsKey(Sp[i].IDSP))
-                    {
-                        if (CheckCB[Sp[i].IDSP] == true)
-                        {
-                            Sp[i].ChBox.Checked = true;
-                        }
-                        else Sp[i].ChBox.Checked = false;
-                    }
-                    Sp[i].Onclick += (ss, ee) =>
-                    {
-                        var Obj = (ViewSP)ss;
-                        if (NoCheck())
-                        {
-                            CbbThaoTac.Visible = false;
-                        }
-                        else
-                        {
-                            CbbThaoTac.Visible = true;
-                            CbbThaoTac.Texts = "Thao tác";
-                        }
-                    };
-                    Sp[i].TopLevel = false;
-                    Sp[i].FormBorderStyle = FormBorderStyle.None;
-                    Sp[i].Dock = DockStyle.Top;
-                    flowLayoutPanel1.Controls.Add(Sp[i]);
-                    Sp[i].BringToFront();
-                    Sp[i].Show();
-                }
+                GetListSP();
             }
             else
             {
@@ -356,141 +221,14 @@ namespace _3.PL.Views
         private void rjButton1_Click(object sender, EventArgs e)
         {
             txtSearch.Texts = "";
-            flowLayoutPanel1.Controls.Clear();
-            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
-            if (txtSearch.Texts.Trim() != "")
-            {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-            }
-            ViewSP[] Sp = new ViewSP[CTSP.Count];
-            for (int i = 0; i < CTSP.Count; i++)
-            {
-                Sp[i] = new ViewSP();
-                Sp[i].MauSac = CTSP[i].TenMauSac;
-                Sp[i].ChatLieu = CTSP[i].TenChatLieu;
-                Sp[i].Team = CTSP[i].TenTeam;
-                Sp[i].Size = CTSP[i].Size;
-                Sp[i].IDSP = CTSP[i].Id;
-                Sp[i].MaHang = CTSP[i].MaQr;
-                Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
-                Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
-                Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
-                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
-                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
-                Sp[i].BaoHanh = CTSP[i].BaoHanh;
-                Sp[i].GhiChu = CTSP[i].MoTa;
-                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
-                if (ctksp != null)
-                {
-                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
-                }
-                if (CheckCB.ContainsKey(Sp[i].IDSP))
-                {
-                    if (CheckCB[Sp[i].IDSP] == true)
-                    {
-                        Sp[i].ChBox.Checked = true;
-                    }
-                    else Sp[i].ChBox.Checked = false;
-                }
-                Sp[i].Onclick += (ss, ee) =>
-                {
-                    var Obj = (ViewSP)ss;
-                    if (NoCheck())
-                    {
-                        CbbThaoTac.Visible = false;
-                    }
-                    else
-                    {
-                        CbbThaoTac.Visible = true;
-                        CbbThaoTac.Texts = "Thao tác";
-                    }
-                };
-                Sp[i].TopLevel = false;
-                Sp[i].FormBorderStyle = FormBorderStyle.None;
-                Sp[i].Dock = DockStyle.Top;
-                flowLayoutPanel1.Controls.Add(Sp[i]);
-                Sp[i].BringToFront();
-                Sp[i].Show();
-            }
+            GetListSP();
             btnHienThiTatCa.Visible = false;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             btnHienThiTatCa.Visible = false;
-            flowLayoutPanel1.Controls.Clear();
-            List<ChiTietSpViews> CTSP = _IChiTietSpServices.GetAll().OrderByDescending(X => X.MaQr).ToList();
-            if (txtSearch.Texts.Trim() != "")
-            {
-                CTSP = _IChiTietSpServices.GetAll().Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
-            }
-            ViewSP[] Sp = new ViewSP[CTSP.Count];
-            for (int i = 0; i < CTSP.Count; i++)
-            {
-                Sp[i] = new ViewSP();
-                Sp[i].MauSac = CTSP[i].TenMauSac;
-                Sp[i].ChatLieu = CTSP[i].TenChatLieu;
-                Sp[i].Team = CTSP[i].TenTeam;
-                Sp[i].Size = CTSP[i].Size;
-                Sp[i].IDSP = CTSP[i].Id;
-                Sp[i].MaHang = CTSP[i].MaQr;
-                Sp[i].GiaNhap = double.Parse(CTSP[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].GiaBan = double.Parse(CTSP[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
-                Sp[i].TrangThai = CTSP[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
-                Sp[i].SoLuong = CTSP[i].SoLuongTon.ToString();
-                Sp[i].APDungKM = CTSP[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
-                Sp[i].TenHang = CTSP[i].TenSP + "-" + CTSP[i].TenMauSac;
-                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
-                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
-                Sp[i].BaoHanh = CTSP[i].BaoHanh;
-                Sp[i].GhiChu = CTSP[i].MoTa;
-                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == CTSP[i].Id);
-                if (ctksp != null)
-                {
-                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
-                }
-                if (checkBox1.Checked)
-                {
-                    Sp[i].ChBox.Checked = true;
-                    CbbThaoTac.Visible = true;
-                    CbbThaoTac.Texts = "Thao tác";
-                }
-                else
-                {
-                    if (CheckCB.ContainsKey(CTSP[i].Id))
-                    {
-                        CheckCB[CTSP[i].Id] = false;
-                    }
-                    else
-                    {
-                        CheckCB.Add(CTSP[i].Id, false);
-
-                    }
-                    CbbThaoTac.Visible = false;
-                }
-                Sp[i].Onclick += (ss, ee) =>
-                {
-                    var Obj = (ViewSP)ss;
-                    if (NoCheck())
-                    {
-                        CbbThaoTac.Visible = false;
-                    }
-                    else
-                    {
-                        CbbThaoTac.Visible = true;
-                        CbbThaoTac.Texts = "Thao tác";
-                    }
-                };
-                Sp[i].TopLevel = false;
-                Sp[i].FormBorderStyle = FormBorderStyle.None;
-                Sp[i].Dock = DockStyle.Top;
-                flowLayoutPanel1.Controls.Add(Sp[i]);
-                Sp[i].BringToFront();
-                Sp[i].Show();
-            }
+            GetListSP();
         }
         public static string RemoveUnicode(string text)
         {
@@ -554,52 +292,107 @@ namespace _3.PL.Views
 
         private void chkDangBan_CheckedChanged(object sender, EventArgs e)
         {
-            chkTatCa.Checked = false;
             chkNgungBan.Checked = false;
+            GetListSP();
         }
 
         private void chkNgungBan_CheckedChanged(object sender, EventArgs e)
         {
-            chkTatCa.Checked = false;
             chkDangBan.Checked = false;
+            GetListSP();
         }
         private void LoadMauSac()
         {
-            for (int i = 0; i < _IMauSacServices.GetAll().Where(x=>x.TrangThai == 0).ToList().Count; i++)
+            PnlMauSac.Controls.Clear();
+            _LstMauSac.Clear();
+            for (int i = 0; i < _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList().Count; i++)
             {
                 box = new CheckBox();
                 box.Text = _IMauSacServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                _LstMauSac.Add(box.Text, true);
                 box.Dock = DockStyle.Top;
-                box.Padding = new Padding(0,5,0,0);
+                box.Padding = new Padding(0, 5, 0, 0);
                 box.AutoSize = true;
+                box.Checked = true;
                 PnlMauSac.Controls.Add(box);
-                box.CheckedChanged += new EventHandler(CheckBoxClick); 
+                box.CheckedChanged += new EventHandler(CheckBoxClickMS);
             }
         }
 
-        private void CheckBoxClick(object sender, EventArgs e)
+        private void CheckBoxClickMS(object sender, EventArgs e)
         {
             CheckBox item = (CheckBox)sender;
             if (item.Checked)
             {
-                MessageBox.Show("Thông minh");
-            }else
-            {
-                MessageBox.Show("Rất thông minh");
+                _LstMauSac[item.Text] = true;
             }
+            else
+            {
+                _LstMauSac[item.Text] = false;
+            }
+            GetListSP();
+        }
+
+        private void CheckBoxClickCL(object sender, EventArgs e)
+        {
+            CheckBox item = (CheckBox)sender;
+            if (item.Checked)
+            {
+                _LstChatLieu[item.Text] = true;
+            }
+            else
+            {
+                _LstChatLieu[item.Text] = false;
+            }
+            GetListSP();
+        }
+        private void CheckBoxClickSize(object sender, EventArgs e)
+        {
+            CheckBox item = (CheckBox)sender;
+            if (item.Checked)
+            {
+                _LstSize[item.Text] = true;
+            }
+            else
+            {
+                _LstSize[item.Text] = false;
+            }
+            GetListSP();
         }
 
         private void LoadChatLieu()
         {
+            pnlChatLieu.Controls.Clear();
+            _LstChatLieu.Clear();
             for (int i = 0; i < _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList().Count; i++)
             {
                 box = new CheckBox();
                 box.Text = _IChatLieuServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Ten;
+                _LstChatLieu.Add(box.Text, true);
                 box.Dock = DockStyle.Top;
                 box.Padding = new Padding(0, 5, 0, 0);
                 box.AutoSize = true;
+                box.Checked = true;
                 pnlChatLieu.Controls.Add(box);
-                box.CheckedChanged += new EventHandler(CheckBoxClick);
+                box.CheckedChanged += new EventHandler(CheckBoxClickCL);
+            }
+        }
+
+        private void LoadSize()
+        {
+            pnlSize.Controls.Clear();
+            _LstSize.Clear();
+            for (int i = 0; i < _IKichCoServices.GetAll().Where(x => x.TrangThai == 0).ToList().Count; i++)
+            {
+                box = new CheckBox();
+                box.Text = _IKichCoServices.GetAll().Where(x => x.TrangThai == 0).ToList()[i].Size;
+                _LstSize.Add(box.Text, true);
+                box.Dock = DockStyle.Top;
+                box.Padding = new Padding(0, 5, 0, 0);
+                box.AutoSize = true;
+                box.Checked = true;
+                pnlSize.Controls.Add(box);
+                box.CheckedChanged += new EventHandler(CheckBoxClickSize);
             }
         }
 
@@ -632,6 +425,354 @@ namespace _3.PL.Views
                 btnShowChatLieu.Text = "Hide";
             }
 
+        }
+
+        private void rdoTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTatCa.Checked)
+            {
+                GetListSP();
+            }
+        }
+
+        private void rdoConHang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoConHang.Checked)
+            {
+                GetListSP();
+            }
+        }
+
+        private void GetListSP()
+        {
+            _IChiTietSpServices = new ChiTietSpServices();
+            _IanhServices = new AnhServices();
+            _IKieuSpServices = new KieuSpServices();
+            _IChiTietKieuSpService = new ChiTietKieuSpServices();
+            _IMauSacServices = new MauSacServices();
+            _IChatLieuServices = new ChatLieuServices();
+            _IKichCoServices = new KichCoServices();
+            _ListAll = new List<ChiTietSpViews>();
+            _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).OrderByDescending(x => x.MaQr).OrderByDescending(x => x.MaQr.Length).ToList();
+            if (rdoTatCa.Checked)
+            {
+                if (!chkDangBan.Checked && !chkNgungBan.Checked)
+                {
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+                else if (chkDangBan.Checked)
+                {
+                    _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.TrangThai == 0).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+                else
+                {
+                    _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.TrangThai == 1).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+
+            }
+            else if (rdoConHang.Checked)
+            {
+                _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.SoLuongTon > 0).ToList();
+                if (!chkDangBan.Checked && !chkNgungBan.Checked)
+                {
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }else if (chkDangBan.Checked)
+                {
+                    _ListAll = _ListAll.Where(x => x.TrangThai == 0).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }else
+                {
+                    _ListAll = _ListAll.Where(x => x.TrangThai == 1).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+            }
+            else
+            {
+                _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(x => x.SoLuongTon == 0).ToList();
+                if (!chkDangBan.Checked && !chkNgungBan.Checked)
+                {
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+                else if (chkDangBan.Checked)
+                {
+                    _ListAll = _ListAll.Where(x => x.TrangThai == 0).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+                else
+                {
+                    _ListAll = _ListAll.Where(x => x.TrangThai == 1).ToList();
+                    if (!chkApDung.Checked && !chkKhongApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else if (chkApDung.Checked)
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 0).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                    else
+                    {
+                        _ListAll = _ListAll.Where(x => x.TrangThaiKhuyenMai == 1).ToList();
+                        _ListAll = _IChiTietSpServices.GetAll().OrderByDescending(x => x.MaQr).OrderByDescending(x=>x.MaQr.Length).Where(ms => _LstMauSac.Where(x => x.Value == true).Any(Lms => Lms.Key == ms.TenMauSac)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstChatLieu.Where(x => x.Value == true).Any(lcl => lcl.Key == x.TenChatLieu)).ToList();
+                        _ListAll = _ListAll.Where(x => _LstSize.Where(x => x.Value == true).Any(lcl => lcl.Key == x.Size)).ToList();
+                    }
+                }
+            }
+
+            flowLayoutPanel1.Controls.Clear();
+            if (txtSearch.Texts.Trim() != "")
+            {
+                _ListAll = _ListAll.Where(x => x.MaQr.ToLower().Contains(RemoveUnicode(txtSearch.Texts.ToLower())) || RemoveUnicode(x.TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).OrderByDescending(X => X.MaQr).OrderByDescending(X => X.MaQr.Length).ToList();
+            }
+            ViewSP[] Sp = new ViewSP[_ListAll.Count];
+            for (int i = 0; i < _ListAll.Count; i++)
+            {
+                Sp[i] = new ViewSP();
+                Sp[i].MauSac = _ListAll[i].TenMauSac;
+                Sp[i].ChatLieu = _ListAll[i].TenChatLieu;
+                Sp[i].Team = _ListAll[i].TenTeam;
+                Sp[i].Size = _ListAll[i].Size;
+                Sp[i].IDSP = _ListAll[i].Id;
+                Sp[i].MaHang = _ListAll[i].MaQr;
+                Sp[i].GiaNhap = double.Parse(_ListAll[i].GiaNhap.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                Sp[i].GiaBan = double.Parse(_ListAll[i].GiaBan.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                Sp[i].TrangThai = _ListAll[i].TrangThai == 0 ? "Đang Bán" : "Ngừng Bán";
+                Sp[i].SoLuong = _ListAll[i].SoLuongTon.ToString();
+                Sp[i].APDungKM = _ListAll[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
+                Sp[i].TenHang = _ListAll[i].TenSP + "-" + _ListAll[i].Size;
+                Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
+                Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
+                Sp[i].BaoHanh = _ListAll[i].BaoHanh;
+                Sp[i].GhiChu = _ListAll[i].MoTa;
+                var ctksp = _IChiTietKieuSpService.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id);
+                if (ctksp != null)
+                {
+                    Sp[i].NhomHang = TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Substring(0, TenKsp(ctksp.IdKieuSp.GetValueOrDefault(), ctksp.TenKieuSP).Length - 2);
+                }
+                if (checkBox1.Checked)
+                {
+                    Sp[i].ChBox.Checked = true;
+                    CbbThaoTac.Visible = true;
+                    CbbThaoTac.Texts = "Thao tác";
+                }
+                else
+                {
+                    if (CheckCB.ContainsKey(_ListAll[i].Id))
+                    {
+                        CheckCB[_ListAll[i].Id] = false;
+                    }
+                    else
+                    {
+                        CheckCB.Add(_ListAll[i].Id, false);
+
+                    }
+                    CbbThaoTac.Visible = false;
+                }
+                Sp[i].Onclick += (ss, ee) =>
+                {
+                    var Obj = (ViewSP)ss;
+                    if (NoCheck())
+                    {
+                        CbbThaoTac.Visible = false;
+                    }
+                    else
+                    {
+                        CbbThaoTac.Visible = true;
+                        CbbThaoTac.Texts = "Thao tác";
+                    }
+                };
+                if (CheckCB.ContainsKey(Sp[i].IDSP))
+                {
+                    if (CheckCB[Sp[i].IDSP] == true)
+                    {
+                        Sp[i].ChBox.Checked = true;
+                    }
+                    else Sp[i].ChBox.Checked = false;
+                }
+                Sp[i].TopLevel = false;
+                Sp[i].FormBorderStyle = FormBorderStyle.None;
+                Sp[i].Dock = DockStyle.Top;
+                flowLayoutPanel1.Controls.Add(Sp[i]);
+                Sp[i].BringToFront();
+                Sp[i].Show();
+            }
+            btnHienThiTatCa.Visible = false;
+        }
+
+        private void rdoHetHang_CheckedChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+        }
+
+        private void chkApDung_CheckedChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+            chkKhongApDung.Checked = false;
+        }
+
+        private void chkKhongApDung_CheckedChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+            chkApDung.Checked = false;
         }
     }
 }

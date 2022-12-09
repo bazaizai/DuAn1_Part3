@@ -120,7 +120,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.tabPage1.Controls.Add(this.rjButton1);
             this.tabPage1.Controls.Add(this.btnCapNhat);
             this.tabPage1.Controls.Add(this.panel4);
@@ -135,46 +135,48 @@
             // rjButton1
             // 
             this.rjButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 10;
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rjButton1.Location = new System.Drawing.Point(783, 323);
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(788, 323);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(152, 40);
             this.rjButton1.TabIndex = 20;
             this.rjButton1.Text = "Thay đổi Trạng Thái";
-            this.rjButton1.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // btnCapNhat
             // 
             this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
-            this.btnCapNhat.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(172)))), ((int)(((byte)(182)))));
+            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
+            this.btnCapNhat.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.btnCapNhat.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnCapNhat.BorderRadius = 10;
             this.btnCapNhat.BorderSize = 0;
             this.btnCapNhat.FlatAppearance.BorderSize = 0;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapNhat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCapNhat.Location = new System.Drawing.Point(625, 323);
+            this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCapNhat.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhat.Location = new System.Drawing.Point(630, 323);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(152, 40);
             this.btnCapNhat.TabIndex = 20;
             this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCapNhat.TextColor = System.Drawing.Color.White;
             this.btnCapNhat.UseVisualStyleBackColor = false;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.panel4.Controls.Add(this.panel12);
             this.panel4.Controls.Add(this.panel11);
             this.panel4.Controls.Add(this.panel10);
@@ -219,7 +221,7 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.panel12.Location = new System.Drawing.Point(601, 6);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(32, 251);
@@ -285,6 +287,7 @@
             // 
             this.lblBaoHanh.AutoSize = true;
             this.lblBaoHanh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBaoHanh.ForeColor = System.Drawing.Color.Black;
             this.lblBaoHanh.Location = new System.Drawing.Point(380, 237);
             this.lblBaoHanh.Name = "lblBaoHanh";
             this.lblBaoHanh.Size = new System.Drawing.Size(80, 20);
@@ -295,6 +298,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(252, 237);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 20);
@@ -303,7 +307,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.panel1.Controls.Add(this.Anhtt1);
             this.panel1.Controls.Add(this.barcode1);
             this.panel1.Controls.Add(this.ID);
@@ -344,6 +348,7 @@
             // lblGhiChu
             // 
             this.lblGhiChu.AutoSize = true;
+            this.lblGhiChu.ForeColor = System.Drawing.Color.Black;
             this.lblGhiChu.Location = new System.Drawing.Point(766, 198);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(59, 20);
@@ -353,6 +358,7 @@
             // lblChatLieu
             // 
             this.lblChatLieu.AutoSize = true;
+            this.lblChatLieu.ForeColor = System.Drawing.Color.Black;
             this.lblChatLieu.Location = new System.Drawing.Point(380, 120);
             this.lblChatLieu.Name = "lblChatLieu";
             this.lblChatLieu.Size = new System.Drawing.Size(72, 20);
@@ -362,6 +368,7 @@
             // lblTrangThai
             // 
             this.lblTrangThai.AutoSize = true;
+            this.lblTrangThai.ForeColor = System.Drawing.Color.Black;
             this.lblTrangThai.Location = new System.Drawing.Point(766, 159);
             this.lblTrangThai.Name = "lblTrangThai";
             this.lblTrangThai.Size = new System.Drawing.Size(85, 20);
@@ -371,6 +378,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(252, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 20);
@@ -380,6 +388,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(631, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 20);
@@ -389,6 +398,7 @@
             // lblMaHang1
             // 
             this.lblMaHang1.AutoSize = true;
+            this.lblMaHang1.ForeColor = System.Drawing.Color.Black;
             this.lblMaHang1.Location = new System.Drawing.Point(380, 3);
             this.lblMaHang1.Name = "lblMaHang1";
             this.lblMaHang1.Size = new System.Drawing.Size(76, 20);
@@ -398,6 +408,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(631, 159);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(91, 20);
@@ -407,6 +418,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(252, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 20);
@@ -416,6 +428,7 @@
             // lblADKM
             // 
             this.lblADKM.AutoSize = true;
+            this.lblADKM.ForeColor = System.Drawing.Color.Black;
             this.lblADKM.Location = new System.Drawing.Point(766, 120);
             this.lblADKM.Name = "lblADKM";
             this.lblADKM.Size = new System.Drawing.Size(101, 20);
@@ -425,6 +438,7 @@
             // lblNhomHang1
             // 
             this.lblNhomHang1.AutoSize = true;
+            this.lblNhomHang1.ForeColor = System.Drawing.Color.Black;
             this.lblNhomHang1.Location = new System.Drawing.Point(380, 42);
             this.lblNhomHang1.Name = "lblNhomHang1";
             this.lblNhomHang1.Size = new System.Drawing.Size(97, 20);
@@ -434,6 +448,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(631, 120);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(107, 20);
@@ -443,6 +458,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(252, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 20);
@@ -452,6 +468,7 @@
             // lblSoLuongTon1
             // 
             this.lblSoLuongTon1.AutoSize = true;
+            this.lblSoLuongTon1.ForeColor = System.Drawing.Color.Black;
             this.lblSoLuongTon1.Location = new System.Drawing.Point(766, 81);
             this.lblSoLuongTon1.Name = "lblSoLuongTon1";
             this.lblSoLuongTon1.Size = new System.Drawing.Size(107, 20);
@@ -461,6 +478,7 @@
             // lblMauSac
             // 
             this.lblMauSac.AutoSize = true;
+            this.lblMauSac.ForeColor = System.Drawing.Color.Black;
             this.lblMauSac.Location = new System.Drawing.Point(380, 81);
             this.lblMauSac.Name = "lblMauSac";
             this.lblMauSac.Size = new System.Drawing.Size(71, 20);
@@ -470,6 +488,7 @@
             // lblGiaNhap1
             // 
             this.lblGiaNhap1.AutoSize = true;
+            this.lblGiaNhap1.ForeColor = System.Drawing.Color.Black;
             this.lblGiaNhap1.Location = new System.Drawing.Point(766, 42);
             this.lblGiaNhap1.Name = "lblGiaNhap1";
             this.lblGiaNhap1.Size = new System.Drawing.Size(77, 20);
@@ -479,6 +498,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(252, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 20);
@@ -488,6 +508,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(631, 81);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 20);
@@ -497,6 +518,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(252, 159);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 20);
@@ -506,6 +528,7 @@
             // lblGiaBan1
             // 
             this.lblGiaBan1.AutoSize = true;
+            this.lblGiaBan1.ForeColor = System.Drawing.Color.Black;
             this.lblGiaBan1.Location = new System.Drawing.Point(766, 3);
             this.lblGiaBan1.Name = "lblGiaBan1";
             this.lblGiaBan1.Size = new System.Drawing.Size(65, 20);
@@ -515,6 +538,7 @@
             // lblSize
             // 
             this.lblSize.AutoSize = true;
+            this.lblSize.ForeColor = System.Drawing.Color.Black;
             this.lblSize.Location = new System.Drawing.Point(380, 159);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(40, 20);
@@ -524,6 +548,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(631, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 20);
@@ -533,6 +558,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(252, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 20);
@@ -542,6 +568,7 @@
             // lbl
             // 
             this.lbl.AutoSize = true;
+            this.lbl.ForeColor = System.Drawing.Color.Black;
             this.lbl.Location = new System.Drawing.Point(631, 3);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(71, 20);
@@ -551,6 +578,7 @@
             // lblTeam
             // 
             this.lblTeam.AutoSize = true;
+            this.lblTeam.ForeColor = System.Drawing.Color.Black;
             this.lblTeam.Location = new System.Drawing.Point(380, 198);
             this.lblTeam.Name = "lblTeam";
             this.lblTeam.Size = new System.Drawing.Size(49, 20);
@@ -559,7 +587,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.panel3.Controls.Add(this.lblTenSPtt);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
@@ -571,6 +599,7 @@
             // 
             this.lblTenSPtt.AutoSize = true;
             this.lblTenSPtt.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTenSPtt.ForeColor = System.Drawing.Color.Black;
             this.lblTenSPtt.Location = new System.Drawing.Point(16, 9);
             this.lblTenSPtt.Name = "lblTenSPtt";
             this.lblTenSPtt.Size = new System.Drawing.Size(76, 31);
@@ -606,7 +635,9 @@
             // lblSoLuongTon
             // 
             this.lblSoLuongTon.AutoSize = true;
+            this.lblSoLuongTon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblSoLuongTon.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSoLuongTon.ForeColor = System.Drawing.Color.White;
             this.lblSoLuongTon.Location = new System.Drawing.Point(679, 23);
             this.lblSoLuongTon.Name = "lblSoLuongTon";
             this.lblSoLuongTon.Size = new System.Drawing.Size(103, 20);
@@ -616,7 +647,9 @@
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
+            this.lblGiaNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblGiaNhap.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGiaNhap.ForeColor = System.Drawing.Color.White;
             this.lblGiaNhap.Location = new System.Drawing.Point(560, 23);
             this.lblGiaNhap.Name = "lblGiaNhap";
             this.lblGiaNhap.Size = new System.Drawing.Size(70, 20);
@@ -626,7 +659,9 @@
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
+            this.lblGiaBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblGiaBan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGiaBan.ForeColor = System.Drawing.Color.White;
             this.lblGiaBan.Location = new System.Drawing.Point(460, 23);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(61, 20);
@@ -636,7 +671,9 @@
             // lblNhomHang
             // 
             this.lblNhomHang.AutoSize = true;
+            this.lblNhomHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblNhomHang.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNhomHang.ForeColor = System.Drawing.Color.White;
             this.lblNhomHang.Location = new System.Drawing.Point(273, 23);
             this.lblNhomHang.Name = "lblNhomHang";
             this.lblNhomHang.Size = new System.Drawing.Size(91, 20);
@@ -646,7 +683,9 @@
             // lblTenHang
             // 
             this.lblTenHang.AutoSize = true;
+            this.lblTenHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblTenHang.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTenHang.ForeColor = System.Drawing.Color.White;
             this.lblTenHang.Location = new System.Drawing.Point(155, 23);
             this.lblTenHang.Name = "lblTenHang";
             this.lblTenHang.Size = new System.Drawing.Size(74, 20);
@@ -656,7 +695,9 @@
             // lblMaHang
             // 
             this.lblMaHang.AutoSize = true;
+            this.lblMaHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblMaHang.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMaHang.ForeColor = System.Drawing.Color.White;
             this.lblMaHang.Location = new System.Drawing.Point(60, 23);
             this.lblMaHang.Name = "lblMaHang";
             this.lblMaHang.Size = new System.Drawing.Size(72, 20);
@@ -666,21 +707,24 @@
             // CheckBoxDP
             // 
             this.CheckBoxDP.AutoSize = true;
+            this.CheckBoxDP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CheckBoxDP.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CheckBoxDP.ForeColor = System.Drawing.Color.White;
             this.CheckBoxDP.Location = new System.Drawing.Point(15, 25);
             this.CheckBoxDP.Name = "CheckBoxDP";
             this.CheckBoxDP.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxDP.TabIndex = 0;
-            this.CheckBoxDP.UseVisualStyleBackColor = true;
+            this.CheckBoxDP.UseVisualStyleBackColor = false;
             this.CheckBoxDP.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // ViewSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(983, 619);
             this.Controls.Add(this.pnlbody);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewSP";
             this.Text = "ViewSP";
