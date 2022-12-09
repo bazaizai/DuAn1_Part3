@@ -1564,20 +1564,20 @@ namespace _3.PL.Views
                 {
                     TichDiem.SoDiem = TichDiem.SoDiem + Convert.ToInt32(ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) / (Convert.ToInt32(item.HeSoTich));
                 }
+                _ITichDiemServices.Update(TichDiem);
+                _ITichDiemServices = new TichDiemServices();
+                var ls = new LichSuTichDiemView()
+                {
+                    IdHoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == TabHoaDon.SelectedTab.Name).Id,
+                    IdTichDiem = TichDiem.Id,
+                    NgayTichDiem = DateTime.Now,
+                    SoDiemDung = _ICtTichDiemServices.GetAll().Count > 0 ? Convert.ToInt32(ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) / (Convert.ToInt32(_ICtTichDiemServices.GetAll().ToList()[0].HeSoTich)) : 0,
+                    IdCttichDiem = _ICtTichDiemServices.GetAll().Count > 0 ? _ICtTichDiemServices.GetAll().ToList()[0].Id : null
+                };
+                _ILichSuTichDiemServices.Add(ls);
+                _ILichSuTichDiemServices = new LichSuTichDiemServices();
+                _IKhachHangServices = new KhachHangServices();
             }
-            _ITichDiemServices.Update(TichDiem);
-            _ITichDiemServices = new TichDiemServices();
-            var ls = new LichSuTichDiemView()
-            {
-                IdHoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == TabHoaDon.SelectedTab.Name).Id,
-                IdTichDiem = TichDiem.Id,
-                NgayTichDiem = DateTime.Now,
-                SoDiemDung = _ICtTichDiemServices.GetAll().Count > 0 ? Convert.ToInt32(ValidateInput.RegexDecimal(txtTongTienPTra1.Text)) / (Convert.ToInt32(_ICtTichDiemServices.GetAll().ToList()[0].HeSoTich)) : 0,
-                IdCttichDiem = _ICtTichDiemServices.GetAll().Count > 0 ? _ICtTichDiemServices.GetAll().ToList()[0].Id : null
-            };
-            _ILichSuTichDiemServices.Add(ls);
-            _ILichSuTichDiemServices = new LichSuTichDiemServices();
-            _IKhachHangServices = new KhachHangServices();
         }
 
         private void txthtThanhToan__TextChanged(object sender, EventArgs e)
@@ -2539,9 +2539,17 @@ namespace _3.PL.Views
                             _IChiTietHDServices.Delete(hdct);
                         }
                     }
-                    LoadGia();
-                    LoadItem();
-                    LoadView(TabHoaDon.SelectedTab.Name);
+                    try
+                    {
+                        LoadGia();
+                        LoadItem();
+                        LoadView(TabHoaDon.SelectedTab.Name);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Không được để trống");
+                    }
+
 
                 }
                 else
@@ -2643,6 +2651,17 @@ namespace _3.PL.Views
             LoadGia();
             LoadTienThua();
 
+        }
+
+        private void dgvGiaoHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Step3.Image != null)
+            {
+
+            }else
+            {
+
+            }
         }
     }
 }
