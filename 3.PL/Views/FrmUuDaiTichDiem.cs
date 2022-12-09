@@ -349,8 +349,9 @@ namespace _3.PL.Views
         private void btn_congthuc_Click(object sender, EventArgs e)
         {
             FrmCongThuc frmCongThuc = new FrmCongThuc();
-            frmCongThuc.ShowDialog();
+            frmCongThuc.ShowDialog();           
             LoadDT();
+ 
         }
 
         private void tb_mucuudai_KeyPress(object sender, KeyPressEventArgs e)

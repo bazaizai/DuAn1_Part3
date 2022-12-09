@@ -75,6 +75,7 @@
             this.tb_quydoi.Name = "tb_quydoi";
             this.tb_quydoi.Size = new System.Drawing.Size(278, 31);
             this.tb_quydoi.TabIndex = 2;
+            this.tb_quydoi.TextChanged += new System.EventHandler(this.tb_quydoi_TextChanged);
             this.tb_quydoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_quydoi_KeyPress);
             // 
             // label2
@@ -141,6 +142,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Không hoạt động";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // label9
             // 

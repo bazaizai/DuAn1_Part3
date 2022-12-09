@@ -46,18 +46,18 @@ namespace _3.PL.Views
             DialogResult dialogResult = RJMessageBox.Show("Bạn có muốn lưu không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //if(tb_quydoi.Text == "")
-                //{
-                //    MessageBox.Show("Không được để trống");
-                //}
-                if (tb_quydoi.Text.Length > 9)
+                if (tb_quydoi.Text == "")
+                {
+                    RJMessageBox.Show("Không được để trống");
+                }
+                else if (tb_quydoi.Text.Length > 9)
                 {
                     RJMessageBox.Show("Không được nhập số tiền lớn như này");
                 }
-                //else if (Convert.ToInt32(tb_quydoi.Text) == 0)
-                //{
-                //    MessageBox.Show("Không được nhập số tiền bằng 0");
-                //}
+                else if (Convert.ToInt32(tb_quydoi.Text) == 0)
+                {
+                    MessageBox.Show("Không được nhập số tiền bằng 0");
+                }
                 else if (radioButton1.Checked == false && radioButton2.Checked == false)
                 {
                     RJMessageBox.Show("Không được để trống trạng thái");
@@ -80,6 +80,7 @@ namespace _3.PL.Views
                                 TrangThai = radioButton1.Checked ? 0 : radioButton2.Checked ? 1 : 0
                             };
                             RJMessageBox.Show(_iCtTichDiemServices.Add(ctTinhDiemView));
+                            this.Close();
                         }
                         
                     }
@@ -102,6 +103,7 @@ namespace _3.PL.Views
                                 ctTinhDiemView.HeSoTich = Convert.ToInt32(tb_quydoi.Text);
                             }
                             RJMessageBox.Show(_iCtTichDiemServices.Update(ctTinhDiemView));
+                            this.Close();
                         }
 
                     }
@@ -121,6 +123,24 @@ namespace _3.PL.Views
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
-     
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_quydoi_TextChanged(object sender, EventArgs e)
+        {
+            if(tb_quydoi.Text != "")
+            {
+                if (Convert.ToInt32(tb_quydoi.Text) == 0)
+                {
+                    radioButton2.Checked = true;
+                    tb_quydoi.Text = 0.ToString();
+                    radioButton1.Checked = false;
+                }
+            }
+           
+        }
     }
 }
