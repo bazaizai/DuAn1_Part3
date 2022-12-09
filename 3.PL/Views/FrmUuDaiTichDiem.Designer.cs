@@ -420,7 +420,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(222, 273);
+            this.label8.Location = new System.Drawing.Point(327, 273);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 25);
@@ -462,7 +462,7 @@
             this.lb1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(122)))), ((int)(((byte)(83)))));
             this.lb1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb1.ForeColor = System.Drawing.Color.White;
-            this.lb1.Location = new System.Drawing.Point(429, 275);
+            this.lb1.Location = new System.Drawing.Point(439, 273);
             this.lb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(51, 25);
@@ -476,7 +476,7 @@
             this.lb2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.lb2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb2.ForeColor = System.Drawing.Color.White;
-            this.lb2.Location = new System.Drawing.Point(488, 275);
+            this.lb2.Location = new System.Drawing.Point(498, 273);
             this.lb2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(37, 25);
@@ -490,7 +490,7 @@
             this.lb3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lb3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb3.ForeColor = System.Drawing.Color.White;
-            this.lb3.Location = new System.Drawing.Point(538, 275);
+            this.lb3.Location = new System.Drawing.Point(539, 273);
             this.lb3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb3.Name = "lb3";
             this.lb3.Size = new System.Drawing.Size(56, 25);
