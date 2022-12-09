@@ -1605,6 +1605,7 @@ namespace _3.PL.Views
             this.dgvGiaoHang.Size = new System.Drawing.Size(45, 41);
             this.dgvGiaoHang.TabIndex = 14;
             this.dgvGiaoHang.Visible = false;
+            this.dgvGiaoHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoHang_CellClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
