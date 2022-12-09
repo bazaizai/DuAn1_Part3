@@ -348,7 +348,7 @@
             // 
             this.tb_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_email.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_email.ForeColor = System.Drawing.SystemColors.Window;
+            this.tb_email.ForeColor = System.Drawing.Color.Black;
             this.tb_email.Location = new System.Drawing.Point(770, 302);
             this.tb_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_email.Name = "tb_email";
@@ -568,6 +568,7 @@
             this.dtgv_show.RowTemplate.Height = 29;
             this.dtgv_show.Size = new System.Drawing.Size(1095, 399);
             this.dtgv_show.TabIndex = 2;
+            this.dtgv_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_show_CellClick);
             // 
             // FrmNhanVien
             // 
