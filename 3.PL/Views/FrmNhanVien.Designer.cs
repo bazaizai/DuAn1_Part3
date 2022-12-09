@@ -348,7 +348,7 @@
             // 
             this.tb_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_email.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_email.ForeColor = System.Drawing.Color.Black;
+            this.tb_email.ForeColor = System.Drawing.SystemColors.WindowText;
             this.tb_email.Location = new System.Drawing.Point(770, 302);
             this.tb_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_email.Name = "tb_email";
