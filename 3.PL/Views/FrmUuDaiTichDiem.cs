@@ -73,10 +73,10 @@ namespace _3.PL.Views
             cbb_loctrangthai.SelectedIndex = 0;
             cbb_locloaihinhkm.Items.Add("Tất cả");
             cbb_locloaihinhkm.Items.Add("%");
-            //cbb_locloaihinhkm.Items.Add("$");
+            cbb_locloaihinhkm.Items.Add("$");
             cbb_locloaihinhkm.SelectedIndex = 0;
             cbb_loaihinhkm.Items.Add("%");
-            //cbb_loaihinhkm.Items.Add("$");
+            cbb_loaihinhkm.Items.Add("$");
             cbb_loaihinhkm.SelectedIndex = 0;
         }
         public void ClearForm()
@@ -349,8 +349,9 @@ namespace _3.PL.Views
         private void btn_congthuc_Click(object sender, EventArgs e)
         {
             FrmCongThuc frmCongThuc = new FrmCongThuc();
-            frmCongThuc.ShowDialog();
+            frmCongThuc.ShowDialog();           
             LoadDT();
+ 
         }
 
         private void tb_mucuudai_KeyPress(object sender, KeyPressEventArgs e)
@@ -372,11 +373,11 @@ namespace _3.PL.Views
                 lb_mucuudai.Text = "Ưu đãi %";
                 lb_km.Text = "%";
             }
-            //else
-            //{
-            //    lb_mucuudai.Text = "Ưu đãi $";
-            //    lb_km.Text = "$";
-            //}
+            else
+            {
+                lb_mucuudai.Text = "Ưu đãi $";
+                lb_km.Text = "$";
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
