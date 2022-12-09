@@ -126,7 +126,7 @@
             this.lblPT.AutoSize = true;
             this.lblPT.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblPT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblPT.Location = new System.Drawing.Point(123, 49);
+            this.lblPT.Location = new System.Drawing.Point(82, 67);
             this.lblPT.Name = "lblPT";
             this.lblPT.Size = new System.Drawing.Size(25, 23);
             this.lblPT.TabIndex = 26;

@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace _3.PL.Views
         private List<TeamView> lstTeam;
         private Guid _idteam;
         private TeamView _team;
-        
+
         public FrmTeam()
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace _3.PL.Views
             }
             foreach (var item in lstTeam)
             {
-                dtg_show.Rows.Add(item.Id, item.Ma, item.Ten,item.TenGiaiDau, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                dtg_show.Rows.Add(item.Id, item.Ma, item.Ten, item.TenGiaiDau, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
 
         }
@@ -80,28 +81,28 @@ namespace _3.PL.Views
         private void bt_update_Click(object sender, EventArgs e)
         {
             var ac = _giaiDauServices.GetAll().FirstOrDefault(p => p.Ten == cbb_giaidau.Text);
-            DialogResult result = MessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn sửa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (_idteam == Guid.Empty)
                 {
-                    MessageBox.Show("Vui lòng chọn team cần sửa");
+                    RJMessageBox.Show("Vui lòng chọn team cần sửa");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không được bỏ trống");
+                    RJMessageBox.Show("Tên không được bỏ trống");
                 }
-                else if(_TeamServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id !=  _idteam) != null)
+                else if (_TeamServices.GetAll().FirstOrDefault(c => c.Ten == tb_ten.Text && c.Id != _idteam) != null)
                 {
-                    MessageBox.Show($"Team bị trùng");
+                    RJMessageBox.Show($"Team bị trùng");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
-                    MessageBox.Show("Vui lòng chọn trạng thái");
+                    RJMessageBox.Show("Vui lòng chọn trạng thái");
                 }
 
                 else
@@ -109,48 +110,48 @@ namespace _3.PL.Views
                     TeamView TeamView = new TeamView()
                     {
                         Id = _idteam,
-                        IdGd=ac.Id,
+                        IdGd = ac.Id,
                         Ma = tb_ma.Text,
                         Ten = XoaDauCach(tb_ten.Text.Trim()),
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
-                    MessageBox.Show(_TeamServices.Update(TeamView));
+                    RJMessageBox.Show(_TeamServices.Update(TeamView));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy sửa");
+                RJMessageBox.Show("Bạn đã hủy sửa");
             }
         }
 
         private void tb_them_Click(object sender, EventArgs e)
         {
             var ac = _giaiDauServices.GetAll().FirstOrDefault(p => p.Ten == cbb_giaidau.Text);
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
-          if (result == DialogResult.Yes)
+            DialogResult result = RJMessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                
+
                 if (ac == null)
                 {
-                    MessageBox.Show("Bạn chưa chọn giải đấu");
+                    RJMessageBox.Show("Bạn chưa chọn giải đấu");
                 }
                 else if (_TeamServices.GetAll().Any(c => c.Ten == tb_ten.Text))
                 {
-                    MessageBox.Show("Tên bị trùng");
+                    RJMessageBox.Show("Tên bị trùng");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không được bỏ trống");
+                    RJMessageBox.Show("Tên không được bỏ trống");
                 }
                 else if (ValidateInput.hasSpecialChar(tb_ten.Text))
                 {
-                    MessageBox.Show("Tên không hợp lệ");
+                    RJMessageBox.Show("Tên không hợp lệ");
                 }
                 else if (rdb_hd.Checked == false && rdb_khd.Checked == false)
                 {
-                    MessageBox.Show("Vui lòng chọn trạng thái");
+                    RJMessageBox.Show("Vui lòng chọn trạng thái");
                 }
                 else
                 {
@@ -162,36 +163,36 @@ namespace _3.PL.Views
                         Ten = tb_ten.Text,
                         TrangThai = rdb_hd.Checked ? 0 : 1,
                     };
-                    MessageBox.Show(_TeamServices.Add(teamView));
+                    RJMessageBox.Show(_TeamServices.Add(teamView));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy thêm");
+                RJMessageBox.Show("Bạn đã hủy thêm");
             }
         }
 
         private void bt_xoa_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult result = RJMessageBox.Show("Bạn có muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if (_team==null)
+                if (_team == null)
                 {
-                    MessageBox.Show("Vui lòng chọn team cần xóa");
+                    RJMessageBox.Show("Vui lòng chọn team cần xóa");
                 }
                 else
                 {
-                    MessageBox.Show(_TeamServices.Delete(_team));
+                    RJMessageBox.Show(_TeamServices.Delete(_team));
                     ClearForm();
                     loadData();
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy xóa");
+                RJMessageBox.Show("Bạn đã hủy xóa");
             }
         }
 
@@ -207,7 +208,7 @@ namespace _3.PL.Views
 
         private void dtg_show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _team =  _TeamServices.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(dtg_show.CurrentRow.Cells[0].Value.ToString()));
+            _team = _TeamServices.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(dtg_show.CurrentRow.Cells[0].Value.ToString()));
             _idteam = (Guid)(dtg_show.CurrentRow.Cells[0].Value);
             tb_ma.Text = dtg_show.CurrentRow.Cells[1].Value.ToString();
             tb_ten.Text = dtg_show.CurrentRow.Cells[2].Value.ToString();

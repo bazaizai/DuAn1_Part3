@@ -41,6 +41,9 @@
     <Compile Update="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmChiTietSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmChiTietSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +63,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChatLieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmChiTietSale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmChonSale.cs">

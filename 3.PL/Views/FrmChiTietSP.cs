@@ -766,11 +766,13 @@ namespace _3.PL.Views
         private void chkApDung_CheckedChanged(object sender, EventArgs e)
         {
             GetListSP();
+            chkKhongApDung.Checked = false;
         }
 
         private void chkKhongApDung_CheckedChanged(object sender, EventArgs e)
         {
             GetListSP();
+            chkApDung.Checked = false;
         }
     }
 }

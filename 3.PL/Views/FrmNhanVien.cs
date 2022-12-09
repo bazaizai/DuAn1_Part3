@@ -2,6 +2,7 @@
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.CustomControlls;
 using _3.PL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -105,7 +106,7 @@ namespace _3.PL.Views
                 Id = new Guid(),
                 IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
                 Ten = XoaDauCach(tb_ten.Text.Trim()),
-                TenDem = tb_tendem.Text,
+                TenDem = XoaDauCach(tb_tendem.Text).Trim(),
                 Ho = XoaDauCach(tb_ho.Text.Trim()),
                 GioiTinh = cbb_gioitinh.Text,
                 NgaySinh = dtp_ngaysinh.Value,
@@ -114,7 +115,7 @@ namespace _3.PL.Views
                 Cccd = tb_cccd.Text,
                 MatKhau = tb_matkhau.Text,
                 Email = tb_email.Text,
-                TaiKhoan = tb_taikhoan.Text,
+                TaiKhoan = XoaDauCach(tb_taikhoan.Text).Trim(),
                 TrangThai = rdb_hoatdong.Checked ? 0 : 1
             };
             return cvv;
@@ -122,80 +123,80 @@ namespace _3.PL.Views
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn thêm không!", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult dialog = RJMessageBox.Show("Bạn có muốn thêm không!", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 if (tb_cccd.Text.Length < 12)
                 {
-                    MessageBox.Show("Nhập đúng căn cước công dân");
+                    RJMessageBox.Show("Nhập đúng căn cước công dân");
                 }
                 else if (_iNhanVien.GetAll().Any(c => c.Cccd == tb_cccd.Text))
                 {
-                    MessageBox.Show("Căn cước đã bị trùng");
+                    RJMessageBox.Show("Căn cước đã bị trùng");
                 }
                 else if (ValidateInput.IsValidVietNamPhoneNumber(tb_sdt.Text) == false)
                 {
-                    MessageBox.Show("Nhập đúng số điện thoại");
+                    RJMessageBox.Show("Nhập đúng số điện thoại");
                 }
                 else if (_iNhanVien.GetAll().Any(c => c.Sdt == tb_sdt.Text))
                 {
-                    MessageBox.Show("Số điện thoại đã bị trùng");
+                    RJMessageBox.Show("Số điện thoại đã bị trùng");
                 }
                 else if (ValidateInput.IsEmail(tb_email.Text) == false)
                 {
-                    MessageBox.Show("Nhập đúng email");
+                    RJMessageBox.Show("Nhập đúng email");
                 }
                 else if (_iNhanVien.GetAll().Any(c => c.Email == tb_email.Text))
                 {
-                    MessageBox.Show("Email đã bị trùng");
+                    RJMessageBox.Show("Email đã bị trùng");
                 }
                 else if (string.IsNullOrWhiteSpace(cbb_chucvu.Text))
                 {
-                    MessageBox.Show("Chọn chức vụ");
+                    RJMessageBox.Show("Chọn chức vụ");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_matkhau.Text))
                 {
-                    MessageBox.Show("Không được để trống mật khẩu");
+                    RJMessageBox.Show("Không được để trống mật khẩu");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_ten.Text) || string.IsNullOrWhiteSpace(tb_ho.Text))
                 {
-                    MessageBox.Show("Không được để trống họ và tên");
+                    RJMessageBox.Show("Không được để trống họ và tên");
                 }
                 else if (string.IsNullOrWhiteSpace(cbb_gioitinh.Text))
                 {
-                    MessageBox.Show("Chọn giới tính");
+                    RJMessageBox.Show("Chọn giới tính");
                 }
                 else if (DateTime.Now.Year - dtp_ngaysinh.Value.Year < 18)
                 {
-                    MessageBox.Show("Ngày sinh không đủ");
+                    RJMessageBox.Show("Ngày sinh không đủ");
                 }
                 else if (tb_nhaplai.Text != tb_matkhau.Text)
                 {
-                    MessageBox.Show("Mật khẩu không đúng");
+                    RJMessageBox.Show("Mật khẩu không đúng");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_taikhoan.Text))
                 {
-                    MessageBox.Show("không được để tài khoản");
+                    RJMessageBox.Show("không được để tài khoản");
                 }
                 else if (rdb_hoatdong.Checked == false && rdb_khonghd.Checked == false)
                 {
-                    MessageBox.Show("không được để trống trạng thái");
+                    RJMessageBox.Show("không được để trống trạng thái");
                 }
                 else if (hasSpecialChar(tb_ten.Text) || hasSpecialChar(tb_ho.Text))
                 {
-                    MessageBox.Show("Họ Tên không hợp lệ");
+                    RJMessageBox.Show("Họ Tên không hợp lệ");
                 }
                 else
                 {
                     _iNhanVien.Add(GetData());
-                    MessageBox.Show("thêm thành công");
+                    RJMessageBox.Show("thêm thành công");
                     loadData();
                     clear();
                 }
             }
             else
             {
-                MessageBox.Show("bạn đã hủy thêm");
+                RJMessageBox.Show("bạn đã hủy thêm");
             }
 
         }
@@ -203,44 +204,44 @@ namespace _3.PL.Views
         private void btn_sua_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialog = MessageBox.Show("Bạn có muốn sửa không!", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult dialog = RJMessageBox.Show("Bạn có muốn sửa không!", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 if (_nvv == null)
                 {
-                    MessageBox.Show("Chọn nhân viên cần sửa");
+                    RJMessageBox.Show("Chọn nhân viên cần sửa");
                 }
                 else if (_iNhanVien.GetAll().FirstOrDefault(c => c.TaiKhoan == tb_taikhoan.Text && c.Id != _nvv.Id) != null)
                 {
-                    MessageBox.Show("Tài khoản bị trùng");
+                    RJMessageBox.Show("Tài khoản bị trùng");
                 }
                 else if (DateTime.Now.Year - dtp_ngaysinh.Value.Year < 18)
                 {
-                    MessageBox.Show("Ngày sinh không đủ");
+                    RJMessageBox.Show("Ngày sinh không đủ");
                 }
                 else if (_iNhanVien.GetAll().FirstOrDefault(c => c.Cccd == tb_cccd.Text && c.Id != _nvv.Id) != null)
                 {
-                    MessageBox.Show("Căn cước bị trùng");
+                    RJMessageBox.Show("Căn cước bị trùng");
                 }
                 else if (_iNhanVien.GetAll().FirstOrDefault(c => c.Email == tb_email.Text && c.Id != _nvv.Id) != null)
                 {
-                    MessageBox.Show("Email bị trùng");
+                    RJMessageBox.Show("Email bị trùng");
                 }
                 else if (_iNhanVien.GetAll().FirstOrDefault(c => c.Sdt == tb_sdt.Text && c.Id != _nvv.Id) != null)
                 {
-                    MessageBox.Show("Số điện thoại bị trùng");
+                    RJMessageBox.Show("Số điện thoại bị trùng");
                 }
                 else if (string.IsNullOrWhiteSpace(tb_matkhau.Text))
                 {
-                    MessageBox.Show("Không được để trống mật khẩu");
+                    RJMessageBox.Show("Không được để trống mật khẩu");
                 }
                 else if (tb_nhaplai.Text != tb_matkhau.Text)
                 {
-                    MessageBox.Show("Mật khẩu không đúng");
+                    RJMessageBox.Show("Mật khẩu không đúng");
                 }
                 else if (hasSpecialChar(tb_ten.Text) || hasSpecialChar(tb_ho.Text))
                 {
-                    MessageBox.Show("Họ Tên không hợp lệ");
+                    RJMessageBox.Show("Họ Tên không hợp lệ");
                 }
                 else
                 {
@@ -250,7 +251,7 @@ namespace _3.PL.Views
                         IdCv = _iChucVu.GetAll().FirstOrDefault(c => c.Ten == cbb_chucvu.Text).Id,
                         Ma = dtgv_show.CurrentRow.Cells[1].Value.ToString(),
                         Ten = XoaDauCach(tb_ten.Text.Trim()),
-                        TenDem = tb_tendem.Text,
+                        TenDem = XoaDauCach(tb_tendem.Text).Trim(),
                         Ho = XoaDauCach(tb_ho.Text.Trim()),
                         GioiTinh = cbb_gioitinh.Text,
                         NgaySinh = dtp_ngaysinh.Value,
@@ -259,42 +260,42 @@ namespace _3.PL.Views
                         Cccd = tb_cccd.Text,
                         MatKhau = tb_matkhau.Text,
                         Email = tb_email.Text,
-                        TaiKhoan = tb_taikhoan.Text,
+                        TaiKhoan = XoaDauCach(tb_taikhoan.Text).Trim(),
                         TrangThai = rdb_hoatdong.Checked ? 0 : 1
                     };
                     _iNhanVien.Update(cvv);
-                    MessageBox.Show("sửa thành công");
+                    RJMessageBox.Show("sửa thành công");
                     loadData();
                     clear();
                 }
             }
             else
             {
-                MessageBox.Show("bạn đã hủy sửa");
+                RJMessageBox.Show("bạn đã hủy sửa");
             }
 
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa không", "thông báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = RJMessageBox.Show("Bạn có muốn xóa không", "thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (_nvv == null)
                 {
-                    MessageBox.Show("vui lòng chọn nhân viên");
+                    RJMessageBox.Show("vui lòng chọn nhân viên");
                 }
                 else
                 {
                     _iNhanVien.Delete(_nvv);
-                    MessageBox.Show("xóa thành công");
+                    RJMessageBox.Show("xóa thành công");
                     loadData();
                     clear();
                 }
             }
             else
             {
-                MessageBox.Show("bạn đã hủy xóa");
+                RJMessageBox.Show("bạn đã hủy xóa");
             }
         }
 
@@ -487,5 +488,21 @@ namespace _3.PL.Views
                 e.Handled = true;
         }
 
+        private void FrmNhanVien_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int one = random.Next(0, 255);
+            int two = random.Next(0, 255);
+            int three = random.Next(0, 255);
+            int four = random.Next(0, 255);
+
+            lb_nv.ForeColor = Color.FromArgb(one, two, three, four);
+        }
     }
 }

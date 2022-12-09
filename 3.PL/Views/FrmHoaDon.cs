@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,12 +73,12 @@ namespace _3.PL.Views
             dtg_show.Columns[8].Name = "Trạng thái";
             dtg_show.Rows.Clear();
 
-            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x => x.TrangThai != 0 && x.TrangThaiGiaoHang != 2 && x.TrangThaiGiaoHang != 1 && x.TrangThaiGiaoHang != 3).ToList();
-            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x =>( x.MaHD.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.MaNv.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.TenKh.ToLower().Contains(tb_timkiem.Text.ToLower())) && (x.TrangThai != 0 && x.TrangThaiGiaoHang != 2 && x.TrangThaiGiaoHang != 1 && x.TrangThaiGiaoHang != 3)).OrderBy(c => c.MaHD).ToList();
+            _lstHoaDonViews = _iHoaDonServices.GetAll().Where(x => (x.TrangThai == 1 && x.TrangThaiGiaoHang == 0) || (x.TrangThai == 3 && x.TrangThaiGiaoHang == 0)|| (x.TrangThai == 3 && x.TrangThaiGiaoHang == 5)||(x.TrangThai == 1 && x.TrangThaiGiaoHang ==4  )).ToList();
+            //_lstHoaDonViews = _iHoaDonServices.GetAll().Where(x =>( x.MaHD.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.MaNv.ToLower().Contains(tb_timkiem.Text.ToLower()) || x.TenKh.ToLower().Contains(tb_timkiem.Text.ToLower())) && ((x.TrangThai == 1 && x.TrangThaiGiaoHang == 4) || (x.TrangThaiGiaoHang == 1 && x.TrangThaiGiaoHang == 5 ))).OrderByDescending(c => c.MaHD).OrderByDescending(c => c.MaHD.Length).ToList();
 
             foreach (var item in _lstHoaDonViews)
             {
-                dtg_show.Rows.Add(item.Id, stt++, item.MaHD, item.MaNv, item.MaKh, item.NgayTao, item.NgayThanhToan, item.TongTien, item.TrangThai == 1 ? "Thành công" : "Hủy");
+                dtg_show.Rows.Add(item.Id, stt++, item.MaHD, item.MaNv, _ikhachHangServices.GetAll().Find(x => x.Id == item.IdKh)==null?"No information":_ikhachHangServices.GetAll().Find(x=>x.Id == item.IdKh).Ma, item.NgayTao?.ToString("dd/M/yyyy", CultureInfo.InvariantCulture), item.NgayThanhToan?.ToString("dd/M/yyyy", CultureInfo.InvariantCulture), item.TongTien, item.TrangThai == 1 ? "Thành công" : "Hủy");
             }
         }
 
@@ -98,18 +99,28 @@ namespace _3.PL.Views
                 {
                     tb_makh.Text = _ikhachHangServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdKh).Ma;
                     tb_tenkh.Text = _ikhachHangServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdKh).Ten;
-
                 }
                 else
                 {
                     tb_makh.Text = "Vãn lai";
                     tb_tenkh.Text = "Khách hàng vãn lai";
                 }
-                tb_pttt.Text = _iptthanhToanServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdPttt).Ten;
-                tb_hinhthucmh.Text = _IHinhThucMhServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdHt).Ten;
+                tb_pttt.Text = _iptthanhToanServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdPttt)== null? "No information" : _iptthanhToanServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdPttt).Ten;
+                tb_hinhthucmh.Text = _hoaDonView.IdHt == null? "No information" : _IHinhThucMhServices.GetAll().FirstOrDefault(c => c.Id == _hoaDonView.IdHt).Ten;
                 tb_mucuudai.Text = Convert.ToDecimal(_hoaDonView.MucUuDai).ToString();
                 dtp_ngaytao.Text = Convert.ToDateTime(_hoaDonView.NgayTao).ToString();
-                dtp_ngaytt.Text = Convert.ToDateTime(_hoaDonView.NgayThanhToan).ToString();
+                if (_hoaDonView.NgayThanhToan == null)
+                {
+                    txtngaythanhToan.Visible = true;
+                    dtp_ngaytt.Visible = false;
+                    txtngaythanhToan.Text = "No information";
+                }
+                else
+                {
+                    txtngaythanhToan.Visible = false;
+                    dtp_ngaytt.Visible = true;
+                    dtp_ngaytt.Text = Convert.ToDateTime(_hoaDonView.NgayThanhToan).ToString();
+                }
                 tb_giamgia.Text = Convert.ToDecimal(_hoaDonView.GiamGia).ToString();
                 tb_hinhthucgiamgia.Text = _hoaDonView.HinhThucGiamGia;
                 tb_tongtien.Text = Convert.ToDecimal(_hoaDonView.TongTien).ToString();
