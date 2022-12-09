@@ -66,7 +66,7 @@ namespace _2.BUS.Services
                             MucGiam = a.MucGiam,
                             MoTa = a.MoTa,
                             TrangThai = a.TrangThai,
-                        }).OrderBy(c => c.Ma).ToList();
+                        }).OrderByDescending(c => c.Ma).ToList();
             return _lstSale;
         }
 
