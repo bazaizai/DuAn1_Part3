@@ -13,6 +13,7 @@ namespace _3.PL.Components
     public partial class HoaDonS : UserControl
     {
         public event EventHandler Onselect = null;
+        public event EventHandler OpenForm = null;
         public HoaDonS()
         {
             InitializeComponent();
@@ -56,6 +57,11 @@ namespace _3.PL.Components
         public void panel1_Click(object sender, EventArgs e)
         {
             Onselect?.Invoke(this, e);
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            OpenForm?.Invoke(this, e);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace _3.PL.Components
     public partial class SearchHats : UserControl
     {
         public event EventHandler Onclick = null;
+        public event EventHandler OnClickAnh = null;
         private String SoLuongView;
         private Image _Icon;
         private Guid _Idspct;
@@ -58,6 +59,9 @@ namespace _3.PL.Components
             timer1.Start();
         }
 
-
+        private void Anh_Click(object sender, EventArgs e)
+        {
+            OnClickAnh?.Invoke(this, e);
+        }
     }
 }

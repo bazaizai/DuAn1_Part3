@@ -87,7 +87,7 @@ namespace _2.BUS.Services
                        {
                            Id = lstd.Id,
                            IdHoaDon = hd.Id,
-                           TenKH = _iKhachHangRepos.GetAll().Find(c => c.Id == hd.IdKh).Ten,
+                           //TenKH = _iKhachHangRepos.GetAll().Find(c => c.Id == hd.IdKh).Ten,
                            //MaNV = hd.m,
                            MaHD = hd.Ma,
                            SoDiemDung = lstd.SoDiemDung,
