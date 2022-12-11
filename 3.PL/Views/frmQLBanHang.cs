@@ -113,6 +113,9 @@ namespace _3.PL.Views
             TabHoaDon.Dock = DockStyle.Fill;
             //System.Windows.Documents.ListItem.Controls.Clear();
             ListItem.Controls.Clear();
+            Hats = new List<Hats>();
+            ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh").OrderBy(x => x.MaQr).ToList();
+            Hat = new Hats[ListAnh.Count];
             AnSearch();
             // FakeData();
             LoadItem();
