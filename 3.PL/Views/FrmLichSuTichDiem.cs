@@ -58,7 +58,7 @@ namespace _3.PL.Views
             foreach (var item in lst)
             {
                 var lhd = _iHoaDonServices.GetAll().Find(c => c.Id == item.IdHoaDon);
-                var kh = _ikhachHangServices.GetByID(lhd.IdKh.GetValueOrDefault());
+                var kh = _ikhachHangServices.GetAll().FirstOrDefault(c=>c.Id == lhd.IdKh);
                 dtg_show.Rows.Add(item.Id, stt++, lhd == null ? "Không có thông tin" : lhd.MaHD, lhd == null ? "Không có thông tin" : lhd.MaNv, kh == null ? "Không có thông tin" : kh.Ten, item.SoDiemDung, item.NgayTichDiem?.ToString("dd/M/yyyy", CultureInfo.InvariantCulture), item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
         }

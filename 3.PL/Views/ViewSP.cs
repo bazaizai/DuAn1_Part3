@@ -38,7 +38,9 @@ namespace _3.PL.Views
 
 
         private string TenSP;
-        public string TenHang { get => TenSP; set { TenSP = value; lblTenHang.Text = value; lblTenSPtt.Text = value; } }
+        private string TenSP1;
+        public string TenHang { get => TenSP; set { TenSP = value; lblTenHang.Text = value;  } }
+        public string TenHang1 { get => TenSP; set { TenSP1 = value; lblTenSPtt.Text = value; } }
 
         private string MauSacSP;
         public string MauSac { get => MauSacSP; set { MauSacSP = value; lblMauSac.Text = value; } }
@@ -148,7 +150,7 @@ namespace _3.PL.Views
             fixSP.Anh1 = this.Anh1;
             fixSP.IDSP = this.IDSP;
             fixSP.MaSP = this.lblMaHang.Text;
-            fixSP.TenSP = this.lblTenHang.Text.Substring(0, this.lblTenHang.Text.IndexOf("-"));
+            fixSP.TenSP = this.lblTenSPtt.Text.Substring(0, this.lblTenSPtt.Text.IndexOf("-"));
             fixSP.MauSac = this.lblMauSac.Text;
             fixSP.Size1 = this.lblSize.Text;
             fixSP.ChatLieu = this.lblChatLieu.Text;

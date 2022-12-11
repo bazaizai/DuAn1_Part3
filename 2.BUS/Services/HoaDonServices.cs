@@ -100,7 +100,7 @@ namespace _2.BUS.Services
                            //               SoDiem = b.SoDiem
                            //           }
                            //           ).ToList() on a.IdKh equals b.Id
-                       join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
+                       //join c in nhanVienRepos.GetAll() on a.IdNv equals c.Id
                        //join d in ptthanhToanRepos.GetAll() on a.IdPttt equals d.Id
                        //join e in hinhThucMhRepos.GetAll() on a.IdHt equals e.Id
                        //join f in uuDaiTichDiemRepos.GetAll() on a.IdUdtichDiem equals f.Id
@@ -116,6 +116,7 @@ namespace _2.BUS.Services
                            SdtNhanHang = a.Sdt,
                            TienShip = a.TienShip,
                            MaHD = a.Ma,
+                           HinhThucGiamGia = a.HinhThucGiamGia,
                            TongTienSauKhiGiam = a.TongTien - a.SoTienGiam,
                            TenNguoiNhan = a.TenNguoiNhan,
                            TienKhachDua = a.TienKhachDua,
@@ -123,10 +124,12 @@ namespace _2.BUS.Services
                            TongTien = a.TongTien,
                            TrangThai = a.TrangThai,
                            MoTa = a.MoTa,
+                           Cod = a.Cod,
                            SoTienGiam = a.SoTienGiam,
                            TrangThaiGiaoHang = a.TrangThaiGiaoHang,
                            //IdtichDiem = b.IdtichDiem,
                            IdKh = a.IdKh,
+                           //MaKh = khachHangRepos.GetAll().Find(x=>x.Id == a.IdKh).Ma,
                            //HoKh = b.Ho,
                            //TenDemKh = b.TenDem,
                            //TenKh = a.Ten,
@@ -136,7 +139,7 @@ namespace _2.BUS.Services
                            //HoNv = c.Ho,
                            //TenDemNv = c.TenDem,
                            //TenNv = c.Ten,
-                           MaNv = c.Ma,
+                           MaNv = nhanVienRepos.GetAll().Find(x=>x.Id == a.IdNv).Ma,
                            IdPttt = a.IdPttt,
                            //TenPttt = d.Ten,
                            //MaPttt = d.Ma,
