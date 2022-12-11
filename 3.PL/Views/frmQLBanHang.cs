@@ -273,7 +273,7 @@ namespace _3.PL.Views
                             {
                                 Hat[i].GiaDaGiam = 1;
                             }
-                            
+
                         }
                         Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
 
@@ -353,7 +353,7 @@ namespace _3.PL.Views
                             }
                             LoadView(TabHoaDon.SelectedTab.Name);
                             LoadGia();
-                            LoadItem();
+                            //LoadItem();
                             LoadTienThua();
                         }
                         else
@@ -425,11 +425,11 @@ namespace _3.PL.Views
                             }
                             LoadView(TabHoaDon.SelectedTab.Name);
                             LoadGia();
-                            LoadItem();
+                            //LoadItem();
                             LoadTienThua();
                         }
+                        wdg.SoluongSP1 = _IChiTietSpServices.GetById(wdg.IdSPCTSP).SoLuongTon.ToString();
                     };
-
                 }
                 else
                 {
@@ -1823,7 +1823,8 @@ namespace _3.PL.Views
 
                                     LoadView(TabHoaDon.SelectedTab.Name);
                                     LoadItemSearch(txtSearch.Texts);
-                                    LoadItem();
+                                    //LoadItem();
+                                    GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     LoadGia();
                                     LoadTienThua();
 
@@ -1898,7 +1899,8 @@ namespace _3.PL.Views
                                     dgview.CurrentCell = null;
                                     LoadView(TabHoaDon.SelectedTab.Name);
                                     LoadGia();
-                                    LoadItem();
+                                    //LoadItem();
+                                    GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     LoadTienThua();
                                 }
                                 txtSearch.Texts = "";
@@ -2358,11 +2360,12 @@ namespace _3.PL.Views
                             var ctsp = _IChiTietSpServices.GetById(item.IdChiTietSp.GetValueOrDefault());
                             ctsp.SoLuongTon += item.SoLuong;
                             _IChiTietSpServices.Update(ctsp);
+                            GetHat(ctsp.Id).SoluongSP1 = ctsp .SoLuongTon.ToString();
                             _IChiTietHDServices.Delete(item);
                         }
                     }
                     LoadALL();
-                    LoadItem();
+                    //LoadItem();
                     LoadView(TabHoaDon.SelectedTab.Name);
                     LoadGia();
                     LoadTienThua();
@@ -2448,7 +2451,8 @@ namespace _3.PL.Views
                     if (_IPtthanhToanServices.GetAll().Find(x => x.Id == hd.IdPttt).Ten == "COD")
                     {
                         hd.Cod = hd.TongTien - hd.SoTienGiam + hd.TienShip;
-                    }else
+                    }
+                    else
                     {
                         hd.TienChuyenKhoan = hd.TongTien - hd.SoTienGiam + hd.TienShip;
                     }
@@ -2928,7 +2932,7 @@ namespace _3.PL.Views
                         TabHoaDon.Controls.Clear();
                         LoadData();
                         Clearform();
-                        LoadItem();
+                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                         LoadGia();
                         LoadTienThua();
                     }
@@ -3023,6 +3027,18 @@ namespace _3.PL.Views
                                 _IChiTietSpServices.Update(ctsp);
                                 hdct.SoLuong = Convert.ToInt32(dgview.CurrentRow.Cells[4].Value);
                                 _IChiTietHDServices.Update(hdct);
+                                try
+                                {
+                                    LoadGia();
+                                    //LoadItem();
+                                    GetHat(Guid.Parse(Cell(0))).SoluongSP1 = ctsp.SoLuongTon.ToString();
+
+                                    LoadView(TabHoaDon.SelectedTab.Name);
+                                }
+                                catch (Exception)
+                                {
+                                    this.Alert("Không được để trống.", Form_Alert.enmType.Info);
+                                }
                             }
                             else
                             {
@@ -3031,22 +3047,24 @@ namespace _3.PL.Views
                         }
                         else
                         {
-
                             ctsp.SoLuongTon += hdct.SoLuong;
                             _IChiTietSpServices.Update(ctsp);
-                            _IChiTietHDServices.Delete(hdct);
+                            try
+                            {
+                                LoadGia();
+                                //LoadItem();
+                                GetHat(Guid.Parse(Cell(0))).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                _IChiTietHDServices.Delete(hdct);
+                                LoadView(TabHoaDon.SelectedTab.Name);
+                            }
+                            catch (Exception)
+                            {
+                                this.Alert("Không được để trống.", Form_Alert.enmType.Info);
+                            }
+                            
                         }
                     }
-                    try
-                    {
-                        LoadGia();
-                        LoadItem();
-                        LoadView(TabHoaDon.SelectedTab.Name);
-                    }
-                    catch (Exception)
-                    {
-                        this.Alert("Không được để trống.", Form_Alert.enmType.Info);
-                    }
+
                 }
                 else
                 {
@@ -3590,12 +3608,13 @@ namespace _3.PL.Views
                 {
                     this.Alert("Vui lòng xác định lý do hủy trong phần ghi chú.", Form_Alert.enmType.Info);
                 }
-            }else
+            }
+            else
             {
 
                 this.Alert("Bạn chưa chọn hóa đơn nào.", Form_Alert.enmType.Info);
             }
-                
+
         }
 
         private void ListItem_Paint(object sender, PaintEventArgs e)
@@ -3642,7 +3661,7 @@ namespace _3.PL.Views
             string a = Properties.Settings.Default.maHoaDon;
             decimal b = Properties.Settings.Default.TienChuyenKhoan;
             decimal Tongtiencuoicung = Properties.Settings.Default.TongTienSauKhiGiam;
-            Image image = Resources.CapNhat2; 
+            Image image = Resources.CapNhat2;
             e.Graphics.DrawImage(image, 245, 68, 50, 50);
             e.Graphics.DrawString("Thế giới mũ - 47 Brand", new Font("Arial", 20, /*FontStyle.Regular*/FontStyle.Bold),
                    Brushes.Black, new Point(280, 77));
