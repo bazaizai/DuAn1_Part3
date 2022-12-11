@@ -55,7 +55,7 @@
             this.IdSPCT.ForeColor = System.Drawing.Color.Silver;
             this.IdSPCT.Location = new System.Drawing.Point(31, 160);
             this.IdSPCT.Name = "IdSPCT";
-            this.IdSPCT.Size = new System.Drawing.Size(64, 12);
+            this.IdSPCT.Size = new System.Drawing.Size(51, 11);
             this.IdSPCT.TabIndex = 17;
             this.IdSPCT.Text = "Số lượng: 500";
             this.IdSPCT.Visible = false;
@@ -91,7 +91,7 @@
             this.Gia.ForeColor = System.Drawing.Color.Red;
             this.Gia.Location = new System.Drawing.Point(149, 92);
             this.Gia.Name = "Gia";
-            this.Gia.Size = new System.Drawing.Size(104, 20);
+            this.Gia.Size = new System.Drawing.Size(85, 15);
             this.Gia.TabIndex = 11;
             this.Gia.Text = "Giá: 500.000 đ";
             // 
@@ -103,7 +103,7 @@
             this.TenSP.ForeColor = System.Drawing.Color.White;
             this.TenSP.Location = new System.Drawing.Point(9, 4);
             this.TenSP.Name = "TenSP";
-            this.TenSP.Size = new System.Drawing.Size(106, 25);
+            this.TenSP.Size = new System.Drawing.Size(86, 20);
             this.TenSP.TabIndex = 10;
             this.TenSP.Text = "SanPham";
             // 
@@ -134,7 +134,7 @@
             this.SoLuong.ForeColor = System.Drawing.Color.Black;
             this.SoLuong.Location = new System.Drawing.Point(149, 64);
             this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Size = new System.Drawing.Size(70, 20);
+            this.SoLuong.Size = new System.Drawing.Size(55, 15);
             this.SoLuong.TabIndex = 18;
             this.SoLuong.Text = "Số lượng";
             // 
@@ -146,7 +146,7 @@
             this.lblMa.ForeColor = System.Drawing.Color.Black;
             this.lblMa.Location = new System.Drawing.Point(149, 36);
             this.lblMa.Name = "lblMa";
-            this.lblMa.Size = new System.Drawing.Size(48, 20);
+            this.lblMa.Size = new System.Drawing.Size(38, 15);
             this.lblMa.TabIndex = 20;
             this.lblMa.Text = "MaSP";
             // 
@@ -158,7 +158,7 @@
             this.lblGiaSauKhiGiam.ForeColor = System.Drawing.Color.Red;
             this.lblGiaSauKhiGiam.Location = new System.Drawing.Point(149, 120);
             this.lblGiaSauKhiGiam.Name = "lblGiaSauKhiGiam";
-            this.lblGiaSauKhiGiam.Size = new System.Drawing.Size(0, 20);
+            this.lblGiaSauKhiGiam.Size = new System.Drawing.Size(0, 15);
             this.lblGiaSauKhiGiam.TabIndex = 21;
             // 
             // lblPhuongThuc
@@ -167,9 +167,9 @@
             this.lblPhuongThuc.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPhuongThuc.Font = new System.Drawing.Font("Segoe UI Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblPhuongThuc.ForeColor = System.Drawing.Color.Red;
-            this.lblPhuongThuc.Location = new System.Drawing.Point(0, 174);
+            this.lblPhuongThuc.Location = new System.Drawing.Point(0, 179);
             this.lblPhuongThuc.Name = "lblPhuongThuc";
-            this.lblPhuongThuc.Size = new System.Drawing.Size(22, 20);
+            this.lblPhuongThuc.Size = new System.Drawing.Size(18, 15);
             this.lblPhuongThuc.TabIndex = 21;
             this.lblPhuongThuc.Text = "%";
             // 
@@ -181,7 +181,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(149, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.Size = new System.Drawing.Size(85, 15);
             this.label1.TabIndex = 22;
             this.label1.Text = "Giá: 500.000 đ";
             // 

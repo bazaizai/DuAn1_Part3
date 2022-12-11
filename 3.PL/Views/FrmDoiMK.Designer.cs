@@ -41,6 +41,7 @@
             this.lb_quenMK = new System.Windows.Forms.Label();
             this.cb_htMK = new System.Windows.Forms.CheckBox();
             this.lb_khopMK = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.btn_quaylai)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(91, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 36);
@@ -93,6 +95,7 @@
             // 
             // tb_mkHienTai
             // 
+            this.tb_mkHienTai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_mkHienTai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_mkHienTai.Location = new System.Drawing.Point(297, 132);
             this.tb_mkHienTai.Name = "tb_mkHienTai";
@@ -101,14 +104,17 @@
             // 
             // tb_MkMoi
             // 
+            this.tb_MkMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_MkMoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_MkMoi.Location = new System.Drawing.Point(297, 192);
             this.tb_MkMoi.Name = "tb_MkMoi";
             this.tb_MkMoi.Size = new System.Drawing.Size(416, 31);
             this.tb_MkMoi.TabIndex = 5;
+            this.tb_MkMoi.TextChanged += new System.EventHandler(this.tb_MkMoi_TextChanged);
             // 
             // tb_nhapLai
             // 
+            this.tb_nhapLai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_nhapLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_nhapLai.Location = new System.Drawing.Point(297, 259);
             this.tb_nhapLai.Name = "tb_nhapLai";
@@ -120,6 +126,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(91, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 25);
@@ -130,6 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(91, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 25);
@@ -140,6 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(91, 262);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(205, 25);
@@ -150,6 +159,7 @@
             // 
             this.lb_quenMK.AutoSize = true;
             this.lb_quenMK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_quenMK.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lb_quenMK.Location = new System.Drawing.Point(316, 530);
             this.lb_quenMK.Name = "lb_quenMK";
             this.lb_quenMK.Size = new System.Drawing.Size(166, 25);
@@ -161,6 +171,7 @@
             // 
             this.cb_htMK.AutoSize = true;
             this.cb_htMK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cb_htMK.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cb_htMK.Location = new System.Drawing.Point(91, 335);
             this.cb_htMK.Name = "cb_htMK";
             this.cb_htMK.Size = new System.Drawing.Size(191, 29);
@@ -179,12 +190,23 @@
             this.lb_khopMK.Name = "lb_khopMK";
             this.lb_khopMK.Size = new System.Drawing.Size(0, 25);
             this.lb_khopMK.TabIndex = 14;
+            this.lb_khopMK.TextChanged += new System.EventHandler(this.lb_khopMK_TextChanged);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // FrmDoiMK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(810, 624);
             this.Controls.Add(this.lb_khopMK);
             this.Controls.Add(this.cb_htMK);
@@ -221,5 +243,6 @@
         private System.Windows.Forms.Label lb_quenMK;
         private System.Windows.Forms.CheckBox cb_htMK;
         private System.Windows.Forms.Label lb_khopMK;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
