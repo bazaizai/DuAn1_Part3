@@ -61,6 +61,10 @@ namespace _3.PL.Views
         ISaleServices _ISaleServices;
         IKichCoServices _IKichCoServices;
         TabPage tabPage;
+        List<Hats> Hats;
+        List<AnhViews> ListAnh;
+        Hats[] Hat;
+        int soLuong;
         int doifrom = 0;
         object ss;
         HoaDonS _HoaDons;
@@ -219,15 +223,22 @@ namespace _3.PL.Views
             CbbGiamGia.SelectedIndex = 0;
             pnlKhachHang.Visible = false;
         }
-
+        private Hats GetHat(Guid Id)
+        {
+            foreach (var item in Hat)
+            {
+                if (item.IdSPCTSP == Id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
 
         private void LoadItem()
         {
             LoadALL();
             ListItem.Controls.Clear();
-            List<Hats> Hats = new List<Hats>();
-            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh").OrderBy(x => x.MaQr).ToList();
-            Hats[] Hat = new Hats[ListAnh.Count];
             for (int i = 0; i < ListAnh.Count; i++)
             {
                 if (ListAnh[i].SoLuongTon > 0)
@@ -676,8 +687,9 @@ namespace _3.PL.Views
 
                     this.Alert("Hết hàng", Form_Alert.enmType.Warning);
                 }
+                GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
                 LoadGia();
-                LoadItem();
+                //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
             }
             if (dgview.Columns[e.ColumnIndex].Name == "GiamSP")
@@ -691,8 +703,9 @@ namespace _3.PL.Views
                     ctsp.TrangThai = 0;
                     _IChiTietSpServices.Update(ctsp);
                 }
+                GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
                 LoadGia();
-                LoadItem();
+                //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
             }
             if (dgview.Columns[e.ColumnIndex].Name == "XoaSP")
@@ -701,7 +714,9 @@ namespace _3.PL.Views
                 ctsp.SoLuongTon += hdct.SoLuong;
                 _IChiTietSpServices.Update(ctsp);
                 _IChiTietHDServices.Delete(hdct);
-                LoadItem();
+                _IChiTietSpServices = new ChiTietSpServices();
+                GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
+                //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
                 LoadGia();
             }
