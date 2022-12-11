@@ -2484,7 +2484,7 @@ namespace _3.PL.Views
                 ListHoaDon.Visible = true;
                 ListItem.Visible = false;
                 panel8.Controls.Add(ListHoaDon);
-                
+
                 ListHoaDon.Dock = DockStyle.Fill;
                 var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang <= 3 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 5 && x.TrangThai == 0)).OrderBy(x => x.MaHD).OrderBy(x => x.MaHD.Length).ToList();
                 if (ListHoaDon.Controls.Count != ListAnh.Count)
@@ -3228,6 +3228,8 @@ namespace _3.PL.Views
                         _IChiTietHDServices.Update(hdct);
                         ctsp.SoLuongTon -= 1;
                         _IChiTietSpServices.Update(ctsp);
+                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     }
                     else
                     {
@@ -3274,6 +3276,8 @@ namespace _3.PL.Views
                         ctsp.SoLuongTon += 1;
                         ctsp.TrangThai = 0;
                         _IChiTietSpServices.Update(ctsp);
+                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     }
                     int stt = 1;
                     dgvGiaoHang.Rows.Clear();
@@ -3312,6 +3316,8 @@ namespace _3.PL.Views
                     ctsp.SoLuongTon += hdct.SoLuong;
                     _IChiTietSpServices.Update(ctsp);
                     _IChiTietHDServices.Delete(hdct);
+                    GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                    GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     int stt = 1;
                     dgvGiaoHang.Rows.Clear();
                     var hdct1 = _IChiTietHDServices.GetAll().Where(x => x.MaHD == ghMaHD.Text).ToList();
@@ -3356,7 +3362,9 @@ namespace _3.PL.Views
                         hdct.SoLuong += 1;
                         _IChiTietHDServices.Update(hdct);
                         ctsp.SoLuongTon -= 1;
-                        _IChiTietSpServices.Update(ctsp);
+                        _IChiTietSpServices.Update(ctsp); 
+                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     }
                     else
                     {
@@ -3446,6 +3454,8 @@ namespace _3.PL.Views
                         ctsp.SoLuongTon += 1;
                         ctsp.TrangThai = 0;
                         _IChiTietSpServices.Update(ctsp);
+                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     }
                     int stt = 1;
                     dgvGiaoHang.Rows.Clear();
@@ -3527,6 +3537,8 @@ namespace _3.PL.Views
                     ctsp.SoLuongTon += hdct.SoLuong;
                     _IChiTietSpServices.Update(ctsp);
                     _IChiTietHDServices.Delete(hdct);
+                    GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                    GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                     int stt = 1;
                     dgvGiaoHang.Rows.Clear();
                     var hdct1 = _IChiTietHDServices.GetAll().Where(x => x.MaHD == ghMaHD.Text).ToList();
@@ -3654,6 +3666,8 @@ namespace _3.PL.Views
                                 ctsp.SoLuongTon += item.SoLuong;
                                 _IChiTietSpServices.Update(ctsp);
                                 _IChiTietHDServices.Delete(item);
+                                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                             }
                         }
                         var hoaDon = _HoaDonServices.GetAll().Find(x => x.MaHD == ghMaHD.Text);
@@ -3858,8 +3872,9 @@ Brushes.Black, new Point(30, 325));
                     }
                     else
                     {
-                        e.Graphics.DrawString(_ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).GiamGia.ToString() + " đ", new Font("Arial", 12, FontStyle.Regular),
+                        e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).GiamGia) + " đ", new Font("Arial", 12, FontStyle.Regular),
                        Brushes.Black, new Point(600, i + 15));
+                        
                     }
                     //muc uu dai
                     e.Graphics.DrawString("Mức ưu đãi: ", new Font("Arial", 12, FontStyle.Regular),
@@ -3887,12 +3902,12 @@ Brushes.Black, new Point(30, 325));
                     e.Graphics.DrawString("Tiền khách đưa: ", new Font("Arial", 12, FontStyle.Regular),
                         Brushes.Black, new Point(30, i + 85));
                     var p = _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).TienKhachDua;
-                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p+b) + " đ", new Font("Arial", 12, FontStyle.Regular),
                    Brushes.Black, new Point(600, i + 85));
                     // tien thua
                     e.Graphics.DrawString("Tiền thừa trả lại khách: ", new Font("Arial", 12, FontStyle.Regular),
                     Brushes.Black, new Point(30, i + 105));
-                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", b+p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(600, i + 105));
                     // noi thanh toan
                     e.Graphics.DrawString("Thanh toán tại cửa hàng", new Font("Arial", 12, FontStyle.Bold),
@@ -3929,12 +3944,12 @@ Brushes.Black, new Point(30, 325));
                     e.Graphics.DrawString("Tiền khách đưa: ", new Font("Arial", 12, FontStyle.Regular),
                         Brushes.Black, new Point(30, i + 65));
                     var p = _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).TienKhachDua;
-                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p+b) + " đ", new Font("Arial", 12, FontStyle.Regular),
                    Brushes.Black, new Point(600, i + 65));
                     // tien thua
                     e.Graphics.DrawString("Tiền thừa trả lại khách: ", new Font("Arial", 12, FontStyle.Regular),
                     Brushes.Black, new Point(30, i + 85));
-                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}",b + p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(600, i + 85));
                     // noi thanh toan
                     e.Graphics.DrawString("Thanh toán tại cửa hàng", new Font("Arial", 12, FontStyle.Bold),
@@ -3975,12 +3990,12 @@ Brushes.Black, new Point(30, 325));
                     e.Graphics.DrawString("Tiền khách đưa: ", new Font("Arial", 12, FontStyle.Regular),
                         Brushes.Black, new Point(30, i + 65));
                     var p = _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).TienKhachDua;
-                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p+b) + " đ", new Font("Arial", 12, FontStyle.Regular),
                    Brushes.Black, new Point(600, i + 65));
                     // tien thua
                     e.Graphics.DrawString("Tiền thừa trả lại khách: ", new Font("Arial", 12, FontStyle.Regular),
                     Brushes.Black, new Point(30, i + 85));
-                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}",b + p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(600, i + 85));
                     // noi thanh toan
                     e.Graphics.DrawString("Thanh toán tại cửa hàng", new Font("Arial", 12, FontStyle.Bold),
@@ -4000,12 +4015,12 @@ Brushes.Black, new Point(30, 325));
                     e.Graphics.DrawString("Tiền khách đưa: ", new Font("Arial", 12, FontStyle.Regular),
                                             Brushes.Black, new Point(30, i + 35));
                     var p = _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).TienKhachDua;
-                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p+b) + " đ", new Font("Arial", 12, FontStyle.Regular),
                    Brushes.Black, new Point(600, i + 35));
                     // tien thua
                     e.Graphics.DrawString("Tiền thừa trả lại khách: ", new Font("Arial", 12, FontStyle.Regular),
                     Brushes.Black, new Point(30, i + 55));
-                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                    e.Graphics.DrawString(/*p - Tongtiencuoicung*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}",b+ p - Tongtiencuoicung) + " đ", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(600, i + 55));
                     // noi thanh toan
                     e.Graphics.DrawString("Thanh toán tại cửa hàng", new Font("Arial", 12, FontStyle.Bold),

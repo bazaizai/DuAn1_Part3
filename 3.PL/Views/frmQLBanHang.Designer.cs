@@ -1167,7 +1167,7 @@ namespace _3.PL.Views
             this.txtDiaChiGH.PasswordChar = false;
             this.txtDiaChiGH.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDiaChiGH.PlaceholderText = "";
-            this.txtDiaChiGH.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDiaChiGH.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtDiaChiGH.Size = new System.Drawing.Size(286, 35);
             this.txtDiaChiGH.TabIndex = 17;
             this.txtDiaChiGH.Texts = "";
@@ -2475,9 +2475,9 @@ namespace _3.PL.Views
             this.pnlTimeLine.Controls.Add(this.label33);
             this.pnlTimeLine.Controls.Add(this.label32);
             this.pnlTimeLine.Controls.Add(this.label18);
-            this.pnlTimeLine.Location = new System.Drawing.Point(473, 1);
+            this.pnlTimeLine.Location = new System.Drawing.Point(442, 0);
             this.pnlTimeLine.Name = "pnlTimeLine";
-            this.pnlTimeLine.Size = new System.Drawing.Size(473, 62);
+            this.pnlTimeLine.Size = new System.Drawing.Size(524, 62);
             this.pnlTimeLine.TabIndex = 0;
             this.pnlTimeLine.Visible = false;
             // 
