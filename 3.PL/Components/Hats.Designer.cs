@@ -53,9 +53,9 @@
             this.IdSPCT.AutoSize = true;
             this.IdSPCT.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.IdSPCT.ForeColor = System.Drawing.Color.Silver;
-            this.IdSPCT.Location = new System.Drawing.Point(25, 163);
+            this.IdSPCT.Location = new System.Drawing.Point(31, 160);
             this.IdSPCT.Name = "IdSPCT";
-            this.IdSPCT.Size = new System.Drawing.Size(64, 12);
+            this.IdSPCT.Size = new System.Drawing.Size(51, 11);
             this.IdSPCT.TabIndex = 17;
             this.IdSPCT.Text = "Số lượng: 500";
             this.IdSPCT.Visible = false;
@@ -73,7 +73,7 @@
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Add.ForeColor = System.Drawing.Color.Ivory;
-            this.Add.Location = new System.Drawing.Point(162, 150);
+            this.Add.Location = new System.Drawing.Point(170, 150);
             this.Add.Margin = new System.Windows.Forms.Padding(0);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(105, 42);
@@ -89,9 +89,9 @@
             this.Gia.AutoSize = true;
             this.Gia.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Gia.ForeColor = System.Drawing.Color.Red;
-            this.Gia.Location = new System.Drawing.Point(143, 95);
+            this.Gia.Location = new System.Drawing.Point(149, 92);
             this.Gia.Name = "Gia";
-            this.Gia.Size = new System.Drawing.Size(104, 20);
+            this.Gia.Size = new System.Drawing.Size(85, 15);
             this.Gia.TabIndex = 11;
             this.Gia.Text = "Giá: 500.000 đ";
             // 
@@ -101,9 +101,9 @@
             this.TenSP.AutoSize = true;
             this.TenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TenSP.ForeColor = System.Drawing.Color.White;
-            this.TenSP.Location = new System.Drawing.Point(3, 4);
+            this.TenSP.Location = new System.Drawing.Point(9, 4);
             this.TenSP.Name = "TenSP";
-            this.TenSP.Size = new System.Drawing.Size(106, 25);
+            this.TenSP.Size = new System.Drawing.Size(86, 20);
             this.TenSP.TabIndex = 10;
             this.TenSP.Text = "SanPham";
             // 
@@ -117,7 +117,7 @@
             this.Anh.BorderSize = 2;
             this.Anh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Anh.GradientAngle = 50F;
-            this.Anh.Location = new System.Drawing.Point(5, 39);
+            this.Anh.Location = new System.Drawing.Point(11, 36);
             this.Anh.Margin = new System.Windows.Forms.Padding(0);
             this.Anh.Name = "Anh";
             this.Anh.Size = new System.Drawing.Size(123, 123);
@@ -132,9 +132,9 @@
             this.SoLuong.AutoSize = true;
             this.SoLuong.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SoLuong.ForeColor = System.Drawing.Color.Black;
-            this.SoLuong.Location = new System.Drawing.Point(143, 67);
+            this.SoLuong.Location = new System.Drawing.Point(149, 64);
             this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Size = new System.Drawing.Size(70, 20);
+            this.SoLuong.Size = new System.Drawing.Size(55, 15);
             this.SoLuong.TabIndex = 18;
             this.SoLuong.Text = "Số lượng";
             // 
@@ -144,9 +144,9 @@
             this.lblMa.AutoSize = true;
             this.lblMa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMa.ForeColor = System.Drawing.Color.Black;
-            this.lblMa.Location = new System.Drawing.Point(143, 39);
+            this.lblMa.Location = new System.Drawing.Point(149, 36);
             this.lblMa.Name = "lblMa";
-            this.lblMa.Size = new System.Drawing.Size(48, 20);
+            this.lblMa.Size = new System.Drawing.Size(38, 15);
             this.lblMa.TabIndex = 20;
             this.lblMa.Text = "MaSP";
             // 
@@ -156,9 +156,9 @@
             this.lblGiaSauKhiGiam.AutoSize = true;
             this.lblGiaSauKhiGiam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGiaSauKhiGiam.ForeColor = System.Drawing.Color.Red;
-            this.lblGiaSauKhiGiam.Location = new System.Drawing.Point(143, 123);
+            this.lblGiaSauKhiGiam.Location = new System.Drawing.Point(149, 120);
             this.lblGiaSauKhiGiam.Name = "lblGiaSauKhiGiam";
-            this.lblGiaSauKhiGiam.Size = new System.Drawing.Size(0, 20);
+            this.lblGiaSauKhiGiam.Size = new System.Drawing.Size(0, 15);
             this.lblGiaSauKhiGiam.TabIndex = 21;
             // 
             // lblPhuongThuc
@@ -167,9 +167,9 @@
             this.lblPhuongThuc.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPhuongThuc.Font = new System.Drawing.Font("Segoe UI Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblPhuongThuc.ForeColor = System.Drawing.Color.Red;
-            this.lblPhuongThuc.Location = new System.Drawing.Point(0, 174);
+            this.lblPhuongThuc.Location = new System.Drawing.Point(0, 179);
             this.lblPhuongThuc.Name = "lblPhuongThuc";
-            this.lblPhuongThuc.Size = new System.Drawing.Size(22, 20);
+            this.lblPhuongThuc.Size = new System.Drawing.Size(18, 15);
             this.lblPhuongThuc.TabIndex = 21;
             this.lblPhuongThuc.Text = "%";
             // 
@@ -179,9 +179,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(143, 95);
+            this.label1.Location = new System.Drawing.Point(149, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.Size = new System.Drawing.Size(85, 15);
             this.label1.TabIndex = 22;
             this.label1.Text = "Giá: 500.000 đ";
             // 
@@ -196,7 +196,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 32);
+            this.panel1.Size = new System.Drawing.Size(282, 32);
             this.panel1.TabIndex = 23;
             // 
             // panel2
@@ -210,9 +210,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(268, -7);
+            this.panel3.Location = new System.Drawing.Point(278, -7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 215);
+            this.panel3.Size = new System.Drawing.Size(248, 215);
             this.panel3.TabIndex = 25;
             // 
             // Hats
@@ -233,7 +233,7 @@
             this.Controls.Add(this.Gia);
             this.Controls.Add(this.Anh);
             this.Name = "Hats";
-            this.Size = new System.Drawing.Size(270, 194);
+            this.Size = new System.Drawing.Size(282, 194);
             this.Load += new System.EventHandler(this.Hats_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Anh)).EndInit();
             this.panel1.ResumeLayout(false);

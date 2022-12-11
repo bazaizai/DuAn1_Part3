@@ -80,7 +80,7 @@
             this.tabControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(568, 621);
+            this.tabControl3.Size = new System.Drawing.Size(568, 1027);
             this.tabControl3.TabIndex = 11;
             this.tabControl3.Visible = false;
             // 
@@ -127,7 +127,7 @@
             this.tpthongtinhd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tpthongtinhd.Name = "tpthongtinhd";
             this.tpthongtinhd.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tpthongtinhd.Size = new System.Drawing.Size(560, 588);
+            this.tpthongtinhd.Size = new System.Drawing.Size(560, 994);
             this.tpthongtinhd.TabIndex = 0;
             this.tpthongtinhd.Text = "Thông tin hóa đơn";
             // 
@@ -483,7 +483,7 @@
             this.txtGhiChu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGhiChu.ForeColor = System.Drawing.Color.White;
-            this.txtGhiChu.Location = new System.Drawing.Point(3, 401);
+            this.txtGhiChu.Location = new System.Drawing.Point(3, 807);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
@@ -501,7 +501,7 @@
             this.panel4.Controls.Add(this.BtnCapNhat);
             this.panel4.Controls.Add(this.rjButton2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 536);
+            this.panel4.Location = new System.Drawing.Point(3, 942);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(554, 48);
             this.panel4.TabIndex = 43;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.deps.json
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.dll
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.pdb
@@ -13,3 +14,35 @@ C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.dll
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.pdb
 C:\Users\taikh\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
+=======
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.deps.json
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.pdb
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\1.DAL.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\1.DAL.pdb
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfo.cs
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CopyComplete
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.pdb
+C:\Users\Asus\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.deps.json
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.dll
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\2.BUS.pdb
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\1.DAL.dll
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\bin\Debug\net5.0\1.DAL.pdb
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.AssemblyReference.cache
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfoInputs.cache
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfo.cs
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CoreCompileInputs.cache
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CopyComplete
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.dll
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\2.BUS.pdb
+C:\Users\chono\OneDrive\Desktop\DuAn1_Part3\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
+>>>>>>> develop

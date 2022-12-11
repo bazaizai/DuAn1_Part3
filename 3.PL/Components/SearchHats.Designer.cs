@@ -108,6 +108,7 @@
             this.Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Anh.TabIndex = 19;
             this.Anh.TabStop = false;
+            this.Anh.Click += new System.EventHandler(this.Anh_Click);
             // 
             // label1
             // 

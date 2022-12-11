@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
+using _3.PL.CustomControlls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,8 @@ namespace _3.PL.Views
             tb_mkHienTai.UseSystemPasswordChar = true;
             tb_MkMoi.UseSystemPasswordChar = true;
             tb_nhapLai.UseSystemPasswordChar = true;
+            btn_quaylai.Visible
+                = false;
         }
         public static bool IsValidPasswordtrungBinh(string Pass)
         {
@@ -44,35 +47,45 @@ namespace _3.PL.Views
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            var mk = _iNhanVienServices.GetAll().FirstOrDefault(p => p.MatKhau == tb_mkHienTai.Text);
-            if (mk == null)
+            var mk = _iNhanVienServices.GetAll().FirstOrDefault(p => p.MatKhau == tb_mkHienTai.Text&& p.TaiKhoan == Properties.Settings.Default.TKdaLogin);
+            if (tb_mkHienTai.Text == "")
             {
-                MessageBox.Show("Mật khẩu hiện tại không chính xác");
-
+                RJMessageBox.Show("Mật khẩu hiện tại chưa nhập");
+            }
+           
+           else if (mk == null)
+            {
+                RJMessageBox.Show("Mật khẩu hiện tại không chính xác");
+            }
+            else if ( tb_MkMoi.Text == _iNhanVienServices.GetAll().FirstOrDefault(p => p.TaiKhoan == Properties.Settings.Default.TKdaLogin).MatKhau)
+            {
+                RJMessageBox.Show("Mật khẩu mới không được trùng với mật khẩu hiện tại");
             }
             else if (tb_MkMoi.Text.Length < 8)
             {
-                MessageBox.Show("Mật khẩu mới phải có ít nhất 8 kí tự, 1 chữ cái thường, 1 chữ cái in hoa và 1 số");
+                RJMessageBox.Show("Mật khẩu mới phải có ít nhất 8 kí tự, 1 chữ cái thường, 1 chữ cái in hoa và 1 số");
             }
             else if (tb_nhapLai.Text != tb_MkMoi.Text)
             {
-                MessageBox.Show("Nhập lại mật khẩu không chính xác");
+                RJMessageBox.Show("Nhập lại mật khẩu không chính xác");
             }
 
             else
             {
-                var mkmoi = _iNhanVienServices.GetAll().FirstOrDefault();
+                var mkmoi = _iNhanVienServices.GetAll().FirstOrDefault(x=>x.TaiKhoan==Properties.Settings.Default.TKdaLogin);
                 mkmoi.MatKhau = tb_MkMoi.Text;
-                _iNhanVienServices.Update(mkmoi);
-                MessageBox.Show("Đổi mật khẩu thành công. Vui lòng đăng nhập lại");
-                this.Hide();
-                //Application.Exit();
-                //FrmMain m = new FrmMain();
-                //this.Close();
+                DialogResult dg = RJMessageBox.Show("Bạn có muốn đổi mật khẩu?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dg == DialogResult.Yes)
+                {
+                    _iNhanVienServices.Update(mkmoi);
+                    RJMessageBox.Show("Đổi mật khẩu thành công.");                
+                    tb_mkHienTai.Text = "";
+                    tb_MkMoi.Text="";
+                    tb_nhapLai.Text = "";
+                }
 
-                FrmLogin login = new FrmLogin();
-                login.ShowDialog();
-                //this.Close();
+                
+                //asjdhks99udsiAa
             }
         }
 
@@ -90,7 +103,6 @@ namespace _3.PL.Views
                 tb_MkMoi.UseSystemPasswordChar = true;
                 tb_nhapLai.UseSystemPasswordChar = true;
             }
-
         }
 
         private void tb_nhapLai_TextChanged(object sender, EventArgs e)
@@ -106,6 +118,20 @@ namespace _3.PL.Views
         {
             
             
+        }
+
+        private void lb_khopMK_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tb_MkMoi_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_nhapLai.Text == tb_MkMoi.Text)
+            {
+                lb_khopMK.Text = "Mật khẩu khớp";
+            }
+            else lb_khopMK.Text = "";
         }
     }
 }
