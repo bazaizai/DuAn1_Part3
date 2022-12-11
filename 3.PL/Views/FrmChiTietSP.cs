@@ -699,6 +699,11 @@ namespace _3.PL.Views
                 Sp[i].SoLuong = _ListAll[i].SoLuongTon.ToString();
                 Sp[i].APDungKM = _ListAll[i].TrangThaiKhuyenMai == 0 ? "Đang áp dụng" : "Không áp dụng";
                 Sp[i].TenHang = _ListAll[i].TenSP + "-" + _ListAll[i].Size;
+                Sp[i].TenHang1 = _ListAll[i].TenSP + "-" + _ListAll[i].Size;
+                if (Sp[i].TenHang.Length > 28)
+                {
+                    Sp[i].TenHang = Sp[i].TenHang.Substring(0, 28);
+                }
                 Sp[i].Anh1 = _IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh").DuongDan)) : null;
                 Sp[i].Barcode = _IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Anh") != null ? Image.FromStream(new MemoryStream((byte[])_IanhServices.GetAll().Find(x => x.IdChiTietSp == _ListAll[i].Id && x.TenAnh == "Barcode").DuongDan)) : null;
                 Sp[i].BaoHanh = _ListAll[i].BaoHanh;

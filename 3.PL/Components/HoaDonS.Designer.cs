@@ -99,7 +99,7 @@
             this.lblTTGiaoHang.AutoSize = true;
             this.lblTTGiaoHang.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTTGiaoHang.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTTGiaoHang.Location = new System.Drawing.Point(129, 0);
+            this.lblTTGiaoHang.Location = new System.Drawing.Point(150, 0);
             this.lblTTGiaoHang.Name = "lblTTGiaoHang";
             this.lblTTGiaoHang.Size = new System.Drawing.Size(101, 20);
             this.lblTTGiaoHang.TabIndex = 1;
@@ -119,20 +119,22 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.lblMaHD);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 42);
+            this.panel1.Size = new System.Drawing.Size(251, 42);
             this.panel1.TabIndex = 2;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Location = new System.Drawing.Point(17, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 1);
+            this.panel2.Size = new System.Drawing.Size(215, 1);
             this.panel2.TabIndex = 3;
             // 
             // panel3
@@ -140,7 +142,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Location = new System.Drawing.Point(17, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 1);
+            this.panel3.Size = new System.Drawing.Size(215, 1);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -148,7 +150,7 @@
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Location = new System.Drawing.Point(17, 128);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 1);
+            this.panel4.Size = new System.Drawing.Size(215, 1);
             this.panel4.TabIndex = 3;
             // 
             // panel5
@@ -156,7 +158,7 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel5.Location = new System.Drawing.Point(17, 155);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 1);
+            this.panel5.Size = new System.Drawing.Size(215, 1);
             this.panel5.TabIndex = 3;
             // 
             // lblTenKH
@@ -224,7 +226,7 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel6.Location = new System.Drawing.Point(17, 182);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 1);
+            this.panel6.Size = new System.Drawing.Size(215, 1);
             this.panel6.TabIndex = 3;
             // 
             // lblID
@@ -245,7 +247,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 196);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(230, 34);
+            this.panel7.Size = new System.Drawing.Size(251, 34);
             this.panel7.TabIndex = 4;
             // 
             // HoaDonS
@@ -271,7 +273,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "HoaDonS";
-            this.Size = new System.Drawing.Size(230, 230);
+            this.Size = new System.Drawing.Size(251, 230);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);
