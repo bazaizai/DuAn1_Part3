@@ -73,6 +73,18 @@ namespace _3.PL.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
+        public string IDSale {
+            get {
+                return ((string)(this["IDSale"]));
+            }
+            set {
+                this["IDSale"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool check {
             get {
@@ -80,6 +92,54 @@ namespace _3.PL.Properties {
             }
             set {
                 this["check"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string maHoaDon {
+            get {
+                return ((string)(this["maHoaDon"]));
+            }
+            set {
+                this["maHoaDon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal TongTienSauKhiGiam {
+            get {
+                return ((decimal)(this["TongTienSauKhiGiam"]));
+            }
+            set {
+                this["TongTienSauKhiGiam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal TienChuyenKhoan {
+            get {
+                return ((decimal)(this["TienChuyenKhoan"]));
+            }
+            set {
+                this["TienChuyenKhoan"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string biendoimk {
+            get {
+                return ((string)(this["biendoimk"]));
+            }
+            set {
+                this["biendoimk"] = value;
             }
         }
     }

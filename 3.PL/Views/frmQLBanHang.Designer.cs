@@ -197,6 +197,7 @@ namespace _3.PL.Views
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -2431,6 +2432,7 @@ namespace _3.PL.Views
             this.ListItem.Name = "ListItem";
             this.ListItem.Size = new System.Drawing.Size(966, 341);
             this.ListItem.TabIndex = 21;
+            this.ListItem.Paint += new System.Windows.Forms.PaintEventHandler(this.ListItem_Paint);
             // 
             // panel5
             // 
@@ -2570,6 +2572,10 @@ namespace _3.PL.Views
             this.label18.Size = new System.Drawing.Size(53, 13);
             this.label18.TabIndex = 2;
             this.label18.Text = "Đặt hàng";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // frmQLBanHang
             // 
@@ -2782,5 +2788,6 @@ namespace _3.PL.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewButtonColumn XoaGH;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

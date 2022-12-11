@@ -24,7 +24,8 @@ namespace _3.PL.Views
             tb_tk.Text = Properties.Settings.Default.tk;
             tb_mk.Text = Properties.Settings.Default.mk;
             cb_save.Checked = true;
-            
+            tb_mk.UseSystemPasswordChar = true;
+
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace _3.PL.Views
                 this.Hide();
                 FrmMain frmMain = new FrmMain();
                 frmMain.ShowDialog();
-                this.Close();
+                this.Close();//asjdhks99udsiAaaa
             }
             else
             {
@@ -94,6 +95,9 @@ namespace _3.PL.Views
             Application.Exit();
         }
 
-       
+        private void tb_mk_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
