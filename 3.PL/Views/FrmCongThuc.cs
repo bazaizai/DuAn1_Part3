@@ -24,7 +24,7 @@ namespace _3.PL.Views
             LoadData();
         }
 
-        
+
         private void LoadData()
         {
             var x = _iCtTichDiemServices.GetAll();
@@ -39,7 +39,7 @@ namespace _3.PL.Views
                 }
 
             }
-           
+
         }
         private void btn_luw_Click(object sender, EventArgs e)
         {
@@ -82,7 +82,7 @@ namespace _3.PL.Views
                             RJMessageBox.Show(_iCtTichDiemServices.Add(ctTinhDiemView));
                             this.Close();
                         }
-                        
+
                     }
                     else
                     {
@@ -91,7 +91,7 @@ namespace _3.PL.Views
                             CtTinhDiemView ctTinhDiemView = new CtTinhDiemView()
                             {
 
-                                Id = item.Id,                                                        
+                                Id = item.Id,
                                 TrangThai = radioButton1.Checked ? 0 : radioButton2.Checked ? 1 : 0
                             };
                             if (tb_quydoi.Text == "")
@@ -109,13 +109,13 @@ namespace _3.PL.Views
                     }
                     LoadData();
                 }
-                
+
             }
             else
             {
                 RJMessageBox.Show("Bạn đã hủy lựa chọn!");
             }
-            
+
         }
 
         private void tb_quydoi_KeyPress(object sender, KeyPressEventArgs e)
@@ -131,16 +131,24 @@ namespace _3.PL.Views
 
         private void tb_quydoi_TextChanged(object sender, EventArgs e)
         {
-            if(tb_quydoi.Text != "")
+            if (tb_quydoi.Text != "")
             {
-                if (Convert.ToInt32(tb_quydoi.Text) == 0)
+                if (tb_quydoi.Text.Length < 18)
                 {
-                    radioButton2.Checked = true;
-                    tb_quydoi.Text = 0.ToString();
-                    radioButton1.Checked = false;
+                    if (Convert.ToDecimal(tb_quydoi.Text) == 0)
+                    {
+                        radioButton2.Checked = true;
+                        tb_quydoi.Text = 0.ToString();
+                        radioButton1.Checked = false;
+                    }
+                }
+                else
+                {
+                    LoadData();
+                    RJMessageBox.Show("Nhập nhiều thế");
                 }
             }
-           
+
         }
     }
 }

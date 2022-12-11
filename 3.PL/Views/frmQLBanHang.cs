@@ -235,6 +235,11 @@ namespace _3.PL.Views
                         {
                             Hat[i].GiaDaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
                             Hat[i].LoaiKM = "Sale: " + Sale.MucGiam + "Đ";
+                            if (Sale.MucGiam > ListAnh[i].GiaBan)
+                            {
+                                Hat[i].GiaDaGiam = 1;
+                            }
+                            
                         }
                         Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
 
@@ -417,6 +422,10 @@ namespace _3.PL.Views
                         {
                             Hat[i].GiaDaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
                             Hat[i].LoaiKM = "Sale: " + Sale.MucGiam + "Đ";
+                            if (Sale.MucGiam > ListAnh[i].GiaBan)
+                            {
+                                Hat[i].GiaDaGiam = 1;
+                            }
                         }
                         Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
 
@@ -1652,6 +1661,10 @@ namespace _3.PL.Views
                             {
                                 Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
                                 Hat[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
+                                if (Sale.MucGiam > ListAnh[i].GiaBan)
+                                {
+                                    Hat[i].GiaGiam = 1;
+                                }
                             }
                             Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                         }
@@ -2063,6 +2076,10 @@ namespace _3.PL.Views
                             {
                                 Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
                                 Hat[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
+                                if (Sale.MucGiam > ListAnh[i].GiaBan)
+                                {
+                                    Hat[i].GiaGiam = 1;
+                                }
                             }
                             Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                         }
