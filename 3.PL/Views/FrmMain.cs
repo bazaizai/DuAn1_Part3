@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
+using _3.PL.CustomControlls;
 using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace _3.PL.Views
 {
     public partial class FrmMain : Form
     {
+        
         private INhanVienServices _iNhanVienServices;
         private IChucVuServices _iChucVuServices;
         private Form CurrentFormChild;
@@ -26,6 +28,7 @@ namespace _3.PL.Views
         public FrmMain()
         {
             InitializeComponent();
+            
             _iChucVuServices = new ChucVuServices();
             _iNhanVienServices = new NhanVienServices();
             HidePanel();
@@ -39,6 +42,7 @@ namespace _3.PL.Views
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+     
         }
         //Structs
         private struct RGBColors
@@ -654,6 +658,44 @@ namespace _3.PL.Views
             lblHome.Text = iconButton4.Text;
             OpenChildForm(new FrmHoaDon());
             HideSubMenu();
+        }
+
+        private void iconButton12_Click(object sender, EventArgs e)
+        {
+            // Doi mk
+            lblHome.Text = iconButton12.Text;
+            OpenChildForm(new FrmDoiMK());
+            HideSubMenu();
+                      
+        }
+
+        private void iconButton11_Click(object sender, EventArgs e)
+        {
+            // dang xuat
+            lblHome.Text = iconButton11.Text;
+            DialogResult dg = RJMessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dg == DialogResult.Yes)
+            {
+
+                FrmLogin frmForgotPW = new FrmLogin();
+                this.Hide();
+                frmForgotPW.ShowDialog();
+                this.Close();
+            }
+
+        }
+
+        private void iconButton5_Click_1(object sender, EventArgs e)
+        {
+            if (panel3.Visible == false)
+            {
+                ActivateButton(sender, RGBColors.color1);
+                ShowSubMenu(panel3);
+            }
+            else
+            {
+                panel3.Visible = false;
+            }
         }
     }
 }

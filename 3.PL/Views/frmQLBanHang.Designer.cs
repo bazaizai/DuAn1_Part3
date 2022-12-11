@@ -197,6 +197,7 @@ namespace _3.PL.Views
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -286,10 +287,10 @@ namespace _3.PL.Views
             this.tabPage1.Controls.Add(this.txtChuyenKhoan);
             this.tabPage1.Controls.Add(this.txtMucUuDai);
             this.tabPage1.Controls.Add(this.txthtThanhToan);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(454, 703);
+            this.tabPage1.Size = new System.Drawing.Size(454, 696);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Hóa đơn";
             // 
@@ -303,7 +304,7 @@ namespace _3.PL.Views
             this.txtMoTa.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtMoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMoTa.ForeColor = System.Drawing.Color.White;
-            this.txtMoTa.Location = new System.Drawing.Point(3, 492);
+            this.txtMoTa.Location = new System.Drawing.Point(3, 485);
             this.txtMoTa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
@@ -321,7 +322,7 @@ namespace _3.PL.Views
             this.panel6.Controls.Add(this.btnThanhToan);
             this.panel6.Controls.Add(this.rjButton4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 650);
+            this.panel6.Location = new System.Drawing.Point(3, 643);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(448, 50);
             this.panel6.TabIndex = 24;
@@ -374,7 +375,7 @@ namespace _3.PL.Views
             this.rdoQuaInbox.ForeColor = System.Drawing.Color.White;
             this.rdoQuaInbox.Location = new System.Drawing.Point(339, 302);
             this.rdoQuaInbox.Name = "rdoQuaInbox";
-            this.rdoQuaInbox.Size = new System.Drawing.Size(81, 19);
+            this.rdoQuaInbox.Size = new System.Drawing.Size(117, 26);
             this.rdoQuaInbox.TabIndex = 21;
             this.rdoQuaInbox.TabStop = true;
             this.rdoQuaInbox.Text = "Qua inbox";
@@ -387,7 +388,7 @@ namespace _3.PL.Views
             this.rdoTaiQuay.ForeColor = System.Drawing.Color.White;
             this.rdoTaiQuay.Location = new System.Drawing.Point(154, 301);
             this.rdoTaiQuay.Name = "rdoTaiQuay";
-            this.rdoTaiQuay.Size = new System.Drawing.Size(73, 19);
+            this.rdoTaiQuay.Size = new System.Drawing.Size(109, 26);
             this.rdoTaiQuay.TabIndex = 21;
             this.rdoTaiQuay.TabStop = true;
             this.rdoTaiQuay.Text = "Tại Quầy";
@@ -404,7 +405,7 @@ namespace _3.PL.Views
             this.txtTienThua1.Name = "txtTienThua1";
             this.txtTienThua1.ReadOnly = true;
             this.txtTienThua1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTienThua1.Size = new System.Drawing.Size(282, 19);
+            this.txtTienThua1.Size = new System.Drawing.Size(282, 28);
             this.txtTienThua1.TabIndex = 20;
             // 
             // txtTongTienPTra1
@@ -417,7 +418,7 @@ namespace _3.PL.Views
             this.txtTongTienPTra1.Name = "txtTongTienPTra1";
             this.txtTongTienPTra1.ReadOnly = true;
             this.txtTongTienPTra1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTongTienPTra1.Size = new System.Drawing.Size(282, 19);
+            this.txtTongTienPTra1.Size = new System.Drawing.Size(282, 28);
             this.txtTongTienPTra1.TabIndex = 20;
             // 
             // txtMucUuDai1
@@ -430,7 +431,7 @@ namespace _3.PL.Views
             this.txtMucUuDai1.Name = "txtMucUuDai1";
             this.txtMucUuDai1.ReadOnly = true;
             this.txtMucUuDai1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMucUuDai1.Size = new System.Drawing.Size(282, 19);
+            this.txtMucUuDai1.Size = new System.Drawing.Size(282, 28);
             this.txtMucUuDai1.TabIndex = 20;
             this.txtMucUuDai1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -444,7 +445,7 @@ namespace _3.PL.Views
             this.txtTongTien2.Name = "txtTongTien2";
             this.txtTongTien2.ReadOnly = true;
             this.txtTongTien2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTongTien2.Size = new System.Drawing.Size(282, 19);
+            this.txtTongTien2.Size = new System.Drawing.Size(282, 28);
             this.txtTongTien2.TabIndex = 20;
             this.txtTongTien2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -457,7 +458,7 @@ namespace _3.PL.Views
             this.txtTongTien1.Name = "txtTongTien1";
             this.txtTongTien1.ReadOnly = true;
             this.txtTongTien1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTongTien1.Size = new System.Drawing.Size(282, 19);
+            this.txtTongTien1.Size = new System.Drawing.Size(282, 28);
             this.txtTongTien1.TabIndex = 20;
             // 
             // txtMaHD1
@@ -470,7 +471,7 @@ namespace _3.PL.Views
             this.txtMaHD1.Name = "txtMaHD1";
             this.txtMaHD1.ReadOnly = true;
             this.txtMaHD1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMaHD1.Size = new System.Drawing.Size(282, 19);
+            this.txtMaHD1.Size = new System.Drawing.Size(282, 28);
             this.txtMaHD1.TabIndex = 20;
             // 
             // CbbGiamGia
@@ -483,7 +484,7 @@ namespace _3.PL.Views
             "VNĐ"});
             this.CbbGiamGia.Location = new System.Drawing.Point(360, 208);
             this.CbbGiamGia.Name = "CbbGiamGia";
-            this.CbbGiamGia.Size = new System.Drawing.Size(74, 23);
+            this.CbbGiamGia.Size = new System.Drawing.Size(74, 30);
             this.CbbGiamGia.TabIndex = 19;
             this.CbbGiamGia.SelectedIndexChanged += new System.EventHandler(this.CbbGiamGia_SelectedIndexChanged);
             // 
@@ -506,7 +507,7 @@ namespace _3.PL.Views
             this.txtMaNhanVien.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNhanVien.PlaceholderText = "";
             this.txtMaNhanVien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMaNhanVien.Size = new System.Drawing.Size(280, 31);
+            this.txtMaNhanVien.Size = new System.Drawing.Size(280, 39);
             this.txtMaNhanVien.TabIndex = 17;
             this.txtMaNhanVien.Texts = "";
             this.txtMaNhanVien.UnderlinedStyle = true;
@@ -530,7 +531,7 @@ namespace _3.PL.Views
             this.txtTienThua.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTienThua.PlaceholderText = "";
             this.txtTienThua.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTienThua.Size = new System.Drawing.Size(280, 31);
+            this.txtTienThua.Size = new System.Drawing.Size(280, 39);
             this.txtTienThua.TabIndex = 16;
             this.txtTienThua.Texts = "";
             this.txtTienThua.UnderlinedStyle = true;
@@ -543,7 +544,7 @@ namespace _3.PL.Views
             this.lblTienThua.ForeColor = System.Drawing.Color.White;
             this.lblTienThua.Location = new System.Drawing.Point(15, 425);
             this.lblTienThua.Name = "lblTienThua";
-            this.lblTienThua.Size = new System.Drawing.Size(69, 19);
+            this.lblTienThua.Size = new System.Drawing.Size(103, 30);
             this.lblTienThua.TabIndex = 15;
             this.lblTienThua.Text = "Tiền thừa";
             this.lblTienThua.Visible = false;
@@ -555,7 +556,7 @@ namespace _3.PL.Views
             this.lblChuyenTien.ForeColor = System.Drawing.Color.White;
             this.lblChuyenTien.Location = new System.Drawing.Point(15, 462);
             this.lblChuyenTien.Name = "lblChuyenTien";
-            this.lblChuyenTien.Size = new System.Drawing.Size(58, 19);
+            this.lblChuyenTien.Size = new System.Drawing.Size(85, 30);
             this.lblChuyenTien.TabIndex = 15;
             this.lblChuyenTien.Text = "Tiền CK";
             this.lblChuyenTien.Visible = false;
@@ -567,7 +568,7 @@ namespace _3.PL.Views
             this.label31.ForeColor = System.Drawing.Color.White;
             this.label31.Location = new System.Drawing.Point(15, 177);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(83, 19);
+            this.label31.Size = new System.Drawing.Size(121, 30);
             this.label31.TabIndex = 15;
             this.label31.Text = "Mức ưu đãi";
             // 
@@ -578,7 +579,7 @@ namespace _3.PL.Views
             this.lblHTThanhToan.ForeColor = System.Drawing.Color.White;
             this.lblHTThanhToan.Location = new System.Drawing.Point(15, 382);
             this.lblHTThanhToan.Name = "lblHTThanhToan";
-            this.lblHTThanhToan.Size = new System.Drawing.Size(64, 19);
+            this.lblHTThanhToan.Size = new System.Drawing.Size(97, 30);
             this.lblHTThanhToan.TabIndex = 15;
             this.lblHTThanhToan.Text = "Tiền mặt";
             this.lblHTThanhToan.Visible = false;
@@ -590,7 +591,7 @@ namespace _3.PL.Views
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(15, 339);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 19);
+            this.label8.Size = new System.Drawing.Size(151, 30);
             this.label8.TabIndex = 13;
             this.label8.Text = "HT thanh toán";
             // 
@@ -622,7 +623,7 @@ namespace _3.PL.Views
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(15, 301);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 19);
+            this.label7.Size = new System.Drawing.Size(142, 30);
             this.label7.TabIndex = 11;
             this.label7.Text = "HT mua hàng";
             // 
@@ -632,7 +633,7 @@ namespace _3.PL.Views
             this.dtgNgayTao.Enabled = false;
             this.dtgNgayTao.Location = new System.Drawing.Point(154, 89);
             this.dtgNgayTao.Name = "dtgNgayTao";
-            this.dtgNgayTao.Size = new System.Drawing.Size(281, 21);
+            this.dtgNgayTao.Size = new System.Drawing.Size(281, 28);
             this.dtgNgayTao.TabIndex = 10;
             // 
             // label5
@@ -642,7 +643,7 @@ namespace _3.PL.Views
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(15, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 19);
+            this.label5.Size = new System.Drawing.Size(159, 30);
             this.label5.TabIndex = 9;
             this.label5.Text = "Tổng tiền hàng";
             // 
@@ -653,7 +654,7 @@ namespace _3.PL.Views
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(15, 263);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 19);
+            this.label6.Size = new System.Drawing.Size(105, 30);
             this.label6.TabIndex = 8;
             this.label6.Text = "Tổng tiền";
             // 
@@ -664,7 +665,7 @@ namespace _3.PL.Views
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 220);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 19);
+            this.label4.Size = new System.Drawing.Size(98, 30);
             this.label4.TabIndex = 8;
             this.label4.Text = "Giảm giá";
             // 
@@ -675,7 +676,7 @@ namespace _3.PL.Views
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(15, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 19);
+            this.label3.Size = new System.Drawing.Size(78, 30);
             this.label3.TabIndex = 7;
             this.label3.Text = "Mã NV";
             // 
@@ -686,7 +687,7 @@ namespace _3.PL.Views
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.Size = new System.Drawing.Size(102, 30);
             this.label2.TabIndex = 6;
             this.label2.Text = "Ngày tạo";
             // 
@@ -697,7 +698,7 @@ namespace _3.PL.Views
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 19);
+            this.label1.Size = new System.Drawing.Size(79, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "Mã HD";
             // 
@@ -720,7 +721,7 @@ namespace _3.PL.Views
             this.txtTongTien.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTongTien.PlaceholderText = "";
             this.txtTongTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTongTien.Size = new System.Drawing.Size(280, 31);
+            this.txtTongTien.Size = new System.Drawing.Size(280, 39);
             this.txtTongTien.TabIndex = 3;
             this.txtTongTien.Texts = "";
             this.txtTongTien.UnderlinedStyle = true;
@@ -742,7 +743,7 @@ namespace _3.PL.Views
             this.txtGiamGia.PasswordChar = false;
             this.txtGiamGia.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtGiamGia.PlaceholderText = "0";
-            this.txtGiamGia.Size = new System.Drawing.Size(280, 31);
+            this.txtGiamGia.Size = new System.Drawing.Size(280, 39);
             this.txtGiamGia.TabIndex = 3;
             this.txtGiamGia.Texts = "";
             this.txtGiamGia.UnderlinedStyle = true;
@@ -768,7 +769,7 @@ namespace _3.PL.Views
             this.txtTongTienPTra.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTongTienPTra.PlaceholderText = "";
             this.txtTongTienPTra.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTongTienPTra.Size = new System.Drawing.Size(280, 31);
+            this.txtTongTienPTra.Size = new System.Drawing.Size(280, 39);
             this.txtTongTienPTra.TabIndex = 1;
             this.txtTongTienPTra.Texts = "";
             this.txtTongTienPTra.UnderlinedStyle = true;
@@ -791,7 +792,7 @@ namespace _3.PL.Views
             this.txtMaHD.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaHD.PlaceholderText = "";
             this.txtMaHD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMaHD.Size = new System.Drawing.Size(280, 31);
+            this.txtMaHD.Size = new System.Drawing.Size(280, 39);
             this.txtMaHD.TabIndex = 0;
             this.txtMaHD.Texts = "";
             this.txtMaHD.UnderlinedStyle = true;
@@ -814,7 +815,7 @@ namespace _3.PL.Views
             this.txtChuyenKhoan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtChuyenKhoan.PlaceholderText = "";
             this.txtChuyenKhoan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtChuyenKhoan.Size = new System.Drawing.Size(280, 31);
+            this.txtChuyenKhoan.Size = new System.Drawing.Size(280, 39);
             this.txtChuyenKhoan.TabIndex = 16;
             this.txtChuyenKhoan.Texts = "0";
             this.txtChuyenKhoan.UnderlinedStyle = true;
@@ -840,7 +841,7 @@ namespace _3.PL.Views
             this.txtMucUuDai.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMucUuDai.PlaceholderText = "";
             this.txtMucUuDai.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMucUuDai.Size = new System.Drawing.Size(280, 31);
+            this.txtMucUuDai.Size = new System.Drawing.Size(280, 39);
             this.txtMucUuDai.TabIndex = 16;
             this.txtMucUuDai.Texts = "";
             this.txtMucUuDai.UnderlinedStyle = true;
@@ -865,7 +866,7 @@ namespace _3.PL.Views
             this.txthtThanhToan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txthtThanhToan.PlaceholderText = "";
             this.txthtThanhToan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txthtThanhToan.Size = new System.Drawing.Size(280, 31);
+            this.txthtThanhToan.Size = new System.Drawing.Size(280, 39);
             this.txthtThanhToan.TabIndex = 16;
             this.txthtThanhToan.Texts = "";
             this.txthtThanhToan.UnderlinedStyle = true;
@@ -892,10 +893,10 @@ namespace _3.PL.Views
             this.tabPage3.Controls.Add(this.rjCircularPictureBox2);
             this.tabPage3.Controls.Add(this.rjCircularPictureBox1);
             this.tabPage3.Controls.Add(this.txtsearchKH);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(454, 202);
+            this.tabPage3.Size = new System.Drawing.Size(454, 195);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Thông Tin";
             // 
@@ -920,7 +921,7 @@ namespace _3.PL.Views
             this.lblUuDaiTichLuy.ForeColor = System.Drawing.Color.White;
             this.lblUuDaiTichLuy.Location = new System.Drawing.Point(24, 100);
             this.lblUuDaiTichLuy.Name = "lblUuDaiTichLuy";
-            this.lblUuDaiTichLuy.Size = new System.Drawing.Size(95, 15);
+            this.lblUuDaiTichLuy.Size = new System.Drawing.Size(146, 25);
             this.lblUuDaiTichLuy.TabIndex = 2;
             this.lblUuDaiTichLuy.Text = "lblUuDaiTichLuy";
             // 
@@ -948,7 +949,7 @@ namespace _3.PL.Views
             this.lblMucTichLuy.ForeColor = System.Drawing.Color.White;
             this.lblMucTichLuy.Location = new System.Drawing.Point(23, 76);
             this.lblMucTichLuy.Name = "lblMucTichLuy";
-            this.lblMucTichLuy.Size = new System.Drawing.Size(85, 15);
+            this.lblMucTichLuy.Size = new System.Drawing.Size(130, 25);
             this.lblMucTichLuy.TabIndex = 0;
             this.lblMucTichLuy.Text = "lblMucTichLuy";
             // 
@@ -959,7 +960,7 @@ namespace _3.PL.Views
             this.lblDiaChi.ForeColor = System.Drawing.Color.White;
             this.lblDiaChi.Location = new System.Drawing.Point(23, 51);
             this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(55, 15);
+            this.lblDiaChi.Size = new System.Drawing.Size(86, 25);
             this.lblDiaChi.TabIndex = 0;
             this.lblDiaChi.Text = "lblDiaChi";
             // 
@@ -970,7 +971,7 @@ namespace _3.PL.Views
             this.lblSoDT.ForeColor = System.Drawing.Color.White;
             this.lblSoDT.Location = new System.Drawing.Point(23, 26);
             this.lblSoDT.Name = "lblSoDT";
-            this.lblSoDT.Size = new System.Drawing.Size(50, 15);
+            this.lblSoDT.Size = new System.Drawing.Size(76, 25);
             this.lblSoDT.TabIndex = 0;
             this.lblSoDT.Text = "lblSoDT";
             // 
@@ -981,7 +982,7 @@ namespace _3.PL.Views
             this.lblTen.ForeColor = System.Drawing.Color.White;
             this.lblTen.Location = new System.Drawing.Point(23, 1);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(39, 15);
+            this.lblTen.Size = new System.Drawing.Size(62, 25);
             this.lblTen.TabIndex = 0;
             this.lblTen.Text = "lblTen";
             // 
@@ -1053,7 +1054,7 @@ namespace _3.PL.Views
             this.txtsearchKH.PasswordChar = false;
             this.txtsearchKH.PlaceholderColor = System.Drawing.Color.White;
             this.txtsearchKH.PlaceholderText = "Tìm khách hàng";
-            this.txtsearchKH.Size = new System.Drawing.Size(343, 29);
+            this.txtsearchKH.Size = new System.Drawing.Size(343, 37);
             this.txtsearchKH.TabIndex = 3;
             this.txtsearchKH.Texts = "";
             this.txtsearchKH.UnderlinedStyle = true;
@@ -1074,10 +1075,10 @@ namespace _3.PL.Views
             this.TabGiaoHang.Controls.Add(this.label13);
             this.TabGiaoHang.Controls.Add(this.label11);
             this.TabGiaoHang.Controls.Add(this.label10);
-            this.TabGiaoHang.Location = new System.Drawing.Point(4, 24);
+            this.TabGiaoHang.Location = new System.Drawing.Point(4, 31);
             this.TabGiaoHang.Name = "TabGiaoHang";
             this.TabGiaoHang.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGiaoHang.Size = new System.Drawing.Size(454, 202);
+            this.TabGiaoHang.Size = new System.Drawing.Size(454, 195);
             this.TabGiaoHang.TabIndex = 1;
             this.TabGiaoHang.Text = "Giao Hàng";
             // 
@@ -1087,7 +1088,7 @@ namespace _3.PL.Views
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(123, 142);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(12, 15);
+            this.label17.Size = new System.Drawing.Size(17, 22);
             this.label17.TabIndex = 18;
             this.label17.Text = "*";
             // 
@@ -1097,7 +1098,7 @@ namespace _3.PL.Views
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(84, 107);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(12, 15);
+            this.label16.Size = new System.Drawing.Size(17, 22);
             this.label16.TabIndex = 18;
             this.label16.Text = "*";
             // 
@@ -1107,7 +1108,7 @@ namespace _3.PL.Views
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(60, 52);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(12, 15);
+            this.label15.Size = new System.Drawing.Size(17, 22);
             this.label15.TabIndex = 18;
             this.label15.Text = "*";
             // 
@@ -1117,7 +1118,7 @@ namespace _3.PL.Views
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(123, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(12, 15);
+            this.label14.Size = new System.Drawing.Size(17, 22);
             this.label14.TabIndex = 18;
             this.label14.Text = "*";
             // 
@@ -1139,7 +1140,7 @@ namespace _3.PL.Views
             this.txtPhiGiaoHang.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPhiGiaoHang.PlaceholderText = "";
             this.txtPhiGiaoHang.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPhiGiaoHang.Size = new System.Drawing.Size(286, 31);
+            this.txtPhiGiaoHang.Size = new System.Drawing.Size(286, 39);
             this.txtPhiGiaoHang.TabIndex = 17;
             this.txtPhiGiaoHang.Texts = "";
             this.txtPhiGiaoHang.UnderlinedStyle = true;
@@ -1164,7 +1165,7 @@ namespace _3.PL.Views
             this.txtDiaChiGH.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDiaChiGH.PlaceholderText = "";
             this.txtDiaChiGH.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDiaChiGH.Size = new System.Drawing.Size(286, 31);
+            this.txtDiaChiGH.Size = new System.Drawing.Size(286, 39);
             this.txtDiaChiGH.TabIndex = 17;
             this.txtDiaChiGH.Texts = "";
             this.txtDiaChiGH.UnderlinedStyle = true;
@@ -1187,7 +1188,7 @@ namespace _3.PL.Views
             this.txtSdtGH.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSdtGH.PlaceholderText = "";
             this.txtSdtGH.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtSdtGH.Size = new System.Drawing.Size(286, 31);
+            this.txtSdtGH.Size = new System.Drawing.Size(286, 39);
             this.txtSdtGH.TabIndex = 17;
             this.txtSdtGH.Texts = "";
             this.txtSdtGH.UnderlinedStyle = true;
@@ -1211,7 +1212,7 @@ namespace _3.PL.Views
             this.txtTenNguoiGH.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenNguoiGH.PlaceholderText = "";
             this.txtTenNguoiGH.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTenNguoiGH.Size = new System.Drawing.Size(286, 31);
+            this.txtTenNguoiGH.Size = new System.Drawing.Size(286, 39);
             this.txtTenNguoiGH.TabIndex = 17;
             this.txtTenNguoiGH.Texts = "";
             this.txtTenNguoiGH.UnderlinedStyle = true;
@@ -1223,7 +1224,7 @@ namespace _3.PL.Views
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(11, 152);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 19);
+            this.label12.Size = new System.Drawing.Size(144, 30);
             this.label12.TabIndex = 6;
             this.label12.Text = "Phí giao hàng";
             // 
@@ -1234,7 +1235,7 @@ namespace _3.PL.Views
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(11, 107);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 19);
+            this.label13.Size = new System.Drawing.Size(80, 30);
             this.label13.TabIndex = 6;
             this.label13.Text = "Địa Chỉ";
             // 
@@ -1245,7 +1246,7 @@ namespace _3.PL.Views
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(11, 62);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 19);
+            this.label11.Size = new System.Drawing.Size(51, 30);
             this.label11.TabIndex = 6;
             this.label11.Text = "SĐT";
             // 
@@ -1256,7 +1257,7 @@ namespace _3.PL.Views
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(11, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 19);
+            this.label10.Size = new System.Drawing.Size(161, 30);
             this.label10.TabIndex = 6;
             this.label10.Text = "Tên người nhận";
             // 
@@ -1378,7 +1379,7 @@ namespace _3.PL.Views
             this.TangSP.MinimumWidth = 6;
             this.TangSP.Name = "TangSP";
             this.TangSP.Text = "+";
-            this.TangSP.Width = 45;
+            this.TangSP.Width = 64;
             // 
             // SoLuong1
             // 
@@ -1392,7 +1393,7 @@ namespace _3.PL.Views
             this.GiamSP.HeaderText = "Giảm";
             this.GiamSP.MinimumWidth = 6;
             this.GiamSP.Name = "GiamSP";
-            this.GiamSP.Width = 48;
+            this.GiamSP.Width = 68;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1419,7 +1420,7 @@ namespace _3.PL.Views
             this.XoaSP.MinimumWidth = 6;
             this.XoaSP.Name = "XoaSP";
             this.XoaSP.Text = "X";
-            this.XoaSP.Width = 39;
+            this.XoaSP.Width = 55;
             // 
             // btnAddTab
             // 
@@ -1639,7 +1640,7 @@ namespace _3.PL.Views
             this.TangSPGH.Name = "TangSPGH";
             this.TangSPGH.ReadOnly = true;
             this.TangSPGH.Text = "+";
-            this.TangSPGH.Width = 45;
+            this.TangSPGH.Width = 64;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1655,7 +1656,7 @@ namespace _3.PL.Views
             this.GiamGH.MinimumWidth = 6;
             this.GiamGH.Name = "GiamGH";
             this.GiamGH.ReadOnly = true;
-            this.GiamGH.Width = 48;
+            this.GiamGH.Width = 68;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1683,7 +1684,7 @@ namespace _3.PL.Views
             this.XoaGH.Name = "XoaGH";
             this.XoaGH.ReadOnly = true;
             this.XoaGH.Text = "X";
-            this.XoaGH.Width = 39;
+            this.XoaGH.Width = 55;
             // 
             // tabControl3
             // 
@@ -1735,11 +1736,11 @@ namespace _3.PL.Views
             this.tpthongtinhd.Controls.Add(this.label29);
             this.tpthongtinhd.Controls.Add(this.label30);
             this.tpthongtinhd.ForeColor = System.Drawing.Color.White;
-            this.tpthongtinhd.Location = new System.Drawing.Point(4, 24);
+            this.tpthongtinhd.Location = new System.Drawing.Point(4, 31);
             this.tpthongtinhd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tpthongtinhd.Name = "tpthongtinhd";
             this.tpthongtinhd.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tpthongtinhd.Size = new System.Drawing.Size(247, 45);
+            this.tpthongtinhd.Size = new System.Drawing.Size(247, 38);
             this.tpthongtinhd.TabIndex = 0;
             this.tpthongtinhd.Text = "Thông tin hóa đơn";
             // 
@@ -1850,7 +1851,7 @@ namespace _3.PL.Views
             this.rjTextBox9.PasswordChar = false;
             this.rjTextBox9.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox9.PlaceholderText = "";
-            this.rjTextBox9.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox9.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox9.TabIndex = 45;
             this.rjTextBox9.Texts = "";
             this.rjTextBox9.UnderlinedStyle = true;
@@ -1873,7 +1874,7 @@ namespace _3.PL.Views
             this.rjTextBox8.PasswordChar = false;
             this.rjTextBox8.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox8.PlaceholderText = "";
-            this.rjTextBox8.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox8.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox8.TabIndex = 45;
             this.rjTextBox8.Texts = "";
             this.rjTextBox8.UnderlinedStyle = true;
@@ -1896,7 +1897,7 @@ namespace _3.PL.Views
             this.rjTextBox7.PasswordChar = false;
             this.rjTextBox7.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox7.PlaceholderText = "";
-            this.rjTextBox7.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox7.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox7.TabIndex = 45;
             this.rjTextBox7.Texts = "";
             this.rjTextBox7.UnderlinedStyle = true;
@@ -1919,7 +1920,7 @@ namespace _3.PL.Views
             this.rjTextBox6.PasswordChar = false;
             this.rjTextBox6.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox6.PlaceholderText = "";
-            this.rjTextBox6.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox6.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox6.TabIndex = 45;
             this.rjTextBox6.Texts = "";
             this.rjTextBox6.UnderlinedStyle = true;
@@ -1942,7 +1943,7 @@ namespace _3.PL.Views
             this.rjTextBox5.PasswordChar = false;
             this.rjTextBox5.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox5.PlaceholderText = "";
-            this.rjTextBox5.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox5.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox5.TabIndex = 45;
             this.rjTextBox5.Texts = "";
             this.rjTextBox5.UnderlinedStyle = true;
@@ -1965,7 +1966,7 @@ namespace _3.PL.Views
             this.rjTextBox4.PasswordChar = false;
             this.rjTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox4.PlaceholderText = "";
-            this.rjTextBox4.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox4.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox4.TabIndex = 45;
             this.rjTextBox4.Texts = "";
             this.rjTextBox4.UnderlinedStyle = true;
@@ -1988,7 +1989,7 @@ namespace _3.PL.Views
             this.rjTextBox3.PasswordChar = false;
             this.rjTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox3.PlaceholderText = "";
-            this.rjTextBox3.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox3.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox3.TabIndex = 45;
             this.rjTextBox3.Texts = "";
             this.rjTextBox3.UnderlinedStyle = true;
@@ -2011,7 +2012,7 @@ namespace _3.PL.Views
             this.rjTextBox2.PasswordChar = false;
             this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox2.PlaceholderText = "";
-            this.rjTextBox2.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox2.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox2.TabIndex = 45;
             this.rjTextBox2.Texts = "";
             this.rjTextBox2.UnderlinedStyle = true;
@@ -2034,7 +2035,7 @@ namespace _3.PL.Views
             this.rjTextBox1.PasswordChar = false;
             this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(263, 31);
+            this.rjTextBox1.Size = new System.Drawing.Size(263, 39);
             this.rjTextBox1.TabIndex = 45;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = true;
@@ -2057,7 +2058,7 @@ namespace _3.PL.Views
             this.txtmanvgh.PasswordChar = false;
             this.txtmanvgh.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtmanvgh.PlaceholderText = "";
-            this.txtmanvgh.Size = new System.Drawing.Size(263, 31);
+            this.txtmanvgh.Size = new System.Drawing.Size(263, 39);
             this.txtmanvgh.TabIndex = 45;
             this.txtmanvgh.Texts = "";
             this.txtmanvgh.UnderlinedStyle = true;
@@ -2080,7 +2081,7 @@ namespace _3.PL.Views
             this.txtmahdgh.PasswordChar = false;
             this.txtmahdgh.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtmahdgh.PlaceholderText = "";
-            this.txtmahdgh.Size = new System.Drawing.Size(263, 31);
+            this.txtmahdgh.Size = new System.Drawing.Size(263, 39);
             this.txtmahdgh.TabIndex = 45;
             this.txtmahdgh.Texts = "";
             this.txtmahdgh.UnderlinedStyle = true;
@@ -2095,7 +2096,7 @@ namespace _3.PL.Views
             this.txtGhiChu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGhiChu.ForeColor = System.Drawing.Color.White;
-            this.txtGhiChu.Location = new System.Drawing.Point(3, -142);
+            this.txtGhiChu.Location = new System.Drawing.Point(3, -149);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
@@ -2113,7 +2114,7 @@ namespace _3.PL.Views
             this.panel4.Controls.Add(this.BtnCapNhat);
             this.panel4.Controls.Add(this.BtnHUy);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, -7);
+            this.panel4.Location = new System.Drawing.Point(3, -14);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(241, 48);
             this.panel4.TabIndex = 43;
@@ -2167,7 +2168,7 @@ namespace _3.PL.Views
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(12, 494);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 19);
+            this.label20.Size = new System.Drawing.Size(77, 30);
             this.label20.TabIndex = 26;
             this.label20.Text = "Địa chỉ";
             // 
@@ -2178,7 +2179,7 @@ namespace _3.PL.Views
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(12, 732);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(106, 19);
+            this.label21.Size = new System.Drawing.Size(160, 30);
             this.label21.TabIndex = 25;
             this.label21.Text = "TT Thanh Toán ";
             // 
@@ -2189,7 +2190,7 @@ namespace _3.PL.Views
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(12, 600);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(34, 19);
+            this.label23.Size = new System.Drawing.Size(50, 30);
             this.label23.TabIndex = 23;
             this.label23.Text = "SDT";
             // 
@@ -2200,7 +2201,7 @@ namespace _3.PL.Views
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(12, 428);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(85, 19);
+            this.label24.Size = new System.Drawing.Size(126, 30);
             this.label24.TabIndex = 22;
             this.label24.Text = "Người nhận";
             // 
@@ -2211,7 +2212,7 @@ namespace _3.PL.Views
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(12, 362);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(75, 19);
+            this.label25.Size = new System.Drawing.Size(111, 30);
             this.label25.TabIndex = 21;
             this.label25.Text = "Người đặt";
             // 
@@ -2222,7 +2223,7 @@ namespace _3.PL.Views
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(12, 296);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(88, 19);
+            this.label19.Size = new System.Drawing.Size(133, 30);
             this.label19.TabIndex = 8;
             this.label19.Text = "Tiền phải trả";
             // 
@@ -2233,7 +2234,7 @@ namespace _3.PL.Views
             this.label26.ForeColor = System.Drawing.Color.White;
             this.label26.Location = new System.Drawing.Point(12, 666);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(99, 19);
+            this.label26.Size = new System.Drawing.Size(151, 30);
             this.label26.TabIndex = 13;
             this.label26.Text = "HT thanh toán";
             // 
@@ -2244,7 +2245,7 @@ namespace _3.PL.Views
             this.label27.ForeColor = System.Drawing.Color.White;
             this.label27.Location = new System.Drawing.Point(12, 230);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(69, 19);
+            this.label27.Size = new System.Drawing.Size(105, 30);
             this.label27.TabIndex = 8;
             this.label27.Text = "Tổng tiền";
             // 
@@ -2255,7 +2256,7 @@ namespace _3.PL.Views
             this.label28.ForeColor = System.Drawing.Color.White;
             this.label28.Location = new System.Drawing.Point(12, 98);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(53, 19);
+            this.label28.Size = new System.Drawing.Size(78, 30);
             this.label28.TabIndex = 7;
             this.label28.Text = "Mã NV";
             // 
@@ -2266,7 +2267,7 @@ namespace _3.PL.Views
             this.label29.ForeColor = System.Drawing.Color.White;
             this.label29.Location = new System.Drawing.Point(12, 164);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(66, 19);
+            this.label29.Size = new System.Drawing.Size(102, 30);
             this.label29.TabIndex = 6;
             this.label29.Text = "Ngày tạo";
             // 
@@ -2277,7 +2278,7 @@ namespace _3.PL.Views
             this.label30.ForeColor = System.Drawing.Color.White;
             this.label30.Location = new System.Drawing.Point(12, 32);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 19);
+            this.label30.Size = new System.Drawing.Size(79, 30);
             this.label30.TabIndex = 5;
             this.label30.Text = "Mã HD";
             // 
@@ -2358,7 +2359,7 @@ namespace _3.PL.Views
             this.btnThemSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemSP.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnThemSP.ForeColor = System.Drawing.Color.White;
-            this.btnThemSP.Location = new System.Drawing.Point(0, 311);
+            this.btnThemSP.Location = new System.Drawing.Point(0, 319);
             this.btnThemSP.Name = "btnThemSP";
             this.btnThemSP.Size = new System.Drawing.Size(389, 50);
             this.btnThemSP.TabIndex = 16;
@@ -2372,7 +2373,7 @@ namespace _3.PL.Views
             this.flpSP.AutoScroll = true;
             this.flpSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(24)))), ((int)(((byte)(30)))));
             this.flpSP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpSP.Location = new System.Drawing.Point(0, 86);
+            this.flpSP.Location = new System.Drawing.Point(0, 94);
             this.flpSP.Name = "flpSP";
             this.flpSP.Size = new System.Drawing.Size(389, 225);
             this.flpSP.TabIndex = 15;
@@ -2382,7 +2383,7 @@ namespace _3.PL.Views
             // 
             this.pnlKhongTimThay.Controls.Add(this.label9);
             this.pnlKhongTimThay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlKhongTimThay.Location = new System.Drawing.Point(0, 29);
+            this.pnlKhongTimThay.Location = new System.Drawing.Point(0, 37);
             this.pnlKhongTimThay.Name = "pnlKhongTimThay";
             this.pnlKhongTimThay.Size = new System.Drawing.Size(389, 57);
             this.pnlKhongTimThay.TabIndex = 14;
@@ -2394,7 +2395,7 @@ namespace _3.PL.Views
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(21, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(276, 24);
+            this.label9.Size = new System.Drawing.Size(413, 32);
             this.label9.TabIndex = 0;
             this.label9.Text = "Không tìm thấy kết quả phù hợp";
             // 
@@ -2416,7 +2417,7 @@ namespace _3.PL.Views
             this.txtSearch.PasswordChar = false;
             this.txtSearch.PlaceholderColor = System.Drawing.Color.White;
             this.txtSearch.PlaceholderText = "Tìm kiếm sản phẩm";
-            this.txtSearch.Size = new System.Drawing.Size(389, 29);
+            this.txtSearch.Size = new System.Drawing.Size(389, 37);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.Texts = "";
             this.txtSearch.UnderlinedStyle = false;
@@ -2431,6 +2432,7 @@ namespace _3.PL.Views
             this.ListItem.Name = "ListItem";
             this.ListItem.Size = new System.Drawing.Size(966, 341);
             this.ListItem.TabIndex = 21;
+            this.ListItem.Paint += new System.Windows.Forms.PaintEventHandler(this.ListItem_Paint);
             // 
             // panel5
             // 
@@ -2534,7 +2536,7 @@ namespace _3.PL.Views
             this.label34.ForeColor = System.Drawing.Color.White;
             this.label34.Location = new System.Drawing.Point(443, -1);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(65, 13);
+            this.label34.Size = new System.Drawing.Size(94, 21);
             this.label34.TabIndex = 2;
             this.label34.Text = "Hoàn thành";
             // 
@@ -2545,7 +2547,7 @@ namespace _3.PL.Views
             this.label33.ForeColor = System.Drawing.Color.White;
             this.label33.Location = new System.Drawing.Point(312, -1);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(61, 13);
+            this.label33.Size = new System.Drawing.Size(86, 21);
             this.label33.TabIndex = 2;
             this.label33.Text = "Giao Hàng";
             // 
@@ -2556,7 +2558,7 @@ namespace _3.PL.Views
             this.label32.ForeColor = System.Drawing.Color.White;
             this.label32.Location = new System.Drawing.Point(152, -1);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(99, 13);
+            this.label32.Size = new System.Drawing.Size(140, 21);
             this.label32.TabIndex = 2;
             this.label32.Text = "Duyệt + Đóng gói";
             // 
@@ -2567,13 +2569,17 @@ namespace _3.PL.Views
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(41, -1);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 13);
+            this.label18.Size = new System.Drawing.Size(75, 21);
             this.label18.TabIndex = 2;
             this.label18.Text = "Đặt hàng";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // frmQLBanHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 961);
             this.Controls.Add(this.panel3);
@@ -2782,5 +2788,6 @@ namespace _3.PL.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewButtonColumn XoaGH;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
