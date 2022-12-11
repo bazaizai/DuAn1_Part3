@@ -186,8 +186,8 @@ namespace _3.PL.Views
             this.pnlKhongTimThay = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtSearch = new CustomControls.RJControls.RJTextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.ListItem = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlTimeLine = new System.Windows.Forms.Panel();
             this.Step1 = new CustomControls.RJControls.RJCircularPictureBox();
@@ -224,7 +224,7 @@ namespace _3.PL.Views
             this.pnlbutton.SuspendLayout();
             this.pnlBodysearch.SuspendLayout();
             this.pnlKhongTimThay.SuspendLayout();
-            this.ListItem.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlTimeLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Step1)).BeginInit();
@@ -2339,7 +2339,7 @@ namespace _3.PL.Views
             // pnlbutton
             // 
             this.pnlbutton.Controls.Add(this.pnlBodysearch);
-            this.pnlbutton.Controls.Add(this.ListItem);
+            this.pnlbutton.Controls.Add(this.panel8);
             this.pnlbutton.Controls.Add(this.panel5);
             this.pnlbutton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlbutton.Location = new System.Drawing.Point(0, 570);
@@ -2435,24 +2435,24 @@ namespace _3.PL.Views
             this.txtSearch.UnderlinedStyle = false;
             this.txtSearch._TextChanged += new System.EventHandler(this.txtSearch__TextChanged);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.ListItem);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 50);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(966, 341);
+            this.panel8.TabIndex = 21;
+            // 
             // ListItem
             // 
             this.ListItem.AutoScroll = true;
             this.ListItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
-            this.ListItem.Controls.Add(this.flowLayoutPanel1);
             this.ListItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListItem.Location = new System.Drawing.Point(0, 50);
+            this.ListItem.Location = new System.Drawing.Point(0, 0);
             this.ListItem.Name = "ListItem";
             this.ListItem.Size = new System.Drawing.Size(966, 341);
-            this.ListItem.TabIndex = 21;
-            this.ListItem.Paint += new System.Windows.Forms.PaintEventHandler(this.ListItem_Paint);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 125);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.ListItem.TabIndex = 23;
             // 
             // panel5
             // 
@@ -2475,9 +2475,9 @@ namespace _3.PL.Views
             this.pnlTimeLine.Controls.Add(this.label33);
             this.pnlTimeLine.Controls.Add(this.label32);
             this.pnlTimeLine.Controls.Add(this.label18);
-            this.pnlTimeLine.Location = new System.Drawing.Point(420, 1);
+            this.pnlTimeLine.Location = new System.Drawing.Point(473, 1);
             this.pnlTimeLine.Name = "pnlTimeLine";
-            this.pnlTimeLine.Size = new System.Drawing.Size(526, 62);
+            this.pnlTimeLine.Size = new System.Drawing.Size(473, 62);
             this.pnlTimeLine.TabIndex = 0;
             this.pnlTimeLine.Visible = false;
             // 
@@ -2637,7 +2637,7 @@ namespace _3.PL.Views
             this.pnlBodysearch.ResumeLayout(false);
             this.pnlKhongTimThay.ResumeLayout(false);
             this.pnlKhongTimThay.PerformLayout();
-            this.ListItem.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.pnlTimeLine.ResumeLayout(false);
             this.pnlTimeLine.PerformLayout();
@@ -2703,7 +2703,6 @@ namespace _3.PL.Views
         private System.Windows.Forms.Panel pnlKhongTimThay;
         private System.Windows.Forms.Label label9;
         private CustomControls.RJControls.RJTextBox txtSearch;
-        private System.Windows.Forms.FlowLayoutPanel ListItem;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel pnlKhachHang;
         private System.Windows.Forms.Label lblMucTichLuy;
@@ -2811,6 +2810,7 @@ namespace _3.PL.Views
         private System.Windows.Forms.DataGridViewButtonColumn XoaGH;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.FlowLayoutPanel ListHoaDon;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.FlowLayoutPanel ListItem;
     }
 }

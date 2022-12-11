@@ -29,6 +29,8 @@ namespace _3.PL.Views
     public partial class frmQLBanHang : Form
     {
         //
+        public int soPage = 0;
+        public int numberofitem = 0;
         private IChiTietHDServices _ichiTietHDServices;
         private IHoaDonServices _ihoaDonServices;
         public ISanPhamServices _isanPhamServices;
@@ -354,6 +356,7 @@ namespace _3.PL.Views
                                 _IChiTietHDServices.Add(x);
                                 spct.SoLuongTon = spct.SoLuongTon - 1;
                                 _IChiTietSpServices.Update(spct);
+                                GetHatSearch(spct.Id).SoluongSP1 = spct.SoLuongTon.ToString();
                             }
                             else
                             {
@@ -364,6 +367,7 @@ namespace _3.PL.Views
                                     _IChiTietHDServices.Update(hdct);
                                     spct.SoLuongTon -= 1;
                                     _IChiTietSpServices.Update(spct);
+                                    GetHatSearch(spct.Id).SoluongSP1 = spct.SoLuongTon.ToString();
                                 }
                                 else
                                 {
@@ -426,6 +430,7 @@ namespace _3.PL.Views
                                 _IChiTietHDServices.Add(cthd);
                                 spct.SoLuongTon = spct.SoLuongTon - 1;
                                 _IChiTietSpServices.Update(spct);
+                                GetHatSearch(spct.Id).SoluongSP1 = spct.SoLuongTon.ToString();
                             }
                             else
                             {
@@ -436,6 +441,7 @@ namespace _3.PL.Views
                                     _IChiTietHDServices.Update(hdct);
                                     spct.SoLuongTon -= 1;
                                     _IChiTietSpServices.Update(spct);
+                                    GetHatSearch(spct.Id).SoluongSP1 = spct.SoLuongTon.ToString();
                                 }
                                 else
                                 {
@@ -2452,8 +2458,8 @@ namespace _3.PL.Views
                 //LoadItem();
                 ListHoaDon.Visible = false;
                 ListItem.Visible = true;
-                //panel3.Controls.Remove(ListHoaDon);
-                panel3.Controls.Add(ListItem);
+                pnlbutton.Controls.Remove(ListHoaDon);
+                panel8.Controls.Add(ListItem);
                 ListItem.Dock = DockStyle.Fill;
                 btngiaohang.Text = "Giao hàng";
                 pnlTimeLine.Visible = false;
@@ -2474,10 +2480,11 @@ namespace _3.PL.Views
             }
             else
             {
-                //panel3.Controls.Remove(ListItem);
+                pnlbutton.Controls.Remove(ListItem);
                 ListHoaDon.Visible = true;
                 ListItem.Visible = false;
-                panel3.Controls.Add(ListHoaDon);
+                panel8.Controls.Add(ListHoaDon);
+                
                 ListHoaDon.Dock = DockStyle.Fill;
                 var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang <= 3 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 5 && x.TrangThai == 0)).OrderBy(x => x.MaHD).OrderBy(x => x.MaHD.Length).ToList();
                 if (ListHoaDon.Controls.Count != ListAnh.Count)
@@ -3768,7 +3775,7 @@ namespace _3.PL.Views
             e.Graphics.DrawString("___________" +
                 "________________________________________________________________________ "
                 , new Font("Arial", 12, FontStyle.Regular),
-                    Brushes.Black, new Point(30, 325));
+Brushes.Black, new Point(30, 325));
             e.Graphics.DrawString("Tên sản phẩm", new Font("Arial", 12, FontStyle.Bold),
                     Brushes.Black, new Point(30, 320));
             e.Graphics.DrawString("___________" +
@@ -3785,31 +3792,50 @@ namespace _3.PL.Views
             var lstsp = _ichiTietSpServices.GetAll().Where(x => _ichiTietHDServices.GetAll().Where(y => y.MaHD == a).Any(cthd => cthd.IdChiTietSp == x.Id)).ToList();
             int i = 360;
 
-            foreach (var item in lstsp)
+            for (int y = numberofitem; y < lstsp.Count; y++)
             {
-                var hdct = _ichiTietHDServices.GetAll().Find(x => x.IdChiTietSp == item.Id && x.MaHD == a).SoLuong;
-                e.Graphics.DrawString(_isanPhamServices.GetAll().Find(x => x.Id == item.IdSp).Ten, new Font("Arial", 12, FontStyle.Regular),
-                    Brushes.Black, new Point(30, i));
-                var CtSale = _ichiTietSaleServices.GetAll().Find(y => y.IdChiTietSp == item.Id && y.TrangThai == 0);
-                if (CtSale != null)
+                soPage++;
+                if (soPage <= 20)
                 {
-                    var Sale = _isaleServices.GetAll().Find(z => z.Id == CtSale.IdSale);
-                    if (Sale.LoaiHinhKm == "%")
+                    numberofitem++;
+                    if (numberofitem <= lstsp.Count)
                     {
-                        item.GiaBan = Convert.ToDecimal(item.GiaBan * (100 - Sale.MucGiam) / 100);
+                        var hdct = _ichiTietHDServices.GetAll().Find(x => x.IdChiTietSp == lstsp[y].Id && x.MaHD == a).SoLuong;
+                        e.Graphics.DrawString(_isanPhamServices.GetAll().Find(x => x.Id == lstsp[y].IdSp).Ten, new Font("Arial", 12, FontStyle.Regular),
+                            Brushes.Black, new Point(30, i));
+                        var CtSale = _ichiTietSaleServices.GetAll().Find(k => k.IdChiTietSp == lstsp[y].Id && k.TrangThai == 0);
+                        if (CtSale != null)
+                        {
+                            var Sale = _isaleServices.GetAll().Find(z => z.Id == CtSale.IdSale);
+                            if (Sale.LoaiHinhKm == "%")
+                            {
+                                lstsp[y].GiaBan = Convert.ToDecimal(lstsp[y].GiaBan * (100 - Sale.MucGiam) / 100);
+                            }
+                            else
+                            {
+                                lstsp[y].GiaBan = Convert.ToDecimal(lstsp[y].GiaBan - Sale.MucGiam);
+                            }
+                        }
+                        e.Graphics.DrawString(/*item.GiaBan.ToString()*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", lstsp[y].GiaBan) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                            Brushes.Black, new Point(250, i));
+                        e.Graphics.DrawString(hdct.ToString(), new Font("Arial", 12, FontStyle.Regular),
+                       Brushes.Black, new Point(440, i));
+                        e.Graphics.DrawString(/*(hdct * item.GiaBan).ToString()*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", hdct * lstsp[y].GiaBan) + " đ", new Font("Arial", 12, FontStyle.Regular),
+                                                   Brushes.Black, new Point(600, i));
+                        i = i + 30;
                     }
                     else
                     {
-                        item.GiaBan = Convert.ToDecimal(item.GiaBan - Sale.MucGiam);
+                        e.HasMorePages = false;
                     }
+
                 }
-                e.Graphics.DrawString(/*item.GiaBan.ToString()*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", item.GiaBan) + " đ", new Font("Arial", 12, FontStyle.Regular),
-                    Brushes.Black, new Point(250, i));
-                e.Graphics.DrawString(hdct.ToString(), new Font("Arial", 12, FontStyle.Regular),
-               Brushes.Black, new Point(440, i));
-                e.Graphics.DrawString(/*(hdct * item.GiaBan).ToString()*/string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", hdct * item.GiaBan) + " đ", new Font("Arial", 12, FontStyle.Regular),
-                   Brushes.Black, new Point(600, i));
-                i = i + 30;
+                else
+                {
+                    soPage = 0;
+                    e.HasMorePages = true;
+                    return;
+                }
             }
 
             e.Graphics.DrawString("___________" +
@@ -3849,7 +3875,7 @@ namespace _3.PL.Views
                              Brushes.Black, new Point(600, i + 35));
                     }
                     e.Graphics.DrawString("___________" +
-                 "________________________________________________________________________ "
+"________________________________________________________________________ "
                  , new Font("Arial", 12, FontStyle.Regular),
                      Brushes.Black, new Point(30, i + 40));
                     // tong tien 
@@ -3891,7 +3917,7 @@ namespace _3.PL.Views
                              Brushes.Black, new Point(600, i + 15));
                     }
                     e.Graphics.DrawString("___________" +
-                 "________________________________________________________________________ "
+"________________________________________________________________________ "
                  , new Font("Arial", 12, FontStyle.Regular),
                      Brushes.Black, new Point(30, i + 20));
                     // tong tien 
@@ -3917,7 +3943,6 @@ namespace _3.PL.Views
                     e.Graphics.DrawString("Cảm ơn Quý khách. Hẹn gặp lại!", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(300, i + 145));
                 }
-
             }
             //Th2
             else if (_ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).GiamGia != null && GetUuDaiTichDiem() == null)
@@ -3935,7 +3960,7 @@ namespace _3.PL.Views
                     else
                     {
                         e.Graphics.DrawString(_ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).GiamGia.ToString() + " đ", new Font("Arial", 12, FontStyle.Regular),
-                       Brushes.Black, new Point(600, i + 15));
+                                               Brushes.Black, new Point(600, i + 15));
                     }
                     e.Graphics.DrawString("___________" +
                  "________________________________________________________________________ "
@@ -3973,7 +3998,7 @@ namespace _3.PL.Views
                          Brushes.Black, new Point(600, i + 15));
                     //tien khach dua
                     e.Graphics.DrawString("Tiền khách đưa: ", new Font("Arial", 12, FontStyle.Regular),
-                        Brushes.Black, new Point(30, i + 35));
+                                            Brushes.Black, new Point(30, i + 35));
                     var p = _ihoaDonServices.GetAll().FirstOrDefault(x => x.MaHD == a).TienKhachDua;
                     e.Graphics.DrawString(string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", p) + " đ", new Font("Arial", 12, FontStyle.Regular),
                    Brushes.Black, new Point(600, i + 35));
@@ -3989,7 +4014,10 @@ namespace _3.PL.Views
                     e.Graphics.DrawString("Cảm ơn Quý khách. Hẹn gặp lại!", new Font("Arial", 12, FontStyle.Regular),
                   Brushes.Black, new Point(300, i + 135));
                 }
+
             }
+            soPage = 0;
+            numberofitem = 0;
         }
     }
 }
