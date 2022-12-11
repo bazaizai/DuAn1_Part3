@@ -663,7 +663,7 @@ namespace _3.PL.Views
         private void iconButton12_Click(object sender, EventArgs e)
         {
             // Doi mk
-            lblHome.Text = iconButton12.Text;
+            lblHome.Text = Hehehe_doiMk.Text;
             OpenChildForm(new FrmDoiMK());
             HideSubMenu();
                       
@@ -672,17 +672,15 @@ namespace _3.PL.Views
         private void iconButton11_Click(object sender, EventArgs e)
         {
             // dang xuat
-            lblHome.Text = iconButton11.Text;
+            lblHome.Text = hehehe_DangXuat.Text;
             DialogResult dg = RJMessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dg == DialogResult.Yes)
             {
-
                 FrmLogin frmForgotPW = new FrmLogin();
                 this.Hide();
                 frmForgotPW.ShowDialog();
                 this.Close();
             }
-
         }
 
         private void iconButton5_Click_1(object sender, EventArgs e)

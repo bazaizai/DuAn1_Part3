@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.hehehe_DangXuat = new FontAwesome.Sharp.IconButton();
+            this.Hehehe_doiMk = new FontAwesome.Sharp.IconButton();
+            this._hehehe = new FontAwesome.Sharp.IconButton();
             this.pnlGiaoDich = new System.Windows.Forms.Panel();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -88,7 +88,7 @@
             this.pnlMenu.AutoScroll = true;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
             this.pnlMenu.Controls.Add(this.panel3);
-            this.pnlMenu.Controls.Add(this.iconButton5);
+            this.pnlMenu.Controls.Add(this._hehehe);
             this.pnlMenu.Controls.Add(this.pnlGiaoDich);
             this.pnlMenu.Controls.Add(this.btnQLHoaDon);
             this.pnlMenu.Controls.Add(this.iconButton3);
@@ -106,7 +106,7 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(331, 1050);
             this.pnlMenu.TabIndex = 0;
@@ -115,87 +115,87 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.RosyBrown;
-            this.panel3.Controls.Add(this.iconButton11);
-            this.panel3.Controls.Add(this.iconButton12);
+            this.panel3.Controls.Add(this.hehehe_DangXuat);
+            this.panel3.Controls.Add(this.Hehehe_doiMk);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 1751);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(305, 150);
             this.panel3.TabIndex = 18;
             this.panel3.Visible = false;
             // 
-            // iconButton11
+            // hehehe_DangXuat
             // 
-            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.iconButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Windows;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 32;
-            this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(0, 75);
-            this.iconButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.iconButton11.Size = new System.Drawing.Size(305, 75);
-            this.iconButton11.TabIndex = 2;
-            this.iconButton11.Text = "Đăng Xuất";
-            this.iconButton11.UseVisualStyleBackColor = false;
-            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
+            this.hehehe_DangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
+            this.hehehe_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hehehe_DangXuat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hehehe_DangXuat.FlatAppearance.BorderSize = 0;
+            this.hehehe_DangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hehehe_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.hehehe_DangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hehehe_DangXuat.IconChar = FontAwesome.Sharp.IconChar.ArrowRightFromBracket;
+            this.hehehe_DangXuat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hehehe_DangXuat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.hehehe_DangXuat.IconSize = 32;
+            this.hehehe_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hehehe_DangXuat.Location = new System.Drawing.Point(0, 75);
+            this.hehehe_DangXuat.Margin = new System.Windows.Forms.Padding(4);
+            this.hehehe_DangXuat.Name = "hehehe_DangXuat";
+            this.hehehe_DangXuat.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.hehehe_DangXuat.Size = new System.Drawing.Size(305, 75);
+            this.hehehe_DangXuat.TabIndex = 2;
+            this.hehehe_DangXuat.Text = "Đăng Xuất";
+            this.hehehe_DangXuat.UseVisualStyleBackColor = false;
+            this.hehehe_DangXuat.Click += new System.EventHandler(this.iconButton11_Click);
             // 
-            // iconButton12
+            // Hehehe_doiMk
             // 
-            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
-            this.iconButton12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton12.FlatAppearance.BorderSize = 0;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Windows;
-            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 32;
-            this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(0, 0);
-            this.iconButton12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.iconButton12.Size = new System.Drawing.Size(305, 75);
-            this.iconButton12.TabIndex = 1;
-            this.iconButton12.Text = "Đổi Mật Khẩu";
-            this.iconButton12.UseVisualStyleBackColor = false;
-            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            this.Hehehe_doiMk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
+            this.Hehehe_doiMk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Hehehe_doiMk.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Hehehe_doiMk.FlatAppearance.BorderSize = 0;
+            this.Hehehe_doiMk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hehehe_doiMk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Hehehe_doiMk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Hehehe_doiMk.IconChar = FontAwesome.Sharp.IconChar.Key;
+            this.Hehehe_doiMk.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Hehehe_doiMk.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Hehehe_doiMk.IconSize = 32;
+            this.Hehehe_doiMk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Hehehe_doiMk.Location = new System.Drawing.Point(0, 0);
+            this.Hehehe_doiMk.Margin = new System.Windows.Forms.Padding(4);
+            this.Hehehe_doiMk.Name = "Hehehe_doiMk";
+            this.Hehehe_doiMk.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.Hehehe_doiMk.Size = new System.Drawing.Size(305, 75);
+            this.Hehehe_doiMk.TabIndex = 1;
+            this.Hehehe_doiMk.Text = "Đổi Mật Khẩu";
+            this.Hehehe_doiMk.UseVisualStyleBackColor = false;
+            this.Hehehe_doiMk.Click += new System.EventHandler(this.iconButton12_Click);
             // 
-            // iconButton5
+            // _hehehe
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.iconButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Repeat;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 32;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 1676);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(305, 75);
-            this.iconButton5.TabIndex = 17;
-            this.iconButton5.Text = "Cài Đặt";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = false;
-            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click_1);
+            this._hehehe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this._hehehe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._hehehe.Dock = System.Windows.Forms.DockStyle.Top;
+            this._hehehe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._hehehe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this._hehehe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this._hehehe.IconChar = FontAwesome.Sharp.IconChar.Gears;
+            this._hehehe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this._hehehe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this._hehehe.IconSize = 32;
+            this._hehehe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._hehehe.Location = new System.Drawing.Point(0, 1676);
+            this._hehehe.Margin = new System.Windows.Forms.Padding(4);
+            this._hehehe.Name = "_hehehe";
+            this._hehehe.Size = new System.Drawing.Size(305, 75);
+            this._hehehe.TabIndex = 17;
+            this._hehehe.Text = "Cài Đặt";
+            this._hehehe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._hehehe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._hehehe.UseVisualStyleBackColor = false;
+            this._hehehe.Click += new System.EventHandler(this.iconButton5_Click_1);
             // 
             // pnlGiaoDich
             // 
@@ -205,7 +205,7 @@
             this.pnlGiaoDich.Controls.Add(this.iconButton4);
             this.pnlGiaoDich.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlGiaoDich.Location = new System.Drawing.Point(0, 1526);
-            this.pnlGiaoDich.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlGiaoDich.Margin = new System.Windows.Forms.Padding(4);
             this.pnlGiaoDich.Name = "pnlGiaoDich";
             this.pnlGiaoDich.Size = new System.Drawing.Size(305, 150);
             this.pnlGiaoDich.TabIndex = 16;
@@ -226,7 +226,7 @@
             this.iconButton6.IconSize = 32;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton6.Location = new System.Drawing.Point(0, 75);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton6.Size = new System.Drawing.Size(305, 75);
@@ -250,7 +250,7 @@
             this.iconButton4.IconSize = 32;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(0, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(305, 75);
@@ -273,7 +273,7 @@
             this.btnQLHoaDon.IconSize = 32;
             this.btnQLHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLHoaDon.Location = new System.Drawing.Point(0, 1451);
-            this.btnQLHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLHoaDon.Name = "btnQLHoaDon";
             this.btnQLHoaDon.Size = new System.Drawing.Size(305, 75);
             this.btnQLHoaDon.TabIndex = 15;
@@ -297,7 +297,7 @@
             this.iconButton3.IconSize = 32;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.Location = new System.Drawing.Point(0, 1376);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(305, 75);
             this.iconButton3.TabIndex = 14;
@@ -321,7 +321,7 @@
             this.iconButton2.IconSize = 32;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(0, 1301);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(305, 75);
             this.iconButton2.TabIndex = 13;
@@ -345,7 +345,7 @@
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(0, 1226);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(305, 75);
             this.iconButton1.TabIndex = 12;
@@ -361,7 +361,7 @@
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 1226);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(305, 0);
             this.panel2.TabIndex = 11;
@@ -372,7 +372,7 @@
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 1226);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 0);
             this.panel1.TabIndex = 9;
@@ -391,7 +391,7 @@
             this.btnBanHang.IconSize = 32;
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBanHang.Location = new System.Drawing.Point(0, 1151);
-            this.btnBanHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBanHang.Margin = new System.Windows.Forms.Padding(4);
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(305, 75);
             this.btnBanHang.TabIndex = 7;
@@ -408,7 +408,7 @@
             this.pnlbtn9.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlbtn9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.pnlbtn9.Location = new System.Drawing.Point(0, 1151);
-            this.pnlbtn9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlbtn9.Margin = new System.Windows.Forms.Padding(4);
             this.pnlbtn9.Name = "pnlbtn9";
             this.pnlbtn9.Size = new System.Drawing.Size(305, 0);
             this.pnlbtn9.TabIndex = 6;
@@ -420,7 +420,7 @@
             this.pnlbtn5.Controls.Add(this.btnNhanvien);
             this.pnlbtn5.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlbtn5.Location = new System.Drawing.Point(0, 1001);
-            this.pnlbtn5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlbtn5.Margin = new System.Windows.Forms.Padding(4);
             this.pnlbtn5.Name = "pnlbtn5";
             this.pnlbtn5.Size = new System.Drawing.Size(305, 150);
             this.pnlbtn5.TabIndex = 4;
@@ -440,7 +440,7 @@
             this.btnChucvu.IconSize = 32;
             this.btnChucvu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChucvu.Location = new System.Drawing.Point(0, 75);
-            this.btnChucvu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChucvu.Margin = new System.Windows.Forms.Padding(4);
             this.btnChucvu.Name = "btnChucvu";
             this.btnChucvu.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnChucvu.Size = new System.Drawing.Size(305, 75);
@@ -464,7 +464,7 @@
             this.btnNhanvien.IconSize = 32;
             this.btnNhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhanvien.Location = new System.Drawing.Point(0, 0);
-            this.btnNhanvien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNhanvien.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhanvien.Name = "btnNhanvien";
             this.btnNhanvien.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnNhanvien.Size = new System.Drawing.Size(305, 75);
@@ -487,7 +487,7 @@
             this.btnQLNhanVien.IconSize = 32;
             this.btnQLNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLNhanVien.Location = new System.Drawing.Point(0, 926);
-            this.btnQLNhanVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLNhanVien.Name = "btnQLNhanVien";
             this.btnQLNhanVien.Size = new System.Drawing.Size(305, 75);
             this.btnQLNhanVien.TabIndex = 3;
@@ -510,7 +510,7 @@
             this.pnlbtn1.Controls.Add(this.btnCTSP);
             this.pnlbtn1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlbtn1.Location = new System.Drawing.Point(0, 401);
-            this.pnlbtn1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlbtn1.Margin = new System.Windows.Forms.Padding(4);
             this.pnlbtn1.Name = "pnlbtn1";
             this.pnlbtn1.Size = new System.Drawing.Size(305, 525);
             this.pnlbtn1.TabIndex = 2;
@@ -530,7 +530,7 @@
             this.iconButton10.IconSize = 32;
             this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton10.Location = new System.Drawing.Point(0, 450);
-            this.iconButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton10.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton10.Size = new System.Drawing.Size(305, 75);
@@ -554,7 +554,7 @@
             this.iconButton9.IconSize = 32;
             this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton9.Location = new System.Drawing.Point(0, 375);
-            this.iconButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton9.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton9.Size = new System.Drawing.Size(305, 75);
@@ -578,7 +578,7 @@
             this.iconButton8.IconSize = 32;
             this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton8.Location = new System.Drawing.Point(0, 300);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton8.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton8.Size = new System.Drawing.Size(305, 75);
@@ -602,7 +602,7 @@
             this.iconButton7.IconSize = 32;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton7.Location = new System.Drawing.Point(0, 225);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.iconButton7.Size = new System.Drawing.Size(305, 75);
@@ -626,7 +626,7 @@
             this.btnKieusp.IconSize = 32;
             this.btnKieusp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnKieusp.Location = new System.Drawing.Point(0, 150);
-            this.btnKieusp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKieusp.Margin = new System.Windows.Forms.Padding(4);
             this.btnKieusp.Name = "btnKieusp";
             this.btnKieusp.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnKieusp.Size = new System.Drawing.Size(305, 75);
@@ -650,7 +650,7 @@
             this.BtnGiaiDau.IconSize = 32;
             this.BtnGiaiDau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnGiaiDau.Location = new System.Drawing.Point(0, 75);
-            this.BtnGiaiDau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGiaiDau.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGiaiDau.Name = "BtnGiaiDau";
             this.BtnGiaiDau.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.BtnGiaiDau.Size = new System.Drawing.Size(305, 75);
@@ -674,7 +674,7 @@
             this.btnCTSP.IconSize = 32;
             this.btnCTSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCTSP.Location = new System.Drawing.Point(0, 0);
-            this.btnCTSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCTSP.Margin = new System.Windows.Forms.Padding(4);
             this.btnCTSP.Name = "btnCTSP";
             this.btnCTSP.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnCTSP.Size = new System.Drawing.Size(305, 75);
@@ -697,7 +697,7 @@
             this.QLSP.IconSize = 32;
             this.QLSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.QLSP.Location = new System.Drawing.Point(0, 326);
-            this.QLSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QLSP.Margin = new System.Windows.Forms.Padding(4);
             this.QLSP.Name = "QLSP";
             this.QLSP.Size = new System.Drawing.Size(305, 75);
             this.QLSP.TabIndex = 1;
@@ -713,7 +713,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(305, 326);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -731,7 +731,7 @@
             this.ptnTileBar.Controls.Add(this.btbHome);
             this.ptnTileBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ptnTileBar.Location = new System.Drawing.Point(331, 0);
-            this.ptnTileBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptnTileBar.Margin = new System.Windows.Forms.Padding(4);
             this.ptnTileBar.Name = "ptnTileBar";
             this.ptnTileBar.Size = new System.Drawing.Size(1459, 54);
             this.ptnTileBar.TabIndex = 1;
@@ -749,7 +749,7 @@
             this._ToNho.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this._ToNho.IconSize = 30;
             this._ToNho.Location = new System.Drawing.Point(1379, 8);
-            this._ToNho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._ToNho.Margin = new System.Windows.Forms.Padding(4);
             this._ToNho.Name = "_ToNho";
             this._ToNho.Size = new System.Drawing.Size(34, 30);
             this._ToNho.TabIndex = 5;
@@ -768,7 +768,7 @@
             this._tru.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this._tru.IconSize = 24;
             this._tru.Location = new System.Drawing.Point(1332, 11);
-            this._tru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._tru.Margin = new System.Windows.Forms.Padding(4);
             this._tru.Name = "_tru";
             this._tru.Size = new System.Drawing.Size(28, 24);
             this._tru.TabIndex = 4;
@@ -811,7 +811,7 @@
             this.btbHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btbHome.IconSize = 35;
             this.btbHome.Location = new System.Drawing.Point(24, 8);
-            this.btbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btbHome.Margin = new System.Windows.Forms.Padding(4);
             this.btbHome.Name = "btbHome";
             this.btbHome.Size = new System.Drawing.Size(38, 35);
             this.btbHome.TabIndex = 0;
@@ -828,7 +828,7 @@
             this.rjCircularPictureBox1.GradientAngle = 50F;
             this.rjCircularPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("rjCircularPictureBox1.Image")));
             this.rjCircularPictureBox1.Location = new System.Drawing.Point(420, 176);
-            this.rjCircularPictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rjCircularPictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             this.rjCircularPictureBox1.Size = new System.Drawing.Size(679, 679);
             this.rjCircularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -845,7 +845,7 @@
             this.pnlBody.Controls.Add(this.rjCircularPictureBox1);
             this.pnlBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pnlBody.Location = new System.Drawing.Point(331, 46);
-            this.pnlBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBody.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(1459, 1020);
             this.pnlBody.TabIndex = 2;
@@ -864,7 +864,7 @@
             this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.ptnTileBar);
             this.Controls.Add(this.pnlMenu);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIConButon";
@@ -925,8 +925,8 @@
         private FontAwesome.Sharp.IconButton iconButton6;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel3;
-        private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton12;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton hehehe_DangXuat;
+        private FontAwesome.Sharp.IconButton Hehehe_doiMk;
+        private FontAwesome.Sharp.IconButton _hehehe;
     }
 }
