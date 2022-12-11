@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r6CoPd+pydtcjIqodoJmwEsW9MEUPysK6AirTwOTxaohuIh/IlAF4kVZdcbpjBz3vqPIjNL9u+y61Ymb38fP/A==",
+  "dgSpecHash": "FO6vCR/s/oTG+J4L4TPXOW4KX8SJ0eQMLdaQvJzpjAv82A3WhNhuhpRU0p4E1pv59g1u/IT/GQuPq0gD3htvFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\phuon\\OneDrive\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
+  "projectFilePath": "C:\\Users\\phuon\\OneDrive - DNIT\\Máy tính\\DuAn1_Part3\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phuon\\.nuget\\packages\\barcodelib\\2.4.0\\barcodelib.2.4.0.nupkg.sha512",
     "C:\\Users\\phuon\\.nuget\\packages\\bunifu.ui.winforms\\5.0.1\\bunifu.ui.winforms.5.0.1.nupkg.sha512",
