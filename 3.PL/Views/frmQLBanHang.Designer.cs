@@ -127,6 +127,7 @@ namespace _3.PL.Views
             this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ListHoaDon = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvGiaoHang = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,6 +187,7 @@ namespace _3.PL.Views
             this.label9 = new System.Windows.Forms.Label();
             this.txtSearch = new CustomControls.RJControls.RJTextBox();
             this.ListItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlTimeLine = new System.Windows.Forms.Panel();
             this.Step1 = new CustomControls.RJControls.RJCircularPictureBox();
@@ -222,6 +224,7 @@ namespace _3.PL.Views
             this.pnlbutton.SuspendLayout();
             this.pnlBodysearch.SuspendLayout();
             this.pnlKhongTimThay.SuspendLayout();
+            this.ListItem.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlTimeLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Step1)).BeginInit();
@@ -1531,6 +1534,7 @@ namespace _3.PL.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(83)))));
+            this.panel2.Controls.Add(this.ListHoaDon);
             this.panel2.Controls.Add(this.dgvGiaoHang);
             this.panel2.Controls.Add(this.tabControl3);
             this.panel2.Controls.Add(this.btnClear);
@@ -1542,6 +1546,14 @@ namespace _3.PL.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(966, 63);
             this.panel2.TabIndex = 2;
+            // 
+            // ListHoaDon
+            // 
+            this.ListHoaDon.Location = new System.Drawing.Point(483, 12);
+            this.ListHoaDon.Name = "ListHoaDon";
+            this.ListHoaDon.Size = new System.Drawing.Size(189, 38);
+            this.ListHoaDon.TabIndex = 0;
+            this.ListHoaDon.Visible = false;
             // 
             // dgvGiaoHang
             // 
@@ -2427,12 +2439,20 @@ namespace _3.PL.Views
             // 
             this.ListItem.AutoScroll = true;
             this.ListItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(36)))));
+            this.ListItem.Controls.Add(this.flowLayoutPanel1);
             this.ListItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListItem.Location = new System.Drawing.Point(0, 50);
             this.ListItem.Name = "ListItem";
             this.ListItem.Size = new System.Drawing.Size(966, 341);
             this.ListItem.TabIndex = 21;
             this.ListItem.Paint += new System.Windows.Forms.PaintEventHandler(this.ListItem_Paint);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 125);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel5
             // 
@@ -2617,6 +2637,7 @@ namespace _3.PL.Views
             this.pnlBodysearch.ResumeLayout(false);
             this.pnlKhongTimThay.ResumeLayout(false);
             this.pnlKhongTimThay.PerformLayout();
+            this.ListItem.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.pnlTimeLine.ResumeLayout(false);
             this.pnlTimeLine.PerformLayout();
@@ -2789,5 +2810,7 @@ namespace _3.PL.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewButtonColumn XoaGH;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.FlowLayoutPanel ListHoaDon;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

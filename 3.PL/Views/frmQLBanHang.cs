@@ -22,6 +22,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace _3.PL.Views
 {
@@ -63,11 +64,14 @@ namespace _3.PL.Views
         TabPage tabPage;
         List<Hats> Hats;
         List<AnhViews> ListAnh;
+        List<AnhViews> ListAnh1;
         Hats[] Hat;
+        SearchHats[] Hat1;
         int soLuong;
         int doifrom = 0;
         object ss;
         HoaDonS _HoaDons;
+        List<SearchHats> ListSearchHats;
         public string GetSdt { get; set; }
         public frmQLBanHang()
         {
@@ -81,11 +85,11 @@ namespace _3.PL.Views
             _ichiTietSaleServices = new ChiTietSaleServices();
             _isaleServices = new SaleServices();
             _itichDiemServices = new TichDiemServices();
-            //
             _IChiTietSaleServices = new ChiTietSaleServices();
             _ISaleServices = new SaleServices();
             _IPtthanhToanServices = new PtthanhToanServices();
             _IChiTietSpServices = new ChiTietSpServices();
+            ListSearchHats = new List<SearchHats>();
             _ISanPhamServices = new SanPhamServices();
             _IMauSacServices = new MauSacServices();
             _ITeamServices = new TeamServices();
@@ -106,6 +110,7 @@ namespace _3.PL.Views
             _IKieuSpServices = new KieuSpServices();
             _IChiTietKieuSpService = new ChiTietKieuSpServices();
             pnlfill.Height = this.Height - pnlbutton.Height;
+
             _HoaDons = new HoaDonS();
             rdoTaiQuay.Checked = true;
             CbbGiamGia.SelectedIndex = 0;
@@ -116,11 +121,14 @@ namespace _3.PL.Views
             Hats = new List<Hats>();
             ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh").OrderBy(x => x.MaQr).ToList();
             Hat = new Hats[ListAnh.Count];
+            Hat1 = new SearchHats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
+            ListAnh1 = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh" && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower()))).ToList();
             AnSearch();
             // FakeData();
             LoadItem();
             LoadData();
             LoadGia();
+            LoadHoaDon();
             if (TabHoaDon.SelectedTab != null)
             {
                 txtMaHD1.Text = TabHoaDon.SelectedTab.Name;
@@ -130,6 +138,7 @@ namespace _3.PL.Views
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+            LoadItemSearch();
         }
 
         private void AnSearch()
@@ -237,7 +246,17 @@ namespace _3.PL.Views
             }
             return null;
         }
-
+        private SearchHats GetHatSearch(Guid Id)
+        {
+            foreach (var item in ListSearchHats)
+            {
+                if (item.IdSPCTSP == Id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
         private void LoadItem()
         {
             LoadALL();
@@ -691,6 +710,7 @@ namespace _3.PL.Views
                     this.Alert("Hết hàng", Form_Alert.enmType.Warning);
                 }
                 GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
+                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                 LoadGia();
                 //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
@@ -707,6 +727,7 @@ namespace _3.PL.Views
                     _IChiTietSpServices.Update(ctsp);
                 }
                 GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
+                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                 LoadGia();
                 //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
@@ -719,6 +740,7 @@ namespace _3.PL.Views
                 _IChiTietHDServices.Delete(hdct);
                 _IChiTietSpServices = new ChiTietSpServices();
                 GetHat(Guid.Parse(Cell(0))).SoluongSP1 = _IChiTietSpServices.GetAll().Find(x => x.Id == Guid.Parse(Cell(0))).SoLuongTon.ToString();
+                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                 //LoadItem();
                 LoadView(TabHoaDon.SelectedTab.Name);
                 LoadGia();
@@ -1702,49 +1724,47 @@ namespace _3.PL.Views
         }
 
         private ChiTietSpViews GetCtsp(Guid id) => _IChiTietSpServices.GetById(id);
-        private void LoadItemSearch(string name)
+        private void LoadItemSearch()
         {
             LoadAll();
             flpSP.Controls.Clear();
-            SearchHats[] Hat = new SearchHats[_IanhServices.GetAll().GroupBy(x => x.IdChiTietSp).Select(sp => sp.First()).ToList().Count];
-            List<AnhViews> ListAnh = _IanhServices.GetAll().Where(x => x.TrangThaiSP == 0 && x.TenAnh == "Anh" && RemoveUnicode(GetCtsp(x.IdChiTietSp.GetValueOrDefault()).TenSP.ToLower()).Contains(RemoveUnicode(name.ToLower()))).ToList();
-            if (ListAnh.Any())
+            if (ListAnh1.Any())
             {
-                for (int i = 0; i < ListAnh.Count; i++)
+                for (int i = 0; i < ListAnh1.Count; i++)
                 {
-                    if (ListAnh[i].SoLuongTon > 0)
+                    if (ListAnh1[i].SoLuongTon > 0)
                     {
-                        Hat[i] = new SearchHats();
-                        Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
-                        Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
-                        Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
-                        Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
-                        Hat[i].IdSPCTSP = ListAnh[i].IdChiTietSp.GetValueOrDefault();
-                        Hat[i].label1.Visible = false;
-                        Hat[i].MucGiam = "";
-                        var CtSale = _IChiTietSaleServices.GetAll().Find(y => y.IdChiTietSp == ListAnh[i].IdChiTietSp && y.TrangThai == 0);
+                        Hat1[i] = new SearchHats();
+                        Hat1[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh1[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh1[i].IdKichCo).Size;
+                        Hat1[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh1[i].DuongDan));
+                        Hat1[i].Price = Convert.ToDouble(ListAnh1[i].GiaBan);
+                        Hat1[i].SoluongSP1 = ListAnh1[i].SoLuongTon.ToString();
+                        Hat1[i].IdSPCTSP = ListAnh1[i].IdChiTietSp.GetValueOrDefault();
+                        Hat1[i].label1.Visible = false;
+                        Hat1[i].MucGiam = "";
+                        var CtSale = _IChiTietSaleServices.GetAll().Find(y => y.IdChiTietSp == ListAnh1[i].IdChiTietSp && y.TrangThai == 0);
                         if (CtSale != null)
                         {
-                            Hat[i].Gia.Visible = false;
-                            Hat[i].label1.Visible = true;
+                            Hat1[i].Gia.Visible = false;
+                            Hat1[i].label1.Visible = true;
                             var Sale = _ISaleServices.GetAll().Find(z => z.Id == CtSale.IdSale);
                             if (Sale.LoaiHinhKm == "%")
                             {
-                                Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan * (100 - Sale.MucGiam) / 100);
-                                Hat[i].MucGiam = "Sale: " + Sale.MucGiam + Sale.LoaiHinhKm;
+                                Hat1[i].GiaGiam = Convert.ToDouble(ListAnh1[i].GiaBan * (100 - Sale.MucGiam) / 100);
+                                Hat1[i].MucGiam = "Sale: " + Sale.MucGiam + Sale.LoaiHinhKm;
                             }
                             else
                             {
-                                Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
-                                Hat[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
-                                if (Sale.MucGiam > ListAnh[i].GiaBan)
+                                Hat1[i].GiaGiam = Convert.ToDouble(ListAnh1[i].GiaBan - Sale.MucGiam);
+                                Hat1[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
+                                if (Sale.MucGiam > ListAnh1[i].GiaBan)
                                 {
-                                    Hat[i].GiaGiam = 1;
+                                    Hat1[i].GiaGiam = 1;
                                 }
                             }
-                            Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                            Hat1[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh1[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                         }
-                        Hat[i].OnClickAnh += (ss, ee) =>
+                        Hat1[i].OnClickAnh += (ss, ee) =>
                         {
                             txtMaNhanVien.Texts = _iNhanVienServices.GetAll().Find(x => x.TaiKhoan == Properties.Settings.Default.TKdaLogin).Ma;
                             var isp = (SearchHats)ss;
@@ -1766,8 +1786,9 @@ namespace _3.PL.Views
                             sp.AnhSP1 = Image.FromStream(new MemoryStream((byte[])Anh.DuongDan));
                             sp.ShowDialog();
                         };
-                        flpSP.Controls.Add(Hat[i]);
-                        Hat[i].Onclick += (ss, ee) =>
+                        ListSearchHats.Add(Hat1[i]);
+                        //flpSP.Controls.Add(Hat1[i]);
+                        Hat1[i].Onclick += (ss, ee) =>
                         {
                             var wdg = (SearchHats)ss;
                             var ctsp = _IChiTietSpServices.GetById(wdg.IdSPCTSP);
@@ -1803,6 +1824,8 @@ namespace _3.PL.Views
                                         ctsp.SoLuongTon -= 1;
                                         _IChiTietHDServices.Add(x);
                                         _IChiTietSpServices.Update(ctsp);
+                                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     }
                                     else
                                     {
@@ -1814,6 +1837,8 @@ namespace _3.PL.Views
                                             _IChiTietHDServices.Update(hdct);
                                             ctsp.SoLuongTon -= 1;
                                             _IChiTietSpServices.Update(ctsp);
+                                            GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                            GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                         }
                                         else
                                         {
@@ -1822,8 +1847,9 @@ namespace _3.PL.Views
                                     }
 
                                     LoadView(TabHoaDon.SelectedTab.Name);
-                                    LoadItemSearch(txtSearch.Texts);
+                                    //LoadItemSearch(txtSearch.Texts);
                                     //LoadItem();
+                                    GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     LoadGia();
                                     LoadTienThua();
@@ -1880,6 +1906,8 @@ namespace _3.PL.Views
                                         _IChiTietHDServices.Add(cthd);
                                         spct.SoLuongTon = spct.SoLuongTon - 1;
                                         _IChiTietSpServices.Update(spct);
+                                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                        GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     }
                                     else
                                     {
@@ -1890,6 +1918,8 @@ namespace _3.PL.Views
                                             _IChiTietHDServices.Update(hdct);
                                             spct.SoLuongTon -= 1;
                                             _IChiTietSpServices.Update(spct);
+                                            GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                            GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                         }
                                         else
                                         {
@@ -1901,9 +1931,11 @@ namespace _3.PL.Views
                                     LoadGia();
                                     //LoadItem();
                                     GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                    GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     LoadTienThua();
                                 }
                                 txtSearch.Texts = "";
+
                             }
                             else
                             {
@@ -1942,6 +1974,8 @@ namespace _3.PL.Views
                                             ctsp.SoLuongTon -= 1;
                                             _IChiTietHDServices.Add(x);
                                             _IChiTietSpServices.Update(ctsp);
+                                            GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                            GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                         }
                                         else
                                         {
@@ -1953,6 +1987,8 @@ namespace _3.PL.Views
                                                 _IChiTietHDServices.Update(hdct);
                                                 ctsp.SoLuongTon -= 1;
                                                 _IChiTietSpServices.Update(ctsp);
+                                                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                                GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                             }
                                             else
                                             {
@@ -2021,6 +2057,8 @@ namespace _3.PL.Views
                                             ctsp.SoLuongTon -= 1;
                                             _IChiTietHDServices.Add(x);
                                             _IChiTietSpServices.Update(ctsp);
+                                            GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                            GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                         }
                                         else
                                         {
@@ -2032,6 +2070,8 @@ namespace _3.PL.Views
                                                 _IChiTietHDServices.Update(hdct);
                                                 ctsp.SoLuongTon -= 1;
                                                 _IChiTietSpServices.Update(ctsp);
+                                                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                                GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                             }
                                             else
                                             {
@@ -2112,7 +2152,7 @@ namespace _3.PL.Views
                                         GHtongTien.Text = double.Parse(HoaDon1.TongTien.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                                         GHTienPhaiTra.Text = double.Parse((HoaDon1.TongTien - HoaDon1.SoTienGiam + HoaDon1.TienShip).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ " + "(Cả ship: " + double.Parse(HoaDon.TienShip.ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ)";
                                     }
-                                    LoadItemSearch(ghMaHD.Text);
+                                    //LoadItemSearch(ghMaHD.Text);
                                 }
                                 else if (ghMaHD.Text.Trim() != "")
                                 {
@@ -2126,43 +2166,43 @@ namespace _3.PL.Views
                                 }
 
                             }
-
                         };
                     }
                     else
                     {
-                        Hat[i] = new SearchHats();
-                        Hat[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh[i].IdKichCo).Size;
-                        Hat[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh[i].DuongDan));
-                        Hat[i].Price = Convert.ToDouble(ListAnh[i].GiaBan);
-                        Hat[i].SoluongSP1 = ListAnh[i].SoLuongTon.ToString();
-                        Hat[i].IdSPCTSP = ListAnh[i].IdChiTietSp.GetValueOrDefault();
-                        Hat[i].label1.Visible = false;
-                        Hat[i].MucGiam = "";
-                        var CtSale = _IChiTietSaleServices.GetAll().Find(y => y.IdChiTietSp == ListAnh[i].IdChiTietSp && y.TrangThai == 0);
+                        Hat1[i] = new SearchHats();
+                        Hat1[i].TenSP1 = _ISanPhamServices.GetAll().Find(sp => sp.Id == ListAnh1[i].IdSp).Ten + "-" + _IKichCoServices.GetAll().Find(x => x.Id == ListAnh1[i].IdKichCo).Size;
+                        Hat1[i].Icon = Image.FromStream(new MemoryStream((byte[])ListAnh1[i].DuongDan));
+                        Hat1[i].Price = Convert.ToDouble(ListAnh1[i].GiaBan);
+                        Hat1[i].SoluongSP1 = ListAnh1[i].SoLuongTon.ToString();
+                        Hat1[i].IdSPCTSP = ListAnh1[i].IdChiTietSp.GetValueOrDefault();
+                        Hat1[i].label1.Visible = false;
+                        Hat1[i].MucGiam = "";
+                        var CtSale = _IChiTietSaleServices.GetAll().Find(y => y.IdChiTietSp == ListAnh1[i].IdChiTietSp && y.TrangThai == 0);
                         if (CtSale != null)
                         {
-                            Hat[i].Gia.Visible = false;
-                            Hat[i].label1.Visible = true;
+                            Hat1[i].Gia.Visible = false;
+                            Hat1[i].label1.Visible = true;
                             var Sale = _ISaleServices.GetAll().Find(z => z.Id == CtSale.IdSale);
                             if (Sale.LoaiHinhKm == "%")
                             {
-                                Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan * (100 - Sale.MucGiam) / 100);
-                                Hat[i].MucGiam = "Sale: " + Sale.MucGiam + Sale.LoaiHinhKm;
+                                Hat1[i].GiaGiam = Convert.ToDouble(ListAnh1[i].GiaBan * (100 - Sale.MucGiam) / 100);
+                                Hat1[i].MucGiam = "Sale: " + Sale.MucGiam + Sale.LoaiHinhKm;
                             }
                             else
                             {
-                                Hat[i].GiaGiam = Convert.ToDouble(ListAnh[i].GiaBan - Sale.MucGiam);
-                                Hat[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
-                                if (Sale.MucGiam > ListAnh[i].GiaBan)
+                                Hat1[i].GiaGiam = Convert.ToDouble(ListAnh1[i].GiaBan - Sale.MucGiam);
+                                Hat1[i].MucGiam = "Sale: " + Sale.MucGiam + "Đ";
+                                if (Sale.MucGiam > ListAnh1[i].GiaBan)
                                 {
-                                    Hat[i].GiaGiam = 1;
+                                    Hat1[i].GiaGiam = 1;
                                 }
                             }
-                            Hat[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
+                            Hat1[i].label1.Text = "Giá: " + double.Parse(Convert.ToDouble(ListAnh1[i].GiaBan).ToString()).ToString("#,###", CultureInfo.GetCultureInfo("vi-VN").NumberFormat) + "đ";
                         }
-                        flpSP.Controls.Add(Hat[i]);
-                        Hat[i].OnClickAnh += (ss, ee) =>
+                        ListSearchHats.Add(Hat1[i]);
+                        //flpSP.Controls.Add(Hat1[i]);
+                        Hat1[i].OnClickAnh += (ss, ee) =>
                         {
                             txtMaNhanVien.Texts = _iNhanVienServices.GetAll().Find(x => x.TaiKhoan == Properties.Settings.Default.TKdaLogin).Ma;
                             var isp = (SearchHats)ss;
@@ -2184,7 +2224,7 @@ namespace _3.PL.Views
                             sp.AnhSP1 = Image.FromStream(new MemoryStream((byte[])Anh.DuongDan));
                             sp.ShowDialog();
                         };
-                        Hat[i].Onclick += (ss, ee) =>
+                        Hat1[i].Onclick += (ss, ee) =>
                         {
                             if (TabHoaDon.SelectedTab != null)
 
@@ -2213,12 +2253,27 @@ namespace _3.PL.Views
                 flpSP.Visible = false;
                 pnlKhongTimThay.Visible = true;
             }
+            foreach (var x in ListSearchHats)
+            {
+                flpSP.Controls.Add(x);
+            }
             AnSearch();
         }
 
         private void txtSearch__TextChanged(object sender, EventArgs e)
         {
-            LoadItemSearch(txtSearch.Texts);
+            pnlBodysearch.Height = btnThemSP.Height + txtSearch.Height + flpSP.Height;
+            pnlKhongTimThay.Visible = false;
+            btnThemSP.Visible = true;
+            flpSP.Visible = true;
+            flpSP.Controls.Clear();
+            var _list = ListSearchHats.Where(x => RemoveUnicode(x.TenSP1.ToLower()).Contains(RemoveUnicode(txtSearch.Texts.ToLower())));
+            foreach (var x in _list)
+            {
+                flpSP.Controls.Add(x);
+            }
+            AnSearch();
+
         }
         public static string RemoveUnicode(string text)
         {
@@ -2360,7 +2415,8 @@ namespace _3.PL.Views
                             var ctsp = _IChiTietSpServices.GetById(item.IdChiTietSp.GetValueOrDefault());
                             ctsp.SoLuongTon += item.SoLuong;
                             _IChiTietSpServices.Update(ctsp);
-                            GetHat(ctsp.Id).SoluongSP1 = ctsp .SoLuongTon.ToString();
+                            GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                            GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                             _IChiTietHDServices.Delete(item);
                         }
                     }
@@ -2393,7 +2449,12 @@ namespace _3.PL.Views
         {
             if (doifrom == 1)
             {
-                LoadItem();
+                //LoadItem();
+                ListHoaDon.Visible = false;
+                ListItem.Visible = true;
+                //panel3.Controls.Remove(ListHoaDon);
+                panel3.Controls.Add(ListItem);
+                ListItem.Dock = DockStyle.Fill;
                 btngiaohang.Text = "Giao hàng";
                 pnlTimeLine.Visible = false;
                 pnlfill.Controls.Clear();
@@ -2413,7 +2474,16 @@ namespace _3.PL.Views
             }
             else
             {
-                LoadHoaDon();
+                //panel3.Controls.Remove(ListItem);
+                ListHoaDon.Visible = true;
+                ListItem.Visible = false;
+                panel3.Controls.Add(ListHoaDon);
+                ListHoaDon.Dock = DockStyle.Fill;
+                var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang <= 3 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 5 && x.TrangThai == 0)).OrderBy(x => x.MaHD).OrderBy(x => x.MaHD.Length).ToList();
+                if (ListHoaDon.Controls.Count != ListAnh.Count)
+                {
+                    LoadHoaDon();
+                }
                 pnlTimeLine.Visible = true;
                 pnlTimeLine.Dock = DockStyle.Right;
                 btngiaohang.Text = "Bán hàng";
@@ -2599,7 +2669,7 @@ namespace _3.PL.Views
         private void LoadHoaDon()
         {
             LoadALL();
-            ListItem.Controls.Clear();
+            ListHoaDon.Controls.Clear();
             List<HoaDonS> Hats = new List<HoaDonS>();
             var ListAnh = _HoaDonServices.GetAll().Where(x => (x.TrangThaiGiaoHang <= 3 && x.TrangThaiGiaoHang > 0) || (x.TrangThaiGiaoHang == 5 && x.TrangThai == 0)).OrderBy(x => x.MaHD).OrderBy(x => x.MaHD.Length).ToList();
             HoaDonS[] Hat = new HoaDonS[ListAnh.Count];
@@ -2614,7 +2684,7 @@ namespace _3.PL.Views
                 Hat[i].TrangThaiGiaohang = ListAnh[i].TrangThaiGiaoHang == 1 ? "Chờ xử lý" : ListAnh[i].TrangThaiGiaoHang == 2 ? "Đang chờ giao" : ListAnh[i].TrangThaiGiaoHang == 3 ? "Đang giao" : ListAnh[i].TrangThaiGiaoHang == 4 ? "Thành công" : "Thất bại";
                 Hat[i].TrangThai = ListAnh[i].TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán";
                 Hat[i].MaNV = ListAnh[i].MaNv;
-                ListItem.Controls.Add(Hat[i]);
+                ListHoaDon.Controls.Add(Hat[i]);
                 Hat[i].OpenForm += (ss, ee) =>
                 {
                     var x = (HoaDonS)ss;
@@ -2933,6 +3003,7 @@ namespace _3.PL.Views
                         LoadData();
                         Clearform();
                         GetHat(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                        GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                         LoadGia();
                         LoadTienThua();
                     }
@@ -3032,7 +3103,7 @@ namespace _3.PL.Views
                                     LoadGia();
                                     //LoadItem();
                                     GetHat(Guid.Parse(Cell(0))).SoluongSP1 = ctsp.SoLuongTon.ToString();
-
+                                    GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                     LoadView(TabHoaDon.SelectedTab.Name);
                                 }
                                 catch (Exception)
@@ -3054,6 +3125,7 @@ namespace _3.PL.Views
                                 LoadGia();
                                 //LoadItem();
                                 GetHat(Guid.Parse(Cell(0))).SoluongSP1 = ctsp.SoLuongTon.ToString();
+                                GetHatSearch(ctsp.Id).SoluongSP1 = ctsp.SoLuongTon.ToString();
                                 _IChiTietHDServices.Delete(hdct);
                                 LoadView(TabHoaDon.SelectedTab.Name);
                             }
@@ -3061,7 +3133,7 @@ namespace _3.PL.Views
                             {
                                 this.Alert("Không được để trống.", Form_Alert.enmType.Info);
                             }
-                            
+
                         }
                     }
 
