@@ -6281,11 +6281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
+      "projectUniqueName": "C:\\Users\\anhtr\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
       "projectName": "3.PL",
-      "projectPath": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
+      "projectPath": "C:\\Users\\anhtr\\Desktop\\DuAn1_Part3\\3.PL\\3.PL.csproj",
       "packagesPath": "C:\\Users\\anhtr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\3.PL\\obj\\",
+      "outputPath": "C:\\Users\\anhtr\\Desktop\\DuAn1_Part3\\3.PL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6306,8 +6306,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\2.BUS\\2.BUS.csproj": {
-              "projectPath": "C:\\Users\\anhtr\\OneDrive\\Desktop\\DuAn1_Part3\\2.BUS\\2.BUS.csproj"
+            "C:\\Users\\anhtr\\Desktop\\DuAn1_Part3\\2.BUS\\2.BUS.csproj": {
+              "projectPath": "C:\\Users\\anhtr\\Desktop\\DuAn1_Part3\\2.BUS\\2.BUS.csproj"
             }
           }
         }
@@ -6362,7 +6362,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },
