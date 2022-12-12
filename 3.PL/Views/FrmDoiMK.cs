@@ -82,11 +82,6 @@ namespace _3.PL.Views
                     tb_mkHienTai.Text = "";
                     tb_MkMoi.Text="";
                     tb_nhapLai.Text = "";
-                    FrmMain frmForgotPW = new FrmMain();
-                    this.Hide();
-                    frmForgotPW.Close();
-                    this.Close();
-
                 }
 
                 
